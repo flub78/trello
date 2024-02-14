@@ -30,7 +30,7 @@ const WorkspaceSidePanel = () => {
                             <h2 className="accordion-header" id="heading-1">
                                 <div className="accordion-button bg-light" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#chapter-1" aria-expanded="true" aria-controls="chapter-1">
-                                    <div id="collapsible" className="nav-button " onclick="OnCollapsibleClick()">
+                                    <div id="collapsible" className="nav-button " >
                                         <button className="w">W</button>
                                         Workspace Flub78
                                     </div>

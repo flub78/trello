@@ -9,11 +9,11 @@ const WorkspaceMain = () => {
                         <h5><i className="fa-regular fa-star"></i>
                             Tableaux Favoris</h5>
                         <div className="workspace-card-container">
-                            <div className="workspace-card webapp-card" onclick="location.href='trello_tasklist.html';">
+                            <a className="workspace-card webapp-card" href='trello_tasklist.html'>
                                 <h6>WEBAPP</h6>
                                 <p>Workspace Flub78</p>
                                 <i className="fa-solid fa-star favorite-star"></i>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>

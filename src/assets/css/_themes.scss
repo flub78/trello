@@ -23,7 +23,8 @@ btn-4   workspace horizontal menu shopping
 }
 
 .btn-2 {
-    margin-left: 2rem;
+    // margin-left: 2rem;
+    background: red;
 }
 
 .btn-3 {
@@ -63,9 +64,13 @@ btn-4   workspace horizontal menu shopping
     border: 1px solid $grey;
 }
 
-#main-container {
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    display: flex;
+.w {
+    height: 30px;
+    width: 30px;
+    color: $white;
+    background-image: linear-gradient($w-gradient-start, $w-gradient-end) !important;
+    border-radius: 5px;
+    border: none;
+    margin: 15px;
+    padding: 5px !important;
 }
