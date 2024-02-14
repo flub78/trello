@@ -3,7 +3,7 @@ import BoardCard from './BoardCard';
 
 const WorkspaceMain = () => {
 
-    const cardInfo = {
+    const webapp = {
         id: "webapp",
         name: "WEBAPP",
         description: "Workspace Flub78",
@@ -13,6 +13,68 @@ const WorkspaceMain = () => {
         image: "code_editor.jpg"
     };
 
+    const marly = {
+        id: "marly",
+        name: "Marly",
+        description: "",
+        favorite: false,
+        recent: false,
+        href: "trello_tasklist.html",
+        image: "IMG_20181118_152709.jpg"
+    };
+
+    const forest = {
+        id: "forest",
+        name: "Forest",
+        description: "",
+        favorite: false,
+        recent: false,
+        href: "trello_tasklist.html",
+        image: "IMG_20210425_145446.jpg"
+    };
+
+    const gvv = {
+        id: "gvv",
+        name: "GVV",
+        description: "",
+        favorite: true,
+        recent: true,
+        href: "trello_tasklist.html",
+        image: "20230903_151040.jpg"
+    };
+
+    const projects = {
+        id: "projects",
+        name: "Projets persos",
+        description: "",
+        favorite: false,
+        recent: false,
+        href: "trello_tasklist.html",
+        image: "welding.jpg"
+    };
+
+    const devops = {
+        id: "devops",
+        name: "DevOps",
+        description: "",
+        favorite: false,
+        recent: false,
+        href: "trello_tasklist.html",
+        image: "jenkins.GIF"
+    };
+
+    const training = {
+        id: "training",
+        name: "Training",
+        description: "",
+        favorite: false,
+        recent: true,
+        href: "trello_tasklist.html",
+        image: "training-concept-image.jpg"
+    };
+
+    const boards = [webapp, marly, forest, gvv, projects, devops, training];
+
     return (
         <div>
             <section id="workspace" className="workspace-group col-lg-8">
@@ -20,28 +82,31 @@ const WorkspaceMain = () => {
                     <div id="favorite-title">
                         <h5><i className="fa-regular fa-star"></i>
                             Tableaux Favoris</h5>
-                        <div className="workspace-card-container">
-                            <BoardCard card={cardInfo} />
+
+                        <div className="d-flex flex-wrap">
+                            {boards
+                                .filter((board) => board.favorite)
+                                .map((board) => {
+                                    return (<BoardCard card={board} />);
+                                })
+                            }
                         </div>
+
                     </div>
                 </div>
 
                 <div id="recent" className="workspace-group">
                     <div id="recent-title">
                         <h5><i className="fa-regular fa-clock m-1"></i>Recemmment consultés</h5>
-                        <div className="workspace-card-container">
-                            <div className="workspace-card marly-card">
-                                <h6>Marly</h6>
-                                <i className="fa-regular fa-star clic-star"></i>
-                            </div>
-                            <div className="workspace-card projects-card">
-                                <h6>Projets persos</h6>
-                                <i className="fa-regular fa-star clic-star"></i>
-                            </div>
-                            <div className="workspace-card gvv-card">
-                                <h6>GVV</h6>
-                                <i className="fa-regular fa-star clic-star"></i>
-                            </div>
+                        <div className="workspace-card-container d-flex flex-wrap">
+
+                            {boards
+                                .filter((board) => board.recent)
+                                .map((board) => {
+                                    return (<BoardCard card={board} />);
+                                })
+                            }>
+
                         </div>
                     </div>
                 </div>
@@ -64,39 +129,17 @@ const WorkspaceMain = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="workspace-card-container">
-                        <div className="workspace-card devops-card light-bg-card">
-                            <h6>DevOps</h6>
-                            <i className="fa-regular fa-star clic-star"></i>
-                            <i className="fa-regular fa-star clic-star"></i>
+                    <div className="workspace-card-container d-flex flex-wrap">
 
-                        </div>
-                        <div className="workspace-card forest-card">
-                            <h6>Forest</h6>
-                            <i className="fa-regular fa-star clic-star"></i>
+                        {boards
+                            // .filter((board) => board.favorite)
+                            // .sort((a, b) => b.date - a.date)
+                            // .slice(0, rangeValue)
+                            .map((board) => {
+                                return (<BoardCard card={board} />);
+                            })
+                        }
 
-                        </div>
-                        <div className="workspace-card gvv-card">
-                            <h6>GVV</h6>
-                            <i className="fa-regular fa-star clic-star"></i>
-
-                        </div>
-                        <div className="workspace-card marly-card">
-                            <h6>Marly</h6>
-                            <i className="fa-regular fa-star clic-star"></i>
-
-                        </div>
-                        <div className="workspace-card projects-card">
-                            <h6>Projets persos</h6>
-                            <i className="fa-regular fa-star clic-star"></i>
-
-                        </div>
-                        <div className="workspace-card training-card light-bg-card">
-                            <h6>Training</h6>
-                            <i className="fa-regular fa-star clic-star"></i>
-                            <i className="fa-regular fa-star clic-star"></i>
-
-                        </div>
                         <div className="workspace-card create-card light-bg-card">
                             <h6>Créer un tableau</h6>
                             <p>1 restant(s)</p>

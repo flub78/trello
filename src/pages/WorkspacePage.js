@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 import WorkspaceMain from '../components/WorkspaceMain';
 import WorkspaceSidePanel from '../components/WorkspaceSidePanel';
 
-const Workspace = () => {
+const WorkspacePage = () => {
     return (
         <div>
             <Navbar theme="light" />
@@ -17,4 +17,4 @@ const Workspace = () => {
     );
 };
 
-export default Workspace;
+export default WorkspacePage;
