@@ -1,0 +1,86 @@
+.workspace-card-container {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.workspace-card {
+    background: $lightlightgrey;
+    color: $white;
+    font-weight: bold;
+    width: 200px;
+    height: 100px;
+    margin: 10px;
+    padding: 5px 10px;
+    border-radius: 3px;
+
+    position: relative;
+
+    p {
+        font-weight: normal;
+        font-size: small;
+    }
+
+    &:hover .clic-star {
+        opacity: 1.0;
+    }
+
+}
+
+.forest-card {
+    background: url(../assets/imgs/IMG_20210425_145446.jpg) center/cover;
+}
+
+.marly-card {
+    background: url(../assets/imgs/IMG_20181118_152709.jpg) center/cover;
+}
+
+.gvv-card {
+    background: url(../assets/imgs/20230903_151040.jpg) center/cover;
+}
+
+.webapp-card {
+    background: url(../assets/imgs/code_editor.jpg) center/cover;
+}
+
+.projects-card {
+    background: url(../assets/imgs/welding.jpg) center/cover;
+}
+
+.devops-card {
+    background: url(../assets/imgs/jenkins.GIF) center/cover;
+    color: $black;
+}
+
+.training-card {
+    background: url(../assets/imgs/training-concept-image.jpg) center/cover;
+}
+
+.light-bg-card {
+    color: $light-text-color;
+}
+
+.favorite-star,
+.clic-star {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+.favorite-star {
+    color: $yellow;
+}
+
+.clic-star {
+    opacity: 0.0;
+}
+
+.bottom-right-icon {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+.workspace-group {
+    margin: 25px 0px;
+}

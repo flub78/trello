@@ -1,0 +1,48 @@
+$color1: #44546f;
+$white: #ffffff;
+$black: #080808;
+$blue-button: #0C66E4;
+$orange: #ff991f;
+$grey: lightgrey;
+$active: #e9f2ff;
+$yellow: #e2b203;
+$orangered: #FF991F;
+$transparent: transparent;
+$lightgrey: lightgrey;
+$lightlightgrey: #F1F2F4;
+$purple: purple;
+
+$w-gradient-start: #c9372c;
+$w-gradient-end: #fda261;
+
+$try-it-gradient-start: #6e5dc6;
+$try-it-gradient-end: #d371bd;
+$try-it-gradient-hover: #172b4d;
+
+
+// Themes
+// lighten($linkcolour, 50%);
+// darken($linkcolour, 50%);
+
+// Light theme
+$light-text-color: $color1;
+
+//dark theme
+$dark-bg: rgba(25, 25, 25, 0);
+$dark-bg: #212529;
+
+$light-bg: $white;
+$light-button-bg: $light-bg;
+$light-button-bg-hover: darken($light-bg, 10%);
+
+$grey-button-bg: $lightlightgrey;
+$grey-button-bg-hover: darken($grey-button-bg, 10%);
+
+$tasklist-bg: #F1F2F4;
+$tasklist-bg-hover: darken($tasklist-bg, 10%);
+
+$table-button-bg: rgba(255, 255, 255, 0.1);
+$table-button-bg: $dark-bg;
+$table-button-bg-hover: rgba(250, 250, 250, 0.2);
+$table-button-bg-hover: darken($table-button-bg, 50%);
+$table-button-bg-hover: lighten($table-button-bg, 12%);

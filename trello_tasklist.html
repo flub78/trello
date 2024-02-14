@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trello Bootstrap React</title>
+
+    <!-- Font Awesome and others icons-->
+    <script src="https://kit.fontawesome.com/408316024a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="public/styles.css">
+    <script src="assets/js/trello.js"></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-black fixed-top" id="top-navbar" style="position: sticky;">
+        <div class="container-fluid">
+
+            <div class="nav-button navbar-brand">
+                <i class="bi bi-grid-3x3-gap-fill"></i>
+            </div>
+            <div id="logo" class="nav-button text-white">
+                <i class="fa-brands fa-trello icon text-white"></i>
+                Frello
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <!-- span class="navbar-toggler-icon"></span -->
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Espaces de
+                            travail</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="trello_workspace.html">Workspace Flub78</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Récents</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Marly</a></li>
+                            <li><a class="dropdown-item" href="#">Projets persos</a></li>
+                            <li><a class="dropdown-item" href="#">gvv</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Favoris</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">WEBAPP</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Modèles</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Link</a></li>
+                            <li><a class="dropdown-item" href="#">Another link</a></li>
+                            <li><a class="dropdown-item" href="#">A third link</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item bg-primary rounded">
+                        <a class="nav-link text-white" href="javascript:void(0)">Créer</a>
+                    </li>
+
+                </ul>
+
+                <form class="d-flex" id="navbar-search">
+                    <input class="form-control me-2 input-search bg-light" type="text" placeholder="Parcourir">
+                    <!-- <button class="btn btn-primary" type="button">Search</button> -->
+
+                    <div class="" id="notification-button">
+                        <i class="fa-regular fa-bell button-icon" title="Notifications"></i>
+                    </div>
+
+                    <div class="nav-button">
+                        <i class="fa-regular fa-circle-question icon button-icon" title="Informations"></i>
+                    </div>
+                </form>
+                <div class="nav-button user-icon" title="Compte">F</div>
+
+            </div>
+        </div>
+    </nav>
+
+    <section id="main" class="container-fluid row flex-nowrap g-0" style="height: calc(100vh - 64px);">
+
+        <!-- left sidebar -->
+        <div id="left-sidebar" class="col-2 open-sidebar d-flex flex-column justify-content-between">
+
+            <div class="left-sidebar-top-group">
+                <!-- Left sidebar header -->
+                <div id="left-sidebar-header" class="bg-dark">
+
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="w">W</div>
+                        </div>
+                        <div class="col-8 text-light">
+                            <div class="mt-3  text-light ps-2">Workspace Flub78</div>
+                            <div class=" text-light ps-2 pb-1">Gratuit</div>
+                        </div>
+                        <div class="col-2 mt-4">
+                            <button class="bg-dark border-0 visible" onclick="toggleSidebar()"
+                                id="close-sidebar-button">
+                                <i class="fa-solid fa-chevron-left text-light"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- left sidebar menu -->
+                <div id="left-sidebar-menus">
+                    <div id="left-sidebar-menu-menu">
+                        <ul class="table-list">
+
+                            <li class="text-light table-button">
+                                <div class="d-flex d-start">
+                                    <i class="bi bi-trello m-1"></i>
+                                    <div class="m-1">Tableaux</div>
+                                </div>
+                            </li>
+
+                            <li class="text-light table-button">
+                                <div class="d-flex d-start">
+                                    <i class="bi bi-people  text-light m-1"></i>
+                                    <div class="m-1">Membres</div>
+                                </div>
+                                <div>
+                                    <i class="bi bi-plus-lg m-1"></i>
+                                </div>
+                            </li>
+
+                            <li class="text-light table-button">
+                                <div class="d-flex d-start">
+                                    <i class="bi bi-gear-fill m-1"></i>
+                                    <div class="m-1">Paramètres de l'espace de travail</div>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                            </li>
+
+                        </ul>
+
+                        <h6 class="text-light m-1 ps-2">Vues de l'espace de travail</h6>
+
+                        <ul class=" table-list">
+
+                            <li class="text-light table-button">
+                                <div class="d-flex d-start">
+                                    <i class="bi bi-table m-1"></i>
+                                    <div class="m-1">Tableur</div>
+                                </div>
+                                <div>
+                                    <i class="bi bi-three-dots m-1"></i>
+                                </div>
+                            </li>
+
+                            <li class="text-light table-button">
+                                <div class="d-flex d-start">
+                                    <i class="bi bi-calendar4-week m-1"></i>
+                                    <div class="m-1">Calendrier</div>
+                                </div>
+                                <div>
+                                    <i class="bi bi-three-dots m-1"></i>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div id="left-sidebar-menu-views">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="m-1 p-1 ms-2 text-light">Vos tableaux</h6>
+                            <i class="bi bi-plus-lg m-1 p-1 me-2 text-light"></i>
+                        </div>
+                        <ul class="table-list">
+
+                            <li>
+                                <div class="table-button d-flex flex-start">
+                                    <div class="d-flex">
+                                        <div class="table-thumbnail forest-card"></div>
+                                        <div class="table-name">Forest</div>
+
+                                    </div>
+                                    <div>
+                                        <i class="bi bi-three-dots m-1"></i>
+                                        <i class="bi  bi-star m-1"></i>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="table-button d-flex flex-start">
+                                    <div class="d-flex">
+                                        <div class="table-thumbnail marly-card"></div>
+                                        <div class="table-name">Marly</div>
+                                    </div>
+                                    <div>
+                                        <i class="bi bi-three-dots m-1"></i>
+                                        <i class="bi  bi-star m-1"></i>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="table-button d-flex flex-start">
+                                    <div class="d-flex">
+                                        <div class="table-thumbnail gvv-card"></div>
+                                        <div class="table-name">GVV</div>
+                                    </div>
+                                    <div>
+                                        <i class="bi bi-three-dots m-1"></i>
+                                        <i class="bi  bi-star m-1"></i>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="table-button d-flex flex-start">
+                                    <div class="d-flex">
+                                        <div class="table-thumbnail webapp-card"></div>
+                                        <div class="table-name">WEBAPP</div>
+                                    </div>
+                                    <div>
+                                        <i class="bi bi-three-dots m-1"></i>
+                                        <i class="bi  bi-star m-1"></i>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="left-sidebar-menu-tables">
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- left sidebar tryit -->
+            <div id="left-sidebar-tryit" class="try-it">
+                <i class="bi bi-bag m-2"></i>
+                Essayer Premium gratuitement.
+
+            </div>
+
+        </div>
+
+        <!-- center section -->
+        <div class="col " id="tasklist-workspace">
+
+            <!-- internal navbar -->
+            <nav class="navbar bg-dark navbar-expand " id="internal-nav">
+                <div class="container-fluid d-flex flex-wrap">
+
+                    <button class="bg-dark rounded-5 border-0 hidden" id="open-sidebar-button"
+                        onclick="toggleSidebar()">
+                        <i class="fa-solid fa-chevron-right text-light"></i>
+
+
+                    </button>
+                    <a class="navbar-brand  text-light ms-2" href="#">Testing</a>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
+                            <li class="nav-item me-1">
+                                <i class="bi bi-star  text-light"></i>
+                            </li>
+
+                            <li class="nav-item m-1">
+                                <i class="bi bi-people  text-light"></i>
+                            </li>
+
+                            <li class="nav-item m-1  text-light">
+                                <button> <i class="fa-solid fa-chart-simple m-1"></i>Tableaux</button>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle  text-light" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <!-- V -->
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li>
+
+
+                        </ul>
+
+                        <ul class="navbar-nav mb-2 mb-lg-0 flex-end align-items-center">
+
+                            <li class="nav-item m-1  text-light">
+                                <i class="fa-solid fa-rocket m-1"></i>
+                                Power-ups
+                            </li>
+
+                            <li class="nav-item m-1  text-light">
+                                <i class="bi bi-lightning-fill  text-light"></i>
+                                Automatisation
+                            </li>
+
+                            <li class="nav-item m-1  text-light">
+                                <i class="bi bi-filter  text-light"></i>
+                                Filtres
+                            </li>
+
+                            <li class="nav-item m-1 user-icon">
+                                F
+                            </li>
+
+                            <li class="nav-item m-1  text-light">
+                                <i class="bi bi-people m-1"></i>
+                                Partager
+                            </li>
+
+                            <li class="nav-item m-1">
+                                <div href="#sidebar" class="d-block" type="button" data-bs-toggle="offcanvas"
+                                    role="button" data-bs-target="#sidebar" aria-controls="sidebar">
+                                    <i class="bi bi-three-dots  text-light"></i>
+
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+
+            <!-- right off canvas sidebar -->
+            <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+                id="sidebar" aria-labelledby="sidebar-label">
+
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="sidebar-label">Menu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+
+                <div class="offcanvas-body">
+                    <p>Try scrolling the rest of the page to see this option in action.</p>
+
+                    <!-- Example of drodown -->
+                    <div class="container justify-content-center align-items-center">
+
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Choose a book title
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Become a React Superhero</a></li>
+                                <li><a class="dropdown-item" href="#">Another book</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- tasklist workspace -->
+            <section id="list-main-area" class="d-flex overflow-auto " style="height: calc(100% - 58px);"
+                ondrop="dropList(event)" ondragover="allowDrop(event)">
+
+                <div id="todo-list" class="task-list" draggable="true" ondragstart="dragList(event)">
+                    <div class="list-name">
+                        <div>Todo</div>
+                        <div> <i class="bi bi-three-dots tasklist-menu-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="card task m-1" draggable="true">
+                        <div class="card-header">
+                            <div class="d-flex">
+                                <div>PDF document generation</div>
+                                <i class="bi bi-pencil  modif-icon m-1"></i>
+                            </div>
+                        </div>
+                        <div class="task-body">
+                            <div class="color-tags d-flex">
+                                <div class="color-tag bg-danger"></div>
+                                <div class="color-tag bg-primary"></div>
+                                <div class="color-tag bg-success"></div>
+                            </div>
+                            <div class="icon-line d-flex">
+                                <i class="bi bi-text-paragraph m-1"></i>
+                                <i class="bi bi-check2-square m-1"> 2/5</i>
+                                <i class="bi bi-eye m-1"></i>
+                                <i class="bi bi-chat m-1">3</i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card task m-1" draggable="true">
+                        <div class="card-header">
+                            <div class="d-flex">
+                                <div>Tasks and lists renaming</div>
+                                <i class="bi bi-pencil  modif-icon m-1"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card task m-1" draggable="true">
+                        <div class="card-header">
+                            <div class="d-flex">
+                                <div>Online payments</div>
+                                <i class="bi bi-pencil  modif-icon m-1"></i>
+                            </div>
+                        </div>
+                        <div class="task-body">
+                            <div class="color-tags d-flex">
+                                <div class="color-tag bg-warning"></div>
+                                <div class="color-tag bg-dark"></div>
+                            </div>
+                            <div class="icon-line d-flex">
+                                <i class="bi bi-text-paragraph m-1"></i>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card task m-1" draggable="true">
+                        <div class="container justify-content-center align-items-center">
+                            <img src="./assets/imgs/welding.jpg" class="card-img-top" alt="dunes">
+                        </div>
+
+                        <div class="card-header">
+                            <div class="d-flex">
+                                <div>Code generator default management</div>
+                                <i class="bi bi-pencil  modif-icon m-1"></i>
+                            </div>
+                        </div>
+                        <div class="task-body">
+                            <div class="color-tags d-flex">
+                                <div class="color-tag bg-warning"></div>
+                            </div>
+                            <div class="icon-line d-flex">
+                                <i class="bi bi-text-paragraph m-1"></i>
+                                <i class="bi bi-check2-square m-1"> 2/5</i>
+                                <i class="bi bi-eye m-1"></i>
+                                <i class="bi bi-chat m-1">3</i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card task m-1" draggable="true">
+                        <div class="card-header">
+                            <div class="d-flex">
+                                <div>PDF document generation</div>
+                                <i class="bi bi-pencil  modif-icon m-1"></i>
+                            </div>
+                        </div>
+                        <div class="task-body">
+                            <div class="color-tags d-flex">
+                                <div class="color-tag bg-danger"></div>
+                                <div class="color-tag bg-primary"></div>
+                                <div class="color-tag bg-success"></div>
+                            </div>
+                            <div class="icon-line d-flex">
+                                <i class="bi bi-text-paragraph m-1"></i>
+                                <i class="bi bi-check2-square m-1"> 2/5</i>
+                                <i class="bi bi-eye m-1"></i>
+                                <i class="bi bi-chat m-1">3</i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card task m-1" draggable="true">
+                        <div class="container justify-content-center align-items-center">
+
+                            <img src="./assets/imgs/asana-todolist.png.webp" class="card-img-top" alt="dunes">
+                        </div>
+                        <div class="card-header">
+                            <div class="d-flex">
+                                <div>Calendar events repetition</div>
+                                <i class="bi bi-pencil  modif-icon m-1"></i>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="create-task">+ Ajouter une carte <i class="bi  bi-copy create-task-icon"></i></div>
+                </div>
+
+                <div id="wip-list" class="task-list" draggable="true" ondragstart="dragList(event)">
+                    <div class="list-name">
+                        <div>In Progress</div>
+                        <div> <i class="bi bi-three-dots tasklist-menu-icon"></i>
+                        </div>
+                    </div>
+                    <div class="create-task">+ Ajouter une carte <i class="bi  bi-copy create-task-icon"></i></div>
+                </div>
+
+                <div id="done-list" class="task-list" draggable="true" ondragstart="dragList(event)">
+                    <div class="list-name">
+                        <div>Done</div>
+                        <div> <i class="bi bi-three-dots tasklist-menu-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="card task m-1" draggable="true">
+                        <div class="card-header">
+                            <div class="d-flex">
+                                <div>Trello like look and feel</div>
+                                <i class="bi bi-pencil  modif-icon m-1"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card task m-1" draggable="true">
+                        <div class="container justify-content-center align-items-center">
+                            <img src="./assets/imgs/testing.png" class="card-img-top" alt="dunes">
+                        </div>
+                        <div class="card-header">
+                            <div class="d-flex">
+                                <div>Email generation</div>
+                                <i class="bi bi-pencil  modif-icon m-1"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="create-task">+ Ajouter une carte <i class="bi  bi-copy create-task-icon
+"></i></div>
+                </div>
+
+                <div class="tsk-list" style="min-width:275px;  max-width:275px;">
+                    <div id="create-list" class="task-list bg-light p-2 ps-4  rounded"> + Ajouter une autre liste
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </section>
+
+
+
+    <!-- End of page ---------------------------------------------------------------------------------------------------------------->
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <script src="./assets/js/trello.js"></script>
+</body>
+
+</html>

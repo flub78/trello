@@ -1,0 +1,305 @@
+@import "variables";
+@import "fonts";
+@import "./components/workspace-card";
+
+body {
+    color: $light-text-color;
+    box-sizing: border-box;
+}
+
+// Icons inthe navbar
+.icon {
+    font-size: 1.2rem;
+    margin: 0px 5px;
+}
+
+.user-icon {
+    background: $orangered !important;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    color: $black;
+    font-weight: bold;
+    border-radius: 20px;
+    padding-top: 3px;
+}
+
+.w {
+    height: 30px;
+    width: 30px;
+    color: $white;
+    background-image: linear-gradient($w-gradient-start, $w-gradient-end) !important;
+    border-radius: 5px;
+    border: none;
+    margin: 15px;
+    padding: 5px !important;
+}
+
+/*
+btn-1   workspace left sidebar top menu btn-ltm
+btn-2   workspace left sidebar workspace menu btn-lwm
+btn-3   workspace horizontal menu btn-hm
+btn-4   workspace horizontal menu shopping
+*/
+.btn-1,
+.btn-2,
+.btn-3,
+.btn-4 {
+    background-color: $light-button-bg;
+    border-radius: 8px;
+    padding: 8px;
+    padding-bottom: 8px;
+
+    &:hover {
+        background: $light-button-bg-hover;
+    }
+}
+
+.btn-2 {
+    margin-left: 2rem;
+}
+
+.btn-3 {
+    border-radius: 5px;
+    background-color: $grey-button-bg;
+    display: inline-block;
+    padding: 5px;
+}
+
+.btn-4 {
+    background-color: $grey-button-bg;
+    color: $purple;
+    padding: 5px;
+}
+
+.fa-bell {
+    background-color: $blue-button;
+    color: $white;
+}
+
+.button-icon {
+    padding: 10px;
+    border-radius: 30px;
+
+    &:hover {
+        background: $grey-button-bg-hover;
+    }
+}
+
+.input-search {
+    margin: 0px 5px;
+    border-radius: 5px;
+    padding-left: 25px;
+    background: url("https://static.thenounproject.com/png/101791-200.png") no-repeat left;
+    background-size: 20px;
+    height: 30px;
+    border: 1px solid $grey;
+}
+
+$tasklist_bg: $tasklist-bg;
+$task_bg: #FFFFFF;
+
+@mixin task-like ($background) {
+    background: $background;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    cursor: pointer;
+    box-sizing: border-box;
+
+}
+
+
+#left-sidebar {
+
+    // background: url(../imgs/code_editor_blurred.jpg) center/cover;
+
+    background-color: $dark-bg;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .table-button {
+        display: flex;
+        justify-content: space-between;
+        margin: 5px 10px;
+        padding: 5px;
+        background-color: $table-button-bg;
+        border-radius: 5px;
+
+        color: $light-bg;
+
+        .table-thumbnail {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .bi-three-dots,
+        .bi-star {
+            visibility: hidden;
+
+            &:hover {
+                font-size: 1.2rem;
+                font-weight: bold;
+            }
+        }
+
+        &:hover {
+            background: $table-button-bg-hover;
+
+            .bi-three-dots,
+            .bi-star {
+                visibility: visible;
+            }
+        }
+    }
+}
+
+.visible {
+    visibility: visible;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.open-sidebar {
+    min-width: 260px;
+    max-width: 260px;
+
+    div {
+        visibility: visible;
+    }
+}
+
+.close-sidebar {
+    min-width: 20px;
+    max-width: 20px;
+
+    div {
+        visibility: hidden;
+    }
+}
+
+#tasklist-workspace {
+    background: url(../imgs/code_editor.jpg) center/cover;
+}
+
+#internal-nav {
+    height: 68px;
+    background: url(../imgs/code_editor_blurred.jpg) center/cover;
+}
+
+
+.task-list {
+    background: $tasklist-bg;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+
+    min-width: 275px;
+    max-width: 275px;
+    overflow: auto;
+
+}
+
+.list-name {
+    @include task-like($tasklist-bg);
+}
+
+.task {
+    //  @include task-like(#FFFFFF);
+    box-shadow: 1px 1px 2px 0px grey;
+
+    &:hover {
+        border: 2px solid blue;
+    }
+
+    &:hover .modif-icon {
+        display: block;
+    }
+
+    .modif-icon {
+        display: none;
+        border-radius: 50%;
+        padding: 5px;
+        width: 40px;
+        height: 40px;
+        padding-left: 10px;
+        padding-top: 5px;
+        margin: 10px;
+
+        &:hover {
+            background: $lightgrey;
+        }
+    }
+}
+
+.color-tag {
+    height: 10px;
+    width: 40px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.card-img-top {
+    width: 80%;
+    margin: 10px;
+    max-height: 120px;
+}
+
+.create-task {
+    @include task-like($tasklist-bg);
+
+    &:hover {
+        background: $tasklist-bg-hover;
+    }
+
+    .create-task-icon {
+        border-radius: 50%;
+        padding: 5px;
+
+        &:hover {
+            background: $tasklist-bg-hover;
+        }
+    }
+}
+
+.tasklist-menu-icon {
+    border-radius: 50%;
+    padding: 5px;
+
+    &:hover {
+        background: $tasklist-bg-hover;
+    }
+}
+
+.table-list {
+    padding: 0 !important;
+}
+
+.try-it {
+    background-image: linear-gradient(to right,
+            $try-it-gradient-start,
+            $try-it-gradient-end);
+    color: $white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+        background-image: linear-gradient(to right,
+                $try-it-gradient-hover,
+                $try-it-gradient-end);
+    }
+}
+
+#main-container {
+    display: flex;
+}

@@ -1,0 +1,72 @@
+body {
+    background-color: $light-bg;
+}
+
+/*
+btn-1   workspace left sidebar top menu btn-ltm
+btn-2   workspace left sidebar workspace menu btn-lwm
+btn-3   workspace horizontal menu btn-hm
+btn-4   workspace horizontal menu shopping
+*/
+.btn-1,
+.btn-2,
+.btn-3,
+.btn-4 {
+    background-color: $light-button-bg;
+    border-radius: 8px;
+    padding: 8px;
+    padding-bottom: 8px;
+
+    &:hover {
+        background: $light-button-bg-hover;
+    }
+}
+
+.btn-2 {
+    margin-left: 2rem;
+}
+
+.btn-3 {
+    border-radius: 5px;
+    background-color: $grey-button-bg;
+    display: inline-block;
+    padding: 5px;
+}
+
+.btn-4 {
+    background-color: $grey-button-bg;
+    color: $purple;
+    padding: 5px;
+}
+
+.fa-bell {
+    background-color: $blue-button;
+    color: $white;
+}
+
+.button-icon {
+    padding: 10px;
+    border-radius: 30px;
+
+    &:hover {
+        background: $grey-button-bg-hover;
+    }
+}
+
+.input-search {
+    margin: 0px 5px;
+    border-radius: 5px;
+    padding-left: 25px;
+    background: url("https://static.thenounproject.com/png/101791-200.png") no-repeat left;
+    background-size: 20px;
+    height: 30px;
+    border: 1px solid $grey;
+}
+
+#main-containder {
+    background-color: red;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    display: flex !important;
+}

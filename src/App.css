@@ -1,0 +1,142 @@
+body {
+  background-color: #ffffff;
+}
+
+/*
+btn-1   workspace left sidebar top menu btn-ltm
+btn-2   workspace left sidebar workspace menu btn-lwm
+btn-3   workspace horizontal menu btn-hm
+btn-4   workspace horizontal menu shopping
+*/
+.btn-1,
+.btn-2,
+.btn-3,
+.btn-4 {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 8px;
+  padding-bottom: 8px;
+}
+
+.btn-1:hover,
+.btn-2:hover,
+.btn-3:hover,
+.btn-4:hover {
+  background: #e6e6e6;
+}
+
+.btn-2 {
+  margin-left: 2rem;
+}
+
+.btn-3 {
+  border-radius: 5px;
+  background-color: #F1F2F4;
+  display: inline-block;
+  padding: 5px;
+}
+
+.btn-4 {
+  background-color: #F1F2F4;
+  color: purple;
+  padding: 5px;
+}
+
+.fa-bell {
+  background-color: #0C66E4;
+  color: #ffffff;
+}
+
+.button-icon {
+  padding: 10px;
+  border-radius: 30px;
+}
+
+.button-icon:hover {
+  background: #d4d7de;
+}
+
+.input-search {
+  margin: 0px 5px;
+  border-radius: 5px;
+  padding-left: 25px;
+  background: url("https://static.thenounproject.com/png/101791-200.png") no-repeat left;
+  background-size: 20px;
+  height: 30px;
+  border: 1px solid lightgrey;
+}
+
+#main-containder {
+  background-color: red !important;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  display: flex !important;
+}
+
+.user-icon {
+  background: #FF991F !important;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  color: #080808;
+  font-weight: bold;
+  border-radius: 20px;
+  padding-top: 3px;
+}
+
+nav {
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgrey;
+}
+
+nav #left-menu {
+  display: flex;
+  align-items: center;
+}
+
+nav #left-menu #logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+nav #right-menu {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+nav #right-menu .fa-bell {
+  font-size: 25px;
+}
+
+nav #right-menu #notification-button {
+  color: #ffffff;
+  background: #0C66E4;
+  border-radius: 30px;
+}
+
+nav #right-menu #notification-button:hover {
+  background: lightgrey;
+}
+
+nav #right-menu .button:hover {
+  background: lightgrey;
+}
+
+nav #right-menu .button-icon:hover {
+  background: lightgrey;
+}
+
+.input-search {
+  margin: 0px 5px;
+  border-radius: 5px;
+  padding-left: 25px;
+  background: url("https://static.thenounproject.com/png/101791-200.png") no-repeat left;
+  background-size: 20px;
+  border: 1px solid lightgrey;
+}
+
+/*# sourceMappingURL=App.css.map */

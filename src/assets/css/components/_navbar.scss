@@ -1,0 +1,67 @@
+.user-icon {
+    background: $orangered !important;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    color: $black;
+    font-weight: bold;
+    border-radius: 20px;
+    padding-top: 3px;
+}
+
+nav {
+    background: $white;
+    display: flex;
+    justify-content: space-between;
+
+    border-bottom: 1px solid $grey;
+
+    #left-menu {
+        display: flex;
+        align-items: center;
+
+        #logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    }
+
+    #right-menu {
+        display: flex;
+        align-items: center;
+        margin: 10px;
+
+        .fa-bell {
+
+            font-size: 25px;
+        }
+
+        #notification-button {
+            color: $white;
+            background: $blue-button;
+            border-radius: 30px;
+
+            &:hover {
+                background: $grey;
+            }
+        }
+
+        .button:hover {
+            background: $grey;
+        }
+
+        .button-icon:hover {
+            background: $grey;
+        }
+    }
+
+}
+
+.input-search {
+    margin: 0px 5px;
+    border-radius: 5px;
+    padding-left: 25px;
+    background: url("https://static.thenounproject.com/png/101791-200.png") no-repeat left;
+    background-size: 20px;
+    border: 1px solid $grey;
+}
