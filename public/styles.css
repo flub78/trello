@@ -351,8 +351,4 @@ btn-4   workspace horizontal menu shopping
 }
 .try-it:hover {
   background-image: linear-gradient(to right, #172b4d, #d371bd);
-}
-
-#main-container {
-  display: flex;
 }/*# sourceMappingURL=styles.css.map */

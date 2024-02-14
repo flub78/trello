@@ -64,12 +64,11 @@ btn-4   workspace horizontal menu shopping
   border: 1px solid lightgrey;
 }
 
-#main-containder {
-  background-color: red;
+#main-container {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  display: flex !important;
+  display: flex;
 }
 
 .user-icon {
