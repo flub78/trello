@@ -1,6 +1,18 @@
 import React from 'react';
+import BoardCard from './BoardCard';
 
 const WorkspaceMain = () => {
+
+    const cardInfo = {
+        id: "webapp",
+        name: "WEBAPP",
+        description: "Workspace Flub78",
+        favorite: true,
+        recent: true,
+        href: "trello_tasklist.html",
+        image: "code_editor.jpg"
+    };
+
     return (
         <div>
             <section id="workspace" className="workspace-group col-lg-8">
@@ -9,11 +21,7 @@ const WorkspaceMain = () => {
                         <h5><i className="fa-regular fa-star"></i>
                             Tableaux Favoris</h5>
                         <div className="workspace-card-container">
-                            <a className="workspace-card webapp-card" href='trello_tasklist.html'>
-                                <h6>WEBAPP</h6>
-                                <p>Workspace Flub78</p>
-                                <i className="fa-solid fa-star favorite-star"></i>
-                            </a>
+                            <BoardCard card={cardInfo} />
                         </div>
                     </div>
                 </div>
