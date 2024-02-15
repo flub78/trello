@@ -18,7 +18,7 @@ const TaskListLeftPanel = () => {
                             <div className=" text-light ps-2 pb-1">Gratuit</div>
                         </div>
                         <div className="col-2 mt-4">
-                            <button className="bg-dark border-0 visible" onclick="toggleSidebar()"
+                            <button className="bg-dark border-0 visible"
                                 id="close-sidebar-button">
                                 <i className="fa-solid fa-chevron-left text-light"></i>
                             </button>

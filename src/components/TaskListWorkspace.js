@@ -11,7 +11,7 @@ const TaskListWorkspace = () => {
                 <div className="container-fluid d-flex flex-wrap">
 
                     <button className="bg-dark rounded-5 border-0 hidden" id="open-sidebar-button"
-                        onclick="toggleSidebar()">
+                    >
                         <i className="fa-solid fa-chevron-right text-light"></i>
 
 

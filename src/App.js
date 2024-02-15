@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<WorkspacePage />} />
         <Route path="/workspace" element={<WorkspacePage />} />
-        <Route path="/tasklist" element={<TaskListPage />} />
+        <Route path="/board/:id" element={<TaskListPage />} />
         <Route path="/about" element={<AboutPage />} />
 
         {/* page not found */}

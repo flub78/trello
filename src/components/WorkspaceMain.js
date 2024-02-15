@@ -12,7 +12,7 @@ const WorkspaceMain = () => {
         description: "Workspace Flub78",
         favorite: true,
         recent: true,
-        href: "tasklist",
+        href: "board/webapp",
         image: "code_editor.jpg",
         theme: 'dark'
     };
@@ -23,7 +23,7 @@ const WorkspaceMain = () => {
         description: "",
         favorite: false,
         recent: false,
-        href: "tasklist",
+        href: "board/marly",
         image: "IMG_20181118_152709.jpg",
         theme: 'dark'
     };
@@ -34,7 +34,7 @@ const WorkspaceMain = () => {
         description: "",
         favorite: false,
         recent: false,
-        href: "tasklist",
+        href: "board/forest",
         image: "IMG_20210425_145446.jpg",
         theme: 'dark'
     };
@@ -45,7 +45,7 @@ const WorkspaceMain = () => {
         description: "",
         favorite: true,
         recent: true,
-        href: "tasklist",
+        href: "board/gvv",
         image: "20230903_151040.jpg"
     };
 
@@ -55,7 +55,7 @@ const WorkspaceMain = () => {
         description: "",
         favorite: false,
         recent: false,
-        href: "tasklist",
+        href: "board/projects",
         image: "welding.jpg",
         theme: 'dark'
     };
@@ -66,7 +66,7 @@ const WorkspaceMain = () => {
         description: "",
         favorite: false,
         recent: false,
-        href: "tasklist",
+        href: "board/devops",
 
         image: "jenkins.GIF"
     };
@@ -77,7 +77,7 @@ const WorkspaceMain = () => {
         description: "",
         favorite: false,
         recent: true,
-        href: "tasklist",
+        href: "board/training",
         image: "training-concept-image.jpg"
     };
 
