@@ -8,7 +8,6 @@ const TaskListPage = () => {
             <Navbar theme="dark" />
             <section id="main" className="container-lg-fluid">
                 <div classame="row d-flex justify-content-end" id="main-container">
-                    <WorkspaceSidePanel />
                     Task List
                 </div>
             </section>

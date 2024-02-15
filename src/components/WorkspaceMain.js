@@ -2,7 +2,7 @@ import React from 'react';
 import BoardCard from './BoardCard';
 
 /**
- * TODO: style for try-it
+ * DONE: style for try-it
  */
 const WorkspaceMain = () => {
 

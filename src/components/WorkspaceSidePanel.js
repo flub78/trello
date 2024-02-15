@@ -59,7 +59,7 @@ const WorkspaceSidePanel = () => {
                     </div>
 
                 </div>
-                <div id="try-it" className="m-4">
+                <div id="try-it" className="m-4 try-it">
                     <h6 className="m2">Essayer Trello Premium</h6>
                     <small>Profitez d'un nombre illimité de tableaux, de toutes les vues, d'automatisations
                         illimitées
@@ -67,7 +67,7 @@ const WorkspaceSidePanel = () => {
                         plus
                         encore.</small>
                     <div id="start-it">
-                        <a href="">Commencez l'essai gratuit</a>
+                        <a href="" className="text-light" >Commencez l'essai gratuit</a>
                         <div id="trello-icon"></div>
                     </div>
                 </div>

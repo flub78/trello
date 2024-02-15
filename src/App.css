@@ -78,6 +78,19 @@ btn-4   workspace horizontal menu shopping
   padding: 5px !important;
 }
 
+.try-it {
+  background-image: linear-gradient(to right, #6e5dc6, #d371bd);
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+.try-it:hover {
+  background-image: linear-gradient(to right, #172b4d, #d371bd);
+}
+
 .user-icon {
   background: #FF991F !important;
   width: 30px;
