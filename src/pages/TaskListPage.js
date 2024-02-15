@@ -7,9 +7,10 @@ import TaskListWorkspace from '../components/TaskListWorkspace';
 
 const TaskListPage = () => {
 
-    const { handle } = useParams()
+    // const { handle } = useParams()
 
-    console.log(handle);
+    console.log(window.location.href);
+
     return (
         <div>
             <Navbar theme="dark" />
