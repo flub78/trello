@@ -1,6 +1,13 @@
 import React from 'react';
 import BoardCard from './BoardCard';
 
+/**
+ * TODO: card css
+ * TODO: support for light and dark mode
+ * TODO: link to trello tasklist
+ * TODO: style for try-it
+ * 
+ */
 const WorkspaceMain = () => {
 
     const webapp = {
@@ -10,7 +17,8 @@ const WorkspaceMain = () => {
         favorite: true,
         recent: true,
         href: "trello_tasklist.html",
-        image: "code_editor.jpg"
+        image: "code_editor.jpg",
+        theme: 'dark'
     };
 
     const marly = {
@@ -20,7 +28,8 @@ const WorkspaceMain = () => {
         favorite: false,
         recent: false,
         href: "trello_tasklist.html",
-        image: "IMG_20181118_152709.jpg"
+        image: "IMG_20181118_152709.jpg",
+        theme: 'dark'
     };
 
     const forest = {
@@ -30,7 +39,8 @@ const WorkspaceMain = () => {
         favorite: false,
         recent: false,
         href: "trello_tasklist.html",
-        image: "IMG_20210425_145446.jpg"
+        image: "IMG_20210425_145446.jpg",
+        theme: 'dark'
     };
 
     const gvv = {
@@ -50,7 +60,8 @@ const WorkspaceMain = () => {
         favorite: false,
         recent: false,
         href: "trello_tasklist.html",
-        image: "welding.jpg"
+        image: "welding.jpg",
+        theme: 'dark'
     };
 
     const devops = {

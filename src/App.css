@@ -1,3 +1,10 @@
+#main-container {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+
 body {
   background-color: #ffffff;
 }
@@ -17,16 +24,11 @@ btn-4   workspace horizontal menu shopping
   padding: 8px;
   padding-bottom: 8px;
 }
-
 .btn-1:hover,
 .btn-2:hover,
 .btn-3:hover,
 .btn-4:hover {
   background: #e6e6e6;
-}
-
-.btn-2 {
-  margin-left: 2rem;
 }
 
 .btn-3 {
@@ -51,7 +53,6 @@ btn-4   workspace horizontal menu shopping
   padding: 10px;
   border-radius: 30px;
 }
-
 .button-icon:hover {
   background: #d4d7de;
 }
@@ -66,12 +67,15 @@ btn-4   workspace horizontal menu shopping
   border: 1px solid lightgrey;
 }
 
-#main-containder {
-  background-color: red !important;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  display: flex !important;
+.w {
+  height: 30px;
+  width: 30px;
+  color: #ffffff;
+  background-image: linear-gradient(#c9372c, #fda261) !important;
+  border-radius: 5px;
+  border: none;
+  margin: 15px;
+  padding: 5px !important;
 }
 
 .user-icon {
@@ -91,41 +95,33 @@ nav {
   justify-content: space-between;
   border-bottom: 1px solid lightgrey;
 }
-
 nav #left-menu {
   display: flex;
   align-items: center;
 }
-
 nav #left-menu #logo {
   font-weight: bold;
   font-size: 1.2rem;
 }
-
 nav #right-menu {
   display: flex;
   align-items: center;
   margin: 10px;
 }
-
 nav #right-menu .fa-bell {
   font-size: 25px;
 }
-
 nav #right-menu #notification-button {
   color: #ffffff;
   background: #0C66E4;
   border-radius: 30px;
 }
-
 nav #right-menu #notification-button:hover {
   background: lightgrey;
 }
-
 nav #right-menu .button:hover {
   background: lightgrey;
 }
-
 nav #right-menu .button-icon:hover {
   background: lightgrey;
 }
@@ -139,4 +135,52 @@ nav #right-menu .button-icon:hover {
   border: 1px solid lightgrey;
 }
 
-/*# sourceMappingURL=App.css.map */
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  background: #F1F2F4;
+  color: #ffffff;
+  font-weight: bold;
+  width: 200px;
+  height: 100px;
+  margin: 10px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  position: relative;
+}
+.card p {
+  font-weight: normal;
+  font-size: small;
+}
+.card:hover .clic-star {
+  opacity: 1;
+}
+
+.light-bg-card {
+  color: #44546f;
+}
+
+.favorite-star,
+.clic-star {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+.favorite-star {
+  color: #e2b203;
+}
+
+.clic-star {
+  opacity: 0;
+}
+
+.bottom-right-icon {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+.workspace-group {
+  margin: 25px 0px;
+}/*# sourceMappingURL=App.css.map */
