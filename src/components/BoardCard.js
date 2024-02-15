@@ -9,16 +9,17 @@ const BoardCard = ({ card }) => {
     const text_color = (card.theme === 'dark') ? "text-light" : "text-dark";
 
     return (
-        <div className="card text-dark" id={card.id}
-            style={{ background: bg_url }
-            }>
+        <a className={"workspace-card webapp-card text-decoration-none " + text_color} href={card.href}>
+            <div className={"card " + text_color} id={card.id}
+                style={{ background: bg_url }
+                }>
 
-            <a className={"workspace-card webapp-card text-decoration-none " + text_color} href={card.href}>
-                <h5 className="ont-weight-bold" >{card.name}</h5>
+                <h5 className="font-weight-bold " >{card.name}</h5>
                 <p>{card.description}</p>
                 <i className={class_name}></i>
-            </a>
-        </div >
+
+            </div >
+        </a>
     );
 };
 

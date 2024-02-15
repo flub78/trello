@@ -2,11 +2,7 @@ import React from 'react';
 import BoardCard from './BoardCard';
 
 /**
- * TODO: card css
- * TODO: support for light and dark mode
- * TODO: link to trello tasklist
  * TODO: style for try-it
- * 
  */
 const WorkspaceMain = () => {
 
@@ -16,7 +12,7 @@ const WorkspaceMain = () => {
         description: "Workspace Flub78",
         favorite: true,
         recent: true,
-        href: "trello_tasklist.html",
+        href: "tasklist",
         image: "code_editor.jpg",
         theme: 'dark'
     };
@@ -27,7 +23,7 @@ const WorkspaceMain = () => {
         description: "",
         favorite: false,
         recent: false,
-        href: "trello_tasklist.html",
+        href: "tasklist",
         image: "IMG_20181118_152709.jpg",
         theme: 'dark'
     };
@@ -38,7 +34,7 @@ const WorkspaceMain = () => {
         description: "",
         favorite: false,
         recent: false,
-        href: "trello_tasklist.html",
+        href: "tasklist",
         image: "IMG_20210425_145446.jpg",
         theme: 'dark'
     };
@@ -49,7 +45,7 @@ const WorkspaceMain = () => {
         description: "",
         favorite: true,
         recent: true,
-        href: "trello_tasklist.html",
+        href: "tasklist",
         image: "20230903_151040.jpg"
     };
 
@@ -59,7 +55,7 @@ const WorkspaceMain = () => {
         description: "",
         favorite: false,
         recent: false,
-        href: "trello_tasklist.html",
+        href: "tasklist",
         image: "welding.jpg",
         theme: 'dark'
     };
@@ -70,7 +66,8 @@ const WorkspaceMain = () => {
         description: "",
         favorite: false,
         recent: false,
-        href: "trello_tasklist.html",
+        href: "tasklist",
+
         image: "jenkins.GIF"
     };
 
@@ -80,7 +77,7 @@ const WorkspaceMain = () => {
         description: "",
         favorite: false,
         recent: true,
-        href: "trello_tasklist.html",
+        href: "tasklist",
         image: "training-concept-image.jpg"
     };
 
@@ -151,7 +148,7 @@ const WorkspaceMain = () => {
                             })
                         }
 
-                        <div className="workspace-card create-card light-bg-card">
+                        <div className="workspace-card create-card card">
                             <h6>Créer un tableau</h6>
                             <p>1 restant(s)</p>
                             <i className="fa-regular fa-circle-question icon button-icon bottom-right-icon"></i>

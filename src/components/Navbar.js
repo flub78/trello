@@ -36,7 +36,8 @@ const Navbar = ({ theme }) => {
                                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Espaces de
                                     travail</a>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="trello_workspace.html">Workspace Flub78</a></li>
+                                    <li><a className="dropdown-item"
+                                        href="/">Workspace Flub78</a></li>
                                 </ul>
                             </li>
 
