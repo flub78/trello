@@ -91,6 +91,10 @@ btn-4   workspace horizontal menu shopping
   background-image: linear-gradient(to right, #172b4d, #d371bd);
 }
 
+#main-tasklist {
+  background-color: #ffffff;
+}
+
 .user-icon {
   background: #FF991F !important;
   width: 30px;
