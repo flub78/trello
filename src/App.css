@@ -5,6 +5,25 @@
   display: flex;
 }
 
+.open-sidebar {
+  min-width: 260px;
+  max-width: 260px;
+  background-color: lightgrey;
+}
+
+.open-sidebar div {
+  visibility: visible;
+}
+
+.close-sidebar {
+  min-width: 20px;
+  max-width: 20px;
+}
+
+.close-sidebar div {
+  visibility: hidden;
+}
+
 body {
   background-color: #ffffff;
 }

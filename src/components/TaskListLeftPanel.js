@@ -3,24 +3,24 @@ import React from 'react';
 const TaskListLeftPanel = () => {
     return (
 
-        <div id="left-sidebar" classNameName="col-2 open-sidebar d-flex flex-column justify-content-between">
+        <div id="left-sidebar" className="col-2 open-sidebar d-flex flex-column justify-content-between">
 
-            <div classNameName="left-sidebar-top-group">
+            <div className="left-sidebar-top-group">
                 {/* <!-- Left sidebar header --> */}
-                <div id="left-sidebar-header" classNameName="bg-dark">
+                <div id="left-sidebar-header" className="bg-dark">
 
-                    <div classNameName="row">
-                        <div classNameName="col-2">
-                            <div classNameName="w">W</div>
+                    <div className="row">
+                        <div className="col-2">
+                            <div className="w">W</div>
                         </div>
-                        <div classNameName="col-8 text-light">
-                            <div classNameName="mt-3  text-light ps-2">Workspace Flub78</div>
-                            <div classNameName=" text-light ps-2 pb-1">Gratuit</div>
+                        <div className="col-8 text-light">
+                            <div className="mt-3  text-light ps-2">Workspace Flub78</div>
+                            <div className=" text-light ps-2 pb-1">Gratuit</div>
                         </div>
-                        <div classNameName="col-2 mt-4">
-                            <button classNameName="bg-dark border-0 visible" onclick="toggleSidebar()"
+                        <div className="col-2 mt-4">
+                            <button className="bg-dark border-0 visible" onclick="toggleSidebar()"
                                 id="close-sidebar-button">
-                                <i classNameName="fa-solid fa-chevron-left text-light"></i>
+                                <i className="fa-solid fa-chevron-left text-light"></i>
                             </button>
                         </div>
                     </div>
@@ -29,43 +29,43 @@ const TaskListLeftPanel = () => {
                 {/* <!-- left sidebar menu --> */}
                 <div id="left-sidebar-menus">
                     <div id="left-sidebar-menu-menu">
-                        <ul classNameName="table-list">
+                        <ul className="table-list">
 
-                            <li classNameName="text-light table-button">
-                                <div classNameName="d-flex d-start">
-                                    <i classNameName="bi bi-trello m-1"></i>
-                                    <div classNameName="m-1">Tableaux</div>
+                            <li className="text-light table-button">
+                                <div className="d-flex d-start">
+                                    <i className="bi bi-trello m-1"></i>
+                                    <div className="m-1">Tableaux</div>
                                 </div>
                             </li>
 
-                            <li classNameName="text-light table-button">
-                                <div classNameName="d-flex d-start">
-                                    <i classNameName="bi bi-people  text-light m-1"></i>
-                                    <div classNameName="m-1">Membres</div>
+                            <li className="text-light table-button">
+                                <div className="d-flex d-start">
+                                    <i className="bi bi-people  text-light m-1"></i>
+                                    <div className="m-1">Membres</div>
                                 </div>
                                 <div>
-                                    <i classNameName="bi bi-plus-lg m-1"></i>
+                                    <i className="bi bi-plus-lg m-1"></i>
                                 </div>
                             </li>
 
-                            <li classNameName="text-light table-button">
-                                <div classNameName="d-flex d-start">
-                                    <i classNameName="bi bi-gear-fill m-1"></i>
-                                    <div classNameName="m-1">Paramètres de l'espace de travail</div>
+                            <li className="text-light table-button">
+                                <div className="d-flex d-start">
+                                    <i className="bi bi-gear-fill m-1"></i>
+                                    <div className="m-1">Paramètres de l'espace de travail</div>
                                 </div>
                                 <div>
-                                    <i classNameName="fa-solid fa-chevron-down"></i>
+                                    <i className="fa-solid fa-chevron-down"></i>
                                 </div>
                             </li>
 
                         </ul>
 
-                        <h6 classNameName="text-light m-1 ps-2">Vues de l'espace de travail</h6>
+                        <h6 className="text-light m-1 ps-2">Vues de l'espace de travail</h6>
 
-                        <ul classNameName=" table-list">
+                        <ul className=" table-list">
 
-                            <li classNameName="text-light table-button">
-                                <div classNameName="d-flex d-start">
+                            <li className="text-light table-button">
+                                <div className="d-flex d-start">
                                     <i className="bi bi-table m-1"></i>
                                     <div className="m-1">Tableur</div>
                                 </div>
