@@ -1,6 +1,10 @@
 import React from 'react';
 
 const Task = ({ task }) => {
+
+    const checklist_len = task.check_list ? task.check_list.length : 0;
+    const check_count = task.check_list ? task.check_list.filter((item) => item.checked).length : 0;
+
     return (
         <div className="task card m-1 flex-nowrap" draggable="true">
             <div className="container justify-content-center align-items-center">
@@ -27,7 +31,7 @@ const Task = ({ task }) => {
                 <div className="icon-line d-flex">
                     {task.description ? <i className="bi bi-text-paragraph m-1"></i> : ''}
 
-                    <i className="bi bi-check2-square m-1"> 2/5</i>
+                    {checklist_len > 0 ? <i className="bi bi-check2-square m-1"> {check_count}/{checklist_len}</i> : ''}
 
                     {task.watched ? <i className="bi bi-eye m-1"></i> : ''}
 

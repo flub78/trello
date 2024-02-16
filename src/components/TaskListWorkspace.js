@@ -11,7 +11,12 @@ const TaskListWorkspace = () => {
         href: '/code-generator',
         favorite: true,
         watched: true,
-        check_list: [],
+        check_list: [{ title: "subtask 1", checked: true },
+        { title: "subtask 2", checked: false },
+        { title: "subtask 3", checked: true },
+        { title: "subtask 4", checked: false },
+        { title: "subtask 5", checked: true }],
+
         color_tags: ['bg-warning', 'bg-dark'],
         comments: [{ text: "Comment 1" }, { text: "Comment 2" }, { text: "Comment 3" }]
     };
