@@ -9,7 +9,11 @@ const TaskListWorkspace = () => {
         image: 'welding.jpg',
         theme: 'dark',
         href: '/code-generator',
-        favorite: true
+        favorite: true,
+        watched: true,
+        check_list: [],
+        color_tags: ['bg-warning', 'bg-dark'],
+        comments: [{ text: "Comment 1" }, { text: "Comment 2" }, { text: "Comment 3" }]
     };
 
     return (

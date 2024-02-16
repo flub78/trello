@@ -9,19 +9,30 @@ const Task = ({ task }) => {
 
             <div className="card-header">
                 <div className="d-flex">
-                    <div> {task.description}</div>
+                    <div> {task.name}</div>
                     <i className="bi bi-pencil  modif-icon m-1"></i>
                 </div>
             </div>
             <div className="task-body">
+                {/* <p className="card-text">{task.description}</p> */}
+
                 <div className="color-tags d-flex">
-                    <div className="color-tag bg-warning"></div>
+                    {task.color_tags ?
+                        task.color_tags.map((tag, index) => {
+                            return <div key={index} className={"color-tag " + tag}></div>
+                        })
+                        : ''}
                 </div>
+
                 <div className="icon-line d-flex">
-                    <i className="bi bi-text-paragraph m-1"></i>
+                    {task.description ? <i className="bi bi-text-paragraph m-1"></i> : ''}
+
                     <i className="bi bi-check2-square m-1"> 2/5</i>
-                    <i className="bi bi-eye m-1"></i>
-                    <i className="bi bi-chat m-1">3</i>
+
+                    {task.watched ? <i className="bi bi-eye m-1"></i> : ''}
+
+                    {task.comments ? <i className="bi bi-chat m-1"> {task.comments.length} </i> : ''}
+
                 </div>
             </div>
         </div>
