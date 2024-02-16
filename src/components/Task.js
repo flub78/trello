@@ -7,9 +7,12 @@ const Task = ({ task }) => {
 
     return (
         <div className="task card m-1 flex-nowrap" draggable="true">
-            <div className="container justify-content-center align-items-center">
-                <img src={"/imgs/" + task.image} className="card-img-top" alt="welding" />
-            </div>
+
+            {task.image ?
+                <div className="container justify-content-center align-items-center">
+                    <img src={"/imgs/" + task.image} className="card-img-top" alt="welding" />
+                </div>
+                : ''}
 
             <div className="card-header">
                 <div className="d-flex">

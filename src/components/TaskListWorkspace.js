@@ -1,5 +1,6 @@
 import React from 'react';
-import Task from './Task';
+import TaskList from './TaskList';
+import Board from './Board';
 
 const TaskListWorkspace = () => {
 
@@ -7,19 +8,73 @@ const TaskListWorkspace = () => {
         name: 'Code generator',
         description: 'Generate code for your project',
         image: 'welding.jpg',
-        theme: 'dark',
         href: '/code-generator',
-        favorite: true,
         watched: true,
         check_list: [{ title: "subtask 1", checked: true },
         { title: "subtask 2", checked: false },
         { title: "subtask 3", checked: true },
         { title: "subtask 4", checked: false },
         { title: "subtask 5", checked: true }],
-
         color_tags: ['bg-warning', 'bg-dark'],
         comments: [{ text: "Comment 1" }, { text: "Comment 2" }, { text: "Comment 3" }]
     };
+
+    const pdf = {
+        name: 'PDF document generation',
+        href: '/code-generator',
+        description: 'Generate PDF file',
+        watched: true,
+        check_list: [{ title: "subtask 1", checked: false },
+        { title: "subtask 2", checked: false },
+        { title: "subtask 3", checked: true },
+        { title: "subtask 4", checked: false },
+        { title: "subtask 5", checked: true }],
+
+        color_tags: ['bg-danger', 'bg-primary', 'bg-success'],
+        comments: [{ text: "Comment 1" }, { text: "Comment 2" }, { text: "Comment 3" }]
+    };
+
+    const renaming = {
+        name: 'Tasks and lists renaming'
+    };
+
+    const payments = {
+        name: 'Online payments',
+        description: 'SUpport CB and Paypal paiements',
+        color_tags: ['bg-warning', 'bg-black']
+
+    };
+
+    const calendar = {
+        name: 'Calendar events repetition',
+        image: 'asana-todolist.png.webp'
+    };
+
+    const trello = {
+        name: 'Trello like look and feel',
+    };
+
+    const testing = {
+        name: 'Email generation',
+        image: 'testing.png'
+    };
+
+    const todo = {
+        name: 'Todo',
+        tasks: [pdf, renaming, payments, cg, calendar]
+    };
+
+    const in_progress = {
+        name: 'In Progress',
+        tasks: []
+    };
+
+    const done = {
+        name: 'Done',
+        tasks: [trello, testing]
+    };
+
+    const board = [todo, in_progress, done];
 
     return (
 
@@ -149,144 +204,9 @@ const TaskListWorkspace = () => {
             <section id="list-main-area" className="d-flex overflow-auto " style={{ height: 'calc(100% - 58px)' }}
                 ondrop="dropList(event)" ondragover="allowDrop(event)">
 
-                <div id="todo-list" className="task-list" draggable="true" ondragstart="dragList(event)">
-                    <div className="list-name">
-                        <div>Todo</div>
-                        <div> <i className="bi bi-three-dots tasklist-menu-icon"></i>
-                        </div>
-                    </div>
-
-                    <div className="task card m-1 flex-nowrap" draggable="true">
-                        <div className="card-header">
-                            <div className="d-flex">
-                                <div>PDF document generation</div>
-                                <i className="bi bi-pencil  modif-icon m-1"></i>
-                            </div>
-                        </div>
-                        <div className="task-body">
-                            <div className="color-tags d-flex">
-                                <div className="color-tag bg-danger"></div>
-                                <div className="color-tag bg-primary"></div>
-                                <div className="color-tag bg-success"></div>
-                            </div>
-                            <div className="icon-line d-flex">
-                                <i className="bi bi-text-paragraph m-1"></i>
-                                <i className="bi bi-check2-square m-1"> 2/5</i>
-                                <i className="bi bi-eye m-1"></i>
-                                <i className="bi bi-chat m-1">3</i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="task card m-1  flex-nowrap" draggable="true">
-                        <div className="card-header">
-                            <div className="d-flex">
-                                <div>Tasks and lists renaming</div>
-                                <i className="bi bi-pencil  modif-icon m-1"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="task card m-1  flex-nowrap" draggable="true">
-                        <div className="card-header">
-                            <div className="d-flex">
-                                <div>Online payments</div>
-                                <i className="bi bi-pencil  modif-icon m-1"></i>
-                            </div>
-                        </div>
-                        <div className="task-body">
-                            <div className="color-tags d-flex">
-                                <div className="color-tag bg-warning"></div>
-                                <div className="color-tag bg-dark"></div>
-                            </div>
-                            <div className="icon-line d-flex">
-                                <i className="bi bi-text-paragraph m-1"></i>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <Task task={cg} />
-
-                    <div className="task card m-1" draggable="true">
-                        <div className="card-header">
-                            <div className="d-flex">
-                                <div>PDF document generation</div>
-                                <i className="bi bi-pencil  modif-icon m-1"></i>
-                            </div>
-                        </div>
-                        <div className="task-body">
-                            <div className="color-tags d-flex">
-                                <div className="color-tag bg-danger"></div>
-                                <div className="color-tag bg-primary"></div>
-                                <div className="color-tag bg-success"></div>
-                            </div>
-                            <div className="icon-line d-flex">
-                                <i className="bi bi-text-paragraph m-1"></i>
-                                <i className="bi bi-check2-square m-1"> 2/5</i>
-                                <i className="bi bi-eye m-1"></i>
-                                <i className="bi bi-chat m-1">3</i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="task card m-1  flex-nowrap" draggable="true">
-                        <div className="container justify-content-center align-items-center">
-
-                            <img src="/imgs/asana-todolist.png.webp" className="card-img-top" alt="todo list" />
-                        </div>
-                        <div className="card-header">
-                            <div className="d-flex">
-                                <div>Calendar events repetition</div>
-                                <i className="bi bi-pencil  modif-icon m-1"></i>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div className="create-task">+ Ajouter une carte <i className="bi  bi-copy create-task-icon"></i></div>
-                </div>
-
-                <div id="wip-list" className="task-list" draggable="true" ondragstart="dragList(event)">
-                    <div className="list-name">
-                        <div>In Progress</div>
-                        <div> <i className="bi bi-three-dots tasklist-menu-icon"></i>
-                        </div>
-                    </div>
-                    <div className="create-task">+ Ajouter une carte <i className="bi  bi-copy create-task-icon"></i></div>
-                </div>
-
-                <div id="done-list" className="task-list" draggable="true" ondragstart="dragList(event)">
-                    <div className="list-name">
-                        <div>Done</div>
-                        <div> <i className="bi bi-three-dots tasklist-menu-icon"></i>
-                        </div>
-                    </div>
-
-                    <div className="task m-1" draggable="true">
-                        <div className="card-header">
-                            <div className="d-flex">
-                                <div>Trello like look and feel</div>
-                                <i className="bi bi-pencil  modif-icon m-1"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="task m-1" draggable="true">
-                        <div className="container justify-content-center align-items-center">
-                            <img src="/imgs/testing.png" className="card-img-top" alt="testing" />
-                        </div>
-                        <div className="card-header">
-                            <div className="d-flex">
-                                <div>Email generation</div>
-                                <i className="bi bi-pencil  modif-icon m-1"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="create-task">+ Ajouter une carte <i className="bi  bi-copy create-task-icon
-"></i></div>
-                </div>
+                <TaskList list={todo} />
+                <TaskList list={in_progress} />
+                <TaskList list={done} />
 
                 <div className="tsk-list" style={{ min_width: '275px', max_width: '275px' }}>
                     <div id="create-list" className="task-list bg-light p-2 ps-4  rounded"> + Ajouter une autre liste
