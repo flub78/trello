@@ -103,7 +103,7 @@ const TaskListWorkspace = () => {
                     <button className="bg-dark rounded-5 border-0 hidden" id="open-sidebar-button" onClick={toggleSidebar} >
                         <i className="fa-solid fa-chevron-right text-light"></i>
                     </button>
-                    <a className="navbar-brand  text-light ms-2" href="/">Testing</a>
+                    <a className="navbar-brand  text-light ms-2" href="/">Webapp</a>
 
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">

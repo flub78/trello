@@ -231,6 +231,14 @@ nav #right-menu .button-icon:hover {
   overflow: auto;
 }
 
+.create-list {
+  background: #F1F2F4;
+  cursor: pointer;
+}
+.create-list:hover {
+  background: #d4d7de;
+}
+
 .list-name {
   background: #F1F2F4;
   padding: 5px;

@@ -1,12 +1,21 @@
 import React from 'react';
 
+const editTask = (event) => {
+    console.log('edit task');
+    event.stopPropagation();
+}
+
+const openTask = () => {
+    console.log('open task');
+}
+
 const Task = ({ task }) => {
 
     const checklist_len = task.check_list ? task.check_list.length : 0;
     const check_count = task.check_list ? task.check_list.filter((item) => item.checked).length : 0;
 
     return (
-        <div className="task card m-1 flex-nowrap" draggable="true">
+        <div className="task card m-1 flex-nowrap" draggable="true" onClick={openTask}>
 
             {task.image ?
                 <div className="container justify-content-center align-items-center">
@@ -17,7 +26,7 @@ const Task = ({ task }) => {
             <div className="card-header">
                 <div className="d-flex">
                     <div> {task.name}</div>
-                    <i className="bi bi-pencil  modif-icon m-1"></i>
+                    <i className="bi bi-pencil  modif-icon m-1" onClick={editTask}></i>
                 </div>
             </div>
             <div className="task-body">

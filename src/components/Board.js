@@ -1,6 +1,10 @@
 import React from 'react';
 import TaskList from './TaskList';
 
+const createList = () => {
+    console.log('create list');
+}
+
 const Board = ({ board }) => {
     return (
 
@@ -12,7 +16,8 @@ const Board = ({ board }) => {
             })}
 
             <div className="tsk-list" style={{ min_width: '275px', max_width: '275px' }}>
-                <div id="create-list" className="task-list bg-light p-2 ps-4  rounded"> + Ajouter une autre liste
+                <div className="task-list create-list p-2 ps-4  rounded"
+                    onClick={createList}> + Ajouter une autre liste
                 </div>
             </div>
         </section>

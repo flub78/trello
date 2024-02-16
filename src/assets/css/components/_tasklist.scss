@@ -1,5 +1,5 @@
 .task-list {
-    background: #F1F2F4;
+    background: $lightlightgrey;
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
@@ -8,9 +8,17 @@
     overflow: auto;
 }
 
+.create-list {
+    background: $lightlightgrey;
+    cursor: pointer;
+
+    &:hover {
+        background: $tasklist-bg-hover;
+    }
+}
 
 .list-name {
-    background: #F1F2F4;
+    background: $lightlightgrey;
     padding: 5px;
     margin: 5px;
     border-radius: 12px;
@@ -71,7 +79,7 @@
 }
 
 .create-task {
-    background: #F1F2F4;
+    background: $lightlightgrey;
     padding: 5px;
     margin: 5px;
     border-radius: 12px;
