@@ -384,7 +384,9 @@ nav #right-menu .button-icon:hover {
 .close-sidebar {
   min-width: 20px;
   max-width: 20px;
+  overflow: hidden;
 }
 .close-sidebar div {
   visibility: hidden;
+  overflow: hidden;
 }/*# sourceMappingURL=App.css.map */

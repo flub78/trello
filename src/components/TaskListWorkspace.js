@@ -1,6 +1,22 @@
 import React from 'react';
 import Board from './Board';
 
+const toggleSidebar = () => {
+    console.log('CloseSidebar');
+    var sidebar = document.getElementById("left-sidebar");
+    var closeButton = document.getElementById("close-sidebar-button");
+    var openButton = document.getElementById("open-sidebar-button");
+
+    sidebar.classList.toggle("open-sidebar");
+    sidebar.classList.toggle("close-sidebar");
+
+    closeButton.classList.toggle("visible");
+    closeButton.classList.toggle("hidden");
+
+    openButton.classList.toggle("visible");
+    openButton.classList.toggle("hidden");
+}
+
 const TaskListWorkspace = () => {
 
     const cg = {
@@ -84,10 +100,8 @@ const TaskListWorkspace = () => {
             <nav className="navbar bg-dark navbar-expand " id="internal-nav">
                 <div className="container-fluid d-flex flex-wrap">
 
-                    <button className="bg-dark rounded-5 border-0 hidden" id="open-sidebar-button"
-                    >
+                    <button className="bg-dark rounded-5 border-0 hidden" id="open-sidebar-button" onClick={toggleSidebar} >
                         <i className="fa-solid fa-chevron-right text-light"></i>
-
                     </button>
                     <a className="navbar-brand  text-light ms-2" href="/">Testing</a>
 

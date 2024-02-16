@@ -63,8 +63,10 @@
 .close-sidebar {
     min-width: 20px;
     max-width: 20px;
+    overflow: hidden;
 
     div {
         visibility: hidden;
+        overflow: hidden;
     }
 }

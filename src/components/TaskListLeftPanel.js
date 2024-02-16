@@ -1,5 +1,21 @@
 import React from 'react';
 
+const toggleSidebar = () => {
+    console.log('CloseSidebar');
+    var sidebar = document.getElementById("left-sidebar");
+    var closeButton = document.getElementById("close-sidebar-button");
+    var openButton = document.getElementById("open-sidebar-button");
+
+    sidebar.classList.toggle("open-sidebar");
+    sidebar.classList.toggle("close-sidebar");
+
+    closeButton.classList.toggle("visible");
+    closeButton.classList.toggle("hidden");
+
+    openButton.classList.toggle("visible");
+    openButton.classList.toggle("hidden");
+}
+
 const TaskListLeftPanel = () => {
     return (
 
@@ -19,7 +35,8 @@ const TaskListLeftPanel = () => {
                         </div>
                         <div className="col-2 mt-4">
                             <button className="bg-dark border-0 visible"
-                                id="close-sidebar-button">
+                                id="close-sidebar-button" onClick={toggleSidebar}
+                            >
                                 <i className="fa-solid fa-chevron-left text-light"></i>
                             </button>
                         </div>
