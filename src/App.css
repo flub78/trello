@@ -219,4 +219,164 @@ nav #right-menu .button-icon:hover {
 
 .workspace-group {
   margin: 25px 0px;
+}
+
+.task-list {
+  background: #F1F2F4;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  min-width: 275px;
+  max-width: 275px;
+  overflow: auto;
+}
+
+.list-name {
+  background: #F1F2F4;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.task {
+  box-shadow: 1px 1px 2px 0px grey;
+}
+
+.task:hover {
+  border: 2px solid blue;
+}
+
+.task:hover .modif-icon {
+  display: block;
+}
+
+.task .modif-icon {
+  display: none;
+  border-radius: 50%;
+  padding: 5px;
+  width: 40px;
+  height: 40px;
+  padding-left: 10px;
+  padding-top: 5px;
+  margin: 10px;
+}
+
+.task .modif-icon:hover {
+  background: lightgrey;
+}
+
+.color-tag {
+  height: 10px;
+  width: 40px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.card-img-top {
+  width: 80%;
+  margin: 10px;
+  max-height: 120px;
+}
+
+.create-task {
+  background: #F1F2F4;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.create-task:hover {
+  background: #d4d7de;
+}
+
+.create-task .create-task-icon {
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.create-task .create-task-icon:hover {
+  background: #d4d7de;
+}
+
+.tasklist-menu-icon {
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.tasklist-menu-icon:hover {
+  background: #d4d7de;
+}
+
+.table-list {
+  padding: 0 !important;
+}
+
+#left-sidebar {
+  background-color: #212529;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+#left-sidebar .table-button {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 10px;
+  padding: 5px;
+  background-color: #212529;
+  border-radius: 5px;
+  color: #ffffff;
+}
+#left-sidebar .table-button .table-thumbnail {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+#left-sidebar .table-button .bi-three-dots,
+#left-sidebar .table-button .bi-star {
+  visibility: hidden;
+}
+#left-sidebar .table-button .bi-three-dots:hover,
+#left-sidebar .table-button .bi-star:hover {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+#left-sidebar .table-button:hover {
+  background: #3c444b;
+}
+#left-sidebar .table-button:hover .bi-three-dots,
+#left-sidebar .table-button:hover .bi-star {
+  visibility: visible;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.open-sidebar {
+  min-width: 260px;
+  max-width: 260px;
+}
+.open-sidebar div {
+  visibility: visible;
+}
+
+.close-sidebar {
+  min-width: 20px;
+  max-width: 20px;
+}
+.close-sidebar div {
+  visibility: hidden;
 }/*# sourceMappingURL=App.css.map */

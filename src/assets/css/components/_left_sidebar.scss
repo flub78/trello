@@ -1,0 +1,70 @@
+#left-sidebar {
+
+    // background: url(../imgs/code_editor_blurred.jpg) center/cover;
+
+    background-color: $dark-bg;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .table-button {
+        display: flex;
+        justify-content: space-between;
+        margin: 5px 10px;
+        padding: 5px;
+        background-color: $table-button-bg;
+        border-radius: 5px;
+
+        color: $light-bg;
+
+        .table-thumbnail {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .bi-three-dots,
+        .bi-star {
+            visibility: hidden;
+
+            &:hover {
+                font-size: 1.2rem;
+                font-weight: bold;
+            }
+        }
+
+        &:hover {
+            background: $table-button-bg-hover;
+
+            .bi-three-dots,
+            .bi-star {
+                visibility: visible;
+            }
+        }
+    }
+}
+
+.visible {
+    visibility: visible;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.open-sidebar {
+    min-width: 260px;
+    max-width: 260px;
+
+    div {
+        visibility: visible;
+    }
+}
+
+.close-sidebar {
+    min-width: 20px;
+    max-width: 20px;
+
+    div {
+        visibility: hidden;
+    }
+}

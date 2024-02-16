@@ -14,7 +14,6 @@ const TaskListWorkspace = () => {
                     >
                         <i className="fa-solid fa-chevron-right text-light"></i>
 
-
                     </button>
                     <a className="navbar-brand  text-light ms-2" href="#">Testing</a>
 
@@ -137,7 +136,7 @@ const TaskListWorkspace = () => {
                         </div>
                     </div>
 
-                    <div className="card task m-1" draggable="true">
+                    <div className="task m-1" draggable="true">
                         <div className="card-header">
                             <div className="d-flex">
                                 <div>PDF document generation</div>
@@ -159,7 +158,7 @@ const TaskListWorkspace = () => {
                         </div>
                     </div>
 
-                    <div className="card task m-1" draggable="true">
+                    <div className="task m-1" draggable="true">
                         <div className="card-header">
                             <div className="d-flex">
                                 <div>Tasks and lists renaming</div>
@@ -168,7 +167,7 @@ const TaskListWorkspace = () => {
                         </div>
                     </div>
 
-                    <div className="card task m-1" draggable="true">
+                    <div className="task m-1" draggable="true">
                         <div className="card-header">
                             <div className="d-flex">
                                 <div>Online payments</div>
@@ -187,9 +186,9 @@ const TaskListWorkspace = () => {
                         </div>
                     </div>
 
-                    <div className="card task m-1" draggable="true">
+                    <div className="task m-1" draggable="true">
                         <div className="container justify-content-center align-items-center">
-                            <img src="./assets/imgs/welding.jpg" className="card-img-top" alt="dunes" />
+                            <img src="/imgs/welding.jpg" className="card-img-top" alt="welding" />
                         </div>
 
                         <div className="card-header">
@@ -210,7 +209,7 @@ const TaskListWorkspace = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="card task m-1" draggable="true">
+                    <div className="task m-1" draggable="true">
                         <div className="card-header">
                             <div className="d-flex">
                                 <div>PDF document generation</div>
@@ -232,10 +231,10 @@ const TaskListWorkspace = () => {
                         </div>
                     </div>
 
-                    <div className="card task m-1" draggable="true">
+                    <div className="task m-1" draggable="true">
                         <div className="container justify-content-center align-items-center">
 
-                            <img src="./assets/imgs/asana-todolist.png.webp" className="card-img-top" alt="dunes" />
+                            <img src="/imgs/asana-todolist.png.webp" className="card-img-top" alt="todo list image" />
                         </div>
                         <div className="card-header">
                             <div className="d-flex">
@@ -265,7 +264,7 @@ const TaskListWorkspace = () => {
                         </div>
                     </div>
 
-                    <div className="card task m-1" draggable="true">
+                    <div className="task m-1" draggable="true">
                         <div className="card-header">
                             <div className="d-flex">
                                 <div>Trello like look and feel</div>
@@ -274,9 +273,9 @@ const TaskListWorkspace = () => {
                         </div>
                     </div>
 
-                    <div className="card task m-1" draggable="true">
+                    <div className="task m-1" draggable="true">
                         <div className="container justify-content-center align-items-center">
-                            <img src="./assets/imgs/testing.png" className="card-img-top" alt="dunes" />
+                            <img src="/imgs/testing.png" className="card-img-top" alt="testing image" />
                         </div>
                         <div className="card-header">
                             <div className="d-flex">

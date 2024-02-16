@@ -1,0 +1,103 @@
+.task-list {
+    background: #F1F2F4;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    min-width: 275px;
+    max-width: 275px;
+    overflow: auto;
+}
+
+
+.list-name {
+    background: #F1F2F4;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+
+.task {
+    box-shadow: 1px 1px 2px 0px grey;
+}
+
+.task:hover {
+    border: 2px solid blue;
+}
+
+.task:hover .modif-icon {
+    display: block;
+}
+
+.task .modif-icon {
+    display: none;
+    border-radius: 50%;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    padding-left: 10px;
+    padding-top: 5px;
+    margin: 10px;
+}
+
+.task .modif-icon:hover {
+    background: lightgrey;
+}
+
+.color-tag {
+    height: 10px;
+    width: 40px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+
+.card-img-top {
+    width: 80%;
+    margin: 10px;
+    max-height: 120px;
+}
+
+.create-task {
+    background: #F1F2F4;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.create-task:hover {
+    background: #d4d7de;
+}
+
+.create-task .create-task-icon {
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.create-task .create-task-icon:hover {
+    background: #d4d7de;
+}
+
+
+.tasklist-menu-icon {
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.tasklist-menu-icon:hover {
+    background: #d4d7de;
+}
+
+.table-list {
+    padding: 0 !important;
+}
