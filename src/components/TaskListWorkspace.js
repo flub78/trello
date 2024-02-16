@@ -1,5 +1,4 @@
 import React from 'react';
-import TaskList from './TaskList';
 import Board from './Board';
 
 const TaskListWorkspace = () => {
@@ -200,20 +199,8 @@ const TaskListWorkspace = () => {
                 </div>
             </div>
 
-            {/* <!-- tasklist workspace --> */}
-            <section id="list-main-area" className="d-flex overflow-auto " style={{ height: 'calc(100% - 58px)' }}
-                ondrop="dropList(event)" ondragover="allowDrop(event)">
+            <Board board={board} />
 
-                <TaskList list={todo} />
-                <TaskList list={in_progress} />
-                <TaskList list={done} />
-
-                <div className="tsk-list" style={{ min_width: '275px', max_width: '275px' }}>
-                    <div id="create-list" className="task-list bg-light p-2 ps-4  rounded"> + Ajouter une autre liste
-                    </div>
-                </div>
-
-            </section >
         </div >
     );
 };
