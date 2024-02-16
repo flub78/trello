@@ -15,7 +15,7 @@ const TaskListWorkspace = () => {
                         <i className="fa-solid fa-chevron-right text-light"></i>
 
                     </button>
-                    <a className="navbar-brand  text-light ms-2" href="#">Testing</a>
+                    <a className="navbar-brand  text-light ms-2" href="/">Testing</a>
 
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
@@ -32,17 +32,17 @@ const TaskListWorkspace = () => {
                             </li>
 
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle  text-light" href="#" role="button"
+                                <a className="nav-link dropdown-toggle  text-light" href="/" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     {/* <!-- V --> */}
                                 </a>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">Action</a></li>
-                                    <li><a className="dropdown-item" href="#">Another action</a></li>
+                                    <li><a className="dropdown-item" href="/">Action</a></li>
+                                    <li><a className="dropdown-item" href="/">Another action</a></li>
                                     <li>
                                         <hr className="dropdown-divider"></hr>
                                     </li>
-                                    <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                    <li><a className="dropdown-item" href="/">Something else here</a></li>
                                 </ul>
                             </li>
 
@@ -110,13 +110,13 @@ const TaskListWorkspace = () => {
                                 Choose a book title
                             </button>
                             <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="#">Become a React Superhero</a></li>
-                                <li><a className="dropdown-item" href="#">Another book</a></li>
-                                <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                <li><a className="dropdown-item" href="/">Become a React Superhero</a></li>
+                                <li><a className="dropdown-item" href="/">Another book</a></li>
+                                <li><a className="dropdown-item" href="/">Something else here</a></li>
                                 <li>
                                     <hr className="dropdown-divider"></hr>
                                 </li>
-                                <li><a className="dropdown-item" href="#">Separated link</a></li>
+                                <li><a className="dropdown-item" href="/">Separated link</a></li>
                             </ul>
                         </div>
 
@@ -136,7 +136,7 @@ const TaskListWorkspace = () => {
                         </div>
                     </div>
 
-                    <div className="task m-1" draggable="true">
+                    <div className="task card m-1 flex-nowrap" draggable="true">
                         <div className="card-header">
                             <div className="d-flex">
                                 <div>PDF document generation</div>
@@ -158,7 +158,7 @@ const TaskListWorkspace = () => {
                         </div>
                     </div>
 
-                    <div className="task m-1" draggable="true">
+                    <div className="task card m-1  flex-nowrap" draggable="true">
                         <div className="card-header">
                             <div className="d-flex">
                                 <div>Tasks and lists renaming</div>
@@ -167,7 +167,7 @@ const TaskListWorkspace = () => {
                         </div>
                     </div>
 
-                    <div className="task m-1" draggable="true">
+                    <div className="task card m-1  flex-nowrap" draggable="true">
                         <div className="card-header">
                             <div className="d-flex">
                                 <div>Online payments</div>
@@ -186,7 +186,7 @@ const TaskListWorkspace = () => {
                         </div>
                     </div>
 
-                    <div className="task m-1" draggable="true">
+                    <div className="task card m-1 flex-nowrap" draggable="true">
                         <div className="container justify-content-center align-items-center">
                             <img src="/imgs/welding.jpg" className="card-img-top" alt="welding" />
                         </div>
@@ -209,7 +209,8 @@ const TaskListWorkspace = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="task m-1" draggable="true">
+
+                    <div className="task card m-1" draggable="true">
                         <div className="card-header">
                             <div className="d-flex">
                                 <div>PDF document generation</div>
@@ -231,10 +232,10 @@ const TaskListWorkspace = () => {
                         </div>
                     </div>
 
-                    <div className="task m-1" draggable="true">
+                    <div className="task card m-1  flex-nowrap" draggable="true">
                         <div className="container justify-content-center align-items-center">
 
-                            <img src="/imgs/asana-todolist.png.webp" className="card-img-top" alt="todo list image" />
+                            <img src="/imgs/asana-todolist.png.webp" className="card-img-top" alt="todo list" />
                         </div>
                         <div className="card-header">
                             <div className="d-flex">
@@ -275,7 +276,7 @@ const TaskListWorkspace = () => {
 
                     <div className="task m-1" draggable="true">
                         <div className="container justify-content-center align-items-center">
-                            <img src="/imgs/testing.png" className="card-img-top" alt="testing image" />
+                            <img src="/imgs/testing.png" className="card-img-top" alt="testing" />
                         </div>
                         <div className="card-header">
                             <div className="d-flex">

@@ -10,7 +10,7 @@ const BoardCard = ({ card }) => {
 
     return (
         <a className={"workspace-card webapp-card text-decoration-none " + text_color} href={card.href}>
-            <div className={"card " + text_color} id={card.id}
+            <div className={"board-card " + text_color} id={card.id}
                 style={{ background: bg_url }
                 }>
 

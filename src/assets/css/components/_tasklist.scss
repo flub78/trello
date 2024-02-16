@@ -21,6 +21,13 @@
     box-sizing: border-box;
 }
 
+.name-button,
+.task,
+.create-task {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
 
 .task {
     box-shadow: 1px 1px 2px 0px grey;
