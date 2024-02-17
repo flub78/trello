@@ -26,7 +26,34 @@ const Task = ({ task }) => {
             <div className="card-header">
                 <div className="d-flex">
                     <div> {task.name}</div>
-                    <i className="bi bi-pencil  modif-icon m-1" onClick={editTask}></i>
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i className="bi bi-pencil  modif-icon m-1" onClick={editTask}></i>
+                        </a>
+                        <ul className="dropdown-menu">
+                            <li><a className="dropdown-item" href="#">
+                                <i className="bi bi-card-image m-1"></i> Ouvrir la carte</a></li>
+
+                            <li><a className="dropdown-item" href="#">
+                                <i className="bi bi-tag m-1"></i>Modifier les étiquettes</a></li>
+
+                            <li><a className="dropdown-item" href="#">
+                                <i className="bi bi-people m-1"></i>Modifier les membres</a></li>
+
+                            <li><a clasNames="dropdown-item" href="#">
+                                <i className="bi bi-card-image m-1"></i> Modifier la couverture</a></li>
+
+                            <li><a clasNames="dropdown-item" href="#">
+                                <i className="bi bi-arrow-right m-1"></i>Déplacer</a></li>
+
+                            <li><a className="dropdown-item" href="#">
+                                <i className="bi bi-copy m-1"></i>Copier</a></li>
+
+                            <li><a className="dropdown-item" href="#">
+                                <i className="bi bi-trash3 m-1"></i>Supprimer</a></li>
+
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div className="task-body">
