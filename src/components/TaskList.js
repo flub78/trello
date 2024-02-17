@@ -14,17 +14,14 @@ const TaskList = ({ list }) => {
             <div className="list-name">
                 <div>{list.name}</div>
                 <div>
-
-                    <div className="dropdown show">
-                        <a className="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i className="bi bi-three-dots tasklist-menu-icon"></i>
-                        </a>
-
-                        <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a className="dropdown-item" href="#">Action</a>
-                            <a className="dropdown-item" href="#">Another action</a>
-                            <a className="dropdown-item" href="#">Something else here</a>
-                        </div>
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i
+                            class="bi bi-three-dots tasklist-menu-icon"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Ajouter une carte</a></li>
+                            <li><a class="dropdown-item" href="#">Déplacer</a></li>
+                            <li><a class="dropdown-item" href="#">Supprimer la liste</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
