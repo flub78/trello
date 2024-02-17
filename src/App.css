@@ -114,6 +114,15 @@ btn-4   workspace horizontal menu shopping
   background-color: #ffffff;
 }
 
+#tasklist-workspace {
+  background: url(../assets/imgs/code_editor.jpg) center/cover;
+}
+
+#internal-nav {
+  height: 68px;
+  background: url(../assets/imgs/code_editor_blurred.jpg) center/cover;
+}
+
 .user-icon {
   background: #FF991F !important;
   width: 30px;
