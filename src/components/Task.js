@@ -27,7 +27,7 @@ const Task = ({ task }) => {
                 <div className="d-flex">
                     <div> {task.name}</div>
                     <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <a class="nav-link " href="#" role="button" data-bs-toggle="dropdown">
                             <i className="bi bi-pencil  modif-icon m-1" onClick={editTask}></i>
                         </a>
                         <ul className="dropdown-menu">

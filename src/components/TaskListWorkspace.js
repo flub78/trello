@@ -150,7 +150,7 @@ const TaskListWorkspace = () => {
                             </li>
 
                             <li className="nav-item m-1  text-light">
-                                <i className="bi bi-filter  text-light"></i>
+                                <i className="bi bi-filter  text-light m-1"></i>
                                 Filtres
                             </li>
 
