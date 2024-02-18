@@ -19,6 +19,53 @@
             "href": "board/marly",
             "image": "IMG_20181118_152709.jpg",
             "theme": "dark"
+        },
+        {
+            "id": "forest",
+            "name": "Forest",
+            "description": "",
+            "favorite": false,
+            "recent": false,
+            "href": "board/forest",
+            "image": "IMG_20210425_145446.jpg",
+            "theme": "dark"
+        },
+        {
+            "id": "gvv",
+            "name": "GVV",
+            "description": "",
+            "favorite": true,
+            "recent": true,
+            "href": "board/gvv",
+            "image": "20230903_151040.jpg"
+        },
+        {
+            "id": "projects",
+            "name": "Projets persos",
+            "description": "",
+            "favorite": false,
+            "recent": false,
+            "href": "board/projects",
+            "image": "welding.jpg",
+            "theme": "dark"
+        },
+        {
+            "id": "devops",
+            "name": "DevOps",
+            "description": "",
+            "favorite": false,
+            "recent": false,
+            "href": "board/devops",
+            "image": "jenkins.GIF"
+        },
+        {
+            "id": "training",
+            "name": "Training",
+            "description": "",
+            "favorite": false,
+            "recent": true,
+            "href": "board/training",
+            "image": "training-concept-image.jpg"
         }
     ],
     "tasklist": [

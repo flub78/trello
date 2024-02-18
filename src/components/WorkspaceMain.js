@@ -13,87 +13,10 @@ const WorkspaceMain = () => {
      * Fetch boards from the API
      */
     React.useEffect(() => {
-        const url = 'http://localhost:3004/boards';
+        const url = 'http://localhost:3000/boards';
         axios.get(url)
             .then((res) => setBoardsData(res.data))
     }, []);
-
-    const webapp = {
-        id: "webapp",
-        name: "WEBAPP",
-        description: "Workspace Flub78",
-        favorite: true,
-        recent: true,
-        href: "board/webapp",
-        image: "code_editor.jpg",
-        theme: 'dark'
-    };
-
-    const marly = {
-        id: "marly",
-        name: "Marly",
-        description: "",
-        favorite: false,
-        recent: false,
-        href: "board/marly",
-        image: "IMG_20181118_152709.jpg",
-        theme: 'dark'
-    };
-
-    const forest = {
-        id: "forest",
-        name: "Forest",
-        description: "",
-        favorite: false,
-        recent: false,
-        href: "board/forest",
-        image: "IMG_20210425_145446.jpg",
-        theme: 'dark'
-    };
-
-    const gvv = {
-        id: "gvv",
-        name: "GVV",
-        description: "",
-        favorite: true,
-        recent: true,
-        href: "board/gvv",
-        image: "20230903_151040.jpg"
-    };
-
-    const projects = {
-        id: "projects",
-        name: "Projets persos",
-        description: "",
-        favorite: false,
-        recent: false,
-        href: "board/projects",
-        image: "welding.jpg",
-        theme: 'dark'
-    };
-
-    const devops = {
-        id: "devops",
-        name: "DevOps",
-        description: "",
-        favorite: false,
-        recent: false,
-        href: "board/devops",
-
-        image: "jenkins.GIF"
-    };
-
-    const training = {
-        id: "training",
-        name: "Training",
-        description: "",
-        favorite: false,
-        recent: true,
-        href: "board/training",
-        image: "training-concept-image.jpg"
-    };
-
-    const boards = [webapp, marly, forest, gvv, projects, devops, training];
 
     return (
         <div>
@@ -104,7 +27,7 @@ const WorkspaceMain = () => {
                             Tableaux Favoris</h5>
 
                         <div className="d-flex flex-wrap">
-                            {boards
+                            {boardsData
                                 .filter((board) => board.favorite)
                                 .map((board) => {
                                     return (<BoardCard card={board} />);
@@ -120,7 +43,7 @@ const WorkspaceMain = () => {
                         <h5><i className="fa-regular fa-clock m-1"></i>Recemmment consultés</h5>
                         <div className="workspace-card-container d-flex flex-wrap">
 
-                            {boards
+                            {boardsData
                                 .filter((board) => board.recent)
                                 .map((board) => {
                                     return (<BoardCard card={board} />);
@@ -151,7 +74,7 @@ const WorkspaceMain = () => {
                     </div>
                     <div className="workspace-card-container d-flex flex-wrap">
 
-                        {boards
+                        {boardsData
                             // .filter((board) => board.favorite)
                             // .sort((a, b) => b.date - a.date)
                             // .slice(0, rangeValue)
