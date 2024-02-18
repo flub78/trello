@@ -68,26 +68,41 @@
             "image": "training-concept-image.jpg"
         }
     ],
-    "tasklist": [
+    "lists": [
         {
             "id": "webapp",
-            "name": "WEBAPP",
-            "description": "Workspace Flub78",
-            "favorite": true,
-            "recent": true,
-            "href": "board/webapp",
-            "image": "code_editor.jpg",
-            "theme": "dark"
+            "list": [
+                {
+                    "id": "todo",
+                    "tasks": [
+                        {
+                            "id": "task1",
+                            "title": "Task 1",
+                            "description": "Description of task 1",
+                            "href": "task/task1",
+                            "image": "task1.jpg"
+                        },
+                        {
+                            "id": "task2",
+                            "title": "Task 2",
+                            "description": "Description of task 2",
+                            "href": "task/task2",
+                            "image": "task2.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": "inprogress",
+                    "tasks": []
+                },
+                {
+                    "id": "done",
+                    "tasks": []
+                }
+            ]
         },
         {
-            "id": "marly",
-            "name": "Marly",
-            "description": "",
-            "favorite": false,
-            "recent": false,
-            "href": "board/marly",
-            "image": "IMG_20181118_152709.jpg",
-            "theme": "dark"
+            "id": "marly"
         }
     ]
 }

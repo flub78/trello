@@ -48,7 +48,7 @@ const WorkspaceMain = () => {
                                 .map((board) => {
                                     return (<BoardCard card={board} />);
                                 })
-                            }>
+                            }
 
                         </div>
                     </div>
