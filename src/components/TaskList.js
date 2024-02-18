@@ -1,15 +1,24 @@
 import React from 'react';
 import Task from './Task';
 
+const closeAllPanels = () => {
+    const collection = document.getElementsByClassName("create-task-panel");
+    for (let element of collection) {
+        element.classList.add('absent');
+        element.classList.remove('present');
+    }
+}
+
 /**
  * When "Ajouter une carte" button is clicked, the create task panel is displayed
- * TODO: it should close other create task panels
  * @param {*} event 
  */
 const openCreateTaskPanel = (event) => {
     const target = event.target;
     const createTaskPanel = target.previousElementSibling;
     const textArea = createTaskPanel.querySelector('textarea');
+
+    closeAllPanels();
 
     target.classList.toggle('absent');
     target.classList.toggle('present');
@@ -19,8 +28,17 @@ const openCreateTaskPanel = (event) => {
     textArea.focus();
 }
 
-const validateCreateTask = () => {
-    console.log('validate create task');
+const validateCreateTask = (event) => {
+    const parent = event.target.parentElement;
+    const textArea = parent.querySelector('textarea');
+    const name = textArea.value;
+
+    if (name.length > 0) {
+        console.log('create task with name ' + name);
+    } else {
+        // console.log('task name is empty');
+        // nothing to do
+    }
 }
 
 /**
@@ -28,7 +46,6 @@ const validateCreateTask = () => {
  * @param {*} event 
  */
 const cancelCreateTask = (event) => {
-    console.log('cancel create task');
     const createTaskPanel = event.target.parentElement;
     const createTaskButton = createTaskPanel.nextElementSibling;
 
@@ -39,6 +56,11 @@ const cancelCreateTask = (event) => {
     createTaskPanel.classList.toggle('present');
 }
 
+/**
+ * The TaskList React component
+ * @param {*} param0 
+ * @returns 
+ */
 const TaskList = ({ list }) => {
 
     return (
@@ -66,7 +88,7 @@ const TaskList = ({ list }) => {
             }
 
             <div className="create-task-panel absent" >
-                <textarea className="m-1 p-1 w-100" type="text" placeholder="Saisissez un titre pour cette carte..." />
+                <textarea className="m-1 p-1 w-100 rounded" type="text" placeholder="Saisissez un titre pour cette carte..." />
                 <button className="btn btn-primary m-1" onClick={validateCreateTask}>
                     Ajouter une carte</button>
                 <i className="bi bi-x-lg m-1 cancel-create" onClick={cancelCreateTask}></i>

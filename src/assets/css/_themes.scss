@@ -112,7 +112,7 @@ btn-4   workspace horizontal menu shopping
 }
 
 .absent {
-    display: none !important;
+    display: none;
 }
 
 .cancel-create {
@@ -123,4 +123,8 @@ btn-4   workspace horizontal menu shopping
     &:hover {
         background-color: $grey-button-bg-hover;
     }
+}
+
+#list-name-input {
+    width: 97%;
 }
