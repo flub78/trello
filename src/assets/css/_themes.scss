@@ -106,3 +106,21 @@ btn-4   workspace horizontal menu shopping
     height: 68px;
     background: url(../assets/imgs/code_editor_blurred.jpg) center/cover;
 }
+
+.present {
+    display: block;
+}
+
+.absent {
+    display: none !important;
+}
+
+.cancel-create {
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $grey-button-bg-hover;
+    }
+}

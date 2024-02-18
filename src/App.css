@@ -123,6 +123,23 @@ btn-4   workspace horizontal menu shopping
   background: url(../assets/imgs/code_editor_blurred.jpg) center/cover;
 }
 
+.present {
+  display: block;
+}
+
+.absent {
+  display: none !important;
+}
+
+.cancel-create {
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.cancel-create:hover {
+  background-color: #d4d7de;
+}
+
 .user-icon {
   background: #FF991F !important;
   width: 30px;
