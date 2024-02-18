@@ -1,0 +1,46 @@
+{
+    "boards": [
+        {
+            "id:": "webapp",
+            "name": "WEBAPP",
+            "description": "Workspace Flub78",
+            "favorite": true,
+            "recent": true,
+            "href": "board/webapp",
+            "image": "code_editor.jpg",
+            "theme": "dark"
+        },
+        {
+            "id": "marly",
+            "name": "Marly",
+            "description": "",
+            "favorite": false,
+            "recent": false,
+            "href": "board/marly",
+            "image": "IMG_20181118_152709.jpg",
+            "theme": "dark"
+        }
+    ],
+    "tasklist": [
+        {
+            "id": "webapp",
+            "name": "WEBAPP",
+            "description": "Workspace Flub78",
+            "favorite": true,
+            "recent": true,
+            "href": "board/webapp",
+            "image": "code_editor.jpg",
+            "theme": "dark"
+        },
+        {
+            "id": "marly",
+            "name": "Marly",
+            "description": "",
+            "favorite": false,
+            "recent": false,
+            "href": "board/marly",
+            "image": "IMG_20181118_152709.jpg",
+            "theme": "dark"
+        }
+    ]
+}

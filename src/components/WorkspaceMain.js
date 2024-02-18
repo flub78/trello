@@ -1,10 +1,22 @@
 import React from 'react';
 import BoardCard from './BoardCard';
+import axios from 'axios';
 
 /**
  * DONE: style for try-it
  */
 const WorkspaceMain = () => {
+
+    const [boardsData, setBoardsData] = React.useState([]);
+
+    /**
+     * Fetch boards from the API
+     */
+    React.useEffect(() => {
+        const url = 'http://localhost:3004/boards';
+        axios.get(url)
+            .then((res) => setBoardsData(res.data))
+    }, []);
 
     const webapp = {
         id: "webapp",
@@ -148,7 +160,7 @@ const WorkspaceMain = () => {
                             })
                         }
 
-                        <div className="workspace-card create-card card">
+                        <div className="board-card create-card btn-1">
                             <h6>Créer un tableau</h6>
                             <p>1 restant(s)</p>
                             <i className="fa-regular fa-circle-question icon button-icon bottom-right-icon"></i>
