@@ -1,5 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom'
+import axios from 'axios';
+
 
 import Navbar from '../components/Navbar';
 import BoardLeftPanel from '../components/BoardLeftPanel';
@@ -28,11 +30,20 @@ const BoardPage = () => {
      */
     const board_name = capitalize(window.location.href.split('/').pop().replace('#', ''));
 
-    console.log('board_page', board_name);
+    const [boardsData, setBoardsData] = React.useState([]);
+
+    /**
+     * Fetch boards from the API
+     */
+    React.useEffect(() => {
+        const url = 'http://localhost:3000/boards';
+        axios.get(url)
+            .then((res) => setBoardsData(res.data))
+    }, []);
 
     return (
         <div>
-            <Navbar theme="dark" />
+            <Navbar theme="dark" boardsData={boardsData} />
 
             <section id="main-tasklist" className="container-fluid row flex-nowrap g-0" style={{ height: 'calc(100vh - 64px)' }}>
                 <BoardLeftPanel />

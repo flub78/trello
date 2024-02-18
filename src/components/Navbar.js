@@ -1,8 +1,9 @@
 import React from 'react';
 import NavbarButton from './NavbarButton';
+import ThumbnailEntry from './ThumbnailEntry';
 
 // 
-const Navbar = ({ theme }) => {
+const Navbar = ({ theme, boardsData }) => {
 
     // let theme = "dark";
 
@@ -44,16 +45,26 @@ const Navbar = ({ theme }) => {
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Récents</a>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">Marly</a></li>
-                                    <li><a className="dropdown-item" href="#">Projets persos</a></li>
-                                    <li><a className="dropdown-item" href="#">gvv</a></li>
+
+                                    {boardsData
+                                        .filter((board) => board.recent)
+                                        .map((board) => {
+                                            return (<ThumbnailEntry card={board} />);
+                                        })
+                                    }
                                 </ul>
                             </li>
 
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Favoris</a>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">WEBAPP</a></li>
+
+                                    {boardsData
+                                        .filter((board) => board.favorite)
+                                        .map((board) => {
+                                            return (<ThumbnailEntry card={board} />);
+                                        })
+                                    }
                                 </ul>
                             </li>
 

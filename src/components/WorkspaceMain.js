@@ -2,21 +2,8 @@ import React from 'react';
 import BoardCard from './BoardCard';
 import axios from 'axios';
 
-/**
- * DONE: style for try-it
- */
-const WorkspaceMain = () => {
 
-    const [boardsData, setBoardsData] = React.useState([]);
-
-    /**
-     * Fetch boards from the API
-     */
-    React.useEffect(() => {
-        const url = 'http://localhost:3000/boards';
-        axios.get(url)
-            .then((res) => setBoardsData(res.data))
-    }, []);
+const WorkspaceMain = ({ boardsData }) => {
 
     return (
         <div>
