@@ -2,15 +2,15 @@ import React from 'react';
 import { useParams } from 'react-router-dom'
 
 import Navbar from '../components/Navbar';
-import TaskListLeftPanel from '../components/TaskListLeftPanel';
-import TaskListWorkspace from '../components/TaskListWorkspace';
+import BoardLeftPanel from '../components/BoardLeftPanel';
+import BoardWorkspace from '../components/BoardWorkspace';
 
 const capitalize = (s) => {
     if (typeof s !== 'string') return ''
     return s.charAt(0).toUpperCase() + s.slice(1)
 }
 
-const TaskListPage = () => {
+const BoardPage = () => {
 
     // const { handle } = useParams()
 
@@ -23,11 +23,11 @@ const TaskListPage = () => {
             <Navbar theme="dark" />
 
             <section id="main-tasklist" className="container-fluid row flex-nowrap g-0" style={{ height: 'calc(100vh - 64px)' }}>
-                <TaskListLeftPanel />
-                <TaskListWorkspace brd={{ name: board_name }} />
+                <BoardLeftPanel />
+                <BoardWorkspace brd={{ name: board_name }} />
             </section>
         </div>
     );
 };
 
-export default TaskListPage;
+export default BoardPage;

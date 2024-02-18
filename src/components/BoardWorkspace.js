@@ -17,7 +17,7 @@ const toggleSidebar = () => {
     openButton.classList.toggle("hidden");
 }
 
-const TaskListWorkspace = () => {
+const BoardWorkspace = () => {
 
     const cg = {
         name: 'Code generator',
@@ -219,4 +219,4 @@ const TaskListWorkspace = () => {
     );
 };
 
-export default TaskListWorkspace;
+export default BoardWorkspace;

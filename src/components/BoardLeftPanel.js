@@ -16,7 +16,7 @@ const toggleSidebar = () => {
     openButton.classList.toggle("hidden");
 }
 
-const TaskListLeftPanel = () => {
+const BoardLeftPanel = () => {
     return (
 
         <div id="left-sidebar" className="col-2 open-sidebar d-flex flex-column justify-content-between">
@@ -181,4 +181,4 @@ const TaskListLeftPanel = () => {
     );
 };
 
-export default TaskListLeftPanel;
+export default BoardLeftPanel;
