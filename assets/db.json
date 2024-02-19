@@ -70,39 +70,75 @@
     ],
     "lists": [
         {
-            "id": "webapp",
-            "list": [
-                {
-                    "id": "todo",
-                    "tasks": [
-                        {
-                            "id": "task1",
-                            "title": "Task 1",
-                            "description": "Description of task 1",
-                            "href": "task/task1",
-                            "image": "task1.jpg"
-                        },
-                        {
-                            "id": "task2",
-                            "title": "Task 2",
-                            "description": "Description of task 2",
-                            "href": "task/task2",
-                            "image": "task2.jpg"
-                        }
-                    ]
-                },
-                {
-                    "id": "inprogress",
-                    "tasks": []
-                },
-                {
-                    "id": "done",
-                    "tasks": []
-                }
+            "id": "todo",
+            "board": "webapp",
+            "name": "Backlog"
+        },
+        {
+            "id": "inprogress" ,
+            "board": "webapp",
+            "name": "In progress"
+        },
+        {
+            "id": "done" ,
+            "board": "webapp",
+            "name": "Done"
+        }        
+    ],
+    "tasks": [
+        {
+            "id": "1",
+            "list": "todo",
+            "board": "webapp",
+            "watched": true,
+            "name": "PDF document generation",
+            "description": "Generate PDF file",
+            "href": "/code-generator",
+            "dueDate": "2021-05-01",
+            "color_tags": ["bg-danger", "bg-primary", "bg-success"],
+            "comments": [
+                { "text": "Comment 1" }, 
+                { "text": "Comment 2" }, 
+                {"text": "Comment 3" }],
+            "checklist": [
+                { "title": "subtask 1", "checked": false }, 
+                { "title": "Comment 2", "checked": false }, 
+                {"title": "Subtask 3", "checked": true },
+                { "title": "Subtask 1", "checked": false }, 
+                { "title": "Subtask 2", "checked": true }
             ]
         },
         {
-            "id": "marly"
+            "id": "2",
+            "list": "todo",
+            "board": "webapp",
+            "watched": true,
+            "name": "Tasks and lists renaming",
+            "dueDate": "2021-05-01"
+        },
+        {
+            "id": "2",
+            "list": "1",
+            "name": "Task 2",
+            "description": "Description of task 2",
+            "dueDate": "2021-05-01",
+            "labels": ["#webapp", "#backlog"]
+        },
+        {
+            "id": "3",
+            "list": "todo",
+            "name": "Online payments",
+            "description": "Support CB and Paypal paiements",
+            "dueDate": "2021-05-01",
+            "color_tags": ["bg-warning", "bg-black"]
+        },
+        {
+            "id": "4",
+            "list": "2",
+            "name": "Task 4",
+            "description": "Description of task 4",
+            "dueDate": "2021-05-01",
+            "labels": ["#webapp", "#inprogress"]
         }
     ]
 }
