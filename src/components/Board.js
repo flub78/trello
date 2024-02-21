@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+
 import TaskList from './TaskList';
 
 const openCreateListPanel = (event) => {
@@ -44,16 +46,37 @@ const cancelCreateList = (event) => {
     createTaskPanel.classList.toggle('present');
 }
 
-const Board = ({ board }) => {
+const Board = ({ board, board_name }) => {
+
+    console.log('Board component');
+    console.log(board_name.toLowerCase());
+    console.log(board);
+    const [lists, setLists] = React.useState([]);
+
+    /**
+     * Fetch lists from the API
+     */
+    React.useEffect(() => {
+        const url = 'http://localhost:3000/lists?board=' + board_name.toLowerCase();
+        console.log('url = ' + url);
+        axios.get(url)
+            .then((res) => setLists(res.data))
+    }, [board_name]);
+
+    console.log("Lists:");
+    console.log(lists);
+
     return (
 
         <section id="list-main-area" className="d-flex overflow-auto " style={{ height: 'calc(100% - 58px)' }}
             ondrop="dropList(event)" ondragover="allowDrop(event)">
 
+            {/* All the task lists */}
             {board.map((list, index) => {
                 return <TaskList key={index} list={list} />
             })}
 
+            {/* Create list button */}
             <div className="tsk-list" style={{ min_width: '275px', max_width: '275px' }}>
 
                 <div className="task-list create-task-panel absent" >

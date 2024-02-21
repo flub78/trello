@@ -70,20 +70,40 @@
     ],
     "lists": [
         {
-            "id": "todo",
+            "id": "1",
             "board": "webapp",
             "name": "Backlog"
         },
         {
-            "id": "inprogress" ,
+            "id": "2" ,
             "board": "webapp",
             "name": "In progress"
         },
         {
-            "id": "done" ,
+            "id": "3" ,
             "board": "webapp",
             "name": "Done"
-        }        
+        },
+        {
+            "id": "4",
+            "board": "gvv",
+            "name": "Backlog"
+        },
+        {
+            "id": "5" ,
+            "board": "gvv",
+            "name": "In progress"
+        },
+        {
+            "id": "6" ,
+            "board": "gvv",
+            "name": "Done"
+        },
+        {
+            "id": "7" ,
+            "board": "gvv",
+            "name": "Bugs"
+        }                        
     ],
     "tasks": [
         {

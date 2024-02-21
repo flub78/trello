@@ -213,7 +213,7 @@ const BoardWorkspace = ({ brd }) => {
                 </div>
             </div>
 
-            <Board board={board} />
+            <Board board={board} board_name={brd.name} />
 
         </div >
     );
