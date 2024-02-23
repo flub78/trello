@@ -45,7 +45,7 @@ const BoardPage = () => {
             <Navbar theme="dark" boardsData={boardsData} />
 
             <section id="main-tasklist" className="container-fluid row flex-nowrap g-0" style={{ height: 'calc(100vh - 64px)' }}>
-                <BoardLeftPanel />
+                <BoardLeftPanel theme="dark" boardsData={boardsData} />
                 <BoardWorkspace brd={{ name: board_name }} />
             </section>
         </div>

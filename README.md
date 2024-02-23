@@ -16,5 +16,5 @@ The development server can be started with
 npx json-server .\assets\db.json
 
 http://localhost:3004/boards
-http://localhost:3004/tasklist/
-http://localhost:3004/tasklist/webapp
+http://localhost:3004/lists/
+http://localhost:3004/tasks

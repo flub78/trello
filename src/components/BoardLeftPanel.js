@@ -1,4 +1,6 @@
 import React from 'react';
+import ThumbnailEntry from './ThumbnailEntry';
+
 
 const toggleSidebar = () => {
     console.log('CloseSidebar');
@@ -16,7 +18,7 @@ const toggleSidebar = () => {
     openButton.classList.toggle("hidden");
 }
 
-const BoardLeftPanel = () => {
+const BoardLeftPanel = ({ theme, boardsData }) => {
     return (
 
         <div id="left-sidebar" className="col-2 open-sidebar d-flex flex-column justify-content-between">
@@ -109,6 +111,12 @@ const BoardLeftPanel = () => {
                             <i className="bi bi-plus-lg m-1 p-1 me-2 text-light"></i>
                         </div>
                         <ul className="table-list">
+
+                            {boardsData
+                                .map((board, index) => {
+                                    return (<ThumbnailEntry card={board} key={"recent_" + index} />);
+                                })
+                            }
 
                             <li>
                                 <div className="table-button d-flex flex-start">
