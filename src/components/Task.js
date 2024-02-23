@@ -40,10 +40,10 @@ const Task = ({ task }) => {
                             <li><a className="dropdown-item" href="#">
                                 <i className="bi bi-people m-1"></i>Modifier les membres</a></li>
 
-                            <li><a clasNames="dropdown-item" href="#">
+                            <li><a className="dropdown-item" href="#">
                                 <i className="bi bi-card-image m-1"></i> Modifier la couverture</a></li>
 
-                            <li><a clasNames="dropdown-item" href="#">
+                            <li><a className="dropdown-item" href="#">
                                 <i className="bi bi-arrow-right m-1"></i>Déplacer</a></li>
 
                             <li><a className="dropdown-item" href="#">
