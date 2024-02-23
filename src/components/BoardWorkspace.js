@@ -19,77 +19,8 @@ const toggleSidebar = () => {
 
 const BoardWorkspace = ({ brd }) => {
 
-    const cg = {
-        name: 'Code generator',
-        description: 'Generate code for your project',
-        image: 'welding.jpg',
-        href: '/code-generator',
-        watched: true,
-        check_list: [{ title: "subtask 1", checked: true },
-        { title: "subtask 2", checked: false },
-        { title: "subtask 3", checked: true },
-        { title: "subtask 4", checked: false },
-        { title: "subtask 5", checked: true }],
-        color_tags: ['bg-warning', 'bg-dark'],
-        comments: [{ text: "Comment 1" }, { text: "Comment 2" }, { text: "Comment 3" }]
-    };
 
-    const pdf = {
-        name: 'PDF document generation',
-        href: '/code-generator',
-        description: 'Generate PDF file',
-        watched: true,
-        check_list: [{ title: "subtask 1", checked: false },
-        { title: "subtask 2", checked: false },
-        { title: "subtask 3", checked: true },
-        { title: "subtask 4", checked: false },
-        { title: "subtask 5", checked: true }],
-
-        color_tags: ['bg-danger', 'bg-primary', 'bg-success'],
-        comments: [{ text: "Comment 1" }, { text: "Comment 2" }, { text: "Comment 3" }]
-    };
-
-    const renaming = {
-        name: 'Tasks and lists renaming'
-    };
-
-    const payments = {
-        name: 'Online payments',
-        description: 'SUpport CB and Paypal paiements',
-        color_tags: ['bg-warning', 'bg-black']
-
-    };
-
-    const calendar = {
-        name: 'Calendar events repetition',
-        image: 'asana-todolist.png.webp'
-    };
-
-    const trello = {
-        name: 'Trello like look and feel',
-    };
-
-    const testing = {
-        name: 'Email generation',
-        image: 'testing.png'
-    };
-
-    const todo = {
-        name: 'Todo',
-        tasks: [pdf, renaming, payments, cg, calendar]
-    };
-
-    const in_progress = {
-        name: 'In Progress',
-        tasks: []
-    };
-
-    const done = {
-        name: 'Done',
-        tasks: [trello, testing]
-    };
-
-    const board = [todo, in_progress, done];
+    const board = [];
 
     return (
 

@@ -89,7 +89,7 @@
             { "text": "Comment 2" },
             { "text": "Comment 3" }
           ],
-          "checklist": [
+          "check_list": [
             { "title": "subtask 1", "checked": false },
             { "title": "Comment 2", "checked": false },
             { "title": "Subtask 3", "checked": true },
@@ -106,14 +106,6 @@
           "dueDate": "2021-05-01"
         },
         {
-          "id": "2",
-          "list": "1",
-          "name": "Task 2",
-          "description": "Description of task 2",
-          "dueDate": "2021-05-01",
-          "labels": ["#webapp", "#backlog"]
-        },
-        {
           "id": "3",
           "list": "todo",
           "name": "Online payments",
@@ -123,11 +115,34 @@
         },
         {
           "id": "4",
-          "list": "2",
-          "name": "Task 4",
-          "description": "Description of task 4",
+          "list": "todo",
+          "name": "Code generator",
+          "description": "Mustache code generator based on metadata",
+          "image": "welding.jpg",
+          "href": "/code-generator",
           "dueDate": "2021-05-01",
-          "labels": ["#webapp", "#inprogress"]
+          "labels": ["#webapp", "#inprogress"],
+          "watched": true,
+          "comments": [
+            { "text": "Comment 1" },
+            { "text": "Comment 2" },
+            { "text": "Comment 3" }
+          ],
+          "check_list": [
+            { "title": "subtask 1", "checked": false },
+            { "title": "Comment 2", "checked": true },
+            { "title": "Subtask 3", "checked": true },
+            { "title": "Subtask 1", "checked": false },
+            { "title": "Subtask 2", "checked": true }
+          ]
+        },
+        {
+          "id": "5",
+          "list": "todo",
+          "name": "Calendar events repetition",
+          "image": "asana-todolist.png.webp",
+          "dueDate": "2021-05-01",
+          "color_tags": ["bg-primary", "bg-success"]
         }
       ]
     },
@@ -141,7 +156,24 @@
       "id": "3",
       "board": "webapp",
       "name": "Done",
-      "tasks": []
+      "tasks": [
+        {
+          "id": "3",
+          "list": "todo",
+          "name": "Trello look and feel",
+          "description": "Same look than Trello",
+          "dueDate": "2021-05-01"
+        },
+        {
+          "id": "3",
+          "list": "Done",
+          "image": "testing.png",
+          "name": "Test email generation",
+          "description": "Support CB and Paypal paiements",
+          "dueDate": "2021-05-01",
+          "color_tags": ["bg-warning", "bg-secondary"]
+        }
+      ]
     },
     {
       "id": "4",
