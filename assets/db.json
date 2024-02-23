@@ -1,164 +1,228 @@
 {
-    "boards": [
+  "boards": [
+    {
+      "id:": "webapp",
+      "name": "WEBAPP",
+      "description": "Workspace Flub78",
+      "favorite": true,
+      "recent": true,
+      "href": "/board/webapp",
+      "image": "code_editor.jpg",
+      "theme": "dark"
+    },
+    {
+      "id": "marly",
+      "name": "Marly",
+      "description": "",
+      "favorite": false,
+      "recent": false,
+      "href": "/board/marly",
+      "image": "IMG_20181118_152709.jpg",
+      "theme": "dark"
+    },
+    {
+      "id": "forest",
+      "name": "Forest",
+      "description": "",
+      "favorite": false,
+      "recent": false,
+      "href": "/board/forest",
+      "image": "IMG_20210425_145446.jpg",
+      "theme": "dark"
+    },
+    {
+      "id": "gvv",
+      "name": "GVV",
+      "description": "",
+      "favorite": true,
+      "recent": true,
+      "href": "/board/gvv",
+      "image": "20230903_151040.jpg"
+    },
+    {
+      "id": "projects",
+      "name": "Projets persos",
+      "description": "",
+      "favorite": false,
+      "recent": false,
+      "href": "/board/projects",
+      "image": "welding.jpg",
+      "theme": "dark"
+    },
+    {
+      "id": "devops",
+      "name": "DevOps",
+      "description": "",
+      "favorite": false,
+      "recent": false,
+      "href": "/board/devops",
+      "image": "jenkins.GIF"
+    },
+    {
+      "id": "training",
+      "name": "Training",
+      "description": "",
+      "favorite": false,
+      "recent": true,
+      "href": "/board/training",
+      "image": "training-concept-image.jpg"
+    }
+  ],
+  "lists": [
+    {
+      "id": "1",
+      "board": "webapp",
+      "name": "Backlog",
+      "tasks": [
         {
-            "id:": "webapp",
-            "name": "WEBAPP",
-            "description": "Workspace Flub78",
-            "favorite": true,
-            "recent": true,
-            "href": "/board/webapp",
-            "image": "code_editor.jpg",
-            "theme": "dark"
+          "id": "1",
+          "list": "todo",
+          "board": "webapp",
+          "watched": true,
+          "name": "PDF document generation",
+          "description": "Generate PDF file",
+          "href": "/code-generator",
+          "dueDate": "2021-05-01",
+          "color_tags": ["bg-danger", "bg-primary", "bg-success"],
+          "comments": [
+            { "text": "Comment 1" },
+            { "text": "Comment 2" },
+            { "text": "Comment 3" }
+          ],
+          "checklist": [
+            { "title": "subtask 1", "checked": false },
+            { "title": "Comment 2", "checked": false },
+            { "title": "Subtask 3", "checked": true },
+            { "title": "Subtask 1", "checked": false },
+            { "title": "Subtask 2", "checked": true }
+          ]
         },
         {
-            "id": "marly",
-            "name": "Marly",
-            "description": "",
-            "favorite": false,
-            "recent": false,
-            "href": "/board/marly",
-            "image": "IMG_20181118_152709.jpg",
-            "theme": "dark"
+          "id": "2",
+          "list": "todo",
+          "board": "webapp",
+          "watched": true,
+          "name": "Tasks and lists renaming",
+          "dueDate": "2021-05-01"
         },
         {
-            "id": "forest",
-            "name": "Forest",
-            "description": "",
-            "favorite": false,
-            "recent": false,
-            "href": "/board/forest",
-            "image": "IMG_20210425_145446.jpg",
-            "theme": "dark"
+          "id": "2",
+          "list": "1",
+          "name": "Task 2",
+          "description": "Description of task 2",
+          "dueDate": "2021-05-01",
+          "labels": ["#webapp", "#backlog"]
         },
         {
-            "id": "gvv",
-            "name": "GVV",
-            "description": "",
-            "favorite": true,
-            "recent": true,
-            "href": "/board/gvv",
-            "image": "20230903_151040.jpg"
+          "id": "3",
+          "list": "todo",
+          "name": "Online payments",
+          "description": "Support CB and Paypal paiements",
+          "dueDate": "2021-05-01",
+          "color_tags": ["bg-warning", "bg-black"]
         },
         {
-            "id": "projects",
-            "name": "Projets persos",
-            "description": "",
-            "favorite": false,
-            "recent": false,
-            "href": "/board/projects",
-            "image": "welding.jpg",
-            "theme": "dark"
-        },
-        {
-            "id": "devops",
-            "name": "DevOps",
-            "description": "",
-            "favorite": false,
-            "recent": false,
-            "href": "/board/devops",
-            "image": "jenkins.GIF"
-        },
-        {
-            "id": "training",
-            "name": "Training",
-            "description": "",
-            "favorite": false,
-            "recent": true,
-            "href": "/board/training",
-            "image": "training-concept-image.jpg"
+          "id": "4",
+          "list": "2",
+          "name": "Task 4",
+          "description": "Description of task 4",
+          "dueDate": "2021-05-01",
+          "labels": ["#webapp", "#inprogress"]
         }
-    ],
-    "lists": [
-        {
-            "id": "1",
-            "board": "webapp",
-            "name": "Backlog"
-        },
-        {
-            "id": "2" ,
-            "board": "webapp",
-            "name": "In progress"
-        },
-        {
-            "id": "3" ,
-            "board": "webapp",
-            "name": "Done"
-        },
-        {
-            "id": "4",
-            "board": "gvv",
-            "name": "Backlog"
-        },
-        {
-            "id": "5" ,
-            "board": "gvv",
-            "name": "In progress"
-        },
-        {
-            "id": "6" ,
-            "board": "gvv",
-            "name": "Done"
-        },
-        {
-            "id": "7" ,
-            "board": "gvv",
-            "name": "Bugs"
-        }                        
-    ],
-    "tasks": [
-        {
-            "id": "1",
-            "list": "todo",
-            "board": "webapp",
-            "watched": true,
-            "name": "PDF document generation",
-            "description": "Generate PDF file",
-            "href": "/code-generator",
-            "dueDate": "2021-05-01",
-            "color_tags": ["bg-danger", "bg-primary", "bg-success"],
-            "comments": [
-                { "text": "Comment 1" }, 
-                { "text": "Comment 2" }, 
-                {"text": "Comment 3" }],
-            "checklist": [
-                { "title": "subtask 1", "checked": false }, 
-                { "title": "Comment 2", "checked": false }, 
-                {"title": "Subtask 3", "checked": true },
-                { "title": "Subtask 1", "checked": false }, 
-                { "title": "Subtask 2", "checked": true }
-            ]
-        },
-        {
-            "id": "2",
-            "list": "todo",
-            "board": "webapp",
-            "watched": true,
-            "name": "Tasks and lists renaming",
-            "dueDate": "2021-05-01"
-        },
-        {
-            "id": "2",
-            "list": "1",
-            "name": "Task 2",
-            "description": "Description of task 2",
-            "dueDate": "2021-05-01",
-            "labels": ["#webapp", "#backlog"]
-        },
-        {
-            "id": "3",
-            "list": "todo",
-            "name": "Online payments",
-            "description": "Support CB and Paypal paiements",
-            "dueDate": "2021-05-01",
-            "color_tags": ["bg-warning", "bg-black"]
-        },
-        {
-            "id": "4",
-            "list": "2",
-            "name": "Task 4",
-            "description": "Description of task 4",
-            "dueDate": "2021-05-01",
-            "labels": ["#webapp", "#inprogress"]
-        }
-    ]
+      ]
+    },
+    {
+      "id": "2",
+      "board": "webapp",
+      "name": "In progress",
+      "tasks": []
+    },
+    {
+      "id": "3",
+      "board": "webapp",
+      "name": "Done",
+      "tasks": []
+    },
+    {
+      "id": "4",
+      "board": "gvv",
+      "name": "Backlog",
+      "tasks": []
+    },
+    {
+      "id": "5",
+      "board": "gvv",
+      "name": "In progress",
+      "tasks": []
+    },
+    {
+      "id": "6",
+      "board": "gvv",
+      "name": "Done",
+      "tasks": []
+    },
+    {
+      "id": "7",
+      "board": "gvv",
+      "name": "Bugs",
+      "tasks": []
+    }
+  ],
+  "tasks": [
+    {
+      "id": "1",
+      "list": "todo",
+      "board": "webapp",
+      "watched": true,
+      "name": "PDF document generation",
+      "description": "Generate PDF file",
+      "href": "/code-generator",
+      "dueDate": "2021-05-01",
+      "color_tags": ["bg-danger", "bg-primary", "bg-success"],
+      "comments": [
+        { "text": "Comment 1" },
+        { "text": "Comment 2" },
+        { "text": "Comment 3" }
+      ],
+      "checklist": [
+        { "title": "subtask 1", "checked": false },
+        { "title": "Comment 2", "checked": false },
+        { "title": "Subtask 3", "checked": true },
+        { "title": "Subtask 1", "checked": false },
+        { "title": "Subtask 2", "checked": true }
+      ]
+    },
+    {
+      "id": "2",
+      "list": "todo",
+      "board": "webapp",
+      "watched": true,
+      "name": "Tasks and lists renaming",
+      "dueDate": "2021-05-01"
+    },
+    {
+      "id": "2",
+      "list": "1",
+      "name": "Task 2",
+      "description": "Description of task 2",
+      "dueDate": "2021-05-01",
+      "labels": ["#webapp", "#backlog"]
+    },
+    {
+      "id": "3",
+      "list": "todo",
+      "name": "Online payments",
+      "description": "Support CB and Paypal paiements",
+      "dueDate": "2021-05-01",
+      "color_tags": ["bg-warning", "bg-black"]
+    },
+    {
+      "id": "4",
+      "list": "2",
+      "name": "Task 4",
+      "description": "Description of task 4",
+      "dueDate": "2021-05-01",
+      "labels": ["#webapp", "#inprogress"]
+    }
+  ]
 }

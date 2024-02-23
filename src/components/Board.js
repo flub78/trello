@@ -3,6 +3,10 @@ import axios from 'axios';
 
 import TaskList from './TaskList';
 
+/**
+ * Create list has been clicked, open the list creation panel
+ * @param {*} event 
+ */
 const openCreateListPanel = (event) => {
     console.log('open create list panel');
 
@@ -18,6 +22,10 @@ const openCreateListPanel = (event) => {
     textArea.focus();
 }
 
+/**
+ * The user has provided a list name to create
+ * @param {*} event 
+ */
 const validateCreateList = (event) => {
     const parent = event.target.parentElement;
     const textArea = parent.querySelector('textarea');
@@ -46,6 +54,11 @@ const cancelCreateList = (event) => {
     createTaskPanel.classList.toggle('present');
 }
 
+/**
+ * Board React component
+ * @param {*} param0 
+ * @returns 
+ */
 const Board = ({ board, board_name }) => {
 
     console.log('Board component ' + board_name.toLowerCase());
@@ -63,16 +76,24 @@ const Board = ({ board, board_name }) => {
     }, [board_name]);
 
     console.log("Lists:");
-    console.log(lists);
+    lists.map((list) => {
+        console.log(list);
+        return null;
+    });
+    // console.log(lists);
 
     return (
 
-        <section id="list-main-area" className="d-flex overflow-auto " style={{ height: 'calc(100% - 58px)' }}>
+        <section id="list-main-area" className="d-flex flex-nowrap " style={{ height: 'calc(100% - 58px)' }}>
 
             {/* All the task lists */}
             {board.map((list, index) => {
                 return <TaskList key={index} list={list} />
             })}
+            {lists?.map((list, index) => {
+                return <TaskList key={"tl_" + index} list={list} />
+            })
+            }
 
             {/* Create list button */}
             <div className="tsk-list" style={{ min_width: '275px', max_width: '275px' }}>

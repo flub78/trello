@@ -195,7 +195,7 @@ const BoardWorkspace = ({ brd }) => {
                         <div className="btn-group">
                             <button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
                                 aria-expanded="false">
-                                Choose a book title
+                                Choose Something
                             </button>
                             <ul className="dropdown-menu">
                                 <li><a className="dropdown-item" href="/">Become a React Superhero</a></li>

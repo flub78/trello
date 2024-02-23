@@ -17,7 +17,7 @@ const ThumbnailEntry = (props) => {
                     <a className={"workspace-card webapp-card text-decoration-none " + theme} href={props.card.href}>
 
                         <div className="d-flex align-items-center">
-                            <div className={"small-thumbnail ms-3"} style={{ background: bg_url }}></div>
+                            <div className={"small-thumbnail ms-2"} style={{ background: bg_url }}></div>
                             <div className="table-name font-weight-bold m-2 ">{props.card.name}</div>
 
                         </div>
