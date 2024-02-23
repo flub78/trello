@@ -256,6 +256,11 @@ nav #right-menu .button-icon:hover {
   height: 30px;
 }
 
+.small-thumbnail {
+  width: 25px;
+  height: 25px;
+}
+
 .task-list {
   background: #F1F2F4;
   padding: 10px;

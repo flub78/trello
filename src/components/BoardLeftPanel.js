@@ -114,62 +114,10 @@ const BoardLeftPanel = ({ theme, boardsData }) => {
 
                             {boardsData
                                 .map((board, index) => {
-                                    return (<ThumbnailEntry card={board} key={"recent_" + index} />);
+                                    return (<ThumbnailEntry card={board} key={"recent_" + index} theme={"text-light"} sidebar={true} />);
                                 })
                             }
 
-                            <li>
-                                <div className="table-button d-flex flex-start">
-                                    <div className="d-flex">
-                                        <div className="table-thumbnail forest-card"></div>
-                                        <div className="table-name">Forest</div>
-
-                                    </div>
-                                    <div>
-                                        <i className="bi bi-three-dots m-1"></i>
-                                        <i className="bi  bi-star m-1"></i>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div className="table-button d-flex flex-start">
-                                    <div className="d-flex">
-                                        <div className="table-thumbnail marly-card"></div>
-                                        <div className="table-name">Marly</div>
-                                    </div>
-                                    <div>
-                                        <i className="bi bi-three-dots m-1"></i>
-                                        <i className="bi  bi-star m-1"></i>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div className="table-button d-flex flex-start">
-                                    <div className="d-flex">
-                                        <div className="table-thumbnail gvv-card"></div>
-                                        <div className="table-name">GVV</div>
-                                    </div>
-                                    <div>
-                                        <i className="bi bi-three-dots m-1"></i>
-                                        <i className="bi  bi-star m-1"></i>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div className="table-button d-flex flex-start">
-                                    <div className="d-flex">
-                                        <div className="table-thumbnail webapp-card"></div>
-                                        <div className="table-name">WEBAPP</div>
-                                    </div>
-                                    <div>
-                                        <i className="bi bi-three-dots m-1"></i>
-                                        <i className="bi  bi-star m-1"></i>
-                                    </div>
-                                </div>
-                            </li>
                         </ul>
                     </div>
                     <div id="left-sidebar-menu-tables">
