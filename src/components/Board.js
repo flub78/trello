@@ -59,10 +59,8 @@ const cancelCreateList = (event) => {
  * @param {*} param0 
  * @returns 
  */
-const Board = ({ board, board_name }) => {
+const Board = ({ board_name }) => {
 
-    console.log('Board component ' + board_name.toLowerCase());
-    console.log(board);
     const [lists, setLists] = React.useState([]);
 
     /**
@@ -70,26 +68,17 @@ const Board = ({ board, board_name }) => {
      */
     React.useEffect(() => {
         const url = 'http://localhost:3000/lists?board=' + board_name.toLowerCase();
-        console.log('url = ' + url);
+        // console.log('url = ' + url);
         axios.get(url)
             .then((res) => setLists(res.data))
     }, [board_name]);
-
-    console.log("Lists:");
-    lists.map((list) => {
-        console.log(list);
-        return null;
-    });
-    // console.log(lists);
 
     return (
 
         <section id="list-main-area" className="d-flex flex-nowrap " style={{ height: 'calc(100% - 58px)' }}>
 
             {/* All the task lists */}
-            {board.map((list, index) => {
-                return <TaskList key={index} list={list} />
-            })}
+
             {lists?.map((list, index) => {
                 return <TaskList key={"tl_" + index} list={list} />
             })
