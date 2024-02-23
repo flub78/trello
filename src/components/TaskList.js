@@ -65,17 +65,17 @@ const TaskList = ({ list }) => {
 
     return (
 
-        <div id="done-list" className="task-list" draggable="true" ondragstart="dragList(event)">
+        <div id="done-list" className="task-list" draggable="true" >
             <div className="list-name">
                 <div>{list.name}</div>
                 <div>
-                    <div class="dropdown">
-                        <a class="nav-link " href="#" role="button" data-bs-toggle="dropdown"><i
-                            class="bi bi-three-dots tasklist-menu-icon"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Ajouter une carte</a></li>
-                            <li><a class="dropdown-item" href="#">Déplacer</a></li>
-                            <li><a class="dropdown-item" href="#">Supprimer la liste</a></li>
+                    <div className="dropdown">
+                        <a className="nav-link " href="#" role="button" data-bs-toggle="dropdown"><i
+                            className="bi bi-three-dots tasklist-menu-icon"></i></a>
+                        <ul className="dropdown-menu">
+                            <li><a className="dropdown-item" href="#">Ajouter une carte</a></li>
+                            <li><a className="dropdown-item" href="#">Déplacer</a></li>
+                            <li><a className="dropdown-item" href="#">Supprimer la liste</a></li>
                         </ul>
                     </div>
                 </div>

@@ -7,8 +7,6 @@ const Navbar = ({ theme, boardsData }) => {
 
     // let theme = "dark";
 
-    console.log("Navbar theme: ", theme);
-
     let nav_style = (theme === "dark") ? "navbar-dark bg-dark" : "navbar-light bg-light";
     let text_color = (theme === "dark") ? "text-white" : "text-dark";
 
@@ -48,8 +46,8 @@ const Navbar = ({ theme, boardsData }) => {
 
                                     {boardsData
                                         .filter((board) => board.recent)
-                                        .map((board) => {
-                                            return (<ThumbnailEntry card={board} />);
+                                        .map((board, index) => {
+                                            return (<ThumbnailEntry card={board} key={"recent_" + index} />);
                                         })
                                     }
                                 </ul>
@@ -61,8 +59,8 @@ const Navbar = ({ theme, boardsData }) => {
 
                                     {boardsData
                                         .filter((board) => board.favorite)
-                                        .map((board) => {
-                                            return (<ThumbnailEntry card={board} />);
+                                        .map((board, index) => {
+                                            return (<ThumbnailEntry card={board} key={"favorite_" + index} />);
                                         })
                                     }
                                 </ul>
@@ -78,7 +76,7 @@ const Navbar = ({ theme, boardsData }) => {
                             </li>
 
                             <li className="nav-item bg-primary rounded">
-                                <a className="nav-link text-white" href="javascript:void(0)">Créer</a>
+                                <a className="nav-link text-white" href="#">Créer</a>
                             </li>
 
                         </ul>

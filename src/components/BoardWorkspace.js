@@ -178,7 +178,7 @@ const BoardWorkspace = ({ brd }) => {
             </nav>
 
             {/* <!-- right off canvas sidebar --> */}
-            <div className="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+            <div className="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabIndex="-1"
                 id="sidebar" aria-labelledby="sidebar-label">
 
                 <div className="offcanvas-header">

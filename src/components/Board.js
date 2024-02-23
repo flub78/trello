@@ -48,8 +48,7 @@ const cancelCreateList = (event) => {
 
 const Board = ({ board, board_name }) => {
 
-    console.log('Board component');
-    console.log(board_name.toLowerCase());
+    console.log('Board component ' + board_name.toLowerCase());
     console.log(board);
     const [lists, setLists] = React.useState([]);
 
@@ -68,8 +67,7 @@ const Board = ({ board, board_name }) => {
 
     return (
 
-        <section id="list-main-area" className="d-flex overflow-auto " style={{ height: 'calc(100% - 58px)' }}
-            ondrop="dropList(event)" ondragover="allowDrop(event)">
+        <section id="list-main-area" className="d-flex overflow-auto " style={{ height: 'calc(100% - 58px)' }}>
 
             {/* All the task lists */}
             {board.map((list, index) => {
