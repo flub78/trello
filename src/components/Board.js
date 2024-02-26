@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { DragDropContext } from 'react-beautiful-dnd';
 
 import TaskList from './TaskList';
 
@@ -63,6 +64,10 @@ const Board = ({ board_name }) => {
 
     const [lists, setLists] = React.useState([]);
 
+    const onDragEnd = result => {
+        console.log('onDragEnd');
+    }
+
     /**
      * Fetch lists from the API
      */
@@ -74,33 +79,37 @@ const Board = ({ board_name }) => {
     }, [board_name]);
 
     return (
+        <DragDropContext onDragEnd={onDragEnd} >
 
-        <section id="list-main-area" className="d-flex flex-nowrap   g-0"
-            style={{ height: 'calc(100% - 58px)' }}>
+            <section id="list-main-area" className="d-flex flex-nowrap   g-0"
+                style={{ height: 'calc(100% - 58px)' }}>
 
-            {/* All the task lists */}
+                {/* All the task lists */}
 
-            {lists?.map((list, index) => {
-                return <TaskList key={"tl_" + index} list={list} />
-            })
-            }
+                {lists?.map((list, index) => {
+                    return <TaskList key={"tl_" + index} list={list} />
+                })
+                }
 
-            {/* Create list button */}
-            <div className="tsk-list" style={{ min_width: '275px', max_width: '275px' }}>
+                {/* Create list button */}
+                <div className="tsk-list" style={{ min_width: '275px', max_width: '275px' }}>
 
-                <div className="task-list create-task-panel absent" >
-                    <textarea className="m-1 p-1 rounded" id="list-name-input" type="text" placeholder="Saisissez le titre de la liste..." />
-                    <button className="btn btn-primary m-1" onClick={validateCreateList}>
-                        Ajouter une list</button>
-                    <i className="bi bi-x-lg m-1 cancel-create" onClick={cancelCreateList}></i>
+                    <div className="task-list create-task-panel absent" >
+                        <textarea className="m-1 p-1 rounded" id="list-name-input" type="text" placeholder="Saisissez le titre de la liste..." />
+                        <button className="btn btn-primary m-1" onClick={validateCreateList}>
+                            Ajouter une list</button>
+                        <i className="bi bi-x-lg m-1 cancel-create" onClick={cancelCreateList}></i>
+                    </div>
+
+                    <div className="task-list create-list p-2 ps-4  rounded present"
+                        onClick={openCreateListPanel}> + Ajouter une autre liste
+                    </div>
                 </div>
 
-                <div className="task-list create-list p-2 ps-4  rounded present"
-                    onClick={openCreateListPanel}> + Ajouter une autre liste
-                </div>
-            </div>
+            </section>
 
-        </section>
+        </DragDropContext>
+
     );
 };
 

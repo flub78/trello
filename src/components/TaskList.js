@@ -1,5 +1,7 @@
 import React from 'react';
 import Task from './Task';
+import { Droppable } from 'react-beautiful-dnd';
+
 
 const closeAllPanels = () => {
     const collection = document.getElementsByClassName("create-task-panel");
@@ -81,11 +83,14 @@ const TaskList = ({ list }) => {
                 </div>
             </div>
 
-            {
-                list.tasks.map((task, index) => {
-                    return <Task key={index} task={task} />
-                })
-            }
+            <Droppable droppableId={list.name}>
+                {(provided, snapshot) => (
+                    list.tasks.map((task, index) => {
+                        return <Task key={index} task={task} />
+                    })
+                )
+                }
+            </Droppable>
 
             <div className="create-task-panel absent" >
                 <textarea className="m-1 p-1 w-100 rounded" type="text" placeholder="Saisissez un titre pour cette carte..." />
