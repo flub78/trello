@@ -65,7 +65,7 @@ const TaskList = ({ list }) => {
 
     return (
 
-        <div id="done-list" className="task-list" draggable="true" >
+        <div className="task-list" draggable="true" >
             <div className="list-name">
                 <div>{list.name}</div>
                 <div>

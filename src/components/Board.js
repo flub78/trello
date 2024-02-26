@@ -75,7 +75,8 @@ const Board = ({ board_name }) => {
 
     return (
 
-        <section id="list-main-area" className="d-flex flex-nowrap " style={{ height: 'calc(100% - 58px)' }}>
+        <section id="list-main-area" className="d-flex flex-nowrap   g-0"
+            style={{ height: 'calc(100% - 58px)' }}>
 
             {/* All the task lists */}
 

@@ -198,6 +198,24 @@
       "board": "gvv",
       "name": "Bugs",
       "tasks": []
+    },
+    {
+      "id": "8",
+      "board": "gvv",
+      "name": "Accounting",
+      "tasks": []
+    },
+    {
+      "id": "9",
+      "board": "gvv",
+      "name": "Training",
+      "tasks": []
+    },
+    {
+      "id": "10",
+      "board": "gvv",
+      "name": "Maintenance",
+      "tasks": []
     }
   ],
   "tasks": [

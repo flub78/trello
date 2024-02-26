@@ -15,6 +15,12 @@ The development server can be started with
 
 npx json-server .\assets\db.json
 
-http://localhost:3004/boards
-http://localhost:3004/lists/
-http://localhost:3004/tasks
+    http://localhost:3004/boards
+    http://localhost:3004/lists/
+    http://localhost:3004/tasks
+
+## Execution
+
+    npx json-server .\assets\db.json
+    npm start
+
