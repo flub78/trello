@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Task2 from './Task2';
+import Task from './Task';
 
 const Column = ({ listid, brdid }) => {
 
@@ -98,7 +98,7 @@ const Column = ({ listid, brdid }) => {
 
             {list?.tasks?.map((task) => {
                 return (
-                    <Task2 taskid={task} key={task} />
+                    <Task taskid={task} key={task} />
                 );
             })}
 

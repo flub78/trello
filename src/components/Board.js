@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import { DragDropContext } from 'react-beautiful-dnd';
 
-import TaskList from './TaskList';
 import Column from './Column';
 
 /**
@@ -114,11 +113,6 @@ const Board = ({ brdid, boardsData }) => {
                 }}>
 
                 {/* All the task lists */}
-
-                {/* {lists?.map((list, index) => {
-                    return <TaskList key={"tl_" + index} list={list} />
-                })
-                } */}
 
                 {board?.lists?.map((list, index) => {
                     return <Column key={index} listid={list} brdid={brdid} />
