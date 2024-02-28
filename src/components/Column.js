@@ -52,6 +52,22 @@ const Column = ({ listid, brdid }) => {
         textArea.focus();
     }
 
+    /**
+     * Save the list
+     */
+    const saveList = () => {
+        const url = 'http://localhost:3000/lists/' + listid;
+        console.log('updating list ' + url);
+        console.log('list ', list);
+        axios.put(url, list)
+            .then(response => console.log(response.data))
+            .catch(error => console.error(error));
+    }
+
+    /**
+     * Create a task in the list
+     * @param {*} event 
+     */
     const validateCreateTask = (event) => {
         const parent = event.target.parentElement;
         const textArea = parent.querySelector('textarea');
@@ -70,15 +86,10 @@ const Column = ({ listid, brdid }) => {
                 closeAllPanels();
                 //setList({ ...list, tasks: [...list.tasks, res.data.id] });
                 list.tasks.push(res.data.id);
-                setList(list); // should trigger a rerender ??? 
+                setList(list); // should trigger a rerender ???
 
                 // Save the list state
-                const list_url = 'http://localhost:3000/lists/' + listid;
-                console.log('updating list ' + list_url);
-                console.log('list ', list);
-                axios.put(list_url, list)
-                    .then(response => console.log(response.data))
-                    .catch(error => console.error(error));
+                saveList();
             });
 
 
@@ -86,6 +97,21 @@ const Column = ({ listid, brdid }) => {
             // console.log('task name is empty');
             // nothing to do
         }
+    }
+
+    /**
+     * Delete task from the list
+     */
+    const deleteTask = (taskid) => {
+        console.log('delete task ' + taskid);
+        const url = 'http://localhost:3000/tasks/' + taskid;
+        axios.delete(url)
+            .then((res) => {
+                console.log('task deleted: ' + taskid);
+                const newTasks = list.tasks.filter((task) => task !== taskid);
+                setList({ ...list, tasks: newTasks });
+                saveList();
+            });
     }
 
     /**
