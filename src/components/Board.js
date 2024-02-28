@@ -79,6 +79,17 @@ const Board = ({ brdid, boardsData }) => {
 
     const board = boardData(brdid, boardsData);
 
+    const background = board?.image ? 'url(/imgs/' + board.image + ') center/cover' : 'none';
+
+    const setBackground = (background) => {
+        const workspace = document.getElementById("tasklist-workspace");
+        if (workspace) workspace.style.background = background;
+
+        const navbar = document.getElementById("internal-nav");
+        if (navbar) navbar.style.background = background;
+    }
+    setBackground(background);
+
     const [lists, setLists] = React.useState([]);
 
     const onDragEnd = result => {
@@ -98,7 +109,9 @@ const Board = ({ brdid, boardsData }) => {
         <DragDropContext onDragEnd={onDragEnd} >
 
             <section id="list-main-area" className="d-flex flex-nowrap   g-0"
-                style={{ height: 'calc(100% - 58px)' }}>
+                style={{
+                    height: 'calc(100% - 58px)'
+                }}>
 
                 {/* All the task lists */}
 
