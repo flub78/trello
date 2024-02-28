@@ -3,6 +3,7 @@ import axios from 'axios';
 import { DragDropContext } from 'react-beautiful-dnd';
 
 import TaskList from './TaskList';
+import Column from './Column';
 
 /**
  * Create list has been clicked, open the list creation panel
@@ -56,11 +57,27 @@ const cancelCreateList = (event) => {
 }
 
 /**
+ * get the correct board
+ * @param {*} brdid 
+ * @param {*} boardsData 
+ * @returns 
+ */
+const boardData = (brdid, boardsData) => {
+    const subarray = boardsData.filter((board) => (board.id === brdid));
+    if (subarray.length > 0) {
+        return subarray[0];
+    }
+    return null;
+}
+
+/**
  * Board React component
  * @param {*} param0 
  * @returns 
  */
-const Board = ({ board_name }) => {
+const Board = ({ brdid, boardsData }) => {
+
+    const board = boardData(brdid, boardsData);
 
     const [lists, setLists] = React.useState([]);
 
@@ -72,11 +89,10 @@ const Board = ({ board_name }) => {
      * Fetch lists from the API
      */
     React.useEffect(() => {
-        const url = 'http://localhost:3000/lists?board=' + board_name.toLowerCase();
-        // console.log('url = ' + url);
+        const url = 'http://localhost:3000/lists?board=' + brdid;
         axios.get(url)
             .then((res) => setLists(res.data))
-    }, [board_name]);
+    }, [brdid]);
 
     return (
         <DragDropContext onDragEnd={onDragEnd} >
@@ -86,10 +102,15 @@ const Board = ({ board_name }) => {
 
                 {/* All the task lists */}
 
-                {lists?.map((list, index) => {
+                {/* {lists?.map((list, index) => {
                     return <TaskList key={"tl_" + index} list={list} />
                 })
+                } */}
+
+                {board?.lists?.map((list, index) => {
+                    return <Column key={index} listid={list} brdid={brdid} />
                 }
+                )}
 
                 {/* Create list button */}
                 <div className="tsk-list" style={{ min_width: '275px', max_width: '275px' }}>
@@ -105,10 +126,9 @@ const Board = ({ board_name }) => {
                         onClick={openCreateListPanel}> + Ajouter une autre liste
                     </div>
                 </div>
-
             </section>
 
-        </DragDropContext>
+        </DragDropContext >
 
     );
 };

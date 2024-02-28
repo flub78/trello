@@ -29,6 +29,8 @@ const BoardPage = () => {
      */
     const board_name = capitalize(window.location.href.split('/').pop().replace('#', ''));
 
+    const boardId = window.location.href.split('/').pop().replace('#', '').toLowerCase();
+
     const [boardsData, setBoardsData] = React.useState([]);
 
     /**
@@ -37,7 +39,7 @@ const BoardPage = () => {
     React.useEffect(() => {
         const url = 'http://localhost:3000/boards';
         axios.get(url)
-            .then((res) => setBoardsData(res.data))
+            .then((res) => setBoardsData(res.data));
     }, []);
 
     return (
@@ -46,7 +48,7 @@ const BoardPage = () => {
 
             <section id="main-tasklist" className="container-fluid row flex-nowrap g-0" style={{ height: 'calc(100vh - 64px)' }}>
                 <BoardLeftPanel theme="dark" boardsData={boardsData} />
-                <BoardWorkspace brd={{ name: board_name }} />
+                <BoardWorkspace brdid={boardId} brd={{ name: board_name }} boardsData={boardsData} />
             </section>
         </div>
     );

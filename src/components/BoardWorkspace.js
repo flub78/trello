@@ -2,7 +2,7 @@ import React from 'react';
 import Board from './Board';
 
 const toggleSidebar = () => {
-    console.log('CloseSidebar');
+    console.log('toggleSidebar');
     var sidebar = document.getElementById("left-sidebar");
     var closeButton = document.getElementById("close-sidebar-button");
     var openButton = document.getElementById("open-sidebar-button");
@@ -17,10 +17,8 @@ const toggleSidebar = () => {
     openButton.classList.toggle("hidden");
 }
 
-const BoardWorkspace = ({ brd }) => {
+const BoardWorkspace = ({ brdid, brd, boardsData }) => {
 
-
-    const board = [];
 
     return (
 
@@ -144,7 +142,7 @@ const BoardWorkspace = ({ brd }) => {
                 </div>
             </div>
 
-            <Board board_name={brd.name} />
+            <Board brdid={brdid} boardsData={boardsData} />
 
         </div >
     );

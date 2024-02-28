@@ -96,79 +96,7 @@
       "id": "1",
       "board": "webapp",
       "name": "Backlog",
-      "tasks": ["1", "2", "3", "4", "5"],
-      "tasks2": [
-        {
-          "id": "1",
-          "list": "todo",
-          "board": "webapp",
-          "watched": true,
-          "name": "PDF document generation",
-          "description": "Generate PDF file",
-          "href": "/code-generator",
-          "dueDate": "2021-05-01",
-          "color_tags": ["bg-danger", "bg-primary", "bg-success"],
-          "comments": [
-            { "text": "Comment 1" },
-            { "text": "Comment 2" },
-            { "text": "Comment 3" }
-          ],
-          "check_list": [
-            { "title": "subtask 1", "checked": false },
-            { "title": "Comment 2", "checked": false },
-            { "title": "Subtask 3", "checked": true },
-            { "title": "Subtask 1", "checked": false },
-            { "title": "Subtask 2", "checked": true }
-          ]
-        },
-        {
-          "id": "2",
-          "list": "todo",
-          "board": "webapp",
-          "watched": true,
-          "name": "Tasks and lists renaming",
-          "dueDate": "2021-05-01"
-        },
-        {
-          "id": "3",
-          "list": "todo",
-          "name": "Online payments",
-          "description": "Support CB and Paypal paiements",
-          "dueDate": "2021-05-01",
-          "color_tags": ["bg-warning", "bg-black"]
-        },
-        {
-          "id": "4",
-          "list": "todo",
-          "name": "Code generator",
-          "description": "Mustache code generator based on metadata",
-          "image": "welding.jpg",
-          "href": "/code-generator",
-          "dueDate": "2021-05-01",
-          "labels": ["#webapp", "#inprogress"],
-          "watched": true,
-          "comments": [
-            { "text": "Comment 1" },
-            { "text": "Comment 2" },
-            { "text": "Comment 3" }
-          ],
-          "check_list": [
-            { "title": "subtask 1", "checked": false },
-            { "title": "Comment 2", "checked": true },
-            { "title": "Subtask 3", "checked": true },
-            { "title": "Subtask 1", "checked": false },
-            { "title": "Subtask 2", "checked": true }
-          ]
-        },
-        {
-          "id": "5",
-          "list": "todo",
-          "name": "Calendar events repetition",
-          "image": "asana-todolist.png.webp",
-          "dueDate": "2021-05-01",
-          "color_tags": ["bg-primary", "bg-success"]
-        }
-      ]
+      "tasks": ["1", "2", "3", "4", "5"]
     },
     {
       "id": "2",
@@ -180,25 +108,7 @@
       "id": "3",
       "board": "webapp",
       "name": "Done",
-      "tasks": ["6", "7"],
-      "tasks2": [
-        {
-          "id": "3",
-          "list": "todo",
-          "name": "Trello look and feel",
-          "description": "Same look than Trello",
-          "dueDate": "2021-05-01"
-        },
-        {
-          "id": "3",
-          "list": "Done",
-          "image": "testing.png",
-          "name": "Test email generation",
-          "description": "Support CB and Paypal paiements",
-          "dueDate": "2021-05-01",
-          "color_tags": ["bg-warning", "bg-secondary"]
-        }
-      ]
+      "tasks": ["6", "7"]
     },
     {
       "id": "4",
@@ -245,17 +155,6 @@
   ],
   "boards": [
     {
-      "id:": "webapp",
-      "name": "WEBAPP",
-      "description": "Workspace Flub78",
-      "favorite": true,
-      "recent": true,
-      "href": "/board/webapp",
-      "image": "code_editor.jpg",
-      "theme": "dark",
-      "lists": ["1", "3", "2"]
-    },
-    {
       "id": "marly",
       "name": "Marly",
       "description": "",
@@ -266,6 +165,18 @@
       "theme": "dark",
       "lists": ["4", "5", "6", "7", "8", "9", "10"]
     },
+    {
+      "id": "webapp",
+      "name": "WEBAPP",
+      "description": "Workspace Flub78",
+      "favorite": true,
+      "recent": true,
+      "href": "/board/webapp",
+      "image": "code_editor.jpg",
+      "theme": "dark",
+      "lists": ["1", "3", "2"]
+    },
+
     {
       "id": "forest",
       "name": "Forest",
