@@ -20,8 +20,11 @@ const Column = ({ listid, brdid }) => {
         // console.log('fetching list from ' + url);
         axios.get(url)
             .then((res) => setList(res.data))
-    }, [listid]);
+    }, [listid, list]);
 
+    /**
+     * Close all create task panels
+     */
     const closeAllPanels = () => {
         const collection = document.getElementsByClassName("create-task-panel");
         for (let element of collection) {
@@ -56,6 +59,29 @@ const Column = ({ listid, brdid }) => {
 
         if (name.length > 0) {
             console.log('create task with name ' + name);
+            // Persist the task to the API
+            const url = 'http://localhost:3000/tasks';
+            axios.post(url, {
+                name: name,
+                list: listid
+            }).then((res) => {
+                console.log('task created: ' + res.data.id);
+                textArea.value = '';
+                closeAllPanels();
+                //setList({ ...list, tasks: [...list.tasks, res.data.id] });
+                list.tasks.push(res.data.id);
+                setList(list); // should trigger a rerender ??? 
+
+                // Save the list state
+                const list_url = 'http://localhost:3000/lists/' + listid;
+                console.log('updating list ' + list_url);
+                console.log('list ', list);
+                axios.put(list_url, list)
+                    .then(response => console.log(response.data))
+                    .catch(error => console.error(error));
+            });
+
+
         } else {
             // console.log('task name is empty');
             // nothing to do

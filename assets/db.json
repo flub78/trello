@@ -9,18 +9,43 @@
       "description": "Generate PDF file",
       "href": "/code-generator",
       "dueDate": "2021-05-01",
-      "color_tags": ["bg-danger", "bg-primary", "bg-success"],
+      "color_tags": [
+        "bg-danger",
+        "bg-primary",
+        "bg-success"
+      ],
       "comments": [
-        { "text": "Comment 1" },
-        { "text": "Comment 2" },
-        { "text": "Comment 3" }
+        {
+          "text": "Comment 1"
+        },
+        {
+          "text": "Comment 2"
+        },
+        {
+          "text": "Comment 3"
+        }
       ],
       "checklist": [
-        { "title": "subtask 1", "checked": false },
-        { "title": "Comment 2", "checked": false },
-        { "title": "Subtask 3", "checked": true },
-        { "title": "Subtask 1", "checked": false },
-        { "title": "Subtask 2", "checked": true }
+        {
+          "title": "subtask 1",
+          "checked": false
+        },
+        {
+          "title": "Comment 2",
+          "checked": false
+        },
+        {
+          "title": "Subtask 3",
+          "checked": true
+        },
+        {
+          "title": "Subtask 1",
+          "checked": false
+        },
+        {
+          "title": "Subtask 2",
+          "checked": true
+        }
       ]
     },
     {
@@ -37,7 +62,10 @@
       "name": "Online payments",
       "description": "Support CB and Paypal paiements",
       "dueDate": "2021-05-01",
-      "color_tags": ["bg-warning", "bg-black"]
+      "color_tags": [
+        "bg-warning",
+        "bg-black"
+      ]
     },
     {
       "id": "4",
@@ -48,19 +76,43 @@
       "image": "welding.jpg",
       "href": "/code-generator",
       "dueDate": "2021-05-01",
-      "labels": ["#webapp", "#inprogress"],
+      "labels": [
+        "#webapp",
+        "#inprogress"
+      ],
       "watched": true,
       "comments": [
-        { "text": "Comment 1" },
-        { "text": "Comment 2" },
-        { "text": "Comment 3" }
+        {
+          "text": "Comment 1"
+        },
+        {
+          "text": "Comment 2"
+        },
+        {
+          "text": "Comment 3"
+        }
       ],
       "check_list": [
-        { "title": "subtask 1", "checked": false },
-        { "title": "Comment 2", "checked": true },
-        { "title": "Subtask 3", "checked": true },
-        { "title": "Subtask 1", "checked": false },
-        { "title": "Subtask 2", "checked": true }
+        {
+          "title": "subtask 1",
+          "checked": false
+        },
+        {
+          "title": "Comment 2",
+          "checked": true
+        },
+        {
+          "title": "Subtask 3",
+          "checked": true
+        },
+        {
+          "title": "Subtask 1",
+          "checked": false
+        },
+        {
+          "title": "Subtask 2",
+          "checked": true
+        }
       ]
     },
     {
@@ -70,7 +122,10 @@
       "name": "Calendar events repetition",
       "image": "asana-todolist.png.webp",
       "dueDate": "2021-05-01",
-      "color_tags": ["bg-primary", "bg-success"]
+      "color_tags": [
+        "bg-primary",
+        "bg-success"
+      ]
     },
     {
       "id": "6",
@@ -88,7 +143,50 @@
       "name": "Test email generation",
       "description": "Support CB and Paypal paiements",
       "dueDate": "2021-05-01",
-      "color_tags": ["bg-warning", "bg-secondary"]
+      "color_tags": [
+        "bg-warning",
+        "bg-secondary"
+      ]
+    },
+    {
+      "id": "e3a7",
+      "name": "green card",
+      "list": "2"
+    },
+    {
+      "id": "cb72",
+      "name": "carte A",
+      "list": "2"
+    },
+    {
+      "id": "f5c6",
+      "name": "carte de membre",
+      "list": "2"
+    },
+    {
+      "id": "f9f9",
+      "name": "carte drole",
+      "list": "2"
+    },
+    {
+      "id": "e287",
+      "name": "carte pas drôle",
+      "list": "2"
+    },
+    {
+      "id": "1e34",
+      "name": "carte grise",
+      "list": "2"
+    },
+    {
+      "id": "0fdb",
+      "name": "carte noire",
+      "list": "2"
+    },
+    {
+      "id": "d731",
+      "name": "carte jaune",
+      "list": "2"
     }
   ],
   "lists": [
@@ -96,19 +194,34 @@
       "id": "1",
       "board": "webapp",
       "name": "Backlog",
-      "tasks": ["1", "2", "3", "4", "5"]
+      "tasks": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ]
     },
     {
       "id": "2",
       "board": "webapp",
       "name": "In progress",
-      "tasks": []
+      "tasks": [
+        "f9f9",
+        "e287",
+        "1e34",
+        "0fdb",
+        "d731"
+      ]
     },
     {
       "id": "3",
       "board": "webapp",
       "name": "Done",
-      "tasks": ["6", "7"]
+      "tasks": [
+        "6",
+        "7"
+      ]
     },
     {
       "id": "4",
@@ -163,7 +276,15 @@
       "href": "/board/marly",
       "image": "IMG_20181118_152709.jpg",
       "theme": "dark",
-      "lists": ["4", "5", "6", "7", "8", "9", "10"]
+      "lists": [
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
     },
     {
       "id": "webapp",
@@ -174,9 +295,12 @@
       "href": "/board/webapp",
       "image": "code_editor.jpg",
       "theme": "dark",
-      "lists": ["1", "3", "2"]
+      "lists": [
+        "1",
+        "3",
+        "2"
+      ]
     },
-
     {
       "id": "forest",
       "name": "Forest",

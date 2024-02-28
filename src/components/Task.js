@@ -25,7 +25,6 @@ const Task2 = ({ taskid }) => {
     const checklist_len = task.check_list ? task.check_list.length : 0;
     const check_count = task.check_list ? task.check_list.filter((item) => item.checked).length : 0;
 
-    console.log('task: ', task);
     return (
         // TODO: draggableId = { props.task.id } index = { props.index }
         // <Draggable >
