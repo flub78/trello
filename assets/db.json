@@ -149,48 +149,18 @@
       ]
     },
     {
-      "id": "e3a7",
-      "name": "green card",
-      "list": "2"
-    },
-    {
-      "id": "cb72",
-      "name": "carte A",
-      "list": "2"
-    },
-    {
-      "id": "f5c6",
-      "name": "carte de membre",
-      "list": "2"
-    },
-    {
       "id": "f9f9",
       "name": "carte drole",
       "list": "2"
     },
     {
-      "id": "e287",
-      "name": "carte pas drôle",
+      "id": "db1c",
+      "name": "New task",
       "list": "2"
     },
     {
-      "id": "1e34",
-      "name": "carte grise",
-      "list": "2"
-    },
-    {
-      "id": "0fdb",
-      "name": "carte noire",
-      "list": "2"
-    },
-    {
-      "id": "d731",
-      "name": "carte jaune",
-      "list": "2"
-    },
-    {
-      "id": "7b57",
-      "name": "carte gli",
+      "id": "7f88",
+      "name": "one",
       "list": "2"
     }
   ],
@@ -213,11 +183,8 @@
       "name": "In progress",
       "tasks": [
         "f9f9",
-        "e287",
-        "1e34",
-        "0fdb",
-        "d731",
-        "7b57"
+        "db1c",
+        "7f88"
       ]
     },
     {

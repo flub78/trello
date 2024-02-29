@@ -99,20 +99,7 @@ const Column = ({ listid, brdid }) => {
         }
     }
 
-    /**
-     * Delete task from the list
-     */
-    const deleteTask = (taskid) => {
-        console.log('delete task ' + taskid);
-        const url = 'http://localhost:3000/tasks/' + taskid;
-        axios.delete(url)
-            .then((res) => {
-                console.log('task deleted: ' + taskid);
-                const newTasks = list.tasks.filter((task) => task !== taskid);
-                setList({ ...list, tasks: newTasks });
-                saveList();
-            });
-    }
+
 
     /**
      * When "X" button is clicked, the create task panel is hidden
@@ -127,6 +114,26 @@ const Column = ({ listid, brdid }) => {
 
         createTaskPanel.classList.toggle('absent');
         createTaskPanel.classList.toggle('present');
+    }
+
+    /**
+     * Delete task from the list
+     */
+    const deleteTaskFromList = (taskid) => {
+        console.log('delete task ' + taskid);
+        if (!taskid) return;
+
+        const url = 'http://localhost:3000/tasks/' + taskid;
+        axios.delete(url)
+            .then((res) => {
+                console.log('task deleted: ' + taskid);
+                const newTasks = list.tasks.filter((task) => task !== taskid);
+                console.log('new tasks ', newTasks);
+                //setList({ ...list, tasks: newTasks });
+                list.tasks = newTasks;
+                saveList();
+                //window.location.reload();
+            });
     }
 
     return (
@@ -150,7 +157,7 @@ const Column = ({ listid, brdid }) => {
 
             {list?.tasks?.map((task) => {
                 return (
-                    <Task taskid={task} key={task} />
+                    <Task taskid={task} key={task} deleteHandler={deleteTaskFromList} />
                 );
             })}
 
