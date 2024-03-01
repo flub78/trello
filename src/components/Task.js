@@ -18,7 +18,7 @@ const Task = ({ taskid, deleteHandler }) => {
         const url = 'http://localhost:3000/tasks/' + taskid;
         // console.log('fetching task from ' + url);
         axios.get(url)
-            .then((res) => setTask(res.data))
+            .then((res) => { res && setTask(res.data) })
             .then(response => console.log(response.data))
             .catch(error => console.error(error))
     }, [taskid]);

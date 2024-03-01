@@ -3,7 +3,7 @@ import React from 'react';
 const TaskEditor = ({ task }) => {
     return (
 
-        <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header">
@@ -21,32 +21,32 @@ const TaskEditor = ({ task }) => {
 
                                     <div className="form-check form-switch m-2">
                                         <input className="form-check-input" type="checkbox" id="formSwitchCheckChecked" />
-                                        <label className="form-check-label" for="formSwitchCheckChecked">Suivre la tâche</label>
+                                        <label className="form-check-label" htmlFor="formSwitchCheckChecked">Suivre la tâche</label>
                                     </div>
 
                                     <div className="form-check form-check-inline bg-warning m-1 rounded-3">
                                         <input className="form-check-input  ms-1 p-1" type="checkbox" value="" id="inlineCheckDefault" />
-                                        <label className="form-check-label m-1" for="inlineCheckDefault"></label>
+                                        <label className="form-check-label m-1" htmlFor="inlineCheckDefault"></label>
                                     </div>
                                     <div className="form-check form-check-inline bg-danger m-1 rounded-3">
                                         <input className="form-check-input ms-1 p-1" type="checkbox" value="" id="inlineCheckChecked" />
-                                        <label className="form-check-label m-1" for="inlineCheckChecked"></label>
+                                        <label className="form-check-label m-1" htmlFor="inlineCheckChecked"></label>
                                     </div>
                                     <div className="form-check form-check-inline bg-primary m-1 rounded-3">
                                         <input className="form-check-input ms-1 p-1" type="checkbox" value="" id="inlineCheckChecked" />
-                                        <label className="form-check-label m-1" for="inlineCheckChecked"></label>
+                                        <label className="form-check-label m-1" htmlFor="inlineCheckChecked"></label>
                                     </div>
                                     <div className="form-check form-check-inline bg-success m-1 rounded-3">
                                         <input className="form-check-input ms-1 p-1" type="checkbox" value="" id="inlineCheckChecked" />
-                                        <label className="form-check-label m-1" for="inlineCheckChecked"></label>
+                                        <label className="form-check-label m-1" htmlFor="inlineCheckChecked"></label>
                                     </div>
                                     <div className="form-check form-check-inline bg-secondary m-1 rounded-3">
                                         <input className="form-check-input ms-1 p-1" type="checkbox" value="" id="inlineCheckChecked" />
-                                        <label className="form-check-label m-1" for="inlineCheckChecked"></label>
+                                        <label className="form-check-label m-1" htmlFor="inlineCheckChecked"></label>
                                     </div>
                                     <div className="form-check form-check-inline bg-dark m-1 rounded-3">
                                         <input className="form-check-input ms-1 p-1" type="checkbox" value="" id="inlineCheckChecked" />
-                                        <label className="form-check-label m-1" for="inlineCheckChecked"></label>
+                                        <label className="form-check-label m-1" htmlFor="inlineCheckChecked"></label>
                                     </div>
 
                                     <div className="m-4 text-center">
