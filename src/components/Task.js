@@ -43,14 +43,14 @@ const Task = ({ taskid, deleteHandler }) => {
                 : ''}
 
             <div className="card-header">
-                <div className="d-flex">
+                <div className="d-flex justify-content-between">
                     <div data-bs-toggle="modal" data-bs-target="#exampleModal"> {task.name} </div>
                     <div className="dropdown">
                         <a className="nav-link " href="#" role="button" data-bs-toggle="dropdown">
                             <i className="bi bi-pencil  modif-icon m-1" onClick={editTask}></i>
                         </a>
                         <ul className="dropdown-menu">
-                            <li><a className="dropdown-item" href="#">
+                            <li><a className="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 <i className="bi bi-card-image m-1"></i> Ouvrir la carte</a></li>
 
                             <li><a className="dropdown-item" href="#">
