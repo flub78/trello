@@ -36,12 +36,15 @@ const Task = ({ taskid, deleteHandler }) => {
 
         <div className="task card m-1 flex-nowrap" >
 
+
+            {/* Image */}
             {task.image ?
                 <div className="container justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <img src={"/imgs/" + task.image} className="card-img-top" alt="welding" />
                 </div>
                 : ''}
 
+            {/* Header witn name and menu button */}
             <div className="card-header">
                 <div className="d-flex justify-content-between">
                     <div data-bs-toggle="modal" data-bs-target="#exampleModal"> {task.name} </div>
@@ -76,8 +79,8 @@ const Task = ({ taskid, deleteHandler }) => {
                 </div>
             </div>
             <div className="task-body" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                {/* <p className="card-text">{task.description}</p> */}
 
+                {/* Tags */}
                 <div className="color-tags d-flex">
                     {task.color_tags ?
                         task.color_tags.map((tag, index) => {
@@ -86,6 +89,7 @@ const Task = ({ taskid, deleteHandler }) => {
                         : ''}
                 </div>
 
+                {/* Icons line */}
                 <div className="icon-line d-flex">
                     {task.description ? <i className="bi bi-text-paragraph m-1"></i> : ''}
 
@@ -97,7 +101,7 @@ const Task = ({ taskid, deleteHandler }) => {
 
                 </div>
             </div>
-            <TaskEditor task={task} display={true} />
+            <TaskEditor task={task} key={task.id} />
         </div>
     );
 };
