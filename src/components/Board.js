@@ -5,9 +5,6 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import Column from './Column';
 import closeAllPanels from '../lib/Util';
 
-/**
- * TODO: check that clicking add a task when create list is open restore the context
- */
 
 /**
   * get the correct board
@@ -119,6 +116,7 @@ const Board = ({ brdid, boardsData }) => {
 
                 // Save the board state
                 saveBoard();
+                window.location.reload();
             });
 
         } else {
@@ -141,7 +139,17 @@ const Board = ({ brdid, boardsData }) => {
         closeAllPanels();
     }
 
+    /**
+     * Remove a list from the board
+     * @param {*} listid
+     * @returns
+     */
+    const removeListFromBoard = (listid) => {
+        const url = 'http://localhost:3000/bords/' + brdid
+        board.lists = board.lists.filter((id) => id !== listid);
 
+        saveBoard();
+    }
 
     return (
         <DragDropContext onDragEnd={onDragEnd} >
@@ -154,7 +162,7 @@ const Board = ({ brdid, boardsData }) => {
                 {/* All the task lists */}
 
                 {board?.lists?.map((list, index) => {
-                    return <Column key={index} listid={list} brdid={brdid} />
+                    return <Column key={index} listid={list} brdid={brdid} removeListFromBoard={removeListFromBoard} />
                 }
                 )}
 

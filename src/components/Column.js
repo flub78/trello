@@ -4,7 +4,7 @@ import Task from './Task';
 import closeAllPanels from '../lib/Util';
 
 
-const Column = ({ listid, brdid }) => {
+const Column = ({ listid, brdid, removeListFromBoard }) => {
 
     const [list, setList] = React.useState([]);
 
@@ -90,8 +90,6 @@ const Column = ({ listid, brdid }) => {
         }
     }
 
-
-
     /**
      * When "X" button is clicked, the create task panel is hidden
      * @param {*} event 
@@ -123,9 +121,30 @@ const Column = ({ listid, brdid }) => {
                 //setList({ ...list, tasks: newTasks });
                 list.tasks = newTasks;
                 saveList();
-                //window.location.reload();
+                window.location.reload();
             });
     }
+
+    const deleteList = () => {
+        console.log('delete list ' + listid);
+        if (!listid) return;
+
+        if (window.confirm("Voulez-vous vraiment supprimer cette liste ?")) {
+            const url = 'http://localhost:3000/lists/' + listid;
+
+            list.tasks.forEach((task) => {
+                axios.delete('http://localhost:3000/tasks/' + task);
+            });
+
+            axios.delete(url)
+                .then((res) => {
+                    console.log('list deleted: ' + listid);
+                    window.location.reload();
+                });
+            removeListFromBoard(listid);
+        }
+    }
+
 
     return (
 
@@ -140,7 +159,7 @@ const Column = ({ listid, brdid }) => {
                         <ul className="dropdown-menu">
                             <li><a className="dropdown-item" href="#">Ajouter une carte</a></li>
                             <li><a className="dropdown-item" href="#">Déplacer</a></li>
-                            <li><a className="dropdown-item" href="#">Supprimer la liste</a></li>
+                            <li><a className="dropdown-item" href="#" onClick={deleteList} >Supprimer la liste</a></li>
                         </ul>
                     </div>
                 </div>
