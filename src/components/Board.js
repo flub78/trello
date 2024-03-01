@@ -1,10 +1,15 @@
 import React from 'react';
 import axios from 'axios';
-import { DragDropContext } from 'react-beautiful-dnd';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import styled from 'styled-components';
 
 import Column from './Column';
 import closeAllPanels from '../lib/Util';
 
+
+const Container = styled.div`
+    display: flex;
+        `;
 
 /**
   * get the correct board
@@ -153,36 +158,52 @@ const Board = ({ brdid, boardsData }) => {
 
     return (
         <DragDropContext onDragEnd={onDragEnd} >
+            <Droppable
+                droppableId="all-columns"
+                direction="horizontal"
+                type="column">
+                {(provided) => (
+                    <Container
+                        // add the ref to the provided.innerRef
+                        {...provided.droppableProps}
+                        ref={provided.innerRef}>
 
-            <section id="list-main-area" className="d-flex flex-nowrap   g-0"
-                style={{
-                    height: 'calc(100% - 58px)'
-                }}>
+                        <section id="list-main-area" className="d-flex flex-nowrap   g-0"
+                            style={{
+                                height: 'calc(100% - 58px)'
+                            }}>
 
-                {/* All the task lists */}
+                            {/* All the task lists */}
 
-                {board?.lists?.map((list, index) => {
-                    return <Column key={index} listid={list} brdid={brdid} removeListFromBoard={removeListFromBoard} />
-                }
+                            {board?.lists?.map((list, index) => {
+                                return <Column key={index} listid={list} brdid={brdid} removeListFromBoard={removeListFromBoard} />
+                            }
+                            )}
+
+                            {/* Create list button */}
+                            <div className="tsk-list" style={{ min_width: '275px', max_width: '275px' }}>
+
+                                <div className="task-list create-task-panel absent" >
+                                    <textarea className="m-1 p-1 rounded" id="list-name-input" type="text" placeholder="Saisissez le titre de la liste..." />
+                                    <button className="btn btn-primary m-1" onClick={validateCreateList}>
+                                        Ajouter une liste</button>
+                                    <i className="bi bi-x-lg m-1 cancel-create" onClick={cancelCreateList}></i>
+                                </div>
+
+                                <div id="create-list" className="task-list create-list p-2 ps-4  rounded present"
+                                    onClick={openCreateListPanel}> + Ajouter une autre liste
+                                </div>
+                            </div>
+                        </section>
+
+                        {provided.placeholder}
+                    </Container>
                 )}
 
-                {/* Create list button */}
-                <div className="tsk-list" style={{ min_width: '275px', max_width: '275px' }}>
+            </Droppable>
+        </DragDropContext>
 
-                    <div className="task-list create-task-panel absent" >
-                        <textarea className="m-1 p-1 rounded" id="list-name-input" type="text" placeholder="Saisissez le titre de la liste..." />
-                        <button className="btn btn-primary m-1" onClick={validateCreateList}>
-                            Ajouter une liste</button>
-                        <i className="bi bi-x-lg m-1 cancel-create" onClick={cancelCreateList}></i>
-                    </div>
 
-                    <div id="create-list" className="task-list create-list p-2 ps-4  rounded present"
-                        onClick={openCreateListPanel}> + Ajouter une autre liste
-                    </div>
-                </div>
-            </section>
-
-        </DragDropContext >
 
     );
 };

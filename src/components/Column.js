@@ -1,7 +1,34 @@
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
+import { Droppable, Draggable } from 'react-beautiful-dnd';
+
 import Task from './Task';
 import closeAllPanels from '../lib/Util';
+
+const Container = styled.div`
+        margin: 8px;
+        border: 1px solid lightgrey;
+        border-radius: 2px;
+        width: 220px;
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        flex-direction: column;
+        `;
+
+const Title = styled.h3`
+        padding: 8px;
+        font-weight: bold;
+                background-color: ${props => (props.isDraggingOver ? 'skyblue' : 'white')};
+
+        font-size: 1.2em;`;
+
+const TaskList = styled.div`
+        padding: 8px;
+        background-color: ${props => (props.isDraggingOver ? 'skyblue' : 'white')};
+        flex-grow: 1;
+        min-height: 100px;
+        `;
 
 
 const Column = ({ listid, brdid, removeListFromBoard }) => {
@@ -148,40 +175,44 @@ const Column = ({ listid, brdid, removeListFromBoard }) => {
 
     return (
 
-        <div className="task-list">
+        <div>
 
-            <div className="list-name">
-                <div>{list.name}</div>
-                <div>
-                    <div className="dropdown">
-                        <a className="nav-link " href="#" role="button" data-bs-toggle="dropdown"><i
-                            className="bi bi-three-dots tasklist-menu-icon"></i></a>
-                        <ul className="dropdown-menu">
-                            <li><a className="dropdown-item" href="#">Ajouter une carte</a></li>
-                            <li><a className="dropdown-item" href="#">Déplacer</a></li>
-                            <li><a className="dropdown-item" href="#" onClick={deleteList} >Supprimer la liste</a></li>
-                        </ul>
+            <div className="task-list">
+
+                <div className="list-name">
+                    <div>{list.name}</div>
+                    <div>
+                        <div className="dropdown">
+                            <a className="nav-link " href="#" role="button" data-bs-toggle="dropdown"><i
+                                className="bi bi-three-dots tasklist-menu-icon"></i></a>
+                            <ul className="dropdown-menu">
+                                <li><a className="dropdown-item" href="#">Ajouter une carte</a></li>
+                                <li><a className="dropdown-item" href="#">Déplacer</a></li>
+                                <li><a className="dropdown-item" href="#" onClick={deleteList} >Supprimer la liste</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+
+                {list?.tasks?.map((task) => {
+                    return (
+                        <Task taskid={task} key={task} deleteHandler={deleteTaskFromList} />
+                    );
+                })}
+
+                <div className="create-task-panel absent" >
+                    <textarea className="m-1 p-1 w-100 rounded" type="text" placeholder="Saisissez un titre pour cette carte..." />
+                    <button className="btn btn-primary m-1" onClick={validateCreateTask}>
+                        Ajouter une carte</button>
+                    <i className="bi bi-x-lg m-1 cancel-create" onClick={cancelCreateTask}></i>
+                </div>
+
+                <div className="create-task present" onClick={openCreateTaskPanel}>
+                    + Ajouter une carte <i className="bi  bi-copy create-task-icon"></i>
+                </div>
+
+
             </div>
-
-            {list?.tasks?.map((task) => {
-                return (
-                    <Task taskid={task} key={task} deleteHandler={deleteTaskFromList} />
-                );
-            })}
-
-            <div className="create-task-panel absent" >
-                <textarea className="m-1 p-1 w-100 rounded" type="text" placeholder="Saisissez un titre pour cette carte..." />
-                <button className="btn btn-primary m-1" onClick={validateCreateTask}>
-                    Ajouter une carte</button>
-                <i className="bi bi-x-lg m-1 cancel-create" onClick={cancelCreateTask}></i>
-            </div>
-
-            <div className="create-task present" onClick={openCreateTaskPanel}>
-                + Ajouter une carte <i className="bi  bi-copy create-task-icon"></i>
-            </div>
-
 
         </div>
 

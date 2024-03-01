@@ -1,6 +1,8 @@
 import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import axios from 'axios';
+import styled from 'styled-components';
+
 import TaskEditor from './TaskEditor';
 
 const editTask = (event) => {
@@ -8,9 +10,14 @@ const editTask = (event) => {
     event.stopPropagation();
 }
 
+const Container = styled.div`
+        border: 1px solid lightgrey;
+        padding: 8px;
+        margin-bottom: 8px;
+        border-radius: 2px;
+        background-color: ${props => (props.isDragging ? 'lightgreen' : 'white')};`;
 
-
-const Task = ({ taskid, deleteHandler }) => {
+const Task = ({ taskid, deleteHandler, index }) => {
 
     const [task, setTask] = React.useState([]);
 
@@ -34,75 +41,87 @@ const Task = ({ taskid, deleteHandler }) => {
 
     return (
 
-        <div className="task card m-1 flex-nowrap" >
+        <Draggable draggableId={taskid}
+            index={index}>
+            {(provided, snapshot) => (
+                <Container
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                    ref={provided.innerRef}
+                    isDragging={snapshot.isDragging}
+                >
+                    <div className="task card m-1 flex-nowrap" >
 
 
-            {/* Image */}
-            {task.image ?
-                <div className="container justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <img src={"/imgs/" + task.image} className="card-img-top" alt="welding" />
-                </div>
-                : ''}
+                        {/* Image */}
+                        {task.image ?
+                            <div className="container justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <img src={"/imgs/" + task.image} className="card-img-top" alt="welding" />
+                            </div>
+                            : ''}
 
-            {/* Header witn name and menu button */}
-            <div className="card-header">
-                <div className="d-flex justify-content-between">
-                    <div data-bs-toggle="modal" data-bs-target="#exampleModal"> {task.name} </div>
-                    <div className="dropdown">
-                        <a className="nav-link " href="#" role="button" data-bs-toggle="dropdown">
-                            <i className="bi bi-pencil  modif-icon m-1" onClick={editTask}></i>
-                        </a>
-                        <ul className="dropdown-menu">
-                            <li><a className="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                <i className="bi bi-card-image m-1"></i> Ouvrir la carte</a></li>
+                        {/* Header witn name and menu button */}
+                        <div className="card-header">
+                            <div className="d-flex justify-content-between">
+                                <div data-bs-toggle="modal" data-bs-target="#exampleModal"> {task.name} </div>
+                                <div className="dropdown">
+                                    <a className="nav-link " href="#" role="button" data-bs-toggle="dropdown">
+                                        <i className="bi bi-pencil  modif-icon m-1" onClick={editTask}></i>
+                                    </a>
+                                    <ul className="dropdown-menu">
+                                        <li><a className="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <i className="bi bi-card-image m-1"></i> Ouvrir la carte</a></li>
 
-                            <li><a className="dropdown-item" href="#">
-                                <i className="bi bi-tag m-1"></i>Modifier les étiquettes</a></li>
+                                        <li><a className="dropdown-item" href="#">
+                                            <i className="bi bi-tag m-1"></i>Modifier les étiquettes</a></li>
 
-                            <li><a className="dropdown-item" href="#">
-                                <i className="bi bi-people m-1"></i>Modifier les membres</a></li>
+                                        <li><a className="dropdown-item" href="#">
+                                            <i className="bi bi-people m-1"></i>Modifier les membres</a></li>
 
-                            <li><a className="dropdown-item" href="#">
-                                <i className="bi bi-card-image m-1"></i> Modifier la couverture</a></li>
+                                        <li><a className="dropdown-item" href="#">
+                                            <i className="bi bi-card-image m-1"></i> Modifier la couverture</a></li>
 
-                            <li><a className="dropdown-item" href="#">
-                                <i className="bi bi-arrow-right m-1"></i>Déplacer</a></li>
+                                        <li><a className="dropdown-item" href="#">
+                                            <i className="bi bi-arrow-right m-1"></i>Déplacer</a></li>
 
-                            <li><a className="dropdown-item" href="#">
-                                <i className="bi bi-copy m-1"></i>Copier</a></li>
+                                        <li><a className="dropdown-item" href="#">
+                                            <i className="bi bi-copy m-1"></i>Copier</a></li>
 
-                            <li><a className="dropdown-item" href="#" onClick={deleteTask}>
-                                <i className="bi bi-trash3 m-1" ></i>Supprimer</a></li>
+                                        <li><a className="dropdown-item" href="#" onClick={deleteTask}>
+                                            <i className="bi bi-trash3 m-1" ></i>Supprimer</a></li>
 
-                        </ul>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="task-body" data-bs-toggle="modal" data-bs-target="#exampleModal">
+
+                            {/* Tags */}
+                            <div className="color-tags d-flex">
+                                {task.color_tags ?
+                                    task.color_tags.map((tag, index) => {
+                                        return <div key={index} className={"color-tag " + tag}></div>
+                                    })
+                                    : ''}
+                            </div>
+
+                            {/* Icons line */}
+                            <div className="icon-line d-flex">
+                                {task.description ? <i className="bi bi-text-paragraph m-1"></i> : ''}
+
+                                {checklist_len > 0 ? <i className="bi bi-check2-square m-1"> {check_count}/{checklist_len}</i> : ''}
+
+                                {task.watched ? <i className="bi bi-eye m-1"></i> : ''}
+
+                                {task.comments ? <i className="bi bi-chat m-1"> {task.comments.length} </i> : ''}
+
+                            </div>
+                        </div>
+                        <TaskEditor task={task} key={task.id} />
                     </div>
-                </div>
-            </div>
-            <div className="task-body" data-bs-toggle="modal" data-bs-target="#exampleModal">
-
-                {/* Tags */}
-                <div className="color-tags d-flex">
-                    {task.color_tags ?
-                        task.color_tags.map((tag, index) => {
-                            return <div key={index} className={"color-tag " + tag}></div>
-                        })
-                        : ''}
-                </div>
-
-                {/* Icons line */}
-                <div className="icon-line d-flex">
-                    {task.description ? <i className="bi bi-text-paragraph m-1"></i> : ''}
-
-                    {checklist_len > 0 ? <i className="bi bi-check2-square m-1"> {check_count}/{checklist_len}</i> : ''}
-
-                    {task.watched ? <i className="bi bi-eye m-1"></i> : ''}
-
-                    {task.comments ? <i className="bi bi-chat m-1"> {task.comments.length} </i> : ''}
-
-                </div>
-            </div>
-            <TaskEditor task={task} key={task.id} />
-        </div>
+                </Container>
+            )}
+        </Draggable>
     );
 };
 
