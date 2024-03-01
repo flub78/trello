@@ -3,6 +3,7 @@ import axios from 'axios';
 import { DragDropContext } from 'react-beautiful-dnd';
 
 import Column from './Column';
+import closeAllPanels from '../lib/Util';
 
 /**
  * TODO: check that clicking add a task when create list is open restore the context
@@ -20,17 +21,6 @@ const boardData = (brdid, boardsData) => {
         return subarray[0];
     }
     return null;
-}
-
-/**
- * Close all create task panels
- */
-const closeAllPanels = () => {
-    const collection = document.getElementsByClassName("create-task-panel");
-    for (let element of collection) {
-        element.classList.add('absent');
-        element.classList.remove('present');
-    }
 }
 
 
@@ -88,6 +78,7 @@ const Board = ({ brdid, boardsData }) => {
     const openCreateListPanel = (event) => {
         console.log('open create list panel');
 
+        closeAllPanels();
         const target = event.target;
         const createListPanel = target.previousElementSibling;
         const textArea = createListPanel.querySelector('textarea');
@@ -177,7 +168,7 @@ const Board = ({ brdid, boardsData }) => {
                         <i className="bi bi-x-lg m-1 cancel-create" onClick={cancelCreateList}></i>
                     </div>
 
-                    <div className="task-list create-list p-2 ps-4  rounded present"
+                    <div id="create-list" className="task-list create-list p-2 ps-4  rounded present"
                         onClick={openCreateListPanel}> + Ajouter une autre liste
                     </div>
                 </div>

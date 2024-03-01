@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import Task from './Task';
+import closeAllPanels from '../lib/Util';
+
 
 const Column = ({ listid, brdid }) => {
 
@@ -21,17 +23,6 @@ const Column = ({ listid, brdid }) => {
         axios.get(url)
             .then((res) => setList(res.data))
     }, [listid, list]);
-
-    /**
-     * Close all create task panels
-     */
-    const closeAllPanels = () => {
-        const collection = document.getElementsByClassName("create-task-panel");
-        for (let element of collection) {
-            element.classList.add('absent');
-            element.classList.remove('present');
-        }
-    }
 
     /**
      * When "Ajouter une carte" button is clicked, the create task panel is displayed
