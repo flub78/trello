@@ -157,11 +157,6 @@
       "id": "db1c",
       "name": "New task",
       "list": "2"
-    },
-    {
-      "id": "7f88",
-      "name": "one",
-      "list": "2"
     }
   ],
   "lists": [
@@ -183,8 +178,7 @@
       "name": "In progress",
       "tasks": [
         "f9f9",
-        "db1c",
-        "7f88"
+        "db1c"
       ]
     },
     {

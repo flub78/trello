@@ -1,14 +1,11 @@
 import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import axios from 'axios';
+import TaskEditor from './TaskEditor';
 
 const editTask = (event) => {
     console.log('edit task');
     event.stopPropagation();
-}
-
-const openTask = () => {
-    console.log('open task');
 }
 
 
@@ -37,17 +34,17 @@ const Task = ({ taskid, deleteHandler }) => {
 
     return (
 
-        <div className="task card m-1 flex-nowrap" onClick={openTask}>
+        <div className="task card m-1 flex-nowrap" >
 
             {task.image ?
-                <div className="container justify-content-center align-items-center">
+                <div className="container justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <img src={"/imgs/" + task.image} className="card-img-top" alt="welding" />
                 </div>
                 : ''}
 
             <div className="card-header">
                 <div className="d-flex">
-                    <div> {task.name}</div>
+                    <div data-bs-toggle="modal" data-bs-target="#exampleModal"> {task.name} </div>
                     <div className="dropdown">
                         <a className="nav-link " href="#" role="button" data-bs-toggle="dropdown">
                             <i className="bi bi-pencil  modif-icon m-1" onClick={editTask}></i>
@@ -78,7 +75,7 @@ const Task = ({ taskid, deleteHandler }) => {
                     </div>
                 </div>
             </div>
-            <div className="task-body">
+            <div className="task-body" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 {/* <p className="card-text">{task.description}</p> */}
 
                 <div className="color-tags d-flex">
@@ -100,6 +97,7 @@ const Task = ({ taskid, deleteHandler }) => {
 
                 </div>
             </div>
+            <TaskEditor task={task} display={true} />
         </div>
     );
 };
