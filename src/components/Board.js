@@ -5,62 +5,15 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import Column from './Column';
 
 /**
- * Create list has been clicked, open the list creation panel
- * @param {*} event 
+ * TODO: check that clicking add a task when create list is open restore the context
  */
-const openCreateListPanel = (event) => {
-    console.log('open create list panel');
-
-    const target = event.target;
-    const createTaskPanel = target.previousElementSibling;
-    const textArea = createTaskPanel.querySelector('textarea');
-
-    target.classList.toggle('absent');
-    target.classList.toggle('present');
-
-    createTaskPanel.classList.toggle('absent');
-    createTaskPanel.classList.toggle('present');
-    textArea.focus();
-}
 
 /**
- * The user has provided a list name to create
- * @param {*} event 
- */
-const validateCreateList = (event) => {
-    const parent = event.target.parentElement;
-    const textArea = parent.querySelector('textarea');
-    const name = textArea.value;
-
-    if (name.length > 0) {
-        console.log('create list with name ' + name);
-    } else {
-        // console.log('task name is empty');
-        // nothing to do
-    }
-}
-
-/**
- * When "X" button is clicked, the create task panel is hidden
- * @param {*} event 
- */
-const cancelCreateList = (event) => {
-    const createTaskPanel = event.target.parentElement;
-    const createTaskButton = createTaskPanel.nextElementSibling;
-
-    createTaskButton.classList.toggle('absent');
-    createTaskButton.classList.toggle('present');
-
-    createTaskPanel.classList.toggle('absent');
-    createTaskPanel.classList.toggle('present');
-}
-
-/**
- * get the correct board
- * @param {*} brdid 
- * @param {*} boardsData 
- * @returns 
- */
+  * get the correct board
+  * @param {*} brdid 
+  * @param {*} boardsData 
+  * @returns 
+  */
 const boardData = (brdid, boardsData) => {
     const subarray = boardsData.filter((board) => (board.id === brdid));
     if (subarray.length > 0) {
@@ -68,6 +21,18 @@ const boardData = (brdid, boardsData) => {
     }
     return null;
 }
+
+/**
+ * Close all create task panels
+ */
+const closeAllPanels = () => {
+    const collection = document.getElementsByClassName("create-task-panel");
+    for (let element of collection) {
+        element.classList.add('absent');
+        element.classList.remove('present');
+    }
+}
+
 
 /**
  * Board React component
@@ -104,6 +69,89 @@ const Board = ({ brdid, boardsData }) => {
             .then((res) => setLists(res.data))
     }, [brdid]);
 
+    /**
+     * Save the board
+     */
+    const saveBoard = () => {
+        const url = 'http://localhost:3000/boards/' + board.id;
+        console.log('updating board ' + url);
+        console.log('board ', board);
+        axios.put(url, board)
+            .then(response => console.log(response.data))
+            .catch(error => console.error(error));
+    }
+
+    /**
+     * Create list has been clicked, open the list creation panel
+     * @param {*} event 
+     */
+    const openCreateListPanel = (event) => {
+        console.log('open create list panel');
+
+        const target = event.target;
+        const createListPanel = target.previousElementSibling;
+        const textArea = createListPanel.querySelector('textarea');
+
+        target.classList.toggle('absent');
+        target.classList.toggle('present');
+
+        createListPanel.classList.toggle('absent');
+        createListPanel.classList.toggle('present');
+        textArea.focus();
+    }
+
+    /**
+     * The user has provided a list name to create
+     * @param {*} event 
+     */
+    const validateCreateList = (event) => {
+        const parent = event.target.parentElement;
+        const textArea = parent.querySelector('textarea');
+        const name = textArea.value;
+
+        if (name.length > 0) {
+            console.log('create list with name ' + name);
+            const newList = {
+                name: name,
+                tasks: [],
+                board: board.id
+            }
+            console.log("new list: ", newList);
+            const url = 'http://localhost:3000/lists';
+            axios.post(url, newList).then((res) => {
+                console.log('list created: ' + res.data.id);
+                textArea.value = '';
+                closeAllPanels();
+                board.lists.push(res.data.id);
+
+                // set(list); // should trigger a rerender ???
+
+                // Save the board state
+                saveBoard();
+            });
+
+        } else {
+            // console.log('list name is empty');
+            // nothing to do
+        }
+    }
+
+    /**
+     * When "X" button is clicked, the create task panel is hidden
+     * @param {*} event 
+     */
+    const cancelCreateList = (event) => {
+        const createListPanel = event.target.parentElement;
+        const createListButton = createListPanel.nextElementSibling;
+
+        createListButton.classList.toggle('absent');
+        createListButton.classList.toggle('present');
+
+        closeAllPanels();
+    }
+
+
+
     return (
         <DragDropContext onDragEnd={onDragEnd} >
 
@@ -125,7 +173,7 @@ const Board = ({ brdid, boardsData }) => {
                     <div className="task-list create-task-panel absent" >
                         <textarea className="m-1 p-1 rounded" id="list-name-input" type="text" placeholder="Saisissez le titre de la liste..." />
                         <button className="btn btn-primary m-1" onClick={validateCreateList}>
-                            Ajouter une list</button>
+                            Ajouter une liste</button>
                         <i className="bi bi-x-lg m-1 cancel-create" onClick={cancelCreateList}></i>
                     </div>
 
