@@ -16,17 +16,10 @@ const Container = styled.div`
         // flex-direction: column;
         `;
 
-const Title = styled.h3`
-        // padding: 8px;
-        // font-weight: bold;
-        //         background-color: ${props => (props.isDraggingOver ? 'skyblue' : 'white')};
-
-        font-size: 1.2em;`;
-
 const TaskList = styled.div`
         // padding: 8px;
         background-color: ${props => (props.isDraggingOver ? 'skyblue' : 'white')};
-        flex-grow: 1;
+        // flex-grow: 1;
         // min-height: 100px;
         `;
 
@@ -185,7 +178,7 @@ const Column = ({ listid, brdid, removeListFromBoard, index }) => {
                         className="task-list"
                     >
                         <div className="list-name">
-                            <div>{list.name}</div>
+                            <div {...provided.dragHandleProps} >{list.name}</div>
                             <div>
                                 <div className="dropdown">
                                     <a className="nav-link " href="#" role="button" data-bs-toggle="dropdown"><i
@@ -199,11 +192,25 @@ const Column = ({ listid, brdid, removeListFromBoard, index }) => {
                             </div>
                         </div>
 
-                        {list?.tasks?.map((task) => {
-                            return (
-                                <Task taskid={task} key={task} deleteHandler={deleteTaskFromList} />
-                            );
-                        })}
+                        <Droppable droppableId={listid} type="task">
+                            {(provided, snapshot) => (
+                                <TaskList
+                                    ref={provided.innerRef}
+                                    isDraggingOver={snapshot.isDraggingOver}
+                                    {...provided.droppableProps}>
+
+                                    {list?.tasks?.map((task, index) => {
+                                        return (
+                                            <Task taskid={task} key={task} deleteHandler={deleteTaskFromList} index={index} />
+                                        );
+                                    })}
+                                    {provided.placeholder}
+                                </TaskList>
+                            )
+                            }
+                        </Droppable>
+
+
 
                         <div className="create-task-panel absent" >
                             <textarea className="m-1 p-1 w-100 rounded" type="text" placeholder="Saisissez un titre pour cette carte..." />
