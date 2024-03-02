@@ -176,7 +176,7 @@ const Board = ({ brdid, boardsData }) => {
                             {/* All the task lists */}
 
                             {board?.lists?.map((list, index) => {
-                                return <Column key={index} listid={list} brdid={brdid} removeListFromBoard={removeListFromBoard} />
+                                return <Column key={index} listid={list} brdid={brdid} removeListFromBoard={removeListFromBoard} index={index} />
                             }
                             )}
 

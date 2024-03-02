@@ -11,10 +11,10 @@ const editTask = (event) => {
 }
 
 const Container = styled.div`
-        border: 1px solid lightgrey;
-        padding: 8px;
-        margin-bottom: 8px;
-        border-radius: 2px;
+        // border: 1px solid lightgrey;
+        // padding: 8px;
+        // margin-bottom: 8px;
+        // border-radius: 2px;
         background-color: ${props => (props.isDragging ? 'lightgreen' : 'white')};`;
 
 const Task = ({ taskid, deleteHandler, index }) => {
