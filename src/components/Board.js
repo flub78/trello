@@ -4,7 +4,7 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 
 import Column from './Column';
-import closeAllPanels from '../lib/Util';
+import { closeAllPanels, apiServer } from '../lib/Util';
 
 
 const Container = styled.div`
@@ -18,6 +18,9 @@ const Container = styled.div`
   * @returns 
   */
 const boardData = (brdid, boardsData) => {
+    if (!boardsData) return null;
+    console.log('boardData', brdid, boardsData);
+
     const subarray = boardsData.filter((board) => (board.id === brdid));
     if (subarray.length > 0) {
         return subarray[0];
@@ -56,7 +59,7 @@ const Board = ({ brdid, boardsData }) => {
      * Fetch lists from the API
      */
     React.useEffect(() => {
-        const url = 'http://localhost:3000/lists?board=' + brdid;
+        const url = apiServer + '/lists?board=' + brdid;
         axios.get(url)
             .then((res) => setLists(res.data))
     }, [brdid]);
@@ -65,7 +68,7 @@ const Board = ({ brdid, boardsData }) => {
      * Save the board
      */
     const saveBoard = () => {
-        const url = 'http://localhost:3000/boards/' + board.id;
+        const url = apiServer + '/boards/' + board.id;
         console.log('updating board ' + url);
         console.log('board ', board);
         axios.put(url, board)
@@ -110,7 +113,7 @@ const Board = ({ brdid, boardsData }) => {
                 board: board.id
             }
             console.log("new list: ", newList);
-            const url = 'http://localhost:3000/lists';
+            const url = apiServer + '/lists';
             axios.post(url, newList).then((res) => {
                 console.log('list created: ' + res.data.id);
                 textArea.value = '';
@@ -150,7 +153,7 @@ const Board = ({ brdid, boardsData }) => {
      * @returns
      */
     const removeListFromBoard = (listid) => {
-        const url = 'http://localhost:3000/bords/' + brdid
+        const url = apiServer + '/bords/' + brdid
         board.lists = board.lists.filter((id) => id !== listid);
 
         saveBoard();

@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import WorkspaceMain from '../components/WorkspaceMain';
 import WorkspaceSidePanel from '../components/WorkspaceSidePanel';
 import axios from 'axios';
+import { apiServer } from '../lib/Util';
 
 const WorkspacePage = () => {
 
@@ -12,7 +13,7 @@ const WorkspacePage = () => {
      * Fetch boards from the API
      */
     React.useEffect(() => {
-        const url = 'http://localhost:3000/boards';
+        const url = apiServer + '/boards';
         axios.get(url)
             .then((res) => setBoardsData(res.data))
     }, []);

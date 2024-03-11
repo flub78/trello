@@ -5,6 +5,8 @@ import axios from 'axios';
 import Navbar from '../components/Navbar';
 import BoardLeftPanel from '../components/BoardLeftPanel';
 import BoardWorkspace from '../components/BoardWorkspace';
+import { apiServer } from '../lib/Util';
+
 
 const capitalize = (s) => {
     if (typeof s !== 'string') return ''
@@ -37,7 +39,7 @@ const BoardPage = () => {
      * Fetch boards from the API
      */
     React.useEffect(() => {
-        const url = 'http://localhost:3000/boards';
+        const url = apiServer + '/boards';
         axios.get(url)
             .then((res) => setBoardsData(res.data));
     }, []);

@@ -4,6 +4,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 import TaskEditor from './TaskEditor';
+import { apiServer } from '../lib/Util';
 
 const editTask = (event) => {
     console.log('edit task');
@@ -22,7 +23,7 @@ const Task = ({ taskid, deleteHandler, index }) => {
     const [task, setTask] = React.useState([]);
 
     React.useEffect(() => {
-        const url = 'http://localhost:3000/tasks/' + taskid;
+        const url = apiServer + '/tasks/' + taskid;
         // console.log('fetching task from ' + url);
         axios.get(url)
             .then((res) => { res && setTask(res.data) })

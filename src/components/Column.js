@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 import Task from './Task';
-import closeAllPanels from '../lib/Util';
+import { closeAllPanels, apiServer } from '../lib/Util';
+
 
 const Container = styled.div`
         // margin: 8px;
@@ -38,7 +39,7 @@ const Column = ({ listid, brdid, removeListFromBoard, index }) => {
      * }
      */
     React.useEffect(() => {
-        const url = 'http://localhost:3000/lists/' + listid;
+        const url = apiServer + '/lists/' + listid;
         // console.log('fetching list from ' + url);
         axios.get(url)
             .then((res) => setList(res.data))
@@ -67,7 +68,7 @@ const Column = ({ listid, brdid, removeListFromBoard, index }) => {
      * Save the list
      */
     const saveList = () => {
-        const url = 'http://localhost:3000/lists/' + listid;
+        const url = apiServer + '/lists/' + listid;
         console.log('updating list ' + url);
         console.log('list ', list);
         axios.put(url, list)
@@ -87,7 +88,7 @@ const Column = ({ listid, brdid, removeListFromBoard, index }) => {
         if (name.length > 0) {
             console.log('create task with name ' + name);
             // Persist the task to the API
-            const url = 'http://localhost:3000/tasks';
+            const url = apiServer + '/tasks';
             axios.post(url, {
                 name: name,
                 list: listid
@@ -132,7 +133,7 @@ const Column = ({ listid, brdid, removeListFromBoard, index }) => {
         console.log('delete task ' + taskid);
         if (!taskid) return;
 
-        const url = 'http://localhost:3000/tasks/' + taskid;
+        const url = apiServer + '/tasks/' + taskid;
         axios.delete(url)
             .then((res) => {
                 console.log('task deleted: ' + taskid);
@@ -150,10 +151,10 @@ const Column = ({ listid, brdid, removeListFromBoard, index }) => {
         if (!listid) return;
 
         if (window.confirm("Voulez-vous vraiment supprimer cette liste ?")) {
-            const url = 'http://localhost:3000/lists/' + listid;
+            const url = apiServer + '/lists/' + listid;
 
             list.tasks.forEach((task) => {
-                axios.delete('http://localhost:3000/tasks/' + task);
+                axios.delete(apiServer + '/tasks/' + task);
             });
 
             axios.delete(url)

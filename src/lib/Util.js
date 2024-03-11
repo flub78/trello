@@ -17,3 +17,9 @@ export const closeAllPanels = () => {
 }
 
 export default closeAllPanels;
+
+// json server
+export const apiServer = 'http://localhost:3000';
+
+// Trello-backend
+// export const apiServer = 'http://127.0.0.1:8000/api';

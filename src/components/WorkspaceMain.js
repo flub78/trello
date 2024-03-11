@@ -1,6 +1,5 @@
 import React from 'react';
 import BoardCard from './BoardCard';
-import axios from 'axios';
 
 
 const WorkspaceMain = ({ boardsData }) => {
