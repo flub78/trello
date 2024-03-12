@@ -14,6 +14,7 @@ const WorkspacePage = () => {
      */
     React.useEffect(() => {
         const url = apiServer + '/boards';
+        console.log('axios: fetching boards from ' + url);
         axios.get(url)
             .then((res) => setBoardsData(res.data))
     }, []);

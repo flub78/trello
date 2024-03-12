@@ -59,7 +59,8 @@ const Board = ({ brdid, boardsData }) => {
      * Fetch lists from the API
      */
     React.useEffect(() => {
-        const url = apiServer + '/lists?board=' + brdid;
+        const url = apiServer + '/columns?board=' + brdid;
+        console.log('axios: fetching lists from ' + url);
         axios.get(url)
             .then((res) => setLists(res.data))
     }, [brdid]);
@@ -69,7 +70,7 @@ const Board = ({ brdid, boardsData }) => {
      */
     const saveBoard = () => {
         const url = apiServer + '/boards/' + board.id;
-        console.log('updating board ' + url);
+        console.log('axios: updating board ' + url);
         console.log('board ', board);
         axios.put(url, board)
             .then(response => console.log(response.data))
@@ -113,7 +114,8 @@ const Board = ({ brdid, boardsData }) => {
                 board: board.id
             }
             console.log("new list: ", newList);
-            const url = apiServer + '/lists';
+            const url = apiServer + '/columns';
+            console.log('axios: creating list ' + url);
             axios.post(url, newList).then((res) => {
                 console.log('list created: ' + res.data.id);
                 textArea.value = '';

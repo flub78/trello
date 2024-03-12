@@ -24,7 +24,7 @@ const Task = ({ taskid, deleteHandler, index }) => {
 
     React.useEffect(() => {
         const url = apiServer + '/tasks/' + taskid;
-        // console.log('fetching task from ' + url);
+        console.log('axios: fetching task from ' + url);
         axios.get(url)
             .then((res) => { res && setTask(res.data) })
             .then(response => console.log(response.data))

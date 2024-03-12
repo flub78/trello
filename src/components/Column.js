@@ -40,7 +40,7 @@ const Column = ({ listid, brdid, removeListFromBoard, index }) => {
      */
     React.useEffect(() => {
         const url = apiServer + '/lists/' + listid;
-        // console.log('fetching list from ' + url);
+        console.log('axios: fetching list from ' + url);
         axios.get(url)
             .then((res) => setList(res.data))
     }, [listid, list]);
@@ -69,7 +69,7 @@ const Column = ({ listid, brdid, removeListFromBoard, index }) => {
      */
     const saveList = () => {
         const url = apiServer + '/lists/' + listid;
-        console.log('updating list ' + url);
+        console.log('axios: updating list ' + url);
         console.log('list ', list);
         axios.put(url, list)
             .then(response => console.log(response.data))
@@ -86,9 +86,9 @@ const Column = ({ listid, brdid, removeListFromBoard, index }) => {
         const name = textArea.value;
 
         if (name.length > 0) {
-            console.log('create task with name ' + name);
             // Persist the task to the API
             const url = apiServer + '/tasks';
+            console.log('axios: createing task ' + name + ' with ' + url);
             axios.post(url, {
                 name: name,
                 list: listid
@@ -134,6 +134,7 @@ const Column = ({ listid, brdid, removeListFromBoard, index }) => {
         if (!taskid) return;
 
         const url = apiServer + '/tasks/' + taskid;
+        console.log('axios: deleting task ' + url);
         axios.delete(url)
             .then((res) => {
                 console.log('task deleted: ' + taskid);
@@ -154,7 +155,9 @@ const Column = ({ listid, brdid, removeListFromBoard, index }) => {
             const url = apiServer + '/lists/' + listid;
 
             list.tasks.forEach((task) => {
-                axios.delete(apiServer + '/tasks/' + task);
+                const taskUrl = apiServer + '/tasks/' + task;
+                console.log('axios: deleting task ' + taskUrl);
+                axios.delete(taskUrl);
             });
 
             axios.delete(url)
