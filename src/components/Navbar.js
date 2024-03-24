@@ -69,9 +69,14 @@ const Navbar = ({ theme, boardsData }) => {
                             <li className="nav-item dropdown">
                                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Modèles</a>
                                 <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="#">Link</a></li>
-                                    <li><a className="dropdown-item" href="#">Another link</a></li>
-                                    <li><a className="dropdown-item" href="#">A third link</a></li>
+                                    <li><a className="dropdown-item" href="/boards">Boards</a></li>
+                                    <li><a className="dropdown-item" href="/columns">Columns</a></li>
+                                    <li><a className="dropdown-item" href="/tasks">Tasks</a></li>
+                                    <li><a className="dropdown-item" href="/task-comments">Task Comments</a></li>
+                                    <li><a className="dropdown-item" href="/tag-colors">Tag Colors</a></li>
+                                    <li><a className="dropdown-item" href="/tags">Tags</a></li>
+                                    <li><a className="dropdown-item" href="/checklists">Checklists</a></li>
+                                    <li><a className="dropdown-item" href="/checklist-items">Checklist Itemss</a></li>
                                 </ul>
                             </li>
 

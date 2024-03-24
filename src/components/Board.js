@@ -18,10 +18,10 @@ const Container = styled.div`
   * @returns 
   */
 const boardData = (brdid, boardsData) => {
-    if (!boardsData) return null;
     console.log('boardData', brdid, boardsData);
+    if (!boardsData) return null;
 
-    const subarray = boardsData.filter((board) => (board.id === brdid));
+    const subarray = boardsData.filter((board) => (board.name === brdid));
     if (subarray.length > 0) {
         return subarray[0];
     }
@@ -111,7 +111,7 @@ const Board = ({ brdid, boardsData }) => {
             const newList = {
                 name: name,
                 tasks: [],
-                board: board.id
+                board_id: board.name
             }
             console.log("new list: ", newList);
             const url = apiServer + '/columns';
@@ -120,7 +120,7 @@ const Board = ({ brdid, boardsData }) => {
                 console.log('list created: ' + res.data.id);
                 textArea.value = '';
                 closeAllPanels();
-                board.lists.push(res.data.id);
+                board.lists.push(res.data.name);
 
                 // set(list); // should trigger a rerender ???
 

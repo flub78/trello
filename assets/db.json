@@ -146,61 +146,61 @@
   "columns": [
     {
       "id": "1",
-      "board": "webapp",
+      "board_id": "webapp",
       "name": "Backlog",
       "tasks": ["1", "2", "3", "4", "5"]
     },
     {
       "id": "2",
-      "board": "webapp",
+      "board_id": "webapp",
       "name": "In progress",
       "tasks": ["f9f9", "fb79"]
     },
     {
       "id": "3",
-      "board": "webapp",
+      "board_id": "webapp",
       "name": "Done",
       "tasks": ["6", "7"]
     },
     {
       "id": "4",
-      "board": "gvv",
+      "board_id": "gvv",
       "name": "Backlog",
       "tasks": []
     },
     {
       "id": "5",
-      "board": "gvv",
+      "board_id": "gvv",
       "name": "In progress",
       "tasks": []
     },
     {
       "id": "6",
-      "board": "gvv",
+      "board_id": "gvv",
       "name": "Done",
       "tasks": []
     },
     {
       "id": "7",
-      "board": "gvv",
+      "board_id": "gvv",
       "name": "Bugs",
       "tasks": []
     },
     {
       "id": "8",
-      "board": "gvv",
+      "board_id": "gvv",
       "name": "Accounting",
       "tasks": []
     },
     {
       "id": "9",
-      "board": "gvv",
+      "board_id": "gvv",
       "name": "Training",
       "tasks": []
     },
     {
       "id": "10",
-      "board": "gvv",
+      "board_id": "gvv",
       "name": "Maintenance",
       "tasks": []
     }
