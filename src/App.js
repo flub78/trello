@@ -7,6 +7,9 @@ import NotFoundPage from './pages/NotFoundPage';
 import WorkspacePage from './pages/WorkspacePage';
 import BoardPage from './pages/BoardPage';
 import BoardsPage from './pages/BoardsPage';
+import ColumnsPage from './pages/ColumnsPage';
+import TasksPage from './pages/TasksPage'; // Import the 'TasksPage' component
+import TaskCommentsPage from './pages/TaskCommentsPage';
 
 function App() {
 
@@ -19,6 +22,9 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
 
         <Route path="/boards" element={<BoardsPage />} />
+        <Route path="/columns" element={<ColumnsPage />} />
+        <Route path="/tasks" element={<TasksPage />} />
+        <Route path="/task-comments" element={<TaskCommentsPage />} />
 
         {/* page not found */}
         <Route path="*" element={<NotFoundPage />} />
