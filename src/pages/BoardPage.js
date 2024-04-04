@@ -13,7 +13,7 @@ const capitalize = (s) => {
     return s.charAt(0).toUpperCase() + s.slice(1)
 }
 
-const BoardPage = () => {
+const BoardsPage = () => {
 
 
     /**
@@ -57,4 +57,4 @@ const BoardPage = () => {
     );
 };
 
-export default BoardPage;
+export default BoardsPage;
