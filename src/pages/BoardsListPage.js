@@ -27,7 +27,9 @@ const BoardsListPage = () => {
     const boardsTable = boardsData.map((board) => {
 
         if (loading) return (
-            <Loading />
+            <tr key="-1">
+                <Loading />
+            </tr>
         )
 
 

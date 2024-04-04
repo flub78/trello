@@ -87,7 +87,7 @@ const BoardCreatePage = () => {
                     <div>
                         <form onSubmit={saveElement}>
 
-                            <label for="name" className="form-label mt-3">Name:</label>
+                            <label htmlFor="name" className="form-label mt-3">Name:</label>
                             <div className="input-group mb-4">
                                 <span className="input-group-text" onChange={handleInput}>
                                     <i className="bi bi-person-fill"></i>
@@ -102,7 +102,7 @@ const BoardCreatePage = () => {
                                 </span>
                             </div>
 
-                            <label for="description" className="form-label mt-3">Description:</label>
+                            <label htmlFor="description" className="form-label mt-3">Description:</label>
                             <div className="input-group mb-4">
                                 <span className="input-group-text">
                                     <i className="bi bi-person-fill"></i>
@@ -117,7 +117,7 @@ const BoardCreatePage = () => {
                                 </span>
                             </div>
 
-                            <label for="email" className="form-label">Email address:</label>
+                            <label htmlFor="email" className="form-label">Email address:</label>
                             <div className="input-group mb-4">
                                 <span className="input-group-text">
                                     <i className="bi bi-envelope-fill"></i>
@@ -133,7 +133,7 @@ const BoardCreatePage = () => {
                                 </span>
                             </div>
 
-                            <label for="favorite" className="form-label">Favorite:</label>
+                            <label htmlFor="favorite" className="form-label">Favorite:</label>
                             <div className="input-group mb-4">
                                 <span className="input-group-text">
                                     <i className="bi bi-question-circle"></i>
@@ -149,25 +149,25 @@ const BoardCreatePage = () => {
                             </div>
 
                             <div className="mb-3">
-                                <label for="href" className="form-label">Href:</label>
+                                <label htmlFor="href" className="form-label">Href:</label>
                                 <input type="text" className="form-control" id="href" onChange={handleInput} />
                             </div>
 
 
                             <div className="mb-3">
-                                <label for="image" className="form-label">Image:</label>
+                                <label htmlFor="image" className="form-label">Image:</label>
                                 <input type="text" className="form-control" id="image" onChange={handleInput} />
                             </div>
 
 
                             <div className="mb-3">
-                                <label for="theme" className="form-label">Theme:</label>
+                                <label htmlFor="theme" className="form-label">Theme:</label>
                                 <input type="text" className="form-control" id="theme" onChange={handleInput} />
                             </div>
 
 
                             <div className="mb-3">
-                                <label for="lists" className="form-label">Lists:</label>
+                                <label htmlFor="lists" className="form-label">Lists:</label>
                                 <input type="text" className="form-control" id="lists" onChange={handleInput} />
                             </div>
 
