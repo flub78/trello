@@ -56,7 +56,21 @@ const BoardCreatePage = () => {
                     theme: '',
                     lists: ''
                 });
-            });
+            })
+            .catch(function (error) {
+                if (error.response) {
+                    console.error("axios: error=" + error.response.data);
+                    if (error.response.status === 422) {
+                        console.error(error.response.data.message);
+                        for (let key in error.response.data.errors) {
+                            console.error(key + ': ' + error.response.data.errors[key]);
+                        }
+                    }
+                } else {
+                    console.error("unexpected axios: error=" + error.message)
+                }
+            })
+            ;
     }
 
     /**

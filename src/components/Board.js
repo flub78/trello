@@ -181,7 +181,7 @@ const Board = ({ brdid, boardsData }) => {
                             {/* All the task lists */}
 
                             {lists?.map((list, index) => {
-                                console.log('list ', list);
+                                // console.log('list ', list);
                                 // return <div key={index}>    </div>
                                 return <Column key={index}
                                     list={list}
