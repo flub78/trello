@@ -19,6 +19,8 @@ const BoardCreatePage = () => {
         lists: ''
     });
 
+    const [inputErrorList, setInputErrorList] = React.useState({});
+
     const handleInput = (e) => {
         e.persist();
 
@@ -61,10 +63,7 @@ const BoardCreatePage = () => {
                 if (error.response) {
                     console.error("axios: error=" + error.response.data);
                     if (error.response.status === 422) {
-                        console.error(error.response.data.message);
-                        for (let key in error.response.data.errors) {
-                            console.error(key + ': ' + error.response.data.errors[key]);
-                        }
+                        setInputErrorList(error.response.data.errors)
                     }
                 } else {
                     console.error("unexpected axios: error=" + error.message)
@@ -115,6 +114,8 @@ const BoardCreatePage = () => {
                                     </span>
                                 </span>
                             </div>
+                            <div className="text-danger mt-0 mb-2">{inputErrorList.name}</div>
+
 
                             <label htmlFor="description" className="form-label mt-3">Description:</label>
                             <div className="input-group mb-4">
@@ -130,6 +131,8 @@ const BoardCreatePage = () => {
                                     </span>
                                 </span>
                             </div>
+                            <div className="text-danger mt-0 mb-2">{inputErrorList.description}</div>
+
 
                             <label htmlFor="email" className="form-label">Email address:</label>
                             <div className="input-group mb-4">
@@ -146,6 +149,8 @@ const BoardCreatePage = () => {
                                     </span>
                                 </span>
                             </div>
+                            <div className="text-danger mt-0 mb-2">{inputErrorList.email}</div>
+
 
                             <label htmlFor="favorite" className="form-label">Favorite:</label>
                             <div className="input-group mb-4">
@@ -161,28 +166,38 @@ const BoardCreatePage = () => {
                                     </span>
                                 </span>
                             </div>
+                            <div className="text-danger mt-0 mb-2">{inputErrorList.favorite}</div>
+
 
                             <div className="mb-3">
                                 <label htmlFor="href" className="form-label">Href:</label>
                                 <input type="text" className="form-control" id="href" onChange={handleInput} />
+                                <div className="text-danger mt-0 mb-2">{inputErrorList.href}</div>
+
                             </div>
 
 
                             <div className="mb-3">
                                 <label htmlFor="image" className="form-label">Image:</label>
                                 <input type="text" className="form-control" id="image" onChange={handleInput} />
+                                <div className="text-danger mt-0 mb-2">{inputErrorList.image}</div>
+
                             </div>
 
 
                             <div className="mb-3">
                                 <label htmlFor="theme" className="form-label">Theme:</label>
                                 <input type="text" className="form-control" id="theme" onChange={handleInput} />
+                                <div className="text-danger mt-0 mb-2">{inputErrorList.theme}</div>
+
                             </div>
 
 
                             <div className="mb-3">
                                 <label htmlFor="lists" className="form-label">Lists:</label>
                                 <input type="text" className="form-control" id="lists" onChange={handleInput} />
+                                <div className="text-danger mt-0 mb-2">{inputErrorList.lists}</div>
+
                             </div>
 
                             <button type="submit" className="btn btn-primary">Submit</button>
