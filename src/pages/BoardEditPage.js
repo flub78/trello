@@ -49,7 +49,7 @@ const BoardEditPage = () => {
         const url = apiServer + '/boards/' + id;
         console.log('axios: patching board to ' + url);
 
-        axios.patch(url, formData)
+        axios.put(url, formData)
             .then((res) => {
                 console.log('axios: response=' + JSON.stringify(res.data));
                 setFormData({
@@ -68,6 +68,9 @@ const BoardEditPage = () => {
                 if (error.response) {
                     if (error.response.status === 422) {
                         setInputErrorList(error.response.data.errors)
+                    }
+                    if (error.response.status === 419) {
+                        console.error("axios: error=" + error.response.data.message)
                     }
                     if (error.response.status === 500) {
                         console.error("axios: error=" + error.response.data.message)
