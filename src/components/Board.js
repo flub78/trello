@@ -59,7 +59,7 @@ const Board = ({ brdid, boardsData }) => {
      * Fetch lists from the API
      */
     React.useEffect(() => {
-        const url = apiServer + '/columns?board=' + brdid;
+        const url = apiServer + '/columns?board_id=' + brdid;
         console.log('axios: fetching lists from ' + url);
         axios.get(url)
             .then((res) => setLists(res.data))
@@ -180,8 +180,12 @@ const Board = ({ brdid, boardsData }) => {
 
                             {/* All the task lists */}
 
-                            {board?.lists?.map((list, index) => {
-                                return <Column key={index} listid={list} brdid={brdid} removeListFromBoard={removeListFromBoard} index={index} />
+                            {lists?.map((list, index) => {
+                                console.log('list ', list);
+                                // return <div key={index}>    </div>
+                                return <Column key={index}
+                                    list={list}
+                                    removeListFromBoard={removeListFromBoard} index={index} />
                             }
                             )}
 

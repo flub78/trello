@@ -116,7 +116,7 @@ const BoardWorkspace = ({ brdid, brd, boardsData }) => {
                 </div>
 
                 <div className="offcanvas-body">
-                    <p>Try scrolling the rest of the page to see this option in action.</p>
+                    <p>Text on the right sidebar panel.</p>
 
                     {/* <!-- Example of drodown --> */}
                     <div className="container justify-content-center align-items-center">

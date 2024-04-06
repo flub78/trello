@@ -25,25 +25,10 @@ const TaskList = styled.div`
         `;
 
 
-const Column = ({ listid, brdid, removeListFromBoard, index }) => {
+const Column = ({ list, removeListFromBoard, index }) => {
 
-    const [list, setList] = React.useState([]);
 
-    /**
-     * Fetch list from the API
-     * {
-     *  "id": "3",
-     *  "board": "webapp",
-     *  "name": "Done",
-     *  "tasks": ["6", "7"]
-     * }
-     */
-    React.useEffect(() => {
-        const url = apiServer + '/lists/' + listid;
-        console.log('axios: fetching list from ' + url);
-        axios.get(url)
-            .then((res) => setList(res.data))
-    }, [listid, list]);
+    const listid = list.id;
 
     /**
      * When "Ajouter une carte" button is clicked, the create task panel is displayed
@@ -98,7 +83,6 @@ const Column = ({ listid, brdid, removeListFromBoard, index }) => {
                 closeAllPanels();
                 //setList({ ...list, tasks: [...list.tasks, res.data.id] });
                 list.tasks.push(res.data.id);
-                setList(list); // should trigger a rerender ???
 
                 // Save the list state
                 saveList();
