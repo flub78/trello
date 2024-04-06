@@ -8,6 +8,7 @@ import WorkspacePage from './pages/WorkspacePage';
 import BoardPage from './pages/BoardPage';
 import BoardsListPage from './pages/BoardsListPage';
 import BoardCreatePage from './pages/BoardCreatePage';
+import BoardEditPage from './pages/BoardEditPage';
 import ColumnsPage from './pages/ColumnsPage';
 import TasksPage from './pages/TasksPage'; // Import the 'TasksPage' component
 import TaskCommentsPage from './pages/TaskCommentsPage';
@@ -22,8 +23,12 @@ function App() {
         <Route path="/board/:id" element={<BoardPage />} />
         <Route path="/about" element={<AboutPage />} />
 
+        {/* boards resource */}
         <Route path="/boards" element={<BoardsListPage />} />
         <Route path="/boards/create" element={<BoardCreatePage />} />
+        <Route path="/boards/edit/:id" element={<BoardEditPage />} />
+
+
         <Route path="/columns" element={<ColumnsPage />} />
         <Route path="/tasks" element={<TasksPage />} />
         <Route path="/task-comments" element={<TaskCommentsPage />} />

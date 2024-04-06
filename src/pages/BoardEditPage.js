@@ -2,27 +2,25 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import axios from 'axios';
 import { apiServer } from '../lib/Util';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
-const BoardCreatePage = () => {
+const BoardEditPage = () => {
 
     const [boardsData, setBoardsData] = React.useState([]);
 
+    let { id } = useParams();
+
     const [formData, setFormData] = React.useState({
-        name: '',
-        description: '',
-        email: '',
-        favorite: false,
-        href: '',
-        image: '',
-        theme: '',
-        lists: ''
     });
 
     const [inputErrorList, setInputErrorList] = React.useState({});
 
     const navigate = useNavigate();
 
+    /**
+     * Update the state each time the user types something in the form
+     * @param {*} e 
+     */
     const handleInput = (e) => {
         e.persist();
 
@@ -39,15 +37,19 @@ const BoardCreatePage = () => {
         });
     }
 
-    const saveElement = (e) => {
+    /**
+     * Save the element on submit
+     * @param {*} e 
+     */
+    const updateElement = (e) => {
         e.preventDefault();
 
-        console.log('saveElement: ' + JSON.stringify(formData));
+        console.log('updateElement: ' + JSON.stringify(formData));
 
-        const url = apiServer + '/boards';
-        console.log('axios: posting board to ' + url);
+        const url = apiServer + '/boards/' + id;
+        console.log('axios: patching board to ' + url);
 
-        axios.post(url, formData)
+        axios.patch(url, formData)
             .then((res) => {
                 console.log('axios: response=' + JSON.stringify(res.data));
                 setFormData({
@@ -85,8 +87,14 @@ const BoardCreatePage = () => {
         console.log('axios: fetching boards from ' + url);
 
         axios.get(url)
-            .then((res) => setBoardsData(res.data))
-    }, []);
+            .then((res) => setBoardsData(res.data));
+
+        const url2 = apiServer + '/boards/' + id;
+        console.log('axios: fetching board from ' + url2);
+
+        axios.get(url2)
+            .then((res) => setFormData(res.data))
+    }, [id]);
 
     return (
         <div>
@@ -96,7 +104,7 @@ const BoardCreatePage = () => {
 
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
-                        <h3>Create board</h3>
+                        <h3>Edit board</h3>
                         <Link to="/boards" className="btn btn-sm btn-danger m-1">Back</Link>
                     </div>
                     <div class="card-body">
@@ -104,7 +112,7 @@ const BoardCreatePage = () => {
                         <div className="container-fluid mt-2 mw-100" style={{ overflow: 'auto', max_height: 'calc(100vh - 136px)' }}>
 
                             <div>
-                                <form onSubmit={saveElement}>
+                                <form onSubmit={updateElement}>
 
                                     <label htmlFor="name" className="form-label mt-3">Name:</label>
                                     <div className="input-group mb-4">
@@ -146,7 +154,7 @@ const BoardCreatePage = () => {
                                             <i className="bi bi-envelope-fill"></i>
                                         </span>
                                         <input type="email" className="form-control" id="email" onChange={handleInput}
-                                            placeholder="e.g. mario@example.com" />
+                                            placeholder="e.g. mario@example.com" value={formData.email} />
                                         <span className="input-group-text">
                                             <span className="tt"
                                                 data-bs-placement="bottom"
@@ -163,7 +171,7 @@ const BoardCreatePage = () => {
                                         <span className="input-group-text">
                                             <i className="bi bi-question-circle"></i>
                                         </span>
-                                        <input type="checkbox" id="favorite" onChange={handleInput} />
+                                        <input type="checkbox" id="favorite" onChange={handleInput} value={formData.favorite} />
                                         <span className="input-group-text">
                                             <span className="tt"
                                                 data-bs-placement="bottom"
@@ -177,7 +185,7 @@ const BoardCreatePage = () => {
 
                                     <div className="mb-3">
                                         <label htmlFor="href" className="form-label">Href:</label>
-                                        <input type="text" className="form-control" id="href" onChange={handleInput} />
+                                        <input type="text" className="form-control" id="href" onChange={handleInput} value={formData.href} />
                                         <div className="text-danger mt-0 mb-2">{inputErrorList.href}</div>
 
                                     </div>
@@ -185,7 +193,7 @@ const BoardCreatePage = () => {
 
                                     <div className="mb-3">
                                         <label htmlFor="image" className="form-label">Image:</label>
-                                        <input type="text" className="form-control" id="image" onChange={handleInput} />
+                                        <input type="text" className="form-control" id="image" onChange={handleInput} value={formData.image} />
                                         <div className="text-danger mt-0 mb-2">{inputErrorList.image}</div>
 
                                     </div>
@@ -193,7 +201,7 @@ const BoardCreatePage = () => {
 
                                     <div className="mb-3">
                                         <label htmlFor="theme" className="form-label">Theme:</label>
-                                        <input type="text" className="form-control" id="theme" onChange={handleInput} />
+                                        <input type="text" className="form-control" id="theme" onChange={handleInput} value={formData.theme} />
                                         <div className="text-danger mt-0 mb-2">{inputErrorList.theme}</div>
 
                                     </div>
@@ -201,7 +209,7 @@ const BoardCreatePage = () => {
 
                                     <div className="mb-3">
                                         <label htmlFor="lists" className="form-label">Lists:</label>
-                                        <input type="text" className="form-control" id="lists" onChange={handleInput} />
+                                        <input type="text" className="form-control" id="lists" onChange={handleInput} value={formData.lists} />
                                         <div className="text-danger mt-0 mb-2">{inputErrorList.lists}</div>
 
                                     </div>
@@ -217,4 +225,4 @@ const BoardCreatePage = () => {
     );
 };
 
-export default BoardCreatePage;
+export default BoardEditPage;
