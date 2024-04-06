@@ -23,6 +23,21 @@ const BoardsListPage = () => {
     }, []);
 
 
+    const deleteElement = (e, id) => {
+        e.preventDefault();
+
+        console.log('deleteElement: id=' + id);
+
+        const url = apiServer + '/boards/' + id;
+        console.log('axios: deleting board from ' + url);
+
+        axios.delete(url)
+            .then((res) => {
+                console.log('axios: response=' + JSON.stringify(res.data));
+                const newBoardsData = boardsData.filter((board) => board.name !== id);
+                setBoardsData(newBoardsData);
+            });
+    }
 
     const boardsTable = boardsData.map((board) => {
 
@@ -39,7 +54,10 @@ const BoardsListPage = () => {
                     <div className="btn btn-sm btn-success"> <i className="fa-regular fa-pen-to-square"></i></div>
                 </td>
                 <td className="">
-                    <div className="btn btn-sm btn-danger"><i className="fa-regular fa-trash-can"></i></div>
+                    <div type="button"
+                        className="btn btn-sm btn-danger"
+                        onClick={(e) => deleteElement(e, board.name)}>
+                        <i className="fa-regular fa-trash-can"></i></div>
                 </td>
                 <td className="">{board.name}</td>
                 <td className="">{board.description}</td>

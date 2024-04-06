@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import axios from 'axios';
 import { apiServer } from '../lib/Util';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const BoardCreatePage = () => {
 
@@ -20,6 +20,8 @@ const BoardCreatePage = () => {
     });
 
     const [inputErrorList, setInputErrorList] = React.useState({});
+
+    const navigate = useNavigate();
 
     const handleInput = (e) => {
         e.persist();
@@ -58,12 +60,15 @@ const BoardCreatePage = () => {
                     theme: '',
                     lists: ''
                 });
+                navigate('/boards');
             })
             .catch(function (error) {
                 if (error.response) {
-                    console.error("axios: error=" + error.response.data);
                     if (error.response.status === 422) {
                         setInputErrorList(error.response.data.errors)
+                    }
+                    if (error.response.status === 500) {
+                        console.error("axios: error=" + error.response.data.message)
                     }
                 } else {
                     console.error("unexpected axios: error=" + error.message)
