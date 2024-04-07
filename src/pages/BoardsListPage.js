@@ -78,7 +78,10 @@ const BoardsListPage = () => {
                 <td className="">{board.name}</td>
                 <td className="">{board.description}</td>
                 <td className="">{board.email}</td>
-                <td className="">{board.favorite}</td>
+                <td className="">{(board.favorite) ?
+                    <i class="fa-regular fa-square-check"></i> :
+                    <i class="fa-regular fa-square"></i>}
+                </td>
                 <td className="">{board.href}</td>
                 <td className="">{board.image}</td>
                 <td className="">{board.theme}</td>

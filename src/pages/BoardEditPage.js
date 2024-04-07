@@ -171,10 +171,13 @@ const BoardEditPage = () => {
 
                                     <label htmlFor="favorite" className="form-label">Favorite:</label>
                                     <div className="input-group mb-4">
-                                        <span className="input-group-text">
-                                            <i className="bi bi-question-circle"></i>
-                                        </span>
-                                        <input type="checkbox" id="favorite" onChange={handleInput} value={formData.favorite} />
+
+                                        <input type="checkbox"
+                                            id="favorite"
+                                            onChange={handleInput}
+                                            value={formData.favorite}
+                                            checked={formData.favorite}
+                                        />
                                         <span className="input-group-text">
                                             <span className="tt"
                                                 data-bs-placement="bottom"
