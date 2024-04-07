@@ -1,5 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
+import EditInput from '../components/cg/EditInput';
+
 import axios from 'axios';
 import { apiServer } from '../lib/Util';
 import { Link, useNavigate, useParams } from 'react-router-dom';
@@ -17,6 +19,22 @@ const BoardEditPage = () => {
 
     const navigate = useNavigate();
 
+    function setDeepValue(obj, value, path) {
+        if (typeof path === "string") {
+            var path = path.split('.');
+        }
+
+        if (path.length > 1) {
+            var p = path.shift();
+            if (obj[p] == null || typeof obj[p] !== 'object') {
+                obj[p] = {};
+            }
+            setDeepValue(obj[p], value, path);
+        } else {
+            obj[path[0]] = value;
+        }
+    }
+
     /**
      * Update the state each time the user types something in the form
      * @param {*} e 
@@ -31,10 +49,17 @@ const BoardEditPage = () => {
 
         console.log('handleInput: id=' + id + ', value=' + value + ', type=' + type + ', checked=' + checked);
 
-        setFormData({
-            ...formData,
-            [id]: type === 'checkbox' ? checked : value
-        });
+        let fd = { ...formData };
+
+        setDeepValue(fd, type === 'checkbox' ? checked : value, id);
+
+        // setFormData({
+        //     ...formData,
+        //     [id]: type === 'checkbox' ? checked : value
+        // });
+        console.log('handleInput updated: formData=' + JSON.stringify(fd));
+        // console.log(e);
+        setFormData(fd);
     }
 
     /**
@@ -117,6 +142,8 @@ const BoardEditPage = () => {
                             <div>
                                 <form onSubmit={updateElement}>
 
+
+
                                     <label htmlFor="name" className="form-label mt-3">Name:</label>
                                     <div className="input-group mb-4">
                                         <span className="input-group-text" onChange={handleInput}>
@@ -133,6 +160,12 @@ const BoardEditPage = () => {
                                     </div>
                                     <div className="text-danger mt-0 mb-2">{inputErrorList.name}</div>
 
+                                    <EditInput descriptor={{
+                                        label: 'Name React',
+                                        field: 'name',
+                                        error: inputErrorList.name,
+                                        base_type: 'varchar'
+                                    }} formData={formData} handleInput={handleInput} />
 
                                     <label htmlFor="description" className="form-label mt-3">Description:</label>
                                     <div className="input-group mb-4">
