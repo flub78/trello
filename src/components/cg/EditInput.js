@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EditInput = ({ descriptor, formData, handleInput }) => {
+const EditInput = ({ descriptor, value, onChange }) => {
 
     if (descriptor.base_type === 'varchar') {
         return (
@@ -9,18 +9,18 @@ const EditInput = ({ descriptor, formData, handleInput }) => {
                     className="form-label mt-3">{descriptor.label + ': '}</label>
                 <div className="input-group mb-4">
                     <span className="input-group-text" >
-                        <i className="bi bi-person-fill"></i>
+                        <i className={descriptor.icon}></i>
                     </span>
                     <input type="text"
                         className="form-control"
                         id={descriptor.field}
-                        placeholder="e.g. Mario"
-                        onChange={handleInput}
-                        value={formData.name} />
+                        placeholder={descriptor.placeholder}
+                        onChange={onChange}
+                        value={value} />
                     <span className="input-group-text">
                         <span className="tt"
                             data-bs-placement="bottom"
-                            title="If you do not remember your name, ask your wife...">
+                            title={descriptor.title}>
                             <i className="bi bi-question-circle"></i>
                         </span>
                     </span>
@@ -32,8 +32,6 @@ const EditInput = ({ descriptor, formData, handleInput }) => {
 
     return (
         <div>
-
-
             <h1>Edit Input {descriptor.name}</h1>
         </div>
     );
