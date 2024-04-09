@@ -144,7 +144,7 @@ const BoardEditForm = ({ id }) => {
                 field: 'description',
                 error: inputErrorList.description,
                 base_type: 'varchar',
-                icon: 'fa-thin fa-comment',
+                icon: 'fa-regular fa-comment',
                 placeholder: 'e.g. My board',
                 title: 'Description for the board'
             }} value={formData.description} onChange={onChange} />

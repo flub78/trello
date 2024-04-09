@@ -3,6 +3,9 @@ import axios from 'axios';
 import { apiServer } from '../lib/Util';
 import { useNavigate } from 'react-router-dom';
 
+import CreateInput from '../components/cg/CreateInput';
+
+
 /**
  * A form to create a board
  * @returns 
@@ -24,7 +27,7 @@ const BoardCreateForm = () => {
 
     const navigate = useNavigate();
 
-    const handleInput = (e) => {
+    const onChange = (e) => {
         e.persist();
 
         const id = e.target.id;
@@ -32,7 +35,7 @@ const BoardCreateForm = () => {
         const type = e.target.type;
         const checked = e.target.checked;
 
-        console.log('handleInput: id=' + id + ', value=' + value + ', type=' + type + ', checked=' + checked);
+        console.log('onChange: id=' + id + ', value=' + value + ', type=' + type + ', checked=' + checked);
 
         setFormData({
             ...formData,
@@ -78,79 +81,46 @@ const BoardCreateForm = () => {
             ;
     }
 
-    /**
-     * Fetch boards from the API
-     */
-    // React.useEffect(() => {
-    //     const url = apiServer + '/boards';
-    //     console.log('axios: fetching boards from ' + url);
-
-    //     axios.get(url)
-    //         .then((res) => setBoardsData(res.data))
-    // }, []);
-
     return (
 
         <form onSubmit={saveElement}>
 
-            <label htmlFor="name" className="form-label mt-3">Name:</label>
-            <div className="input-group mb-4">
-                <span className="input-group-text" onChange={handleInput}>
-                    <i className="bi bi-person-fill"></i>
-                </span>
-                <input type="text" className="form-control" id="name" placeholder="e.g. Mario" onChange={handleInput} value={formData.name} />
-                <span className="input-group-text">
-                    <span className="tt"
-                        data-bs-placement="bottom"
-                        title="If you do not remember your name, ask your wife...">
-                        <i className="bi bi-question-circle"></i>
-                    </span>
-                </span>
-            </div>
-            <div className="text-danger mt-0 mb-2">{inputErrorList.name}</div>
+            <CreateInput descriptor={{
+                label: 'Name',
+                field: 'name',
+                error: inputErrorList.name,
+                base_type: 'varchar',
+                icon: 'bi bi-person-fill',
+                placeholder: 'e.g. My board',
+                title: 'Identifier for the board'
+            }} value={formData.name} onChange={onChange} />
 
+            <CreateInput descriptor={{
+                label: 'Description',
+                field: 'description',
+                error: inputErrorList.description,
+                base_type: 'varchar',
+                icon: 'fa-regular fa-comment',
+                placeholder: 'e.g. My board',
+                title: 'Description for the board'
+            }} value={formData.description} onChange={onChange} />
 
-            <label htmlFor="description" className="form-label mt-3">Description:</label>
-            <div className="input-group mb-4">
-                <span className="input-group-text">
-                    <i className="bi bi-person-fill"></i>
-                </span>
-                <input type="text" className="form-control" id="description" placeholder="e.g. This is a board to ..." onChange={handleInput} value={formData.description} />
-                <span className="input-group-text">
-                    <span className="tt"
-                        data-bs-placement="bottom"
-                        title="If you do not remember your name, ask your wife...">
-                        <i className="bi bi-question-circle"></i>
-                    </span>
-                </span>
-            </div>
-            <div className="text-danger mt-0 mb-2">{inputErrorList.description}</div>
-
-
-            <label htmlFor="email" className="form-label">Email address:</label>
-            <div className="input-group mb-4">
-                <span className="input-group-text">
-                    <i className="bi bi-envelope-fill"></i>
-                </span>
-                <input type="email" className="form-control" id="email" onChange={handleInput}
-                    placeholder="e.g. mario@example.com" />
-                <span className="input-group-text">
-                    <span className="tt"
-                        data-bs-placement="bottom"
-                        title="Type your email address">
-                        <i className="bi bi-question-circle"></i>
-                    </span>
-                </span>
-            </div>
-            <div className="text-danger mt-0 mb-2">{inputErrorList.email}</div>
-
+            <CreateInput descriptor={{
+                label: 'Email',
+                field: 'email',
+                error: inputErrorList.email,
+                base_type: 'varchar',
+                icon: 'bi bi-envelope-fill',
+                placeholder: 'e.g. john@example.org',
+                title: 'Type your email address'
+            }} value={formData.email} onChange={onChange} />
 
             <label htmlFor="favorite" className="form-label">Favorite:</label>
             <div className="input-group mb-4">
                 <span className="input-group-text">
                     <i className="bi bi-question-circle"></i>
                 </span>
-                <input type="checkbox" id="favorite" onChange={handleInput} />
+                <input type="checkbox" id="favorite" onChange={onChange} />
                 <span className="input-group-text">
                     <span className="tt"
                         data-bs-placement="bottom"
@@ -161,10 +131,9 @@ const BoardCreateForm = () => {
             </div>
             <div className="text-danger mt-0 mb-2">{inputErrorList.favorite}</div>
 
-
             <div className="mb-3">
                 <label htmlFor="href" className="form-label">Href:</label>
-                <input type="text" className="form-control" id="href" onChange={handleInput} />
+                <input type="text" className="form-control" id="href" onChange={onChange} />
                 <div className="text-danger mt-0 mb-2">{inputErrorList.href}</div>
 
             </div>
@@ -172,7 +141,7 @@ const BoardCreateForm = () => {
 
             <div className="mb-3">
                 <label htmlFor="image" className="form-label">Image:</label>
-                <input type="text" className="form-control" id="image" onChange={handleInput} />
+                <input type="text" className="form-control" id="image" onChange={onChange} />
                 <div className="text-danger mt-0 mb-2">{inputErrorList.image}</div>
 
             </div>
@@ -180,7 +149,7 @@ const BoardCreateForm = () => {
 
             <div className="mb-3">
                 <label htmlFor="theme" className="form-label">Theme:</label>
-                <input type="text" className="form-control" id="theme" onChange={handleInput} />
+                <input type="text" className="form-control" id="theme" onChange={onChange} />
                 <div className="text-danger mt-0 mb-2">{inputErrorList.theme}</div>
 
             </div>
@@ -188,7 +157,7 @@ const BoardCreateForm = () => {
 
             <div className="mb-3">
                 <label htmlFor="lists" className="form-label">Lists:</label>
-                <input type="text" className="form-control" id="lists" onChange={handleInput} />
+                <input type="text" className="form-control" id="lists" onChange={onChange} />
                 <div className="text-danger mt-0 mb-2">{inputErrorList.lists}</div>
 
             </div>
