@@ -5,6 +5,7 @@ import BoardEditForm from '../components/BoardEditForm';
 import axios from 'axios';
 import { apiServer } from '../lib/Util';
 import { Link, useParams } from 'react-router-dom';
+import Card from 'react-bootstrap/Card';
 
 /**
  * A page to edit a board
@@ -33,24 +34,18 @@ const BoardEditPage = () => {
         <div>
             <Navbar theme="light" boardsData={boardsData} />
 
-            <section id="main" className="container-lg-fluid">
+            <Card >
+                <Card.Header className="card-header d-flex justify-content-between">
+                    <h3>Edit a board</h3>
+                    <Link to="/boards" className="btn btn-sm btn-danger m-1">Back</Link>
+                </Card.Header>
 
-                <div class="card">
-                    <div class="card-header d-flex justify-content-between">
-                        <h3>Edit board</h3>
-                        <Link to="/boards" className="btn btn-sm btn-danger m-1">Back</Link>
+                <Card.Body>
+                    <div>
+                        <BoardEditForm id={id} />
                     </div>
-                    <div class="card-body">
-
-                        <div className="container-fluid mt-2 mw-100" style={{ overflow: 'auto', max_height: 'calc(100vh - 136px)' }}>
-
-                            <div>
-                                <BoardEditForm id={id} />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section >
+                </Card.Body>
+            </Card>
         </div>
     );
 };

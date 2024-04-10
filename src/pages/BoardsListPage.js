@@ -4,8 +4,7 @@ import Loading from '../components/Loading';
 import axios from 'axios';
 import { apiServer } from '../lib/Util';
 import { Link } from 'react-router-dom';
-
-
+import Card from 'react-bootstrap/Card';
 
 /**
  * React component to display the list of boards
@@ -94,24 +93,19 @@ const BoardsListPage = () => {
         <div>
             <Navbar theme="light" boardsData={boardsData} />
 
-            <section id="main" className="container-lg-fluid">
+            <Card >
+                <Card.Header className="card-header d-flex justify-content-between">
+                    <h3>Boards</h3>
+                    <div>
+                        <Link to="/boards/create" className="btn btn-sm btn-primary m-1">Create a board</Link>
 
-
-                <div className="card">
-                    <div className="card-header d-flex justify-content-between">
-                        <h3>Boards</h3>
-
-                        <div>
-                            <Link to="/boards/create" className="btn btn-sm btn-primary m-1">Create a board</Link>
-
-                            <div className="btn btn-sm btn-primary m-1">CSV</div>
-                            <div className="btn btn-sm btn-primary m-1">PDF</div>
-                        </div>
+                        <div className="btn btn-sm btn-primary m-1">CSV</div>
+                        <div className="btn btn-sm btn-primary m-1">PDF</div>
                     </div>
+                </Card.Header>
 
-                    <div className="card-body">
-
-
+                <Card.Body>
+                    <div>
                         <div className="container-fluid mt-2 mw-100" style={{ overflow: 'auto', max_height: 'calc(100vh - 136px)' }}>
 
                             <div className="d-flex justify-content-between m-1">
@@ -185,11 +179,10 @@ const BoardsListPage = () => {
                             </div>
 
                         </div>
-
                     </div>
-                </div>
+                </Card.Body>
+            </Card>
 
-            </section >
         </div >
     );
 };
