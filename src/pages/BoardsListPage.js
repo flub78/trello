@@ -1,10 +1,14 @@
 import React from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
+import { apiServer } from '../lib/Util';
 import Navbar from '../components/Navbar';
 import Loading from '../components/Loading';
-import axios from 'axios';
-import { apiServer } from '../lib/Util';
-import { Link } from 'react-router-dom';
-import Card from 'react-bootstrap/Card';
 
 /**
  * React component to display the list of boards
@@ -99,8 +103,8 @@ const BoardsListPage = () => {
                     <div>
                         <Link to="/boards/create" className="btn btn-sm btn-primary m-1">Create a board</Link>
 
-                        <div className="btn btn-sm btn-primary m-1">CSV</div>
-                        <div className="btn btn-sm btn-primary m-1">PDF</div>
+                        <Button variant="primary" size="sm">CSV</Button>
+                        <Button variant="primary" size="sm">PDF</Button>
                     </div>
                 </Card.Header>
 
@@ -108,21 +112,22 @@ const BoardsListPage = () => {
                     <div>
                         <div className="container-fluid mt-2 mw-100" style={{ overflow: 'auto', max_height: 'calc(100vh - 136px)' }}>
 
-                            <div className="d-flex justify-content-between m-1">
 
-
-                                <div>
-                                    Afficher <select size="1" name="DataTables_Table_0_length" aria-controls="DataTables_Table_0">
+                            <Form className='d-flex justify-content-between align-items-center'>
+                                <div className='d-flex'>
+                                    Afficher
+                                    <Form.Select className="form-select-inline ms-1 me-1">
                                         <option value="10">10</option>
                                         <option value="25" selected="selected">25</option>
                                         <option value="50">50</option>
                                         <option value="100">100</option>
-                                    </select> éléments
+                                    </Form.Select>
+                                    éléments
                                 </div>
-                                <div>
-                                    Rechercher&nbsp;: <input type="text" />
+                                <div className='d-flex'>
+                                    <Form.Control type="text" placeholder="Rechercher" />
                                 </div>
-                            </div>
+                            </Form>
 
                             <table className=" table table-striped" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
                                 <thead className="thead-dark">
