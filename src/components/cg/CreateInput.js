@@ -1,30 +1,27 @@
 import React from 'react';
 
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+
 const CreateInput = ({ descriptor, value, onChange }) => {
 
     if (descriptor.base_type === 'varchar') {
         return (
             <div>
-                <label htmlFor={descriptor.field}
-                    className="form-label mt-3">{descriptor.label + ': '}</label>
-                <div className="input-group mb-4">
-                    <span className="input-group-text" >
-                        <i className={descriptor.icon}></i>
-                    </span>
-                    <input type="text"
-                        className="form-control"
+                <FloatingLabel
+                    controlId="floatingInput"
+                    label={descriptor.label}
+                    className="mb-3"
+                >
+                    <Form.Control type={descriptor.type}
+                        title={descriptor.title}
                         id={descriptor.field}
                         placeholder={descriptor.placeholder}
                         onChange={onChange}
                         value={value} />
-                    <span className="input-group-text">
-                        <span className="tt"
-                            data-bs-placement="bottom"
-                            title={descriptor.title}>
-                            <i className="bi bi-question-circle"></i>
-                        </span>
-                    </span>
-                </div>
+                </FloatingLabel>
+
                 <div className="text-danger mt-0 mb-2">{descriptor.error}</div>
             </div>
         );
