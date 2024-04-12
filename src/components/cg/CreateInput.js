@@ -2,15 +2,28 @@ import React from 'react';
 
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
 
 const CreateInput = ({ descriptor, value, onChange }) => {
+
+    if (descriptor.subtype === 'boolean') {
+        return (
+            <div>
+                <Form.Check
+                    type={descriptor.type}
+                    label={descriptor.label}
+                    id={descriptor.field}
+                    checked={value}
+                    onChange={onChange}
+                />
+                <div className="text-danger mt-0 mb-2">{descriptor.error}</div>
+            </div>
+        );
+    }
 
     if (descriptor.base_type === 'varchar') {
         return (
             <div>
                 <FloatingLabel
-                    controlId="floatingInput"
                     label={descriptor.label}
                     className="mb-3"
                 >

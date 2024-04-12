@@ -6,10 +6,8 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-
 import CreateInput from '../components/cg/CreateInput';
 import { apiServer } from '../lib/Util';
-
 
 /**
  * A form to create a board
@@ -24,7 +22,7 @@ const BoardCreateForm = () => {
         favorite: false,
         href: '',
         image: '',
-        theme: '',
+        theme: 'light',
         lists: ''
     });
 
@@ -87,10 +85,9 @@ const BoardCreateForm = () => {
     }
 
     return (
-
         <Form onSubmit={saveElement}>
-            <Row>
-                <Col sm={6} md={6} lg={4}>
+            <Row className="align-items-center">
+                <Col sm={6} md={6} lg={3}>
                     <CreateInput descriptor={{
                         label: 'Name',
                         field: 'name',
@@ -102,7 +99,8 @@ const BoardCreateForm = () => {
                         title: 'Identifier for the board'
                     }} value={formData.name} onChange={onChange} />
                 </Col>
-                <Col sm={6} md={6} lg={4}>
+
+                <Col sm={6} md={6} lg={3}>
                     <CreateInput descriptor={{
                         label: 'Description',
                         field: 'description',
@@ -115,8 +113,7 @@ const BoardCreateForm = () => {
                     }} value={formData.description} onChange={onChange} />
                 </Col>
 
-                <Col sm={6} md={6} lg={4}>
-
+                <Col sm={6} md={6} lg={3}>
                     <CreateInput descriptor={{
                         label: 'Email',
                         field: 'email',
@@ -128,33 +125,19 @@ const BoardCreateForm = () => {
                         title: 'Type your email address'
                     }} value={formData.email} onChange={onChange} />
                 </Col>
-            </Row>
-            <Row>
 
-
-                <Col sm={4}>
-
-                    <label htmlFor="favorite" className="form-label">Favorite:</label>
-                    <div className="input-group mb-4">
-                        <span className="input-group-text">
-                            <i className="bi bi-question-circle"></i>
-                        </span>
-                        <input type="checkbox" id="favorite" onChange={onChange} />
-                        <span className="input-group-text">
-                            <span className="tt"
-                                data-bs-placement="bottom"
-                                title="Type your favorite address">
-                                <i className="bi bi-question-circle"></i>
-                            </span>
-                        </span>
-                    </div>
-                    <div className="text-danger mt-0 mb-2">{inputErrorList.favorite}</div>
+                <Col sm={4} md={6} lg={2} >
+                    <CreateInput descriptor={{
+                        label: 'Favorite',
+                        field: 'favorite',
+                        type: 'checkbox',
+                        error: inputErrorList.favorite,
+                        subtype: 'boolean',
+                    }} value={formData.favorite} onChange={onChange} />
                 </Col>
             </Row>
 
             <Row>
-
-
                 <Col sm={4}>
 
                     <CreateInput descriptor={{
@@ -179,9 +162,12 @@ const BoardCreateForm = () => {
 
                 </Col>
                 <Col sm={4}>
-                    <div className="mb-3">
-                        <label htmlFor="theme" className="form-label">Theme:</label>
-                        <input type="text" className="form-control" id="theme" onChange={onChange} />
+                    <div className="mb-3 d-flex">
+                        <label htmlFor="theme" className="form-label m-3">Theme:</label>
+                        <Form.Select id="theme" onChange={onChange}>
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                        </Form.Select>
                         <div className="text-danger mt-0 mb-2">{inputErrorList.theme}</div>
 
                     </div>

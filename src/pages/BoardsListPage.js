@@ -75,18 +75,18 @@ const BoardsListPage = () => {
                         className="btn btn-sm btn-success"><i className="fa-regular fa-pen-to-square"></i></Link>
                 </td>
                 <td className="">
-                    <div type="button"
+                    <button type="button"
                         className="btn btn-sm btn-danger"
                         onClick={(e) => deleteElement(e, board.name)}>
                         <i className="fa-regular fa-trash-can"></i>
-                    </div>
+                    </button>
                 </td>
                 <td className="">{board.name}</td>
                 <td className="">{board.description}</td>
                 <td className="">{board.email}</td>
                 <td className="">{(board.favorite) ?
-                    <i class="fa-regular fa-square-check"></i> :
-                    <i class="fa-regular fa-square"></i>}
+                    <i className="fa-regular fa-square-check"></i> :
+                    <i className="fa-regular fa-square"></i>}
                 </td>
                 <td className="">{board.href}</td>
                 <td className="">{board.image}</td>
@@ -116,9 +116,9 @@ const BoardsListPage = () => {
                         <Form className='d-flex justify-content-between align-items-center'>
                             <div className='d-flex'>
                                 Afficher
-                                <Form.Select className="form-select-inline ms-1 me-1" size="sm">
+                                <Form.Select className="form-select-inline ms-1 me-1" size="sm" defaultValue="25">
                                     <option value="10">10</option>
-                                    <option value="25" selected="selected">25</option>
+                                    <option value="25">25</option>
                                     <option value="50">50</option>
                                     <option value="100">100</option>
                                 </Form.Select>
