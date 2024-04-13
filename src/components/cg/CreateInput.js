@@ -20,31 +20,41 @@ const CreateInput = ({ descriptor, value, onChange }) => {
         );
     }
 
-    if (descriptor.base_type === 'varchar') {
+    if (descriptor.subtype === 'enum') {
         return (
-            <div>
-                <FloatingLabel
-                    label={descriptor.label}
-                    className="mb-3"
-                >
-                    <Form.Control type={descriptor.type}
-                        title={descriptor.title}
-                        id={descriptor.field}
-                        placeholder={descriptor.placeholder}
-                        onChange={onChange}
-                        value={value} />
-                </FloatingLabel>
-
+            <div className="d-flex">
+                <label htmlFor={descriptor.field} className="form-label m-3">{descriptor.label}:</label>
+                <Form.Select id={descriptor.field} onChange={onChange}>
+                    {Object.keys(descriptor.values).map((key) => (
+                        <option key={key} value={key}>{descriptor.values[key]}</option>
+                    ))}
+                </Form.Select>
                 <div className="text-danger mt-0 mb-2">{descriptor.error}</div>
             </div>
         );
     }
 
+    /* Default is text input */
+    if (!descriptor.type || descriptor.subtype === 'string') {
+        descriptor.type = 'text';
+    }
     return (
         <div>
-            <h1>Create Input</h1>
+            <FloatingLabel
+                label={descriptor.label}
+                className="mb-3"
+            >
+                <Form.Control type={descriptor.type}
+                    title={descriptor.title}
+                    id={descriptor.field}
+                    placeholder={descriptor.placeholder}
+                    onChange={onChange}
+                    value={value} />
+            </FloatingLabel>
+            <div className="text-danger mt-0 mb-2">{descriptor.error}</div>
         </div>
     );
+
 };
 
 export default CreateInput;

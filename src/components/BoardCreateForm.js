@@ -91,9 +91,8 @@ const BoardCreateForm = () => {
                     <CreateInput descriptor={{
                         label: 'Name',
                         field: 'name',
-                        type: 'text',
+                        subtype: 'string',
                         error: inputErrorList.name,
-                        base_type: 'varchar',
                         icon: 'bi bi-person-fill',
                         placeholder: 'e.g. My board',
                         title: 'Identifier for the board'
@@ -106,7 +105,6 @@ const BoardCreateForm = () => {
                         field: 'description',
                         type: 'text',
                         error: inputErrorList.description,
-                        base_type: 'varchar',
                         icon: 'fa-regular fa-comment',
                         placeholder: 'e.g. My board',
                         title: 'Description for the board'
@@ -119,7 +117,6 @@ const BoardCreateForm = () => {
                         field: 'email',
                         type: 'email',
                         error: inputErrorList.email,
-                        base_type: 'varchar',
                         icon: 'bi bi-envelope-fill',
                         placeholder: 'e.g. john@example.org',
                         title: 'Type your email address'
@@ -139,7 +136,6 @@ const BoardCreateForm = () => {
 
             <Row>
                 <Col sm={4}>
-
                     <CreateInput descriptor={{
                         label: 'Href',
                         field: 'href',
@@ -149,8 +145,8 @@ const BoardCreateForm = () => {
                         title: 'Relative link to the board page .e.g. /boards/webapp',
                     }} value={formData.href} onChange={onChange} />
                 </Col>
-                <Col sm={4}>
 
+                <Col sm={4}>
                     <CreateInput descriptor={{
                         label: 'Image',
                         field: 'image',
@@ -161,16 +157,17 @@ const BoardCreateForm = () => {
                     }} value={formData.image} onChange={onChange} />
 
                 </Col>
-                <Col sm={4}>
-                    <div className="mb-3 d-flex">
-                        <label htmlFor="theme" className="form-label m-3">Theme:</label>
-                        <Form.Select id="theme" onChange={onChange}>
-                            <option value="light">Light</option>
-                            <option value="dark">Dark</option>
-                        </Form.Select>
-                        <div className="text-danger mt-0 mb-2">{inputErrorList.theme}</div>
 
-                    </div>
+                <Col sm={4}>
+                    <CreateInput descriptor={{
+                        label: 'Theme',
+                        field: 'theme',
+                        subtype: 'enum',
+                        error: inputErrorList.image,
+                        values: { 'light': 'Light', 'dark': 'Dark' },
+                        title: 'Board color theme',
+                    }} value={formData.image} onChange={onChange} />
+
                 </Col>
             </Row>
 
