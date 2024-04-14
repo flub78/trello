@@ -3,7 +3,9 @@ import React from 'react';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 
-const CreateInput = ({ descriptor, value, onChange }) => {
+const FieldInput = ({ descriptor, value, onChange }) => {
+
+    // console.log('FieldInput: descriptor=' + JSON.stringify(descriptor) + ', value=' + value);
 
     if (descriptor.subtype === 'boolean') {
         return (
@@ -24,9 +26,11 @@ const CreateInput = ({ descriptor, value, onChange }) => {
         return (
             <div className="d-flex">
                 <label htmlFor={descriptor.field} className="form-label m-3">{descriptor.label}:</label>
-                <Form.Select id={descriptor.field} onChange={onChange}>
+                <Form.Select id={descriptor.field} defaultValue={value} onChange={onChange} >
                     {Object.keys(descriptor.values).map((key) => (
-                        <option key={key} value={key}>{descriptor.values[key]}</option>
+                        <option key={key} value={key}
+                            selected={value == key ? '"checked"="checked"' : ""}>
+                            {descriptor.values[key]}</option>
                     ))}
                 </Form.Select>
                 <div className="text-danger mt-0 mb-2">{descriptor.error}</div>
@@ -57,4 +61,4 @@ const CreateInput = ({ descriptor, value, onChange }) => {
 
 };
 
-export default CreateInput;
+export default FieldInput;

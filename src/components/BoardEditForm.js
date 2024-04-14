@@ -1,9 +1,13 @@
 import React from 'react';
-import EditInput from '../components/cg/EditInput';
-
 import axios from 'axios';
-import { apiServer } from '../lib/Util';
 import { useNavigate } from 'react-router-dom';
+
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+import FieldInput from '../components/cg/FieldInput';
+import { apiServer } from '../lib/Util';
 
 /**
  * A form to edit a board
@@ -127,92 +131,105 @@ const BoardEditForm = ({ id }) => {
 
     return (
 
-        <form onSubmit={updateElement}>
+        <Form onSubmit={updateElement}>
 
-            <EditInput descriptor={{
-                label: 'Name',
-                field: 'name',
-                error: inputErrorList.name,
+            <Row className="align-items-center">
+                <Col sm={6} md={6} lg={3}>
+                    <FieldInput descriptor={{
+                        label: 'Name',
+                        field: 'name',
+                        subtype: 'string',
+                        error: inputErrorList.name,
+                        icon: 'bi bi-person-fill',
+                        placeholder: 'e.g. My board',
+                        title: 'Identifier for the board'
+                    }} value={formData.name} onChange={onChange} />
+                </Col>
+
+                <Col sm={6} md={6} lg={3}>
+                    <FieldInput descriptor={{
+                        label: 'Description',
+                        field: 'description',
+                        type: 'text',
+                        error: inputErrorList.description,
+                        icon: 'fa-regular fa-comment',
+                        placeholder: 'e.g. My board',
+                        title: 'Description for the board'
+                    }} value={formData.description} onChange={onChange} />
+                </Col>
+
+                <Col sm={6} md={6} lg={3}>
+                    <FieldInput descriptor={{
+                        label: 'Email',
+                        field: 'email',
+                        type: 'email',
+                        error: inputErrorList.email,
+                        icon: 'bi bi-envelope-fill',
+                        placeholder: 'e.g. john@example.org',
+                        title: 'Type your email address'
+                    }} value={formData.email} onChange={onChange} />
+                </Col>
+
+                <Col sm={4} md={6} lg={2} >
+                    <FieldInput descriptor={{
+                        label: 'Favorite',
+                        field: 'favorite',
+                        type: 'checkbox',
+                        error: inputErrorList.favorite,
+                        subtype: 'boolean',
+                    }} value={formData.favorite} onChange={onChange} />
+                </Col>
+            </Row>
+
+            <Row>
+                <Col sm={4}>
+                    <FieldInput descriptor={{
+                        label: 'Href',
+                        field: 'href',
+                        type: 'text',
+                        error: inputErrorList.href,
+                        base_type: 'varchar',
+                        title: 'Relative link to the board page .e.g. /boards/webapp',
+                    }} value={formData.href} onChange={onChange} />
+                </Col>
+
+                <Col sm={4}>
+                    <FieldInput descriptor={{
+                        label: 'Image',
+                        field: 'image',
+                        type: 'text',
+                        error: inputErrorList.image,
+                        base_type: 'varchar',
+                        title: 'Board backgroung image',
+                    }} value={formData.image} onChange={onChange} />
+
+                </Col>
+
+                <Col sm={4}>
+                    <FieldInput descriptor={{
+                        label: 'Theme',
+                        field: 'theme',
+                        subtype: 'enum',
+                        error: inputErrorList.image,
+                        values: { 'light': 'Light', 'dark': 'Dark' },
+                        title: 'Board color theme',
+                    }} value={formData.theme} onChange={onChange} />
+
+                </Col>
+            </Row>
+
+            <FieldInput descriptor={{
+                label: 'Lists',
+                field: 'lists',
+                type: 'text',
+                error: inputErrorList.lists,
                 base_type: 'varchar',
-                icon: 'bi bi-person-fill',
-                placeholder: 'e.g. My board',
-                title: 'Identifier for the board'
-            }} value={formData.name} onChange={onChange} />
-
-            <EditInput descriptor={{
-                label: 'Description',
-                field: 'description',
-                error: inputErrorList.description,
-                base_type: 'varchar',
-                icon: 'fa-regular fa-comment',
-                placeholder: 'e.g. My board',
-                title: 'Description for the board'
-            }} value={formData.description} onChange={onChange} />
-
-            <EditInput descriptor={{
-                label: 'Email',
-                field: 'email',
-                error: inputErrorList.email,
-                base_type: 'varchar',
-                icon: 'bi bi-envelope-fill',
-                placeholder: 'e.g. john@example.org',
-                title: 'Type your email address'
-            }} value={formData.email} onChange={onChange} />
-
-
-            <label htmlFor="favorite" className="form-label">Favorite:</label>
-            <div className="input-group mb-4">
-
-                <input type="checkbox"
-                    id="favorite"
-                    onChange={onChange}
-                    value={formData.favorite}
-                    checked={formData.favorite}
-                />
-                <span className="input-group-text">
-                    <span className="tt"
-                        data-bs-placement="bottom"
-                        title="Type your favorite address">
-                        <i className="bi bi-question-circle"></i>
-                    </span>
-                </span>
-            </div>
-            <div className="text-danger mt-0 mb-2">{inputErrorList.favorite}</div>
-
-
-            <div className="mb-3">
-                <label htmlFor="href" className="form-label">Href:</label>
-                <input type="text" className="form-control" id="href" onChange={onChange} value={formData.href} />
-                <div className="text-danger mt-0 mb-2">{inputErrorList.href}</div>
-
-            </div>
-
-
-            <div className="mb-3">
-                <label htmlFor="image" className="form-label">Image:</label>
-                <input type="text" className="form-control" id="image" onChange={onChange} value={formData.image} />
-                <div className="text-danger mt-0 mb-2">{inputErrorList.image}</div>
-
-            </div>
-
-
-            <div className="mb-3">
-                <label htmlFor="theme" className="form-label">Theme:</label>
-                <input type="text" className="form-control" id="theme" onChange={onChange} value={formData.theme} />
-                <div className="text-danger mt-0 mb-2">{inputErrorList.theme}</div>
-
-            </div>
-
-
-            <div className="mb-3">
-                <label htmlFor="lists" className="form-label">Lists:</label>
-                <input type="text" className="form-control" id="lists" onChange={onChange} value={formData.lists} />
-                <div className="text-danger mt-0 mb-2">{inputErrorList.lists}</div>
-
-            </div>
+                title: 'List of comumns',
+            }} value={formData.lists} onChange={onChange} />
 
             <button type="submit" className="btn btn-primary">Submit</button>
-        </form>
+
+        </Form>
     );
 };
 

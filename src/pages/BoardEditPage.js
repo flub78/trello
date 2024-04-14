@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import BoardEditForm from '../components/BoardEditForm';
+import BoardCreateForm from '../components/BoardCreateForm';
 
 import axios from 'axios';
 import { apiServer } from '../lib/Util';

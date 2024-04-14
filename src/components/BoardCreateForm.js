@@ -6,7 +6,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import CreateInput from '../components/cg/CreateInput';
+import FieldInput from './cg/FieldInput';
 import { apiServer } from '../lib/Util';
 
 /**
@@ -88,7 +88,7 @@ const BoardCreateForm = () => {
         <Form onSubmit={saveElement}>
             <Row className="align-items-center">
                 <Col sm={6} md={6} lg={3}>
-                    <CreateInput descriptor={{
+                    <FieldInput descriptor={{
                         label: 'Name',
                         field: 'name',
                         subtype: 'string',
@@ -100,7 +100,7 @@ const BoardCreateForm = () => {
                 </Col>
 
                 <Col sm={6} md={6} lg={3}>
-                    <CreateInput descriptor={{
+                    <FieldInput descriptor={{
                         label: 'Description',
                         field: 'description',
                         type: 'text',
@@ -112,7 +112,7 @@ const BoardCreateForm = () => {
                 </Col>
 
                 <Col sm={6} md={6} lg={3}>
-                    <CreateInput descriptor={{
+                    <FieldInput descriptor={{
                         label: 'Email',
                         field: 'email',
                         type: 'email',
@@ -124,7 +124,7 @@ const BoardCreateForm = () => {
                 </Col>
 
                 <Col sm={4} md={6} lg={2} >
-                    <CreateInput descriptor={{
+                    <FieldInput descriptor={{
                         label: 'Favorite',
                         field: 'favorite',
                         type: 'checkbox',
@@ -136,7 +136,7 @@ const BoardCreateForm = () => {
 
             <Row>
                 <Col sm={4}>
-                    <CreateInput descriptor={{
+                    <FieldInput descriptor={{
                         label: 'Href',
                         field: 'href',
                         type: 'text',
@@ -147,7 +147,7 @@ const BoardCreateForm = () => {
                 </Col>
 
                 <Col sm={4}>
-                    <CreateInput descriptor={{
+                    <FieldInput descriptor={{
                         label: 'Image',
                         field: 'image',
                         type: 'text',
@@ -159,7 +159,7 @@ const BoardCreateForm = () => {
                 </Col>
 
                 <Col sm={4}>
-                    <CreateInput descriptor={{
+                    <FieldInput descriptor={{
                         label: 'Theme',
                         field: 'theme',
                         subtype: 'enum',
@@ -171,7 +171,7 @@ const BoardCreateForm = () => {
                 </Col>
             </Row>
 
-            <CreateInput descriptor={{
+            <FieldInput descriptor={{
                 label: 'Lists',
                 field: 'lists',
                 type: 'text',
