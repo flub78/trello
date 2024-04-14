@@ -70,28 +70,28 @@ const BoardsListPage = () => {
 
         return (
             <tr key={board.id} className="odd">
-                <td className="">
+                <td>
                     <Link to={"/boards/edit/" + board.name}
                         className="btn btn-sm btn-success"><i className="fa-regular fa-pen-to-square"></i></Link>
                 </td>
-                <td className="">
+                <td>
                     <button type="button"
                         className="btn btn-sm btn-danger"
                         onClick={(e) => deleteElement(e, board.name)}>
                         <i className="fa-regular fa-trash-can"></i>
                     </button>
                 </td>
-                <td className="">{board.name}</td>
-                <td className="">{board.description}</td>
-                <td className="">{board.email}</td>
-                <td className="">{(board.favorite) ?
+                <td>{board.name}</td>
+                <td>{board.description}</td>
+                <td>{board.email}</td>
+                <td>{(board.favorite) ?
                     <i className="fa-regular fa-square-check"></i> :
                     <i className="fa-regular fa-square"></i>}
                 </td>
-                <td className="">{board.href}</td>
-                <td className="">{board.image}</td>
-                <td className="">{board.theme}</td>
-                <td className="">{board.lists}</td>
+                <td>{board.href}</td>
+                <td>{board.image}</td>
+                <td>{board.theme}</td>
+                <td>{board.lists}</td>
             </tr >
         );
     });
