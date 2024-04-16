@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
+
 
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -17,6 +19,8 @@ import Loading from '../components/Loading';
  * React component to display the list of boards
  */
 const BoardsListPage = () => {
+
+    const { t } = useTranslation(['translation', 'boards']);
 
     const [boardsData, setBoardsData] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
@@ -101,7 +105,7 @@ const BoardsListPage = () => {
 
             <Card >
                 <Card.Header className="card-header d-flex justify-content-between">
-                    <h3>Boards</h3>
+                    <h3>{t("boards:boards")}</h3>
                     <div>
                         <Link to="/boards/create" className="btn btn-sm btn-primary m-1">Create a board</Link>
 

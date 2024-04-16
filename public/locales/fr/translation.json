@@ -1,5 +1,7 @@
 {
+    "language": "Français",
     "hello": "Bonjour",
     "cancel": "Annuler",
-    "continue": "Comtinuer"
+    "continue": "Comtinuer",
+    "back": "Retour"
 }

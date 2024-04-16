@@ -1,5 +1,7 @@
 {
+    "language": "English",
     "hello": "Hello",
     "cancel": "Cancel",
-    "continue": "Comtinue"
+    "continue": "Comtinue",
+    "back": "Back"
 }
