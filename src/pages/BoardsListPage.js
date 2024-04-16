@@ -67,7 +67,6 @@ const BoardsListPage = () => {
             </tr>
         )
 
-
         return (
             <tr key={board.id} className="odd">
                 <td>

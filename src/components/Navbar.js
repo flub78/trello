@@ -1,11 +1,15 @@
 import React from 'react';
 import NavbarButton from './NavbarButton';
 import ThumbnailEntry from './ThumbnailEntry';
+import LanguageSelector from './LanguageSelector';
+import { useTranslation } from "react-i18next";
 
 // 
 const Navbar = ({ theme, boardsData }) => {
 
     // let theme = "dark";
+
+    const { t } = useTranslation();
 
     let nav_style = (theme === "dark") ? "navbar-dark bg-dark" : "navbar-light bg-light";
     let text_color = (theme === "dark") ? "text-white" : "text-dark";
@@ -83,12 +87,15 @@ const Navbar = ({ theme, boardsData }) => {
                             <li className="nav-item bg-primary rounded">
                                 <a className="nav-link text-white" href="#">Créer</a>
                             </li>
-
                         </ul>
 
                         <form className="d-flex" id="navbar-search">
                             <input className="form-control me-2 input-search bg-light" type="text" placeholder="Parcourir"></input>
                             {/* <!-- <button class="btn btn-primary" type="button">Search</button> --> */}
+
+                            <LanguageSelector />
+
+                            <div className="me-2">{t("hello")}</div>
 
                             <div className="" id="notification-button">
                                 <i className="fa-regular fa-bell button-icon" title="Notifications"></i>

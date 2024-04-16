@@ -2,6 +2,7 @@ import './App.css';
 
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import './lib/i18n';
 import AboutPage from './pages/AboutPage';
 import NotFoundPage from './pages/NotFoundPage';
 import WorkspacePage from './pages/WorkspacePage';
