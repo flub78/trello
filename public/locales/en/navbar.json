@@ -1,0 +1,10 @@
+{
+    "id": "navbar",
+    "language": "English",
+    "workspaces": "Workspaces",
+    "workspace": "Workspace",
+    "recents": "Recents",
+    "favorites": "Favorites",
+    "models": "Models",
+    "last": "Last"
+}

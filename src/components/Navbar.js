@@ -10,7 +10,7 @@ const Navbar = ({ theme, boardsData }) => {
 
     // let theme = "dark";
 
-    const { t } = useTranslation();
+    const { t } = useTranslation(['translation', 'navbar']);
 
     const [selected, setSelected] = useState(i18n.language);
 
@@ -45,16 +45,15 @@ const Navbar = ({ theme, boardsData }) => {
                         <ul className="navbar-nav me-auto">
 
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Espaces de
-                                    travail</a>
+                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{t("navbar:workspaces")}</a>
                                 <ul className="dropdown-menu">
                                     <li><a className="dropdown-item"
-                                        href="/">Workspace Flub78</a></li>
+                                        href="/">{t("navbar:workspace")} Flub78</a></li>
                                 </ul>
                             </li>
 
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Récents</a>
+                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{t("navbar:recents")}</a>
                                 <ul className="dropdown-menu">
 
                                     {boardsData
@@ -67,7 +66,7 @@ const Navbar = ({ theme, boardsData }) => {
                             </li>
 
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Favoris</a>
+                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{t("navbar:favorites")}</a>
                                 <ul className="dropdown-menu">
 
                                     {boardsData
@@ -80,7 +79,7 @@ const Navbar = ({ theme, boardsData }) => {
                             </li>
 
                             <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Modèles</a>
+                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{t("navbar:models")}</a>
                                 <ul className="dropdown-menu">
                                     <li><a className="dropdown-item" href="/boards">Boards</a></li>
                                     <li><a className="dropdown-item" href="/columns">Columns</a></li>
@@ -94,7 +93,7 @@ const Navbar = ({ theme, boardsData }) => {
                             </li>
 
                             <li className="nav-item bg-primary rounded">
-                                <a className="nav-link text-white" href="#">Créer</a>
+                                <a className="nav-link text-white" href="#">{t("create")}</a>
                             </li>
                         </ul>
 
@@ -107,8 +106,6 @@ const Navbar = ({ theme, boardsData }) => {
                                 customLabels={{ "GB": "EN", "FR": "FR" }}
                                 onSelect={(code) => changeLanguage(code)}
                             />
-
-                            <div className="me-2">{t("hello")}</div>
 
                             <div className="" id="notification-button">
                                 <i className="fa-regular fa-bell button-icon" title="Notifications"></i>
