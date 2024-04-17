@@ -107,9 +107,10 @@ const BoardsListPage = () => {
                 <Card.Header className="card-header d-flex justify-content-between">
                     <h3>{t("boards:boards")}</h3>
                     <div>
-                        <Link to="/boards/create" className="btn btn-sm btn-primary m-1">Create a board</Link>
+                        <Link to="/boards/create" className="btn btn-sm btn-primary m-1">{t("boards:create_a_board")}
+                        </Link>
 
-                        <Button variant="primary" size="sm">CSV</Button>
+                        <Button variant="primary" size="sm" className="me-1">CSV</Button>
                         <Button variant="primary" size="sm">PDF</Button>
                     </div>
                 </Card.Header>
@@ -128,7 +129,7 @@ const BoardsListPage = () => {
                                 éléments
                             </div>
                             <div className='d-flex'>
-                                <Form.Control type="text" placeholder="Rechercher" />
+                                <Form.Control type="text" placeholder="Rechercher" className="mb-2" />
                             </div>
                         </Form>
 
@@ -138,14 +139,14 @@ const BoardsListPage = () => {
                                 <tr role="row">
                                     <th align="right"></th>
                                     <th align="center"></th>
-                                    <th align="left">Name</th>
-                                    <th align="left">Description</th>
-                                    <th align="left">Email</th>
-                                    <th align="left">Favorite</th>
-                                    <th align="left">Href</th>
-                                    <th align="left">Image</th>
-                                    <th align="left" >Theme</th>
-                                    <th align="left">Lists</th>
+                                    <th align="left">{t("boards:name")}</th>
+                                    <th align="left">{t("boards:description")}</th>
+                                    <th align="left">{t("boards:email")}</th>
+                                    <th align="left">{t("boards:favorite")}</th>
+                                    <th align="left">{t("boards:href")}</th>
+                                    <th align="left">{t("boards:image")}</th>
+                                    <th align="left" >{t("boards:theme")}</th>
+                                    <th align="left">{t("boards:lists")}</th>
                                 </tr>
                             </thead>
 
@@ -157,14 +158,14 @@ const BoardsListPage = () => {
                                 <tr role="row">
                                     <th align="right"></th>
                                     <th align="center"></th>
-                                    <th align="left">Name</th>
-                                    <th align="left">Description</th>
-                                    <th align="left">Email</th>
-                                    <th align="left">Favorite</th>
-                                    <th align="left">Href</th>
-                                    <th align="left">Image</th>
-                                    <th align="left">Theme</th>
-                                    <th align="left">Lists</th>
+                                    <th align="left">{t("boards:name")}</th>
+                                    <th align="left">{t("boards:description")}</th>
+                                    <th align="left">{t("boards:email")}</th>
+                                    <th align="left">{t("boards:favorite")}</th>
+                                    <th align="left">{t("boards:href")}</th>
+                                    <th align="left">{t("boards:image")}</th>
+                                    <th align="left" >{t("boards:theme")}</th>
+                                    <th align="left">{t("boards:lists")}</th>
                                 </tr>
                             </tfoot>
                         </Table>

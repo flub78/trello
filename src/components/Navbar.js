@@ -98,7 +98,7 @@ const Navbar = ({ theme, boardsData }) => {
                         </ul>
 
                         <form className="d-flex" id="navbar-search">
-                            <input className="form-control me-2 input-search bg-light" type="text" placeholder="Parcourir"></input>
+                            <input className="form-control me-2 input-search bg-light" type="text" placeholder={t("navbar:search")}></input>
 
                             <ReactFlagsSelect className="me-2"
                                 selected={selected}

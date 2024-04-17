@@ -1,3 +1,15 @@
 {
-    "boards": "Boards"
+    "id": "boards",
+    "language": "English",
+    "boards": "Boards",
+    "create_a_board": "Create a Board",
+    "name": "Name",
+    "description": "Description",
+    "email": "Email",
+    "favorite": "Favorite",
+    "href": "Href",
+    "image": "Image",
+    "theme": "Theme",
+    "lists": "Lists",
+    "last": "Last"
 }

@@ -1,3 +1,15 @@
 {
-    "boards": "Tableaux"
+    "id": "boards",
+    "language": "Français",
+    "boards": "Tableaux",
+    "create_a_board": "Créer un tableau",
+    "name": "Nom",
+    "description": "Description",
+    "email": "Courriel",
+    "favorite": "Favoris",
+    "href": "Href",
+    "image": "Image",
+    "theme": "Thème",
+    "lists": "Listes",
+    "last": "Dernier"
 }
