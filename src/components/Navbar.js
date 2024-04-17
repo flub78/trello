@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavbarButton from './NavbarButton';
 import ThumbnailEntry from './ThumbnailEntry';
 import LanguageSelector from './LanguageSelector';
 import { useTranslation } from "react-i18next";
+import ReactFlagsSelect from "react-flags-select";
 
 // 
 const Navbar = ({ theme, boardsData }) => {
@@ -10,6 +11,9 @@ const Navbar = ({ theme, boardsData }) => {
     // let theme = "dark";
 
     const { t } = useTranslation();
+
+    const [selected, setSelected] = useState("FR");
+
 
     let nav_style = (theme === "dark") ? "navbar-dark bg-dark" : "navbar-light bg-light";
     let text_color = (theme === "dark") ? "text-white" : "text-dark";
@@ -93,6 +97,12 @@ const Navbar = ({ theme, boardsData }) => {
                             <input className="form-control me-2 input-search bg-light" type="text" placeholder="Parcourir"></input>
                             {/* <!-- <button class="btn btn-primary" type="button">Search</button> --> */}
 
+                            <ReactFlagsSelect
+                                selected={selected}
+                                countries={["FR", "GB"]}
+                                customLabels={{ "GB": "EN", "FR": "FR" }}
+                                onSelect={(code) => setSelected(code)}
+                            />;
                             <LanguageSelector />
 
                             <div className="me-2">{t("hello")}</div>
