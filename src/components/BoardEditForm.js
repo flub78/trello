@@ -1,6 +1,8 @@
 import React from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useTranslation } from "react-i18next";
+import i18n from "i18next";
 
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
@@ -15,6 +17,8 @@ import { apiServer } from '../lib/Util';
  * @returns 
  */
 const BoardEditForm = ({ id }) => {
+
+    const { t } = useTranslation(['translation', 'boards']);
 
     const [formData, setFormData] = React.useState({
     });
@@ -81,7 +85,7 @@ const BoardEditForm = ({ id }) => {
 
         console.log('updateElement: ' + JSON.stringify(formData));
 
-        const url = apiServer + '/boards/' + id;
+        const url = apiServer + '/boards/' + id + '?lang=' + i18n.language;
         console.log('axios: patching board to ' + url);
 
         axios.put(url, formData)
@@ -136,7 +140,7 @@ const BoardEditForm = ({ id }) => {
             <Row className="align-items-center">
                 <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
-                        label: 'Name',
+                        label: t("boards:name"),
                         field: 'name',
                         subtype: 'string',
                         error: inputErrorList.name,
@@ -148,7 +152,7 @@ const BoardEditForm = ({ id }) => {
 
                 <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
-                        label: 'Description',
+                        label: t("boards:description"),
                         field: 'description',
                         type: 'text',
                         error: inputErrorList.description,
@@ -160,7 +164,7 @@ const BoardEditForm = ({ id }) => {
 
                 <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
-                        label: 'Email',
+                        label: t("boards:email"),
                         field: 'email',
                         type: 'email',
                         error: inputErrorList.email,
@@ -172,7 +176,7 @@ const BoardEditForm = ({ id }) => {
 
                 <Col sm={4} md={6} lg={2} >
                     <FieldInput descriptor={{
-                        label: 'Favorite',
+                        label: t("boards:favorite"),
                         field: 'favorite',
                         type: 'checkbox',
                         error: inputErrorList.favorite,
@@ -184,22 +188,20 @@ const BoardEditForm = ({ id }) => {
             <Row>
                 <Col sm={4}>
                     <FieldInput descriptor={{
-                        label: 'Href',
+                        label: t("boards:href"),
                         field: 'href',
                         type: 'text',
                         error: inputErrorList.href,
-                        base_type: 'varchar',
                         title: 'Relative link to the board page .e.g. /boards/webapp',
                     }} value={formData.href} onChange={onChange} />
                 </Col>
 
                 <Col sm={4}>
                     <FieldInput descriptor={{
-                        label: 'Image',
+                        label: t("boards:image"),
                         field: 'image',
                         type: 'text',
                         error: inputErrorList.image,
-                        base_type: 'varchar',
                         title: 'Board backgroung image',
                     }} value={formData.image} onChange={onChange} />
 
@@ -207,7 +209,7 @@ const BoardEditForm = ({ id }) => {
 
                 <Col sm={4}>
                     <FieldInput descriptor={{
-                        label: 'Theme',
+                        label: t("boards:theme"),
                         field: 'theme',
                         subtype: 'enum',
                         error: inputErrorList.image,
@@ -219,15 +221,14 @@ const BoardEditForm = ({ id }) => {
             </Row>
 
             <FieldInput descriptor={{
-                label: 'Lists',
+                label: t("boards:lists"),
                 field: 'lists',
                 type: 'text',
                 error: inputErrorList.lists,
-                base_type: 'varchar',
                 title: 'List of comumns',
             }} value={formData.lists} onChange={onChange} />
 
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary">{t("translation:submit")}</button>
 
         </Form>
     );

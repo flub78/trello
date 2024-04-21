@@ -1,18 +1,23 @@
 import React from 'react';
+import { Link, useParams } from 'react-router-dom';
+import axios from 'axios';
+import { useTranslation } from "react-i18next";
+
+import Card from 'react-bootstrap/Card';
+
 import Navbar from '../components/Navbar';
 import BoardEditForm from '../components/BoardEditForm';
 import BoardCreateForm from '../components/BoardCreateForm';
 
-import axios from 'axios';
 import { apiServer } from '../lib/Util';
-import { Link, useParams } from 'react-router-dom';
-import Card from 'react-bootstrap/Card';
 
 /**
  * A page to edit a board
  * @returns 
  */
 const BoardEditPage = () => {
+
+    const { t } = useTranslation(['translation', 'boards']);
 
     const [boardsData, setBoardsData] = React.useState([]);
 
@@ -37,8 +42,8 @@ const BoardEditPage = () => {
 
             <Card >
                 <Card.Header className="card-header d-flex justify-content-between">
-                    <h3>Edit a board</h3>
-                    <Link to="/boards" className="btn btn-sm btn-danger m-1">Back</Link>
+                    <h3>{t("boards:edit_a_board")}</h3>
+                    <Link to="/boards" className="btn btn-sm btn-danger m-1">{t("translation:back")}</Link>
                 </Card.Header>
 
                 <Card.Body>
