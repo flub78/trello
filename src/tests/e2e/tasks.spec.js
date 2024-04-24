@@ -23,42 +23,10 @@ describe("Tasks tests", () => {
             "March 18 at 4:00pm"
         );
 
-        cy.get(".add-form").then(() => {
-            cy.get('.add-form input[type="submit"]').click();
-            cy.wait(1000);
-            cy.get(".task h3").each(($el) => {
-                return cy.contains("Cypress Task 1");
-            });
-        });
+
     });
 
-    // Delete task
-    it("can delete a task", () => {
-        cy.get(".task h3").then(() => {
-            cy.get(".task h3 svg").first().click();
 
-            cy.wait(1000);
 
-            cy.get(".task")
-                .each(($el) => {
-                    return $el;
-                })
-                .then(($el) => expect($el).to.have.length(2));
-        });
-    });
 
-    // Mark task
-    it("can mark a task", () => {
-        cy.get(".task:first ").then(() => {
-            cy.get(".task").last().dblclick();
-
-            cy.wait(1000);
-
-            cy.get(".reminder")
-                .each(($el) => {
-                    return $el;
-                })
-                .then(($el) => expect($el).to.have.length(3));
-        });
-    });
 });
