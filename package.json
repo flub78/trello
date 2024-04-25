@@ -33,7 +33,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:e2e": "cypress open --e2e",
-    "test:e2e:ci": "cypress run --e2e",
+    "test:e2e:cli": "cypress run --e2e",
     "eject": "react-scripts eject",
     "server": "json-server --port 3004 assets/db.json"
   },
