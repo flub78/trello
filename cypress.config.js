@@ -11,6 +11,8 @@ module.exports = defineConfig({
   e2e: {
     supportFolder: false,
     supportFile: false,
+    experimentalStudio: true,
+
     specPattern: "src/tests/e2e/**/*.spec.js",
     // eslint-disable-next-line no-unused-vars
     setupNodeEvents(on, config) {

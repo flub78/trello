@@ -2,16 +2,8 @@
 /* eslint-disable testing-library/await-async-utils */
 /* eslint-disable no-undef */
 
-const afterLoginFunction = () => {
-    // cy.visit('${Cypress.env("baseUrl")}');
-};
 
-describe("Hello test", () => {
-    beforeEach(() => {
-        afterLoginFunction();
-        // cy.wait(5000);
-    });
-
+describe("Boards test", () => {
     // Add task
     it("can access the application under test", () => {
         cy.visit('http://localhost:3000/boards');
@@ -23,11 +15,21 @@ describe("Hello test", () => {
         cy.contains('Retour').click();
 
         cy.contains('Créer un tableau');
-
-
     });
+});
 
+describe('Localization', () => {
+    it('changes display according to the selected language', () => {
+        cy.visit('http://localhost:3000/boards');
 
+        cy.get('[data-testid="rfs-btn"]').click();
+        cy.get('#rfs-GB > .ReactFlagsSelect-module_selectOptionValue__vS99- > .ReactFlagsSelect-module_label__27pw9').click();
+        cy.get('.thead-dark > tr > :nth-child(5)').should('have.text', 'Email');
+        cy.get('h3').should('have.text', 'Boards');
 
-
+        cy.get('[data-testid="rfs-btn"]').click();
+        cy.get('#rfs-FR > .ReactFlagsSelect-module_selectOptionValue__vS99- > .ReactFlagsSelect-module_label__27pw9').click();
+        cy.get('.thead-dark > tr > :nth-child(5)').should('have.text', 'Courriel');
+        cy.get('h3').should('have.text', 'Tableaux');
+    })
 });
