@@ -10,38 +10,38 @@ import { useTranslation } from "react-i18next";
 
 import { apiServer } from '../lib/Util';
 import Navbar from '../components/Navbar';
-import BoardList from '../components/BoardList';
+import {{class}}List from '../components/{{class}}List';
 import Loading from '../components/Loading';
 
 /**
- * React component to display the list of boards
+ * React component to display the list of {{element}}s
  */
-const BoardListPage = () => {
+const {{class}}ListPage = () => {
 
-    const { t } = useTranslation(['translation', 'boards']);
+    const { t } = useTranslation(['translation', '{{element}}s']);
 
-    const [boardsData, setBoardsData] = React.useState([]);
+    const [{{element}}sData, set{{class}}sData] = React.useState([]);
 const [loading, setLoading] = React.useState(true);
 
 /**
- * Fetch boards from the REST API
+ * Fetch {{element}}s from the REST API
  */
 React.useEffect(() => {
-    const url = apiServer + '/boards';
-    console.log('axios: fetching boards from ' + url);
+    const url = apiServer + '/{{element}}s';
+    console.log('axios: fetching {{element}}s from ' + url);
 
     axios.get(url)
-        .then((res) => setBoardsData(res.data))
+        .then((res) => set{{class}}sData(res.data))
 setLoading(false);
     }, []);
 
 
 return (
     <div>
-        <Navbar theme="light" boardsData={ boardsData } />
-        <BoardList />
+        <Navbar theme="light" {{element}}sData={ {{element}}sData } />
+        <{{class}}List />
     </div >
 );
 };
 
-export default BoardListPage;
+export default {{class}}ListPage;

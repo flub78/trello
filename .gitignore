@@ -130,3 +130,8 @@ dist
 .pnp.*
 build/SETENV.BAT
 build/results/BoardListPage.js
+build/results/BoardCreateForm.js
+build/results/BoardCreatePage.js
+build/results/BoardEditForm.js
+build/results/BoardEditPage.js
+build/results/BoardList.js

@@ -7,7 +7,7 @@ import AboutPage from './pages/AboutPage';
 import NotFoundPage from './pages/NotFoundPage';
 import WorkspacePage from './pages/WorkspacePage';
 import BoardPage from './pages/BoardPage';
-import BoardsListPage from './pages/BoardsListPage';
+import BoardListPage from './pages/BoardListPage';
 import BoardCreatePage from './pages/BoardCreatePage';
 import BoardEditPage from './pages/BoardEditPage';
 import ColumnsPage from './pages/ColumnsPage';
@@ -25,7 +25,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
 
         {/* boards resource */}
-        <Route path="/boards" element={<BoardsListPage />} />
+        <Route path="/boards" element={<BoardListPage />} />
         <Route path="/boards/create" element={<BoardCreatePage />} />
         <Route path="/boards/edit/:id" element={<BoardEditPage />} />
 
