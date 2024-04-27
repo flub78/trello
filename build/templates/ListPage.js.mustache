@@ -1,3 +1,4 @@
+{{=#< >#=}}
 /**
  * This file is generated from a template with metadata extracted from the data model.
  * If modifications are required, it is important to consider if they should be done in the template
@@ -10,38 +11,38 @@ import { useTranslation } from "react-i18next";
 
 import { apiServer } from '../lib/Util';
 import Navbar from '../components/Navbar';
-import {{class}}List from '../components/{{class}}List';
+import #<class>#List from '../components/#<class>#List';
 import Loading from '../components/Loading';
 
 /**
- * React component to display the list of {{element}}s
+ * React component to display the list of #<element>#s
  */
-const {{class}}ListPage = () => {
+const #<class>#ListPage = () => {
 
-    const { t } = useTranslation(['translation', '{{element}}s']);
+    const { t } = useTranslation(['translation', '#<element>#s']);
 
-    const [{{element}}sData, set{{class}}sData] = React.useState([]);
+    const [#<element>#sData, set#<class>#sData] = React.useState([]);
 const [loading, setLoading] = React.useState(true);
 
 /**
- * Fetch {{element}}s from the REST API
+ * Fetch #<element>#s from the REST API
  */
 React.useEffect(() => {
-    const url = apiServer + '/{{element}}s';
-    console.log('axios: fetching {{element}}s from ' + url);
+    const url = apiServer + '/#<element>#s';
+    console.log('axios: fetching #<element>#s from ' + url);
 
     axios.get(url)
-        .then((res) => set{{class}}sData(res.data))
+        .then((res) => set#<class>#sData(res.data))
 setLoading(false);
     }, []);
 
 
 return (
     <div>
-        <Navbar theme="light" {{element}}sData={ {{element}}sData } />
-        <{{class}}List />
-    </div >
+        <Navbar theme="light" #<element>#sData={ #<element>#sData } />
+        < #<class>#List />
+    </div>
 );
 };
 
-export default {{class}}ListPage;
+export default #<class>#ListPage;

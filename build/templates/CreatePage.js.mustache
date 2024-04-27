@@ -1,3 +1,4 @@
+{{=#< >#=}}
 /**
  * This file is generated from a template with metadata extracted from the data model.
  * If modifications are required, it is important to consider if they should be done in the template
@@ -11,40 +12,40 @@ import { useTranslation } from "react-i18next";
 import Card from 'react-bootstrap/Card';
 
 import Navbar from '../components/Navbar';
-import BoardCreateForm from '../components/BoardCreateForm';
+import #<class>#CreateForm from '../components/#<class>#CreateForm';
 
 import { apiServer } from '../lib/Util';
 
-const BoardCreatePage = () => {
+const #<class>#CreatePage = () => {
 
-    const { t } = useTranslation(['translation', 'boards']);
+    const { t } = useTranslation(['translation', '#<element>#s']);
 
-    const [boardsData, setBoardsData] = React.useState([]);
+    const [#<element>#sData, set#<class>#sData] = React.useState([]);
 
     /**
-     * Fetch boards from the API
+     * Fetch #<element>#s from the API
      */
     React.useEffect(() => {
-        const url = apiServer + '/boards';
-        console.log('axios: fetching boards from ' + url);
+        const url = apiServer + '/#<element>#s';
+        console.log('axios: fetching #<element>#s from ' + url);
 
         axios.get(url)
-            .then((res) => setBoardsData(res.data))
+            .then((res) => set#<class>#sData(res.data))
     }, []);
 
     return (
         <div>
-            <Navbar theme="light" boardsData={boardsData} />
+            <Navbar theme="light" #<element>#sData={#<element>#sData} />
 
             <Card >
                 <Card.Header className="card-header d-flex justify-content-between">
-                    <h3>{t("boards:create_a_board")}</h3>
-                    <Link to="/boards" className="btn btn-sm btn-danger m-1">{t("translation:back")}</Link>
+                    <h3>{t("#<element>#s:create_a_#<element>#")}</h3>
+                    <Link to="/#<element>#s" className="btn btn-sm btn-danger m-1">{t("translation:back")}</Link>
                 </Card.Header>
 
                 <Card.Body>
                     <div>
-                        <BoardCreateForm />
+                        <#<class>#CreateForm />
                     </div>
                 </Card.Body>
             </Card>
@@ -52,4 +53,4 @@ const BoardCreatePage = () => {
     );
 };
 
-export default BoardCreatePage;
+export default #<class>#CreatePage;
