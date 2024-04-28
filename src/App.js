@@ -7,9 +7,15 @@ import AboutPage from './pages/AboutPage';
 import NotFoundPage from './pages/NotFoundPage';
 import WorkspacePage from './pages/WorkspacePage';
 import BoardPage from './pages/BoardPage';
+
 import BoardListPage from './pages/BoardListPage';
 import BoardCreatePage from './pages/BoardCreatePage';
 import BoardEditPage from './pages/BoardEditPage';
+
+import TagColorListPage from './pages/TagColorListPage';
+import TagColorCreatePage from './pages/TagColorCreatePage';
+import TagColorEditPage from './pages/TagColorEditPage';
+
 import ColumnsPage from './pages/ColumnsPage';
 import TasksPage from './pages/TasksPage'; // Import the 'TasksPage' component
 import TaskCommentsPage from './pages/TaskCommentsPage';
@@ -29,6 +35,9 @@ function App() {
         <Route path="/boards/create" element={<BoardCreatePage />} />
         <Route path="/boards/edit/:id" element={<BoardEditPage />} />
 
+        <Route path="/tag-colors" element={<TagColorListPage />} />
+        <Route path="/tag-colors/create" element={<TagColorCreatePage />} />
+        <Route path="/tag-colors/edit/:id" element={<TagColorEditPage />} />
 
         <Route path="/columns" element={<ColumnsPage />} />
         <Route path="/tasks" element={<TasksPage />} />

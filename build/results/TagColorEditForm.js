@@ -1,3 +1,9 @@
+/**
+ * This file is generated from a template with metadata extracted from the data model.
+ * If modifications are required, it is important to consider if they should be done in the template
+ * or in the generated file, in which case caution must be exerted to avoid overwritting.
+ */
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -8,32 +14,51 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import FieldInput from './cg/FieldInput';
+import FieldInput from '../components/cg/FieldInput';
 import { apiServer } from '../lib/Util';
 
 /**
- * A form to create a board
+ * A form to edit a tag_color
+ * @param {*} param0 
  * @returns 
  */
-const BoardCreateForm = () => {
+const TagColorEditForm = ({ id }) => {
 
-    const { t } = useTranslation(['translation', 'boards']);
+    const { t } = useTranslation(['translation', 'tag_colors']);
 
     const [formData, setFormData] = React.useState({
-        name: '',
-        description: '',
-        email: '',
-        favorite: false,
-        href: '',
-        image: '',
-        theme: 'light',
-        lists: ''
     });
 
     const [inputErrorList, setInputErrorList] = React.useState({});
 
     const navigate = useNavigate();
 
+    /**
+     * Set an object property value by path (string)
+     * @param {*} obj 
+     * @param {*} value 
+     * @param {*} path 
+     */
+    function setDeepValue(obj, value, path) {
+        if (typeof path === "string") {
+            var path = path.split('.');
+        }
+
+        if (path.length > 1) {
+            var p = path.shift();
+            if (obj[p] == null || typeof obj[p] !== 'object') {
+                obj[p] = {};
+            }
+            setDeepValue(obj[p], value, path);
+        } else {
+            obj[path[0]] = value;
+        }
+    }
+
+    /**
+     * Update the state each time the user types something in the form
+     * @param {*} e 
+     */
     const onChange = (e) => {
         e.persist();
 
@@ -44,22 +69,32 @@ const BoardCreateForm = () => {
 
         console.log('onChange: id=' + id + ', value=' + value + ', type=' + type + ', checked=' + checked);
 
-        setFormData({
-            ...formData,
-            [id]: type === 'checkbox' ? checked : value
-        });
+        let fd = { ...formData };
+
+        setDeepValue(fd, type === 'checkbox' ? checked : value, id);
+
+        // setFormData({
+        //     ...formData,
+        //     [id]: type === 'checkbox' ? checked : value
+        // });
+        console.log('onChange updated: formData=' + JSON.stringify(fd));
+        // console.log(e);
+        setFormData(fd);
     }
 
-    const saveElement = (e) => {
+    /**
+     * Save the element on submit
+     * @param {*} e 
+     */
+    const updateElement = (e) => {
         e.preventDefault();
 
-        console.log('saveElement: ' + JSON.stringify(formData));
+        console.log('updateElement: ' + JSON.stringify(formData));
 
-        const url = apiServer + '/boards?lang=' + i18n.language;
-        // const url = apiServer + '/boards';
-        console.log('axios: posting board to ' + url);
+        const url = apiServer + '/tag_colors/' + id + '?lang=' + i18n.language;
+        console.log('axios: patching tag_color to ' + url);
 
-        axios.post(url, formData)
+        axios.put(url, formData)
             .then((res) => {
                 console.log('axios: response=' + JSON.stringify(res.data));
                 setFormData({
@@ -72,12 +107,15 @@ const BoardCreateForm = () => {
                     theme: '',
                     lists: ''
                 });
-                navigate('/boards');
+                navigate('/tag_colors');
             })
             .catch(function (error) {
                 if (error.response) {
                     if (error.response.status === 422) {
                         setInputErrorList(error.response.data.errors)
+                    }
+                    if (error.response.status === 419) {
+                        console.error("axios: error=" + error.response.data.message)
                     }
                     if (error.response.status === 500) {
                         console.error("axios: error=" + error.response.data.message)
@@ -89,36 +127,50 @@ const BoardCreateForm = () => {
             ;
     }
 
+    /**
+     * Fetch tag_colors from the API
+     */
+    React.useEffect(() => {
+
+        const url2 = apiServer + '/tag_colors/' + id;
+        console.log('axios: fetching tag_color from ' + url2);
+
+        axios.get(url2)
+            .then((res) => setFormData(res.data))
+    }, [id]);
+
     return (
-        <Form onSubmit={saveElement}>
+
+        <Form onSubmit={updateElement}>
+
             <Row className="align-items-center">
                 <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
-                        label: t("boards:name"),
+                        label: t("tag_colors:name"),
                         field: 'name',
                         subtype: 'string',
                         error: inputErrorList.name,
                         icon: 'bi bi-person-fill',
-                        placeholder: 'e.g. My board',
-                        title: 'Identifier for the board'
+                        placeholder: 'e.g. My tag_color',
+                        title: 'Identifier for the tag_color'
                     }} value={formData.name} onChange={onChange} />
                 </Col>
 
                 <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
-                        label: t("boards:description"),
+                        label: t("tag_colors:description"),
                         field: 'description',
                         type: 'text',
                         error: inputErrorList.description,
                         icon: 'fa-regular fa-comment',
-                        placeholder: 'e.g. My board',
-                        title: 'Description for the board'
+                        placeholder: 'e.g. My tag_color',
+                        title: 'Description for the tag_color'
                     }} value={formData.description} onChange={onChange} />
                 </Col>
 
                 <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
-                        label: t("boards:email"),
+                        label: t("tag_colors:email"),
                         field: 'email',
                         type: 'email',
                         error: inputErrorList.email,
@@ -130,7 +182,7 @@ const BoardCreateForm = () => {
 
                 <Col sm={4} md={6} lg={2} >
                     <FieldInput descriptor={{
-                        label: t("boards:favorite"),
+                        label: t("tag_colors:favorite"),
                         field: 'favorite',
                         type: 'checkbox',
                         error: inputErrorList.favorite,
@@ -142,40 +194,40 @@ const BoardCreateForm = () => {
             <Row>
                 <Col sm={4}>
                     <FieldInput descriptor={{
-                        label: t("boards:href"),
+                        label: t("tag_colors:href"),
                         field: 'href',
                         type: 'text',
                         error: inputErrorList.href,
-                        title: 'Relative link to the board page .e.g. /boards/webapp',
+                        title: 'Relative link to the tag_color page .e.g. /tag_colors/webapp',
                     }} value={formData.href} onChange={onChange} />
                 </Col>
 
                 <Col sm={4}>
                     <FieldInput descriptor={{
-                        label: t("boards:image"),
+                        label: t("tag_colors:image"),
                         field: 'image',
                         type: 'text',
                         error: inputErrorList.image,
-                        title: 'Board backgroung image',
+                        title: 'TagColor backgroung image',
                     }} value={formData.image} onChange={onChange} />
 
                 </Col>
 
                 <Col sm={4}>
                     <FieldInput descriptor={{
-                        label: t("boards:theme"),
+                        label: t("tag_colors:theme"),
                         field: 'theme',
                         subtype: 'enum',
                         error: inputErrorList.image,
                         values: { 'light': 'Light', 'dark': 'Dark' },
-                        title: 'Board color theme',
-                    }} value={formData.image} onChange={onChange} />
+                        title: 'TagColor color theme',
+                    }} value={formData.theme} onChange={onChange} />
 
                 </Col>
             </Row>
 
             <FieldInput descriptor={{
-                label: t("boards:lists"),
+                label: t("tag_colors:lists"),
                 field: 'lists',
                 type: 'text',
                 error: inputErrorList.lists,
@@ -183,9 +235,9 @@ const BoardCreateForm = () => {
             }} value={formData.lists} onChange={onChange} />
 
             <button type="submit" className="btn btn-primary">{t("translation:submit")}</button>
-        </Form >
 
+        </Form>
     );
 };
 
-export default BoardCreateForm;
+export default TagColorEditForm;

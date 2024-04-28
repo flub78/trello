@@ -1,3 +1,9 @@
+/**
+ * This file is generated from a template with metadata extracted from the data model.
+ * If modifications are required, it is important to consider if they should be done in the template
+ * or in the generated file, in which case caution must be exerted to avoid overwritting.
+ */
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -12,13 +18,13 @@ import FieldInput from '../components/cg/FieldInput';
 import { apiServer } from '../lib/Util';
 
 /**
- * A form to edit a board
+ * A form to edit a tag_color
  * @param {*} param0 
  * @returns 
  */
-const BoardEditForm = ({ id }) => {
+const TagColorEditForm = ({ id }) => {
 
-    const { t } = useTranslation(['translation', 'boards']);
+    const { t } = useTranslation(['translation', 'tag_colors']);
 
     const [formData, setFormData] = React.useState({
     });
@@ -85,8 +91,8 @@ const BoardEditForm = ({ id }) => {
 
         console.log('updateElement: ' + JSON.stringify(formData));
 
-        const url = apiServer + '/boards/' + id + '?lang=' + i18n.language;
-        console.log('axios: patching board to ' + url);
+        const url = apiServer + '/tag_colors/' + id + '?lang=' + i18n.language;
+        console.log('axios: patching tag_color to ' + url);
 
         axios.put(url, formData)
             .then((res) => {
@@ -101,7 +107,7 @@ const BoardEditForm = ({ id }) => {
                     theme: '',
                     lists: ''
                 });
-                navigate('/boards');
+                navigate('/tag_colors');
             })
             .catch(function (error) {
                 if (error.response) {
@@ -122,12 +128,12 @@ const BoardEditForm = ({ id }) => {
     }
 
     /**
-     * Fetch boards from the API
+     * Fetch tag_colors from the API
      */
     React.useEffect(() => {
 
-        const url2 = apiServer + '/boards/' + id;
-        console.log('axios: fetching board from ' + url2);
+        const url2 = apiServer + '/tag_colors/' + id;
+        console.log('axios: fetching tag_color from ' + url2);
 
         axios.get(url2)
             .then((res) => setFormData(res.data))
@@ -140,31 +146,31 @@ const BoardEditForm = ({ id }) => {
             <Row className="align-items-center">
                 <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
-                        label: t("boards:name"),
+                        label: t("tag_colors:name"),
                         field: 'name',
                         subtype: 'string',
                         error: inputErrorList.name,
                         icon: 'bi bi-person-fill',
-                        placeholder: 'e.g. My board',
-                        title: 'Identifier for the board'
+                        placeholder: 'e.g. My tag_color',
+                        title: 'Identifier for the tag_color'
                     }} value={formData.name} onChange={onChange} />
                 </Col>
 
                 <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
-                        label: t("boards:description"),
+                        label: t("tag_colors:description"),
                         field: 'description',
                         type: 'text',
                         error: inputErrorList.description,
                         icon: 'fa-regular fa-comment',
-                        placeholder: 'e.g. My board',
-                        title: 'Description for the board'
+                        placeholder: 'e.g. My tag_color',
+                        title: 'Description for the tag_color'
                     }} value={formData.description} onChange={onChange} />
                 </Col>
 
                 <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
-                        label: t("boards:email"),
+                        label: t("tag_colors:email"),
                         field: 'email',
                         type: 'email',
                         error: inputErrorList.email,
@@ -176,7 +182,7 @@ const BoardEditForm = ({ id }) => {
 
                 <Col sm={4} md={6} lg={2} >
                     <FieldInput descriptor={{
-                        label: t("boards:favorite"),
+                        label: t("tag_colors:favorite"),
                         field: 'favorite',
                         type: 'checkbox',
                         error: inputErrorList.favorite,
@@ -188,40 +194,40 @@ const BoardEditForm = ({ id }) => {
             <Row>
                 <Col sm={4}>
                     <FieldInput descriptor={{
-                        label: t("boards:href"),
+                        label: t("tag_colors:href"),
                         field: 'href',
                         type: 'text',
                         error: inputErrorList.href,
-                        title: 'Relative link to the board page .e.g. /boards/webapp',
+                        title: 'Relative link to the tag_color page .e.g. /tag_colors/webapp',
                     }} value={formData.href} onChange={onChange} />
                 </Col>
 
                 <Col sm={4}>
                     <FieldInput descriptor={{
-                        label: t("boards:image"),
+                        label: t("tag_colors:image"),
                         field: 'image',
                         type: 'text',
                         error: inputErrorList.image,
-                        title: 'Board backgroung image',
+                        title: 'TagColor backgroung image',
                     }} value={formData.image} onChange={onChange} />
 
                 </Col>
 
                 <Col sm={4}>
                     <FieldInput descriptor={{
-                        label: t("boards:theme"),
+                        label: t("tag_colors:theme"),
                         field: 'theme',
                         subtype: 'enum',
                         error: inputErrorList.image,
                         values: { 'light': 'Light', 'dark': 'Dark' },
-                        title: 'Board color theme',
+                        title: 'TagColor color theme',
                     }} value={formData.theme} onChange={onChange} />
 
                 </Col>
             </Row>
 
             <FieldInput descriptor={{
-                label: t("boards:lists"),
+                label: t("tag_colors:lists"),
                 field: 'lists',
                 type: 'text',
                 error: inputErrorList.lists,
@@ -234,4 +240,4 @@ const BoardEditForm = ({ id }) => {
     );
 };
 
-export default BoardEditForm;
+export default TagColorEditForm;

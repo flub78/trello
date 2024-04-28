@@ -135,3 +135,7 @@ build/results/BoardCreatePage.js
 build/results/BoardEditForm.js
 build/results/BoardEditPage.js
 build/results/BoardList.js
+build/results/TagColorCreatePage.js
+build/results/TagColorEditPage.js
+build/results/TagColorList.js
+build/results/TagColorListPage.js
