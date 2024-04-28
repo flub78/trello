@@ -40,6 +40,8 @@ const TagColorListPage = () => {
     return (
         <div>
             <Navbar theme="light" boardsData={boardsData} />
+            < TagColorList />
+
         </div>
     );
 };

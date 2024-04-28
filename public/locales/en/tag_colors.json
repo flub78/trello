@@ -1,0 +1,10 @@
+{
+    "id": "tag_colors",
+    "language": "English",
+    "tag_colors": "Tag Colors",
+    "create_a_tag_color": "Create a Tag Color",
+    "edit_a_tag_color": "Edit a Tag Color",
+    "name": "Name",
+    "color": "Color",
+    "last": "Last"
+}

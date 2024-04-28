@@ -39,6 +39,7 @@ const TagColorList = () => {
 
         axios.get(url)
             .then((res) => setTagColorsData(res.data))
+            .catch(error => console.error(error));
         setLoading(false);
     }, []);
 
@@ -68,7 +69,7 @@ const TagColorList = () => {
     /**
      * The lines for the table body
      */
-    const tag_colorsTable = tag_colorsData.map((tag_color) => {
+    const tag_colorsTable = tag_colorsData?.map((tag_color) => {
 
         if (loading) return (
             <tr key="-1">
@@ -90,16 +91,8 @@ const TagColorList = () => {
                     </button>
                 </td>
                 <td>{tag_color.name}</td>
-                <td>{tag_color.description}</td>
-                <td>{tag_color.email}</td>
-                <td>{(tag_color.favorite) ?
-                    <i className="fa-regular fa-square-check"></i> :
-                    <i className="fa-regular fa-square"></i>}
-                </td>
-                <td>{tag_color.href}</td>
-                <td>{tag_color.image}</td>
-                <td>{tag_color.theme}</td>
-                <td>{tag_color.lists}</td>
+                <td>{tag_color.color}</td>
+
             </tr >
         );
     });
@@ -144,13 +137,7 @@ const TagColorList = () => {
                                 <th align="right"></th>
                                 <th align="center"></th>
                                 <th align="left">{t("tag_colors:name")}</th>
-                                <th align="left">{t("tag_colors:description")}</th>
-                                <th align="left">{t("tag_colors:email")}</th>
-                                <th align="left">{t("tag_colors:favorite")}</th>
-                                <th align="left">{t("tag_colors:href")}</th>
-                                <th align="left">{t("tag_colors:image")}</th>
-                                <th align="left" >{t("tag_colors:theme")}</th>
-                                <th align="left">{t("tag_colors:lists")}</th>
+                                <th align="left">{t("tag_colors:color")}</th>
                             </tr>
                         </thead>
 
@@ -163,13 +150,7 @@ const TagColorList = () => {
                                 <th align="right"></th>
                                 <th align="center"></th>
                                 <th align="left">{t("tag_colors:name")}</th>
-                                <th align="left">{t("tag_colors:description")}</th>
-                                <th align="left">{t("tag_colors:email")}</th>
-                                <th align="left">{t("tag_colors:favorite")}</th>
-                                <th align="left">{t("tag_colors:href")}</th>
-                                <th align="left">{t("tag_colors:image")}</th>
-                                <th align="left" >{t("tag_colors:theme")}</th>
-                                <th align="left">{t("tag_colors:lists")}</th>
+                                <th align="left">{t("tag_colors:color")}</th>
                             </tr>
                         </tfoot>
                     </Table>
