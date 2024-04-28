@@ -56,7 +56,7 @@ const Navbar = ({ theme, boardsData }) => {
                                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{t("navbar:recents")}</a>
                                 <ul className="dropdown-menu">
 
-                                    {boardsData
+                                    {boardsData && boardsData
                                         .filter((board) => board.recent)
                                         .map((board, index) => {
                                             return (<ThumbnailEntry card={board} key={"recent_" + index} />);
@@ -69,7 +69,7 @@ const Navbar = ({ theme, boardsData }) => {
                                 <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{t("navbar:favorites")}</a>
                                 <ul className="dropdown-menu">
 
-                                    {boardsData
+                                    {boardsData && boardsData
                                         .filter((board) => board.favorite)
                                         .map((board, index) => {
                                             return (<ThumbnailEntry card={board} key={"favorite_" + index} />);

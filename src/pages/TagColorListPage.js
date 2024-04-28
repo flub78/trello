@@ -20,28 +20,28 @@ const TagColorListPage = () => {
 
     const { t } = useTranslation(['translation', 'tag_colors']);
 
-    const [tag_colorsData, setTagColorsData] = React.useState([]);
-const [loading, setLoading] = React.useState(true);
+    const [boardsData, setBoardsData] = React.useState([]);
 
-/**
- * Fetch tag_colors from the REST API
- */
-React.useEffect(() => {
-    const url = apiServer + '/tag_colors';
-    console.log('axios: fetching tag_colors from ' + url);
+    const [loading, setLoading] = React.useState(true);
 
-    axios.get(url)
-        .then((res) => setTagColorsData(res.data))
-setLoading(false);
+
+    /**
+     * Fetch boards from the REST API
+     */
+    React.useEffect(() => {
+        const url = apiServer + '/boards';
+        console.log('axios: fetching boards from ' + url);
+
+        axios.get(url)
+            .then((res) => setBoardsData(res.data))
+        setLoading(false);
     }, []);
 
-
-return (
-    <div>
-        <Navbar theme="light" tag_colorsData={ tag_colorsData } />
-        < TagColorList />
-    </div>
-);
+    return (
+        <div>
+            <Navbar theme="light" boardsData={boardsData} />
+        </div>
+    );
 };
 
 export default TagColorListPage;

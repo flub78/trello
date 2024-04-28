@@ -21,27 +21,28 @@ const BoardListPage = () => {
     const { t } = useTranslation(['translation', 'boards']);
 
     const [boardsData, setBoardsData] = React.useState([]);
-const [loading, setLoading] = React.useState(true);
 
-/**
- * Fetch boards from the REST API
- */
-React.useEffect(() => {
-    const url = apiServer + '/boards';
-    console.log('axios: fetching boards from ' + url);
+    const [loading, setLoading] = React.useState(true);
 
-    axios.get(url)
-        .then((res) => setBoardsData(res.data))
-setLoading(false);
+    /**
+     * Fetch boards from the REST API
+     */
+    React.useEffect(() => {
+        const url = apiServer + '/boards';
+        console.log('axios: fetching boards from ' + url);
+
+        axios.get(url)
+            .then((res) => setBoardsData(res.data))
+        setLoading(false);
     }, []);
 
 
-return (
-    <div>
-        <Navbar theme="light" boardsData={ boardsData } />
-        <BoardList />
-    </div >
-);
+    return (
+        <div>
+            <Navbar theme="light" boardsData={boardsData} />
+            <BoardList />
+        </div >
+    );
 };
 
 export default BoardListPage;
