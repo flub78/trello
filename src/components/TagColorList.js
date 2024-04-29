@@ -54,7 +54,7 @@ const TagColorList = () => {
 
         console.log('deleteElement: id=' + id);
 
-        const url = apiServer + '/tag_colors/' + id;
+        const url = apiServer + '/tag-colors/' + id;
         console.log('axios: deleting tag_color from ' + url);
 
         axios.delete(url)
@@ -80,7 +80,7 @@ const TagColorList = () => {
         return (
             <tr key={tag_color.id} className="odd">
                 <td>
-                    <Link to={"/tag_colors/edit/" + tag_color.name}
+                    <Link to={"/tag-colors/edit/" + tag_color.name}
                         className="btn btn-sm btn-success"><i className="fa-regular fa-pen-to-square"></i></Link>
                 </td>
                 <td>
@@ -104,7 +104,7 @@ const TagColorList = () => {
             <Card.Header className="card-header d-flex justify-content-between">
                 <h3>{t("tag_colors:tag_colors")}</h3>
                 <div>
-                    <Link to="/tag_colors/create" className="btn btn-sm btn-primary m-1">{t("tag_colors:create_a_tag_color")}
+                    <Link to="/tag-colors/create" className="btn btn-sm btn-primary m-1">{t("tag_colors:create_a_tag_color")}
                     </Link>
 
                     <Button variant="primary" size="sm" className="me-1">CSV</Button>

@@ -4,6 +4,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './lib/i18n';
 import AboutPage from './pages/AboutPage';
+import LoginPage from './pages/LoginPage';
 import NotFoundPage from './pages/NotFoundPage';
 import WorkspacePage from './pages/WorkspacePage';
 import BoardPage from './pages/BoardPage';
@@ -29,6 +30,7 @@ function App() {
         <Route path="/workspace" element={<WorkspacePage />} />
         <Route path="/board/:id" element={<BoardPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/login" element={<LoginPage />} />
 
         {/* boards resource */}
         <Route path="/boards" element={<BoardListPage />} />
