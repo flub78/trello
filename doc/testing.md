@@ -34,3 +34,34 @@ https://docs.cypress.io/guides/overview/why-cypress
 ### Run the test suite
 
     npm run test:e2e:cli
+
+### Dependencies on the Backend server
+
+End 2 End tests are executed by manipulating user interface in the WEB browser.
+
+Some tests may have dependencies on the backend server.
+* Some tests can only run when the backend is up and running.
+* Some tests could especially run against a down backend server (To test the behavior of the frontend in this case).
+* Some tests could rely on some credentials delivered or contained by the backend (capacity to login).
+
+And the point is that the cypress tests usually do not start or stop the backend. It would be convenient for the tests to be able to start and stop the backend or to se it up with different configuration or contains (or to have multiple test backends to test different scenarios).
+
+A global approach to this issue is to handle it at the test pipeline level (jenkins) and rely on the CI server to setup test environments before to run specific test suites against the associated backend servers.
+
+Thats the absolute answer but it may be expensive.
+
+Maybe that a convenient approach would be to deploy a test backend able to understand additional commands and run accordingly.
+
+Example of such commands:
+
+* test=noreply the server (do not reply)
+* save_database_to="xxx"
+* restore_database_from="xxx"
+* return_error=404, 500, etc.
+
+Note that as the API server is stateless, these command would have to be passed as parameters.
+
+Note that it would also imply for the front end to support these extra test mode and capacity to transmit test data.
+
+
+  
