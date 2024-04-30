@@ -34,7 +34,7 @@ const TagColorList = () => {
      * Fetch tag_colors from the REST API
      */
     React.useEffect(() => {
-        const url = apiServer + '/tag_colors';
+        const url = apiServer + '/tag-colors';
         console.log('axios: fetching tag_colors from ' + url);
 
         axios.get(url)

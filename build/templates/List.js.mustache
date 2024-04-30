@@ -35,7 +35,7 @@ const #<class>#List = () => {
      * Fetch #<element>#s from the REST API
      */
     React.useEffect(() => {
-        const url = apiServer + '/#<element>#s';
+        const url = apiServer + '/#<url>#';
         console.log('axios: fetching #<element>#s from ' + url);
 
         axios.get(url)
@@ -55,7 +55,7 @@ const #<class>#List = () => {
 
         console.log('deleteElement: id=' + id);
 
-        const url = apiServer + '/#<element>#s/' + id;
+        const url = apiServer + '/#<url>#/' + id;
         console.log('axios: deleting #<element># from ' + url);
 
         axios.delete(url)
@@ -81,7 +81,7 @@ const #<class>#List = () => {
         return (
             <tr key={#<element>#.id} className="odd">
                 <td>
-                    <Link to={"/#<element>#s/edit/" + #<element>#.name}
+                    <Link to={"/#<url>#/edit/" + #<element>#.name}
                         className="btn btn-sm btn-success"><i className="fa-regular fa-pen-to-square"></i></Link>
                 </td>
                 <td>
