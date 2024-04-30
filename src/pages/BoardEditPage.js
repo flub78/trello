@@ -27,6 +27,8 @@ const BoardEditPage = () => {
 
     const [boardsData, setBoardsData] = React.useState([]);
 
+    const [errorMessage, setErrorMessage] = React.useState('');
+
     // url parameter to identify the board to edit
     let { id } = useParams();
 
@@ -38,13 +40,17 @@ const BoardEditPage = () => {
         console.log('axios: fetching boards from ' + url);
 
         axios.get(url)
-            .then((res) => setBoardsData(res.data));
+            .then((res) => setBoardsData(res.data))
+            .catch((error) => setErrorMessage(error.message + ': check the API server at ' + url)
+            );
 
     }, [id]);
 
     return (
         <div>
             <Navbar theme="light" boardsData={boardsData} />
+
+            {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
 
             <Card >
                 <Card.Header className="card-header d-flex justify-content-between">

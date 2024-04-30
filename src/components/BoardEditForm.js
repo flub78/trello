@@ -131,6 +131,7 @@ const BoardEditForm = ({ id }) => {
 
         axios.get(url2)
             .then((res) => setFormData(res.data))
+            .catch((err) => console.log(err));
     }, [id]);
 
     return (

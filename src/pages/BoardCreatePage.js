@@ -21,6 +21,8 @@ const BoardCreatePage = () => {
 
     const [boardsData, setBoardsData] = React.useState([]);
 
+    const [errorMessage, setErrorMessage] = React.useState('');
+
     /**
      * Fetch boards from the API
      */
@@ -30,11 +32,16 @@ const BoardCreatePage = () => {
 
         axios.get(url)
             .then((res) => setBoardsData(res.data))
+            .catch((error) => setErrorMessage(error.message + ': check the API server at '
+                + apiServer + '/boards')
+            );
     }, []);
 
     return (
         <div>
             <Navbar theme="light" boardsData={boardsData} />
+
+            {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
 
             <Card >
                 <Card.Header className="card-header d-flex justify-content-between">

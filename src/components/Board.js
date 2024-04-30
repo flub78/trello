@@ -63,6 +63,7 @@ const Board = ({ brdid, boardsData }) => {
         console.log('axios: fetching lists from ' + url);
         axios.get(url)
             .then((res) => setLists(res.data))
+            .catch((err) => console.error(err));
     }, [brdid]);
 
     /**
