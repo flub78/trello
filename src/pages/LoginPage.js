@@ -28,11 +28,13 @@ const LoginPage = () => {
     }, []);
 
     return (
-        <div>
+        <div className="container d-flex flex-column align-items-center w-50">
 
-            <Navbar theme="light" boardsData={boardsData} />
+            <h3 className="text-center m-5" >Frello</h3>
 
-            <div className="container d-flex mt-5 align-content-center">
+            <p>Welcome</p>
+
+            <div className="container d-flex mt-5 justify-content-center">
 
                 <Card className="">
                     <Card.Header className="card-header">

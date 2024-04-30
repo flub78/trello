@@ -21,31 +21,30 @@ const #<class>#ListPage = () => {
 
     const { t } = useTranslation(['translation', '#<element>#s']);
 
-    const [#<element>#sData, set#<class>#sData] = React.useState([]);
+    const [boardsData, setBoardsData] = React.useState([]);
     
     const [loading, setLoading] = React.useState(true);
 
     const [errorMessage, setErrorMessage] = React.useState('');
 
-/**
- * Fetch #<element>#s from the REST API
- */
-React.useEffect(() => {
-    const url = apiServer + '/#<element>#s';
-    console.log('axios: fetching #<element>#s from ' + url);
+    /**
+     * Fetch boards from the API
+     */
+    React.useEffect(() => {
+        const url = apiServer + '/boards';
+        console.log('axios: fetching boards from ' + url);
 
-    axios.get(url)
-        .then((res) => set#<class>#sData(res.data))
-        .catch((error) => setErrorMessage(error.message 
-            + ': check the API server at '
-            + url));
-        setLoading(false);
+        axios.get(url)
+            .then((res) => setBoardsData(res.data))
+            .catch((error) => setErrorMessage(error.message
+                + ': check the API server at '
+                + url)
+            );
     }, []);
-
 
 return (
     <div>
-        <Navbar theme="light" #<element>#sData={ #<element>#sData } />
+        <Navbar theme="light" boardsData={boardsData} />
         
         {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
 

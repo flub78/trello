@@ -43,7 +43,7 @@ const LoginForm = ({ id }) => {
                 <option value="3">Three</option>
             </Form.Select>
 
-            <Form.Control className="mt-3" type="text" placeholder={t("translation:username")} onChange={(e) => setFormData({ ...formData, username: e.target.value })} />
+            <Form.Control className="mt-3" type="text" placeholder={t("translation:email")} onChange={(e) => setFormData({ ...formData, username: e.target.value })} />
 
             <Form.Control className="mt-3" type="password" placeholder={t("translation:password")} onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
 

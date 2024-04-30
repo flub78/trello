@@ -39,7 +39,7 @@ const TagColorList = () => {
 
         axios.get(url)
             .then((res) => setTagColorsData(res.data))
-            .catch(error => console.error(error));
+            .catch((error) => console.error(error));
         setLoading(false);
     }, []);
 

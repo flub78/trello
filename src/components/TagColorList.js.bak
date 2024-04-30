@@ -1,4 +1,3 @@
-{{=#< >#=}}
 /**
  * This file is generated from a template with metadata extracted from the data model.
  * If modifications are required, it is important to consider if they should be done in the template
@@ -22,31 +21,31 @@ import { apiServer } from '../lib/Util';
 import Loading from './Loading';
 
 /**
- * React component to display the list of #<element>#s
+ * React component to display the list of tag_colors
  */
-const #<class>#List = () => {
+const TagColorList = () => {
 
-    const { t } = useTranslation(['translation', '#<element>#s']);
+    const { t } = useTranslation(['translation', 'tag_colors']);
 
-    const [#<element>#sData, set#<class>#sData] = React.useState([]);
+    const [tag_colorsData, setTagColorsData] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
 
     /**
-     * Fetch #<element>#s from the REST API
+     * Fetch tag_colors from the REST API
      */
     React.useEffect(() => {
-        const url = apiServer + '/#<element>#s';
-        console.log('axios: fetching #<element>#s from ' + url);
+        const url = apiServer + '/tag_colors';
+        console.log('axios: fetching tag_colors from ' + url);
 
         axios.get(url)
-            .then((res) => set#<class>#sData(res.data))
-            .catch((error) => console.error(error));
+            .then((res) => setTagColorsData(res.data))
+            .catch(error => console.error(error));
         setLoading(false);
     }, []);
 
 
     /**
-     * Callback to delete a #<element>#
+     * Callback to delete a tag_color
      * @param {*} e 
      * @param {*} id 
      */
@@ -55,14 +54,14 @@ const #<class>#List = () => {
 
         console.log('deleteElement: id=' + id);
 
-        const url = apiServer + '/#<element>#s/' + id;
-        console.log('axios: deleting #<element># from ' + url);
+        const url = apiServer + '/tag-colors/' + id;
+        console.log('axios: deleting tag_color from ' + url);
 
         axios.delete(url)
             .then((res) => {
                 console.log('axios: response=' + JSON.stringify(res.data));
-                const new#<class>#sData = #<element>#sData.filter((#<element>#) => #<element>#.name !== id);
-                set#<class>#sData(new#<class>#sData);
+                const newTagColorsData = tag_colorsData.filter((tag_color) => tag_color.name !== id);
+                setTagColorsData(newTagColorsData);
             });
     }
 
@@ -70,7 +69,7 @@ const #<class>#List = () => {
     /**
      * The lines for the table body
      */
-    const #<element>#sTable = #<element>#sData.map((#<element>#) => {
+    const tag_colorsTable = tag_colorsData?.map((tag_color) => {
 
         if (loading) return (
             <tr key="-1">
@@ -79,29 +78,21 @@ const #<class>#List = () => {
         )
 
         return (
-            <tr key={#<element>#.id} className="odd">
+            <tr key={tag_color.id} className="odd">
                 <td>
-                    <Link to={"/#<element>#s/edit/" + #<element>#.name}
+                    <Link to={"/tag-colors/edit/" + tag_color.name}
                         className="btn btn-sm btn-success"><i className="fa-regular fa-pen-to-square"></i></Link>
                 </td>
                 <td>
                     <button type="button"
                         className="btn btn-sm btn-danger"
-                        onClick={(e) => deleteElement(e, #<element>#.name)}>
+                        onClick={(e) => deleteElement(e, tag_color.name)}>
                         <i className="fa-regular fa-trash-can"></i>
                     </button>
                 </td>
-                <td>{#<element>#.name}</td>
-                <td>{#<element>#.description}</td>
-                <td>{#<element>#.email}</td>
-                <td>{(#<element>#.favorite) ?
-                    <i className="fa-regular fa-square-check"></i> :
-                    <i className="fa-regular fa-square"></i>}
-                </td>
-                <td>{#<element>#.href}</td>
-                <td>{#<element>#.image}</td>
-                <td>{#<element>#.theme}</td>
-                <td>{#<element>#.lists}</td>
+                <td>{tag_color.name}</td>
+                <td>{tag_color.color}</td>
+
             </tr >
         );
     });
@@ -111,9 +102,9 @@ const #<class>#List = () => {
 
         <Card >
             <Card.Header className="card-header d-flex justify-content-between">
-                <h3>{t("#<element>#s:#<element>#s")}</h3>
+                <h3>{t("tag_colors:tag_colors")}</h3>
                 <div>
-                    <Link to="/#<element>#s/create" className="btn btn-sm btn-primary m-1">{t("#<element>#s:create_a_#<element>#")}
+                    <Link to="/tag-colors/create" className="btn btn-sm btn-primary m-1">{t("tag_colors:create_a_tag_color")}
                     </Link>
 
                     <Button variant="primary" size="sm" className="me-1">CSV</Button>
@@ -145,33 +136,21 @@ const #<class>#List = () => {
                             <tr role="row">
                                 <th align="right"></th>
                                 <th align="center"></th>
-                                <th align="left">{t("#<element>#s:name")}</th>
-                                <th align="left">{t("#<element>#s:description")}</th>
-                                <th align="left">{t("#<element>#s:email")}</th>
-                                <th align="left">{t("#<element>#s:favorite")}</th>
-                                <th align="left">{t("#<element>#s:href")}</th>
-                                <th align="left">{t("#<element>#s:image")}</th>
-                                <th align="left" >{t("#<element>#s:theme")}</th>
-                                <th align="left">{t("#<element>#s:lists")}</th>
+                                <th align="left">{t("tag_colors:name")}</th>
+                                <th align="left">{t("tag_colors:color")}</th>
                             </tr>
                         </thead>
 
                         <tbody >
-                            {#<element>#sTable}
+                            {tag_colorsTable}
                         </tbody>
 
                         <tfoot>
                             <tr role="row">
                                 <th align="right"></th>
                                 <th align="center"></th>
-                                <th align="left">{t("#<element>#s:name")}</th>
-                                <th align="left">{t("#<element>#s:description")}</th>
-                                <th align="left">{t("#<element>#s:email")}</th>
-                                <th align="left">{t("#<element>#s:favorite")}</th>
-                                <th align="left">{t("#<element>#s:href")}</th>
-                                <th align="left">{t("#<element>#s:image")}</th>
-                                <th align="left" >{t("#<element>#s:theme")}</th>
-                                <th align="left">{t("#<element>#s:lists")}</th>
+                                <th align="left">{t("tag_colors:name")}</th>
+                                <th align="left">{t("tag_colors:color")}</th>
                             </tr>
                         </tfoot>
                     </Table>
@@ -205,4 +184,4 @@ const #<class>#List = () => {
     );
 };
 
-export default #<class>#List;
+export default TagColorList;

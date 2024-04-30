@@ -44,9 +44,6 @@ const TagColorListPage = () => {
     return (
         <div>
             <Navbar theme="light" boardsData={boardsData} />
-        
-        {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
-
             < TagColorList />
 
         </div>
