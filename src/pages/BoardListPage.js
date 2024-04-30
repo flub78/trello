@@ -24,6 +24,8 @@ const BoardListPage = () => {
 
     const [loading, setLoading] = React.useState(true);
 
+    const [errorMessage, setErrorMessage] = React.useState('');
+
     /**
      * Fetch boards from the REST API
      */
@@ -33,6 +35,9 @@ const BoardListPage = () => {
 
         axios.get(url)
             .then((res) => setBoardsData(res.data))
+            .catch((error) => setErrorMessage(error.message
+                + ': check the API server at '
+                + url));
         setLoading(false);
     }, []);
 
@@ -40,6 +45,9 @@ const BoardListPage = () => {
     return (
         <div>
             <Navbar theme="light" boardsData={boardsData} />
+
+            {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
+
             <BoardList />
         </div >
     );

@@ -24,6 +24,9 @@ const BoardList = () => {
     const [boardsData, setBoardsData] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
 
+    const [errorMessage, setErrorMessage] = React.useState('');
+
+
     /**
      * Fetch boards from the REST API
      */
@@ -33,6 +36,9 @@ const BoardList = () => {
 
         axios.get(url)
             .then((res) => setBoardsData(res.data))
+            .catch((error) => setErrorMessage(error.message
+                + ': check the API server at '
+                + url));
         setLoading(false);
     }, []);
 
@@ -100,8 +106,8 @@ const BoardList = () => {
 
     return (
 
-
         <Card >
+
             <Card.Header className="card-header d-flex justify-content-between">
                 <h3>{t("boards:boards")}</h3>
                 <div>

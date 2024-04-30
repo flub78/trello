@@ -22,7 +22,10 @@ const #<class>#ListPage = () => {
     const { t } = useTranslation(['translation', '#<element>#s']);
 
     const [#<element>#sData, set#<class>#sData] = React.useState([]);
-const [loading, setLoading] = React.useState(true);
+    
+    const [loading, setLoading] = React.useState(true);
+
+    const [errorMessage, setErrorMessage] = React.useState('');
 
 /**
  * Fetch #<element>#s from the REST API
@@ -33,13 +36,19 @@ React.useEffect(() => {
 
     axios.get(url)
         .then((res) => set#<class>#sData(res.data))
-setLoading(false);
+        .catch((error) => setErrorMessage(error.message 
+            + ': check the API server at '
+            + url));
+        setLoading(false);
     }, []);
 
 
 return (
     <div>
         <Navbar theme="light" #<element>#sData={ #<element>#sData } />
+        
+        {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
+
         < #<class>#List />
     </div>
 );

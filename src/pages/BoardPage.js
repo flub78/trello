@@ -35,6 +35,8 @@ const BoardsPage = () => {
 
     const [boardsData, setBoardsData] = React.useState([]);
 
+    const [errorMessage, setErrorMessage] = React.useState('');
+
     /**
      * Fetch boards from the API
      */
@@ -42,12 +44,17 @@ const BoardsPage = () => {
         const url = apiServer + '/boards';
         console.log('axios: fetching boards from ' + url);
         axios.get(url)
-            .then((res) => setBoardsData(res.data));
+            .then((res) => setBoardsData(res.data))
+            .catch((error) => setErrorMessage(error.message + ': check the API server at '
+                + apiServer + '/boards')
+            );
     }, []);
 
     return (
         <div>
             <Navbar theme="dark" boardsData={boardsData} />
+
+            {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
 
             <section id="main-tasklist" className="container-fluid row flex-nowrap g-0" style={{ height: 'calc(100vh - 64px)' }}>
                 <BoardLeftPanel theme="dark" boardsData={boardsData} />
