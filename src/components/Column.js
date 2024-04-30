@@ -24,7 +24,9 @@ const TaskList = styled.div`
         // min-height: 100px;
         `;
 
-
+/**
+ * In a board column is a list of tasks
+ */
 const Column = ({ list, removeListFromBoard, index }) => {
 
 
@@ -187,7 +189,8 @@ const Column = ({ list, removeListFromBoard, index }) => {
                                     isDraggingOver={snapshot.isDraggingOver}
                                     {...provided.droppableProps}>
 
-                                    {list?.tasks?.map((task, index) => {
+                                    {console.log('list.tasks ', typeof (list.tasks), list.tasks)}
+                                    {list && list.tasks && list.tasks.map((task, index) => {
                                         return (
                                             <Task taskid={task} key={task} deleteHandler={deleteTaskFromList} index={index} />
                                         );

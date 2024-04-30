@@ -5,9 +5,15 @@ import WorkspaceSidePanel from '../components/WorkspaceSidePanel';
 import axios from 'axios';
 import { apiServer } from '../lib/Util';
 
+/**
+ * This page displays the existing boards and allows the user to create new ones
+ * @returns 
+ */
 const WorkspacePage = () => {
 
     const [boardsData, setBoardsData] = React.useState([]);
+
+    const [errorMessage, setErrorMessage] = React.useState('');
 
     /**
      * Fetch boards from the API
@@ -17,11 +23,16 @@ const WorkspacePage = () => {
         console.log('axios: fetching boards from ' + url);
         axios.get(url)
             .then((res) => setBoardsData(res.data))
+            .catch((error) => setErrorMessage(error.message + ': check the API server at '
+                + apiServer + '/boards')
+            );
     }, []);
 
     return (
         <div>
             <Navbar theme="light" boardsData={boardsData} />
+
+            {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
 
             <section id="main" className="container-lg-fluid">
                 <div classame="row d-flex justify-content-end" id="main-container">

@@ -21,6 +21,9 @@ npx json-server .\assets\db.json
 
 ## Execution
 
+To start the REST API development server:
+
     npx json-server .\assets\db.json
+
     npm start
 
