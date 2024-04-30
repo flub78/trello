@@ -1,9 +1,3 @@
-/**
- * This file is generated from a template with metadata extracted from the data model.
- * If modifications are required, it is important to consider if they should be done in the template
- * or in the generated file, in which case caution must be exerted to avoid overwritting.
- */
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -14,51 +8,32 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import FieldInput from '../components/cg/FieldInput';
+import FieldInput from './cg/FieldInput';
 import { apiServer } from '../lib/Util';
 
 /**
- * A form to edit a board
- * @param {*} param0 
+ * A form to create a board
  * @returns 
  */
-const BoardEditForm = ({ id }) => {
+const BoardCreateForm = () => {
 
     const { t } = useTranslation(['translation', 'boards']);
 
     const [formData, setFormData] = React.useState({
+        name: '',
+        description: '',
+        email: '',
+        favorite: false,
+        href: '',
+        image: '',
+        theme: 'light',
+        lists: ''
     });
 
     const [inputErrorList, setInputErrorList] = React.useState({});
 
     const navigate = useNavigate();
 
-    /**
-     * Set an object property value by path (string)
-     * @param {*} obj 
-     * @param {*} value 
-     * @param {*} path 
-     */
-    function setDeepValue(obj, value, path) {
-        if (typeof path === "string") {
-            var path = path.split('.');
-        }
-
-        if (path.length > 1) {
-            var p = path.shift();
-            if (obj[p] == null || typeof obj[p] !== 'object') {
-                obj[p] = {};
-            }
-            setDeepValue(obj[p], value, path);
-        } else {
-            obj[path[0]] = value;
-        }
-    }
-
-    /**
-     * Update the state each time the user types something in the form
-     * @param {*} e 
-     */
     const onChange = (e) => {
         e.persist();
 
@@ -69,32 +44,22 @@ const BoardEditForm = ({ id }) => {
 
         console.log('onChange: id=' + id + ', value=' + value + ', type=' + type + ', checked=' + checked);
 
-        let fd = { ...formData };
-
-        setDeepValue(fd, type === 'checkbox' ? checked : value, id);
-
-        // setFormData({
-        //     ...formData,
-        //     [id]: type === 'checkbox' ? checked : value
-        // });
-        console.log('onChange updated: formData=' + JSON.stringify(fd));
-        // console.log(e);
-        setFormData(fd);
+        setFormData({
+            ...formData,
+            [id]: type === 'checkbox' ? checked : value
+        });
     }
 
-    /**
-     * Save the element on submit
-     * @param {*} e 
-     */
-    const updateElement = (e) => {
+    const saveElement = (e) => {
         e.preventDefault();
 
-        console.log('updateElement: ' + JSON.stringify(formData));
+        console.log('saveElement: ' + JSON.stringify(formData));
 
-        const url = apiServer + '/boards/' + id + '?lang=' + i18n.language;
-        console.log('axios: patching board to ' + url);
+        const url = apiServer + '/boards?lang=' + i18n.language;
+        // const url = apiServer + '/boards';
+        console.log('axios: posting board to ' + url);
 
-        axios.put(url, formData)
+        axios.post(url, formData)
             .then((res) => {
                 console.log('axios: response=' + JSON.stringify(res.data));
                 setFormData({
@@ -114,9 +79,6 @@ const BoardEditForm = ({ id }) => {
                     if (error.response.status === 422) {
                         setInputErrorList(error.response.data.errors)
                     }
-                    if (error.response.status === 419) {
-                        console.error("axios: error=" + error.response.data.message)
-                    }
                     if (error.response.status === 500) {
                         console.error("axios: error=" + error.response.data.message)
                     }
@@ -127,23 +89,8 @@ const BoardEditForm = ({ id }) => {
             ;
     }
 
-    /**
-     * Fetch boards from the API
-     */
-    React.useEffect(() => {
-
-        const url2 = apiServer + '/boards/' + id;
-        console.log('axios: fetching board from ' + url2);
-
-        axios.get(url2)
-            .then((res) => setFormData(res.data))
-            .catch((error) => console.log(error));
-    }, [id]);
-
     return (
-
-        <Form onSubmit={updateElement}>
-
+        <Form onSubmit={saveElement}>
             <Row className="align-items-center">
                 <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
@@ -222,7 +169,7 @@ const BoardEditForm = ({ id }) => {
                         error: inputErrorList.image,
                         values: { 'light': 'Light', 'dark': 'Dark' },
                         title: 'Board color theme',
-                    }} value={formData.theme} onChange={onChange} />
+                    }} value={formData.image} onChange={onChange} />
 
                 </Col>
             </Row>
@@ -236,9 +183,9 @@ const BoardEditForm = ({ id }) => {
             }} value={formData.lists} onChange={onChange} />
 
             <button type="submit" className="btn btn-primary">{t("translation:submit")}</button>
+        </Form >
 
-        </Form>
     );
 };
 
-export default BoardEditForm;
+export default BoardCreateForm;

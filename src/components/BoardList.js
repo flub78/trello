@@ -1,3 +1,9 @@
+/**
+ * This file is generated from a template with metadata extracted from the data model.
+ * If modifications are required, it is important to consider if they should be done in the template
+ * or in the generated file, in which case caution must be exerted to avoid overwritting.
+ */
+
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -24,8 +30,6 @@ const BoardList = () => {
     const [boardsData, setBoardsData] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
 
-    const [errorMessage, setErrorMessage] = React.useState('');
-
 
     /**
      * Fetch boards from the REST API
@@ -36,9 +40,7 @@ const BoardList = () => {
 
         axios.get(url)
             .then((res) => setBoardsData(res.data))
-            .catch((error) => setErrorMessage(error.message
-                + ': check the API server at '
-                + url));
+            .catch((error) => console.log(error));
         setLoading(false);
     }, []);
 

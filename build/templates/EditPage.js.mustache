@@ -28,6 +28,8 @@ const #<class>#EditPage = () => {
 
     const [#<element>#sData, set#<class>#sData] = React.useState([]);
 
+    const [errorMessage, setErrorMessage] = React.useState('');
+
     // url parameter to identify the #<element># to edit
     let { id } = useParams();
 
@@ -39,13 +41,17 @@ const #<class>#EditPage = () => {
         console.log('axios: fetching #<element>#s from ' + url);
 
         axios.get(url)
-            .then((res) => set#<class>#sData(res.data));
+            .then((res) => set#<class>#sData(res.data))
+            .catch((error) => setErrorMessage(error.message + ': check the API server at ' + url)
+            );
 
     }, [id]);
 
     return (
         <div>
             <Navbar theme="light" #<element>#sData={#<element>#sData} />
+
+            {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
 
             <Card >
                 <Card.Header className="card-header d-flex justify-content-between">

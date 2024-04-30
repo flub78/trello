@@ -22,6 +22,8 @@ const #<class>#CreatePage = () => {
 
     const [#<element>#sData, set#<class>#sData] = React.useState([]);
 
+    const [errorMessage, setErrorMessage] = React.useState('');
+
     /**
      * Fetch #<element>#s from the API
      */
@@ -31,11 +33,17 @@ const #<class>#CreatePage = () => {
 
         axios.get(url)
             .then((res) => set#<class>#sData(res.data))
+            .catch((error) => setErrorMessage(error.message 
+                + ': check the API server at '
+                + url)
+        );
     }, []);
 
     return (
         <div>
             <Navbar theme="light" #<element>#sData={#<element>#sData} />
+
+            {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
 
             <Card >
                 <Card.Header className="card-header d-flex justify-content-between">

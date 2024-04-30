@@ -32,8 +32,9 @@ const BoardCreatePage = () => {
 
         axios.get(url)
             .then((res) => setBoardsData(res.data))
-            .catch((error) => setErrorMessage(error.message + ': check the API server at '
-                + apiServer + '/boards')
+            .catch((error) => setErrorMessage(error.message
+                + ': check the API server at '
+                + url)
             );
     }, []);
 

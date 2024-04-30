@@ -1,10 +1,3 @@
-{{=#< >#=}}
-/**
- * This file is generated from a template with metadata extracted from the data model.
- * If modifications are required, it is important to consider if they should be done in the template
- * or in the generated file, in which case caution must be exerted to avoid overwritting.
- */
-
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -22,31 +15,34 @@ import { apiServer } from '../lib/Util';
 import Loading from './Loading';
 
 /**
- * React component to display the list of #<element>#s
+ * React component to display the list of boards
  */
-const #<class>#List = () => {
+const BoardList = () => {
 
-    const { t } = useTranslation(['translation', '#<element>#s']);
+    const { t } = useTranslation(['translation', 'boards']);
 
-    const [#<element>#sData, set#<class>#sData] = React.useState([]);
+    const [boardsData, setBoardsData] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
 
+
     /**
-     * Fetch #<element>#s from the REST API
+     * Fetch boards from the REST API
      */
     React.useEffect(() => {
-        const url = apiServer + '/#<element>#s';
-        console.log('axios: fetching #<element>#s from ' + url);
+        const url = apiServer + '/boards';
+        console.log('axios: fetching boards from ' + url);
 
         axios.get(url)
-            .then((res) => set#<class>#sData(res.data))
-            .catch((error) => console.log(error));
+            .then((res) => setBoardsData(res.data))
+            .catch((error) => console.log(error.message
+                + ': check the API server at '
+                + url));
         setLoading(false);
     }, []);
 
 
     /**
-     * Callback to delete a #<element>#
+     * Callback to delete a board
      * @param {*} e 
      * @param {*} id 
      */
@@ -55,14 +51,14 @@ const #<class>#List = () => {
 
         console.log('deleteElement: id=' + id);
 
-        const url = apiServer + '/#<element>#s/' + id;
-        console.log('axios: deleting #<element># from ' + url);
+        const url = apiServer + '/boards/' + id;
+        console.log('axios: deleting board from ' + url);
 
         axios.delete(url)
             .then((res) => {
                 console.log('axios: response=' + JSON.stringify(res.data));
-                const new#<class>#sData = #<element>#sData.filter((#<element>#) => #<element>#.name !== id);
-                set#<class>#sData(new#<class>#sData);
+                const newBoardsData = boardsData.filter((board) => board.name !== id);
+                setBoardsData(newBoardsData);
             });
     }
 
@@ -70,7 +66,7 @@ const #<class>#List = () => {
     /**
      * The lines for the table body
      */
-    const #<element>#sTable = #<element>#sData.map((#<element>#) => {
+    const boardsTable = boardsData.map((board) => {
 
         if (loading) return (
             <tr key="-1">
@@ -79,41 +75,41 @@ const #<class>#List = () => {
         )
 
         return (
-            <tr key={#<element>#.id} className="odd">
+            <tr key={board.id} className="odd">
                 <td>
-                    <Link to={"/#<element>#s/edit/" + #<element>#.name}
+                    <Link to={"/boards/edit/" + board.name}
                         className="btn btn-sm btn-success"><i className="fa-regular fa-pen-to-square"></i></Link>
                 </td>
                 <td>
                     <button type="button"
                         className="btn btn-sm btn-danger"
-                        onClick={(e) => deleteElement(e, #<element>#.name)}>
+                        onClick={(e) => deleteElement(e, board.name)}>
                         <i className="fa-regular fa-trash-can"></i>
                     </button>
                 </td>
-                <td>{#<element>#.name}</td>
-                <td>{#<element>#.description}</td>
-                <td>{#<element>#.email}</td>
-                <td>{(#<element>#.favorite) ?
+                <td>{board.name}</td>
+                <td>{board.description}</td>
+                <td>{board.email}</td>
+                <td>{(board.favorite) ?
                     <i className="fa-regular fa-square-check"></i> :
                     <i className="fa-regular fa-square"></i>}
                 </td>
-                <td>{#<element>#.href}</td>
-                <td>{#<element>#.image}</td>
-                <td>{#<element>#.theme}</td>
-                <td>{#<element>#.lists}</td>
+                <td>{board.href}</td>
+                <td>{board.image}</td>
+                <td>{board.theme}</td>
+                <td>{board.lists}</td>
             </tr >
         );
     });
 
     return (
 
-
         <Card >
+
             <Card.Header className="card-header d-flex justify-content-between">
-                <h3>{t("#<element>#s:#<element>#s")}</h3>
+                <h3>{t("boards:boards")}</h3>
                 <div>
-                    <Link to="/#<element>#s/create" className="btn btn-sm btn-primary m-1">{t("#<element>#s:create_a_#<element>#")}
+                    <Link to="/boards/create" className="btn btn-sm btn-primary m-1">{t("boards:create_a_board")}
                     </Link>
 
                     <Button variant="primary" size="sm" className="me-1">CSV</Button>
@@ -145,33 +141,33 @@ const #<class>#List = () => {
                             <tr role="row">
                                 <th align="right"></th>
                                 <th align="center"></th>
-                                <th align="left">{t("#<element>#s:name")}</th>
-                                <th align="left">{t("#<element>#s:description")}</th>
-                                <th align="left">{t("#<element>#s:email")}</th>
-                                <th align="left">{t("#<element>#s:favorite")}</th>
-                                <th align="left">{t("#<element>#s:href")}</th>
-                                <th align="left">{t("#<element>#s:image")}</th>
-                                <th align="left" >{t("#<element>#s:theme")}</th>
-                                <th align="left">{t("#<element>#s:lists")}</th>
+                                <th align="left">{t("boards:name")}</th>
+                                <th align="left">{t("boards:description")}</th>
+                                <th align="left">{t("boards:email")}</th>
+                                <th align="left">{t("boards:favorite")}</th>
+                                <th align="left">{t("boards:href")}</th>
+                                <th align="left">{t("boards:image")}</th>
+                                <th align="left" >{t("boards:theme")}</th>
+                                <th align="left">{t("boards:lists")}</th>
                             </tr>
                         </thead>
 
                         <tbody >
-                            {#<element>#sTable}
+                            {boardsTable}
                         </tbody>
 
                         <tfoot>
                             <tr role="row">
                                 <th align="right"></th>
                                 <th align="center"></th>
-                                <th align="left">{t("#<element>#s:name")}</th>
-                                <th align="left">{t("#<element>#s:description")}</th>
-                                <th align="left">{t("#<element>#s:email")}</th>
-                                <th align="left">{t("#<element>#s:favorite")}</th>
-                                <th align="left">{t("#<element>#s:href")}</th>
-                                <th align="left">{t("#<element>#s:image")}</th>
-                                <th align="left" >{t("#<element>#s:theme")}</th>
-                                <th align="left">{t("#<element>#s:lists")}</th>
+                                <th align="left">{t("boards:name")}</th>
+                                <th align="left">{t("boards:description")}</th>
+                                <th align="left">{t("boards:email")}</th>
+                                <th align="left">{t("boards:favorite")}</th>
+                                <th align="left">{t("boards:href")}</th>
+                                <th align="left">{t("boards:image")}</th>
+                                <th align="left" >{t("boards:theme")}</th>
+                                <th align="left">{t("boards:lists")}</th>
                             </tr>
                         </tfoot>
                     </Table>
@@ -205,4 +201,4 @@ const #<class>#List = () => {
     );
 };
 
-export default #<class>#List;
+export default BoardList;
