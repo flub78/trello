@@ -15,8 +15,8 @@ const WorkspaceMain = ({ boardsData }) => {
                         <div className="d-flex flex-wrap">
                             {boardsData
                                 .filter((board) => board.favorite)
-                                .map((board) => {
-                                    return (<BoardCard card={board} />);
+                                .map((board, index) => {
+                                    return (<BoardCard card={board} key={index + "_favorite"} />);
                                 })
                             }
                         </div>
@@ -31,8 +31,8 @@ const WorkspaceMain = ({ boardsData }) => {
 
                             {boardsData
                                 .filter((board) => board.recent)
-                                .map((board) => {
-                                    return (<BoardCard card={board} />);
+                                .map((board, index) => {
+                                    return (<BoardCard card={board} key={index + "_recent"} />);
                                 })
                             }
 
@@ -64,8 +64,8 @@ const WorkspaceMain = ({ boardsData }) => {
                             // .filter((board) => board.favorite)
                             // .sort((a, b) => b.date - a.date)
                             // .slice(0, rangeValue)
-                            .map((board) => {
-                                return (<BoardCard card={board} />);
+                            .map((board, index) => {
+                                return (<BoardCard card={board} key={index + "_card"} />);
                             })
                         }
 
