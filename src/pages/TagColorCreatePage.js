@@ -25,7 +25,7 @@ const TagColorCreatePage = () => {
      * Fetch tag_colors from the API
      */
     React.useEffect(() => {
-        const url = apiServer + '/tag_colors';
+        const url = apiServer + '/tag-colors';
         console.log('axios: fetching tag_colors from ' + url);
 
         axios.get(url)
@@ -39,7 +39,7 @@ const TagColorCreatePage = () => {
             <Card >
                 <Card.Header className="card-header d-flex justify-content-between">
                     <h3>{t("tag_colors:create_a_tag_color")}</h3>
-                    <Link to="/tag_colors" className="btn btn-sm btn-danger m-1">{t("translation:back")}</Link>
+                    <Link to="/tag-colors" className="btn btn-sm btn-danger m-1">{t("translation:back")}</Link>
                 </Card.Header>
 
                 <Card.Body>

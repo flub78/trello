@@ -61,7 +61,7 @@ const TagColorCreateForm = () => {
 
         console.log('saveElement: ' + JSON.stringify(formData));
 
-        const url = apiServer + '/tag_colors?lang=' + i18n.language;
+        const url = apiServer + '/tag-colors?lang=' + i18n.language;
         // const url = apiServer + '/tag_colors';
         console.log('axios: posting tag_color to ' + url);
 
@@ -78,7 +78,7 @@ const TagColorCreateForm = () => {
                     theme: '',
                     lists: ''
                 });
-                navigate('/tag_colors');
+                navigate('/tag-colors');
             })
             .catch(function (error) {
                 if (error.response) {

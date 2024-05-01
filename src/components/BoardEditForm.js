@@ -31,6 +31,8 @@ const BoardEditForm = ({ id }) => {
 
     const [inputErrorList, setInputErrorList] = React.useState({});
 
+    const [errorMessage, setErrorMessage] = React.useState('');
+
     const navigate = useNavigate();
 
     /**
@@ -132,17 +134,19 @@ const BoardEditForm = ({ id }) => {
      */
     React.useEffect(() => {
 
-        const url2 = apiServer + '/boards/' + id;
-        console.log('axios: fetching board from ' + url2);
+        const url = apiServer + '/boards/' + id;
+        console.log('axios: fetching board from ' + url);
 
-        axios.get(url2)
+        axios.get(url)
             .then((res) => setFormData(res.data))
-            .catch((error) => console.log(error));
+            .catch((error) => setErrorMessage(error.message));
     }, [id]);
 
     return (
 
         <Form onSubmit={updateElement}>
+
+            {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
 
             <Row className="align-items-center">
                 <Col sm={6} md={6} lg={3}>
