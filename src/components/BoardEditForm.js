@@ -134,12 +134,14 @@ const BoardEditForm = ({ id }) => {
      */
     React.useEffect(() => {
 
-        const url = apiServer + '/boards/' + id;
+        const url = apiServer + '/boards/' + id + '?lang=' + i18n.language;
         console.log('axios: fetching board from ' + url);
 
         axios.get(url)
             .then((res) => setFormData(res.data))
-            .catch((error) => setErrorMessage(error.message));
+            .catch((error) => {
+                setErrorMessage(error.response.data.message);
+            });
     }, [id]);
 
     return (

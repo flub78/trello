@@ -26,11 +26,11 @@ const FieldInput = ({ descriptor, value, onChange }) => {
         return (
             <div className="d-flex">
                 <label htmlFor={descriptor.field} className="form-label m-3">{descriptor.label}:</label>
-                <Form.Select id={descriptor.field} defaultValue={value} onChange={onChange} >
+                <Form.Select id={descriptor.field} defaultValue={value} onChange={onChange} value={value}>
                     {Object.keys(descriptor.values).map((key) => (
-                        <option key={key} value={key}
-                            selected={value == key ? '"checked"="checked"' : ""}>
-                            {descriptor.values[key]}</option>
+                        <option key={key} value={key} >
+                            {descriptor.values[key]}
+                        </option>
                     ))}
                 </Form.Select>
                 <div className="text-danger mt-0 mb-2">{descriptor.error}</div>
