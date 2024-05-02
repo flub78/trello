@@ -19,6 +19,7 @@ import Table from 'react-bootstrap/Table';
 
 import { apiServer } from '../lib/Util';
 import Loading from './Loading';
+import Cell from '../components/cg/Cell';
 
 /**
  * React component to display the list of boards
@@ -91,17 +92,14 @@ const BoardList = () => {
                         <i className="fa-regular fa-trash-can"></i>
                     </button>
                 </td>
-                <td>{board.name}</td>
-                <td>{board.description}</td>
-                <td>{board.email}</td>
-                <td>{(board.favorite) ?
-                    <i className="fa-regular fa-square-check"></i> :
-                    <i className="fa-regular fa-square"></i>}
-                </td>
-                <td>{board.href}</td>
-                <td>{board.image}</td>
-                <td>{board.theme}</td>
-                <td>{board.lists}</td>
+                <td> <Cell value="{board.name}" subtype="string" > </Cell></td>
+                <td> <Cell value="{board.description}" subtype="string" > </Cell></td>
+                <td> <Cell value="{board.email}" subtype="email" > </Cell></td>
+                <td> <Cell value="{board.favorite}" subtype="boolean"></Cell></td>
+                <td> <Cell value="{board.href}" subtype="string" > </Cell></td>
+                <td> <Cell value="{board.image}" subtype="string" > </Cell></td>
+                <td> <Cell value="{board.theme}" subtype="string" > </Cell></td>
+                <td> <Cell value="{board.lists}" subtype="string" > </Cell></td>
             </tr >
         );
     });
