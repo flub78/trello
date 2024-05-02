@@ -14,12 +14,14 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
-import Pagination from 'react-bootstrap/Pagination';
 import Table from 'react-bootstrap/Table';
 
 import { apiServer } from '../lib/Util';
 import Loading from './Loading';
 import Cell from '../components/cg/Cell';
+import PerPageSelector from '../components/PerPageSelector';
+import PaginationBloc from './PaginationBloc';
+
 
 /**
  * React component to display the list of boards
@@ -97,9 +99,9 @@ const BoardList = () => {
                 <td> <Cell value="{board.email}" subtype="email" > </Cell></td>
                 <td> <Cell value="{board.favorite}" subtype="boolean"></Cell></td>
                 <td> <Cell value="{board.href}" subtype="string" > </Cell></td>
-			<td> <Cell value="{board.image}" subtype="image" > </Cell></td>
-			<td> <Cell value="{board.theme}" subtype="enum" > </Cell></td>
-			<td> <Cell value="{board.lists}" subtype="csv_string" > </Cell></td>
+                <td> <Cell value="{board.image}" subtype="image" > </Cell></td>
+                <td> <Cell value="{board.theme}" subtype="enum" > </Cell></td>
+                <td> <Cell value="{board.lists}" subtype="csv_string" > </Cell></td>
 
 
             </tr >
@@ -124,16 +126,8 @@ const BoardList = () => {
             <Card.Body>
                 <Container fluid>
                     <Form className='d-flex justify-content-between align-items-center'>
-                        <div className='d-flex'>
-                            Afficher
-                            <Form.Select className="form-select-inline ms-1 me-1" size="sm" defaultValue="25">
-                                <option value="10">10</option>
-                                <option value="25">25</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
-                            </Form.Select>
-                            éléments
-                        </div>
+                        <PerPageSelector />
+
                         <div className='d-flex'>
                             <Form.Control type="text" placeholder="Rechercher" className="mb-2" />
                         </div>
@@ -181,23 +175,8 @@ const BoardList = () => {
                             Affichage de l'élement 1 à 16 sur 16 éléments
                         </div>
 
-                        <Pagination>
-                            <Pagination.First />
-                            <Pagination.Prev />
-                            <Pagination.Item>{1}</Pagination.Item>
-                            <Pagination.Ellipsis />
+                        <PaginationBloc />
 
-                            <Pagination.Item>{10}</Pagination.Item>
-                            <Pagination.Item>{11}</Pagination.Item>
-                            <Pagination.Item active>{12}</Pagination.Item>
-                            <Pagination.Item>{13}</Pagination.Item>
-                            <Pagination.Item disabled>{14}</Pagination.Item>
-
-                            <Pagination.Ellipsis />
-                            <Pagination.Item>{20}</Pagination.Item>
-                            <Pagination.Next />
-                            <Pagination.Last />
-                        </Pagination>
                     </div>
                 </Container>
             </Card.Body>
