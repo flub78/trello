@@ -40,7 +40,7 @@ const BoardList = () => {
 
         axios.get(url)
             .then((res) => setBoardsData(res.data))
-            .catch((error) => console.log(error));
+            .catch((error) => console.error(error));
         setLoading(false);
     }, []);
 

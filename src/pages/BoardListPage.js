@@ -27,7 +27,7 @@ const BoardListPage = () => {
     const [errorMessage, setErrorMessage] = React.useState('');
 
     /**
-     * Fetch boards from the REST API
+     * Fetch boards from the API
      */
     React.useEffect(() => {
         const url = apiServer + '/boards';
@@ -37,8 +37,8 @@ const BoardListPage = () => {
             .then((res) => setBoardsData(res.data))
             .catch((error) => setErrorMessage(error.message
                 + ': check the API server at '
-                + url));
-        setLoading(false);
+                + url)
+            );
     }, []);
 
 
