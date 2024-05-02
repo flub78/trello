@@ -20,6 +20,7 @@ import Table from 'react-bootstrap/Table';
 
 import { apiServer } from '../lib/Util';
 import Loading from './Loading';
+import Cell from '../components/cg/Cell';
 
 /**
  * React component to display the list of #<element>#s
@@ -91,17 +92,8 @@ const #<class>#List = () => {
                         <i className="fa-regular fa-trash-can"></i>
                     </button>
                 </td>
-                <td>{#<element>#.name}</td>
-                <td>{#<element>#.description}</td>
-                <td>{#<element>#.email}</td>
-                <td>{(#<element>#.favorite) ?
-                    <i className="fa-regular fa-square-check"></i> :
-                    <i className="fa-regular fa-square"></i>}
-                </td>
-                <td>{#<element>#.href}</td>
-                <td>{#<element>#.image}</td>
-                <td>{#<element>#.theme}</td>
-                <td>{#<element>#.lists}</td>
+                #<#cg># field_list_cells #</cg>#
+
             </tr >
         );
     });
@@ -145,14 +137,7 @@ const #<class>#List = () => {
                             <tr role="row">
                                 <th align="right"></th>
                                 <th align="center"></th>
-                                <th align="left">{t("#<element>#s:name")}</th>
-                                <th align="left">{t("#<element>#s:description")}</th>
-                                <th align="left">{t("#<element>#s:email")}</th>
-                                <th align="left">{t("#<element>#s:favorite")}</th>
-                                <th align="left">{t("#<element>#s:href")}</th>
-                                <th align="left">{t("#<element>#s:image")}</th>
-                                <th align="left" >{t("#<element>#s:theme")}</th>
-                                <th align="left">{t("#<element>#s:lists")}</th>
+                                #<#cg># field_list_titles #</cg>#
                             </tr>
                         </thead>
 
@@ -164,14 +149,7 @@ const #<class>#List = () => {
                             <tr role="row">
                                 <th align="right"></th>
                                 <th align="center"></th>
-                                <th align="left">{t("#<element>#s:name")}</th>
-                                <th align="left">{t("#<element>#s:description")}</th>
-                                <th align="left">{t("#<element>#s:email")}</th>
-                                <th align="left">{t("#<element>#s:favorite")}</th>
-                                <th align="left">{t("#<element>#s:href")}</th>
-                                <th align="left">{t("#<element>#s:image")}</th>
-                                <th align="left" >{t("#<element>#s:theme")}</th>
-                                <th align="left">{t("#<element>#s:lists")}</th>
+                                #<#cg># field_list_titles #</cg>#
                             </tr>
                         </tfoot>
                     </Table>
