@@ -3,15 +3,29 @@ import React from 'react';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 
+const type_from_subtype = (subtype) => {
+    if (subtype === 'boolean') {
+        return 'checkbox';
+    } else if (subtype === 'enum') {
+        return 'select';
+    } else if (subtype === 'email') {
+        return 'email';
+    }
+    return 'text';
+}
+
+
 const FieldInput = ({ descriptor, value, onChange }) => {
 
     // console.log('FieldInput: descriptor=' + JSON.stringify(descriptor) + ', value=' + value);
+
+    const type = type_from_subtype(descriptor.subtype);
 
     if (descriptor.subtype === 'boolean') {
         return (
             <div>
                 <Form.Check
-                    type={descriptor.type}
+                    type={type}
                     label={descriptor.label}
                     id={descriptor.field}
                     checked={value}
@@ -39,16 +53,13 @@ const FieldInput = ({ descriptor, value, onChange }) => {
     }
 
     /* Default is text input */
-    if (!descriptor.type || descriptor.subtype === 'string') {
-        descriptor.type = 'text';
-    }
     return (
         <div>
             <FloatingLabel
                 label={descriptor.label}
                 className="mb-3"
             >
-                <Form.Control type={descriptor.type}
+                <Form.Control type={type}
                     title={descriptor.title}
                     id={descriptor.field}
                     placeholder={descriptor.placeholder}

@@ -157,7 +157,6 @@ const BoardEditForm = ({ id }) => {
                         field: 'name',
                         subtype: 'string',
                         error: inputErrorList.name,
-                        icon: 'bi bi-person-fill',
                         placeholder: 'e.g. My board',
                         title: 'Identifier for the board'
                     }} value={formData.name} onChange={onChange} />
@@ -167,9 +166,7 @@ const BoardEditForm = ({ id }) => {
                     <FieldInput descriptor={{
                         label: t("boards:description"),
                         field: 'description',
-                        type: 'text',
                         error: inputErrorList.description,
-                        icon: 'fa-regular fa-comment',
                         placeholder: 'e.g. My board',
                         title: 'Description for the board'
                     }} value={formData.description} onChange={onChange} />
@@ -179,9 +176,7 @@ const BoardEditForm = ({ id }) => {
                     <FieldInput descriptor={{
                         label: t("boards:email"),
                         field: 'email',
-                        type: 'email',
                         error: inputErrorList.email,
-                        icon: 'bi bi-envelope-fill',
                         placeholder: 'e.g. john@example.org',
                         title: 'Type your email address'
                     }} value={formData.email} onChange={onChange} />
@@ -191,7 +186,6 @@ const BoardEditForm = ({ id }) => {
                     <FieldInput descriptor={{
                         label: t("boards:favorite"),
                         field: 'favorite',
-                        type: 'checkbox',
                         error: inputErrorList.favorite,
                         subtype: 'boolean',
                     }} value={formData.favorite} onChange={onChange} />
@@ -203,7 +197,6 @@ const BoardEditForm = ({ id }) => {
                     <FieldInput descriptor={{
                         label: t("boards:href"),
                         field: 'href',
-                        type: 'text',
                         error: inputErrorList.href,
                         title: 'Relative link to the board page .e.g. /boards/webapp',
                     }} value={formData.href} onChange={onChange} />
@@ -213,7 +206,6 @@ const BoardEditForm = ({ id }) => {
                     <FieldInput descriptor={{
                         label: t("boards:image"),
                         field: 'image',
-                        type: 'text',
                         error: inputErrorList.image,
                         title: 'Board backgroung image',
                     }} value={formData.image} onChange={onChange} />
@@ -226,7 +218,7 @@ const BoardEditForm = ({ id }) => {
                         field: 'theme',
                         subtype: 'enum',
                         error: inputErrorList.image,
-                        values: { 'light': 'Light', 'dark': 'Dark' },
+                        values: { 'light': 'Clair', 'dark': 'Sombre' },
                         title: 'Board color theme',
                     }} value={formData.theme} onChange={onChange} />
 
@@ -236,7 +228,6 @@ const BoardEditForm = ({ id }) => {
             <FieldInput descriptor={{
                 label: t("boards:lists"),
                 field: 'lists',
-                type: 'text',
                 error: inputErrorList.lists,
                 title: 'List of comumns',
             }} value={formData.lists} onChange={onChange} />
