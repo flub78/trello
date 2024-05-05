@@ -11,6 +11,8 @@
     "href": "Href",
     "image": "Image",
     "theme": "Theme",
+    "theme.light": "Light",
+    "theme.dark": "Dark",
     "lists": "Lists",
     "last": "Last"
 }
