@@ -95,13 +95,13 @@ const BoardList = () => {
                     </button>
                 </td>
                 <td> <Cell value={board.name} subtype="string" > </Cell></td>
-			<td> <Cell value={board.description} subtype="string" > </Cell></td>
-			<td> <Cell value={board.email} subtype="email" > </Cell></td>
-			<td> <Cell value={board.favorite} subtype="boolean" > </Cell></td>
-			<td> <Cell value={board.href} subtype="string" > </Cell></td>
-			<td> <Cell value={board.image} subtype="image" > </Cell></td>
-			<td> <Cell value={board.theme} subtype="enum" > </Cell></td>
-			<td> <Cell value={board.lists} subtype="csv_string" > </Cell></td>
+                <td> <Cell value={board.description} subtype="string" > </Cell></td>
+                <td> <Cell value={board.email} subtype="email" > </Cell></td>
+                <td> <Cell value={board.favorite} subtype="boolean" > </Cell></td>
+                <td> <Cell value={board.href} subtype="string" > </Cell></td>
+                <td> <Cell value={board.image} subtype="image" > </Cell></td>
+                <td> <Cell value={board.theme} subtype="enum" > </Cell></td>
+                <td> <Cell value={board.lists} subtype="csv_string" > </Cell></td>
 
 
             </tr >
@@ -139,14 +139,14 @@ const BoardList = () => {
                             <tr role="row">
                                 <th align="right"></th>
                                 <th align="center"></th>
-                                <th align="left">{t("boards:name")}</th>
-                                <th align="left">{t("boards:description")}</th>
-                                <th align="left">{t("boards:email")}</th>
-                                <th align="left">{t("boards:favorite")}</th>
-                                <th align="left">{t("boards:href")}</th>
-                                <th align="left">{t("boards:image")}</th>
-                                <th align="left" >{t("boards:theme")}</th>
-                                <th align="left">{t("boards:lists")}</th>
+                                <th align="left">{t("boards:name.label")}</th>
+                                <th align="left">{t("boards:description.label")}</th>
+                                <th align="left">{t("boards:email.label")}</th>
+                                <th align="left">{t("boards:favorite.label")}</th>
+                                <th align="left">{t("boards:href.label")}</th>
+                                <th align="left">{t("boards:image.label")}</th>
+                                <th align="left" >{t("boards:theme.label")}</th>
+                                <th align="left">{t("boards:lists.label")}</th>
                             </tr>
                         </thead>
 
@@ -158,14 +158,14 @@ const BoardList = () => {
                             <tr role="row">
                                 <th align="right"></th>
                                 <th align="center"></th>
-                                <th align="left">{t("boards:name")}</th>
-                                <th align="left">{t("boards:description")}</th>
-                                <th align="left">{t("boards:email")}</th>
-                                <th align="left">{t("boards:favorite")}</th>
-                                <th align="left">{t("boards:href")}</th>
-                                <th align="left">{t("boards:image")}</th>
-                                <th align="left" >{t("boards:theme")}</th>
-                                <th align="left">{t("boards:lists")}</th>
+                                <th align="left">{t("boards:name.label")}</th>
+                                <th align="left">{t("boards:description.label")}</th>
+                                <th align="left">{t("boards:email.label")}</th>
+                                <th align="left">{t("boards:favorite.label")}</th>
+                                <th align="left">{t("boards:href.label")}</th>
+                                <th align="left">{t("boards:image.label")}</th>
+                                <th align="left" >{t("boards:theme.label")}</th>
+                                <th align="left">{t("boards:lists.label")}</th>
                             </tr>
                         </tfoot>
                     </Table>

@@ -155,7 +155,7 @@ const BoardEditForm = ({ id }) => {
                     <FieldInput descriptor={{
                         field: 'name',
                         subtype: 'string',
-                        label: t("boards:name", ""),
+					label: t("boards:name.label", ""),
                         title: t("boards:name.title", ""),
                         placeholder: t("boards:name.placeholder", ""),
                         error: inputErrorList.name
@@ -166,7 +166,7 @@ const BoardEditForm = ({ id }) => {
                     <FieldInput descriptor={{
                         field: 'description',
                         subtype: 'string',
-                        label: t("boards:description", ""),
+					label: t("boards:description.label", ""),
                         title: t("boards:description.title", ""),
                         placeholder: t("boards:description.placeholder", ""),
                         error: inputErrorList.description
@@ -177,7 +177,7 @@ const BoardEditForm = ({ id }) => {
                     <FieldInput descriptor={{
                         field: 'email',
                         subtype: 'email',
-                        label: t("boards:email", ""),
+					label: t("boards:email.label", ""),
                         title: t("boards:email.title", ""),
                         placeholder: t("boards:email.placeholder", ""),
                         error: inputErrorList.email
@@ -188,7 +188,7 @@ const BoardEditForm = ({ id }) => {
                     <FieldInput descriptor={{
                         field: 'favorite',
                         subtype: 'boolean',
-                        label: t("boards:favorite", ""),
+					label: t("boards:favorite.label", ""),
                         title: t("boards:favorite.title", ""),
                         placeholder: t("boards:favorite.placeholder", ""),
                         error: inputErrorList.favorite
@@ -201,7 +201,7 @@ const BoardEditForm = ({ id }) => {
                     <FieldInput descriptor={{
                         field: 'href',
                         subtype: 'string',
-                        label: t("boards:href", ""),
+					label: t("boards:href.label", ""),
                         title: t("boards:href.title", ""),
                         placeholder: t("boards:href.placeholder", ""),
                         error: inputErrorList.href
@@ -212,7 +212,7 @@ const BoardEditForm = ({ id }) => {
                     <FieldInput descriptor={{
                         field: 'image',
                         subtype: 'image',
-                        label: t("boards:image", ""),
+					label: t("boards:image.label", ""),
                         title: t("boards:image.title", ""),
                         placeholder: t("boards:image.placeholder", ""),
                         error: inputErrorList.image
@@ -223,7 +223,7 @@ const BoardEditForm = ({ id }) => {
                     <FieldInput descriptor={{
                         field: 'theme',
                         subtype: 'enum',
-                        label: t("boards:theme", ""),
+					label: t("boards:theme.label", ""),
                         title: t("boards:theme.title", ""),
                         placeholder: t("boards:theme.placeholder", ""),
 					values: {light: t('boards:theme.light', 'light'),dark: t('boards:theme.dark', 'dark'), },
@@ -235,7 +235,7 @@ const BoardEditForm = ({ id }) => {
                     <FieldInput descriptor={{
                         field: 'lists',
                         subtype: 'csv_string',
-                        label: t("boards:lists", ""),
+					label: t("boards:lists.label", ""),
                         title: t("boards:lists.title", ""),
                         placeholder: t("boards:lists.placeholder", ""),
                         error: inputErrorList.lists

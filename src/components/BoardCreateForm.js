@@ -97,101 +97,101 @@ const BoardCreateForm = () => {
 
     return (
         <Form onSubmit={saveElement}>
-        
+
             <Row className="align-items-center">
                 <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
                         field: 'name',
                         subtype: 'string',
-					label: t("boards:name", ""),
-					title: t("boards:name.title", ""),
-					placeholder: t("boards:name.placeholder", ""),
-					error:inputErrorList.name
+                        label: t("boards:name.label", ""),
+                        title: t("boards:name.title", ""),
+                        placeholder: t("boards:name.placeholder", ""),
+                        error: inputErrorList.name
                     }} value={formData.name} onChange={onChange} />
                 </Col>
 
                 <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
                         field: 'description',
-					subtype: 'string',
-					label: t("boards:description", ""),
-					title: t("boards:description.title", ""),
-					placeholder: t("boards:description.placeholder", ""),
-					error:inputErrorList.description
+                        subtype: 'string',
+                        label: t("boards:description.label", ""),
+                        title: t("boards:description.title", ""),
+                        placeholder: t("boards:description.placeholder", ""),
+                        error: inputErrorList.description
                     }} value={formData.description} onChange={onChange} />
                 </Col>
 
                 <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
                         field: 'email',
-					subtype: 'email',
-					label: t("boards:email", ""),
-					title: t("boards:email.title", ""),
-					placeholder: t("boards:email.placeholder", ""),
-					error:inputErrorList.email
+                        subtype: 'email',
+					label: t("boards:email.label", ""),
+                        title: t("boards:email.title", ""),
+                        placeholder: t("boards:email.placeholder", ""),
+                        error: inputErrorList.email
                     }} value={formData.email} onChange={onChange} />
                 </Col>
 
-			<Col sm={6} md={6} lg={3}>
+                <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
                         field: 'favorite',
                         subtype: 'boolean',
-					label: t("boards:favorite", ""),
-					title: t("boards:favorite.title", ""),
-					placeholder: t("boards:favorite.placeholder", ""),
-					error:inputErrorList.favorite
+					label: t("boards:favorite.label", ""),
+                        title: t("boards:favorite.title", ""),
+                        placeholder: t("boards:favorite.placeholder", ""),
+                        error: inputErrorList.favorite
                     }} value={formData.favorite} onChange={onChange} />
                 </Col>
             </Row>
 
-		<Row className="align-items-center">
-			<Col sm={6} md={6} lg={3}>
+            <Row className="align-items-center">
+                <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
                         field: 'href',
-					subtype: 'string',
-					label: t("boards:href", ""),
-					title: t("boards:href.title", ""),
-					placeholder: t("boards:href.placeholder", ""),
-					error:inputErrorList.href
+                        subtype: 'string',
+					label: t("boards:href.label", ""),
+                        title: t("boards:href.title", ""),
+                        placeholder: t("boards:href.placeholder", ""),
+                        error: inputErrorList.href
                     }} value={formData.href} onChange={onChange} />
                 </Col>
 
-			<Col sm={6} md={6} lg={3}>
+                <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
                         field: 'image',
-					subtype: 'image',
-					label: t("boards:image", ""),
-					title: t("boards:image.title", ""),
-					placeholder: t("boards:image.placeholder", ""),
-					error:inputErrorList.image
+                        subtype: 'image',
+					label: t("boards:image.label", ""),
+                        title: t("boards:image.title", ""),
+                        placeholder: t("boards:image.placeholder", ""),
+                        error: inputErrorList.image
                     }} value={formData.image} onChange={onChange} />
 
                 </Col>
 
-			<Col sm={6} md={6} lg={3}>
+                <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
                         field: 'theme',
                         subtype: 'enum',
-					label: t("boards:theme", ""),
-					title: t("boards:theme.title", ""),
-					placeholder: t("boards:theme.placeholder", ""),
-					values: { light:t('boards:theme.light','light'), dark:t('boards:theme.dark','dark'), },
-					error:inputErrorList.theme
-				}} value={formData.theme} onChange={onChange} />
+					label: t("boards:theme.label", ""),
+                        title: t("boards:theme.title", ""),
+                        placeholder: t("boards:theme.placeholder", ""),
+                        values: { light: t('boards:theme.light', 'light'), dark: t('boards:theme.dark', 'dark'), },
+                        error: inputErrorList.theme
+                    }} value={formData.theme} onChange={onChange} />
                 </Col>
 
-			<Col sm={6} md={6} lg={3}>
-            <FieldInput descriptor={{
-                field: 'lists',
-					subtype: 'csv_string',
-					label: t("boards:lists", ""),
-					title: t("boards:lists.title", ""),
-					placeholder: t("boards:lists.placeholder", ""),
-					error:inputErrorList.lists
-            }} value={formData.lists} onChange={onChange} />
-			</Col>
+                <Col sm={6} md={6} lg={3}>
+                    <FieldInput descriptor={{
+                        field: 'lists',
+                        subtype: 'csv_string',
+					label: t("boards:lists.label", ""),
+                        title: t("boards:lists.title", ""),
+                        placeholder: t("boards:lists.placeholder", ""),
+                        error: inputErrorList.lists
+                    }} value={formData.lists} onChange={onChange} />
+                </Col>
 
-		</Row>
+            </Row>
 
 
             <button type="submit" className="btn btn-primary">{t("translation:submit")}</button>
