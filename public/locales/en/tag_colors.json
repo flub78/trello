@@ -4,7 +4,11 @@
     "tag_colors": "Tag Colors",
     "create_a_tag_color": "Create a Tag Color",
     "edit_a_tag_color": "Edit a Tag Color",
-    "name": "Name",
-    "color": "Color",
+    "name.label": "Name",
+    "name.placeholder": "",
+    "name.title": "Color Name",
+    "color.label": "Color",
+    "color.placeholder": "",
+    "color.title": "#RGB or #RRGGBB",
     "last": "Last"
 }

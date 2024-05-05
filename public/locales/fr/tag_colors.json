@@ -4,7 +4,11 @@
     "tag_colors": "Couleur d'etiquette",
     "create_a_tag_color": "Créer une couleur",
     "edit_a_tag_color": "Modifier une couleur",
-    "name": "Nom",
-    "color": "Couleur",
+    "name.label": "Nom",
+    "name.placeholder": "",
+    "name.title": "Nom de couleur",
+    "color.label": "Couleur",
+    "color.placeholder": "",
+    "color.title": "Couleur en #RGB",
     "last": "Dernier"
 }

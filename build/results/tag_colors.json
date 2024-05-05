@@ -10,7 +10,11 @@
     "tag_colors": "TagColor",
     "create_a_tag_color": "Create a tag color",
     "edit_a_tag_color": "Edit a tag color",
-    "name": "Name",
-    "color": "Color",
+    "name.label": "Name",
+    "name.placeholder": "",
+    "name.title": "",
+    "color.label": "Color",
+    "color.placeholder": "",
+    "color.title": "",
     "last": "Last"
 }
