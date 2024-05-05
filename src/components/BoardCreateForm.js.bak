@@ -98,6 +98,8 @@ const BoardCreateForm = () => {
     return (
         <Form onSubmit={saveElement}>
         
+            {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
+
             <Row className="align-items-center">
                 <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
