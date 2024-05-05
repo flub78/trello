@@ -62,7 +62,6 @@ const TagColorCreateForm = () => {
         console.log('saveElement: ' + JSON.stringify(formData));
 
         const url = apiServer + '/tag-colors?lang=' + i18n.language;
-        // const url = apiServer + '/tag-colors';
         console.log('axios: posting tag_color to ' + url);
 
         axios.post(url, formData)
@@ -97,32 +96,32 @@ const TagColorCreateForm = () => {
 
     return (
         <Form onSubmit={saveElement}>
-            <Row className="align-items-center">
-                <Col sm={6} md={6} lg={3}>
-                    <FieldInput descriptor={{
-                        label: t("tag_colors:name"),
-                        field: 'name',
-                        subtype: 'string',
-                        error: inputErrorList.name,
-                        icon: 'bi bi-person-fill',
-                        placeholder: 'e.g. My tag_color',
-                        title: 'Identifier for the tag_color'
-                    }} value={formData.name} onChange={onChange} />
-                </Col>
 
-                <Col sm={6} md={6} lg={3}>
-                    <FieldInput descriptor={{
-                        label: t("tag_colors:color"),
-                        field: 'color',
-                        type: 'text',
-                        error: inputErrorList.description,
-                        icon: 'fa-regular fa-comment',
-                        placeholder: 'e.g. My tag_color',
-                        title: 'Description for the tag_color'
-                    }} value={formData.description} onChange={onChange} />
-                </Col>
+            		<Row className="align-items-center">
+			<Col sm={6} md={6} lg={3}>
+				<FieldInput descriptor={{
+					field: 'name',
+					subtype: 'string',
+					label: t("tag_colors:name.label", ""),
+					title: t("tag_colors:name.title", ""),
+					placeholder: t("tag_colors:name.placeholder", ""),
+					error:inputErrorList.name
+				}} value={formData.name} onChange={onChange} />
+			</Col>
 
-            </Row>
+			<Col sm={6} md={6} lg={3}>
+				<FieldInput descriptor={{
+					field: 'color',
+					subtype: 'color',
+					label: t("tag_colors:color.label", ""),
+					title: t("tag_colors:color.title", ""),
+					placeholder: t("tag_colors:color.placeholder", ""),
+					error:inputErrorList.color
+				}} value={formData.color} onChange={onChange} />
+			</Col>
+
+		</Row>
+
 
             <button type="submit" className="btn btn-primary">{t("translation:submit")}</button>
         </Form >

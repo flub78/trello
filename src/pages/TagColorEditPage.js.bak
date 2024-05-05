@@ -40,17 +40,13 @@ const TagColorEditPage = () => {
         console.log('axios: fetching tag_colors from ' + url);
 
         axios.get(url)
-            .then((res) => setTagColorsData(res.data))
-            .catch((error) => setErrorMessage(error.message + ': check the API server at ' + url)
-            );
+            .then((res) => setTagColorsData(res.data));
 
     }, [id]);
 
     return (
         <div>
             <Navbar theme="light" tag_colorsData={tag_colorsData} />
-
-            {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
 
             <Card >
                 <Card.Header className="card-header d-flex justify-content-between">

@@ -95,7 +95,7 @@ const #<class>#EditForm = ({ id }) => {
 
         console.log('updateElement: ' + JSON.stringify(formData));
 
-        const url = apiServer + '/#<element>#s/' + id + '?lang=' + i18n.language;
+        const url = apiServer + '/#<url>#/' + id + '?lang=' + i18n.language;
         console.log('axios: patching #<element># to ' + url);
 
         axios.put(url, formData)
@@ -104,7 +104,7 @@ const #<class>#EditForm = ({ id }) => {
                 setFormData({
                     #<#cg># set_form_data #</cg>#
                 });
-                navigate('/#<element>#s');
+                navigate('/#<url>#');
             })
             .catch(function (error) {
                 if (error.response) {
@@ -129,7 +129,7 @@ const #<class>#EditForm = ({ id }) => {
      */
     React.useEffect(() => {
 
-        const url = apiServer + '/#<element>#s/' + id + '?lang=' + i18n.language;
+        const url = apiServer + '/#<url>#/' + id + '?lang=' + i18n.language;
         console.log('axios: fetching #<element># from ' + url);
 
         axios.get(url)

@@ -14,11 +14,13 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
-import Pagination from 'react-bootstrap/Pagination';
 import Table from 'react-bootstrap/Table';
 
 import { apiServer } from '../lib/Util';
 import Loading from './Loading';
+import Cell from '../components/cg/Cell';
+import PerPageSelector from '../components/PerPageSelector';
+import PaginationBloc from './PaginationBloc';
 
 /**
  * React component to display the list of tag_colors
@@ -69,7 +71,7 @@ const TagColorList = () => {
     /**
      * The lines for the table body
      */
-    const tag_colorsTable = tag_colorsData?.map((tag_color) => {
+    const tag_colorsTable = tag_colorsData.map((tag_color) => {
 
         if (loading) return (
             <tr key="-1">
@@ -90,8 +92,9 @@ const TagColorList = () => {
                         <i className="fa-regular fa-trash-can"></i>
                     </button>
                 </td>
-                <td>{tag_color.name}</td>
-                <td>{tag_color.color}</td>
+                <td> <Cell value={tag_color.name} subtype="string" table="tag_colors" field="name"> </Cell></td>
+			<td> <Cell value={tag_color.color} subtype="color" table="tag_colors" field="color"> </Cell></td>
+
 
             </tr >
         );
@@ -115,16 +118,8 @@ const TagColorList = () => {
             <Card.Body>
                 <Container fluid>
                     <Form className='d-flex justify-content-between align-items-center'>
-                        <div className='d-flex'>
-                            Afficher
-                            <Form.Select className="form-select-inline ms-1 me-1" size="sm" defaultValue="25">
-                                <option value="10">10</option>
-                                <option value="25">25</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
-                            </Form.Select>
-                            éléments
-                        </div>
+                        <PerPageSelector />
+
                         <div className='d-flex'>
                             <Form.Control type="text" placeholder="Rechercher" className="mb-2" />
                         </div>
@@ -136,8 +131,9 @@ const TagColorList = () => {
                             <tr role="row">
                                 <th align="right"></th>
                                 <th align="center"></th>
-                                <th align="left">{t("tag_colors:name")}</th>
-                                <th align="left">{t("tag_colors:color")}</th>
+                                <th align="left">{t("tag_colors:name.label")}</th>
+			                    <th align="left">{t("tag_colors:color.label")}</th>
+
                             </tr>
                         </thead>
 
@@ -149,8 +145,9 @@ const TagColorList = () => {
                             <tr role="row">
                                 <th align="right"></th>
                                 <th align="center"></th>
-                                <th align="left">{t("tag_colors:name")}</th>
-                                <th align="left">{t("tag_colors:color")}</th>
+                                <th align="left">{t("tag_colors:name.label")}</th>
+			                    <th align="left">{t("tag_colors:color.label")}</th>
+
                             </tr>
                         </tfoot>
                     </Table>
@@ -160,23 +157,8 @@ const TagColorList = () => {
                             Affichage de l'élement 1 à 16 sur 16 éléments
                         </div>
 
-                        <Pagination>
-                            <Pagination.First />
-                            <Pagination.Prev />
-                            <Pagination.Item>{1}</Pagination.Item>
-                            <Pagination.Ellipsis />
+                        <PaginationBloc />
 
-                            <Pagination.Item>{10}</Pagination.Item>
-                            <Pagination.Item>{11}</Pagination.Item>
-                            <Pagination.Item active>{12}</Pagination.Item>
-                            <Pagination.Item>{13}</Pagination.Item>
-                            <Pagination.Item disabled>{14}</Pagination.Item>
-
-                            <Pagination.Ellipsis />
-                            <Pagination.Item>{20}</Pagination.Item>
-                            <Pagination.Next />
-                            <Pagination.Last />
-                        </Pagination>
                     </div>
                 </Container>
             </Card.Body>

@@ -62,8 +62,7 @@ const #<class>#CreateForm = () => {
 
         console.log('saveElement: ' + JSON.stringify(formData));
 
-        const url = apiServer + '/#<element>#s?lang=' + i18n.language;
-        // const url = apiServer + '/#<element>#s';
+        const url = apiServer + '/#<url>#?lang=' + i18n.language;
         console.log('axios: posting #<element># to ' + url);
 
         axios.post(url, formData)
@@ -79,7 +78,7 @@ const #<class>#CreateForm = () => {
                     theme: '',
                     lists: ''
                 });
-                navigate('/#<element>#s');
+                navigate('/#<url>#');
             })
             .catch(function (error) {
                 if (error.response) {

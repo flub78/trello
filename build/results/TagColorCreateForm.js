@@ -62,7 +62,6 @@ const TagColorCreateForm = () => {
         console.log('saveElement: ' + JSON.stringify(formData));
 
         const url = apiServer + '/tag-colors?lang=' + i18n.language;
-        // const url = apiServer + '/tag_colors';
         console.log('axios: posting tag_color to ' + url);
 
         axios.post(url, formData)
@@ -97,96 +96,32 @@ const TagColorCreateForm = () => {
 
     return (
         <Form onSubmit={saveElement}>
-            <Row className="align-items-center">
-                <Col sm={6} md={6} lg={3}>
-                    <FieldInput descriptor={{
-                        label: t("tag_colors:name"),
-                        field: 'name',
-                        subtype: 'string',
-                        error: inputErrorList.name,
-                        icon: 'bi bi-person-fill',
-                        placeholder: 'e.g. My tag_color',
-                        title: 'Identifier for the tag_color'
-                    }} value={formData.name} onChange={onChange} />
-                </Col>
 
-                <Col sm={6} md={6} lg={3}>
-                    <FieldInput descriptor={{
-                        label: t("tag_colors:description"),
-                        field: 'description',
-                        type: 'text',
-                        error: inputErrorList.description,
-                        icon: 'fa-regular fa-comment',
-                        placeholder: 'e.g. My tag_color',
-                        title: 'Description for the tag_color'
-                    }} value={formData.description} onChange={onChange} />
-                </Col>
+            		<Row className="align-items-center">
+			<Col sm={6} md={6} lg={3}>
+				<FieldInput descriptor={{
+					field: 'name',
+					subtype: 'string',
+					label: t("tag_colors:name.label", ""),
+					title: t("tag_colors:name.title", ""),
+					placeholder: t("tag_colors:name.placeholder", ""),
+					error:inputErrorList.name
+				}} value={formData.name} onChange={onChange} />
+			</Col>
 
-                <Col sm={6} md={6} lg={3}>
-                    <FieldInput descriptor={{
-                        label: t("tag_colors:email"),
-                        field: 'email',
-                        type: 'email',
-                        error: inputErrorList.email,
-                        icon: 'bi bi-envelope-fill',
-                        placeholder: 'e.g. john@example.org',
-                        title: 'Type your email address'
-                    }} value={formData.email} onChange={onChange} />
-                </Col>
+			<Col sm={6} md={6} lg={3}>
+				<FieldInput descriptor={{
+					field: 'color',
+					subtype: 'color',
+					label: t("tag_colors:color.label", ""),
+					title: t("tag_colors:color.title", ""),
+					placeholder: t("tag_colors:color.placeholder", ""),
+					error:inputErrorList.color
+				}} value={formData.color} onChange={onChange} />
+			</Col>
 
-                <Col sm={4} md={6} lg={2} >
-                    <FieldInput descriptor={{
-                        label: t("tag_colors:favorite"),
-                        field: 'favorite',
-                        type: 'checkbox',
-                        error: inputErrorList.favorite,
-                        subtype: 'boolean',
-                    }} value={formData.favorite} onChange={onChange} />
-                </Col>
-            </Row>
+		</Row>
 
-            <Row>
-                <Col sm={4}>
-                    <FieldInput descriptor={{
-                        label: t("tag_colors:href"),
-                        field: 'href',
-                        type: 'text',
-                        error: inputErrorList.href,
-                        title: 'Relative link to the tag_color page .e.g. /tag_colors/webapp',
-                    }} value={formData.href} onChange={onChange} />
-                </Col>
-
-                <Col sm={4}>
-                    <FieldInput descriptor={{
-                        label: t("tag_colors:image"),
-                        field: 'image',
-                        type: 'text',
-                        error: inputErrorList.image,
-                        title: 'TagColor backgroung image',
-                    }} value={formData.image} onChange={onChange} />
-
-                </Col>
-
-                <Col sm={4}>
-                    <FieldInput descriptor={{
-                        label: t("tag_colors:theme"),
-                        field: 'theme',
-                        subtype: 'enum',
-                        error: inputErrorList.image,
-                        values: { 'light': 'Light', 'dark': 'Dark' },
-                        title: 'TagColor color theme',
-                    }} value={formData.image} onChange={onChange} />
-
-                </Col>
-            </Row>
-
-            <FieldInput descriptor={{
-                label: t("tag_colors:lists"),
-                field: 'lists',
-                type: 'text',
-                error: inputErrorList.lists,
-                title: 'List of comumns',
-            }} value={formData.lists} onChange={onChange} />
 
             <button type="submit" className="btn btn-primary">{t("translation:submit")}</button>
         </Form >

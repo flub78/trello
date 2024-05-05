@@ -37,7 +37,7 @@ const #<class>#EditPage = () => {
      * Fetch #<element>#s from the API
      */
     React.useEffect(() => {
-        const url = apiServer + '/#<element>#s';
+        const url = apiServer + '/#<url>#';
         console.log('axios: fetching #<element>#s from ' + url);
 
         axios.get(url)
@@ -56,7 +56,7 @@ const #<class>#EditPage = () => {
             <Card >
                 <Card.Header className="card-header d-flex justify-content-between">
                     <h3>{t("#<element>#s:edit_a_#<element>#")}</h3>
-                    <Link to="/#<element>#s" className="btn btn-sm btn-danger m-1">{t("translation:back")}</Link>
+                    <Link to="/#<url>#" className="btn btn-sm btn-danger m-1">{t("translation:back")}</Link>
                 </Card.Header>
 
                 <Card.Body>

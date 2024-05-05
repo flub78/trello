@@ -31,6 +31,8 @@ const TagColorEditForm = ({ id }) => {
 
     const [inputErrorList, setInputErrorList] = React.useState({});
 
+    const [errorMessage, setErrorMessage] = React.useState('');
+
     const navigate = useNavigate();
 
     /**
@@ -99,13 +101,8 @@ const TagColorEditForm = ({ id }) => {
                 console.log('axios: response=' + JSON.stringify(res.data));
                 setFormData({
                     name: '',
-                    description: '',
-                    email: '',
-                    favorite: false,
-                    href: '',
-                    image: '',
-                    theme: '',
-                    lists: ''
+					color: ''
+
                 });
                 navigate('/tag-colors');
             })
@@ -132,40 +129,43 @@ const TagColorEditForm = ({ id }) => {
      */
     React.useEffect(() => {
 
-        const url2 = apiServer + '/tag-colors/' + id;
-        console.log('axios: fetching tag_color from ' + url2);
+        const url = apiServer + '/tag-colors/' + id + '?lang=' + i18n.language;
+        console.log('axios: fetching tag_color from ' + url);
 
-        axios.get(url2)
+        axios.get(url)
             .then((res) => setFormData(res.data))
+            .catch((error) => {
+                setErrorMessage(error.response.data.message);
+            });
     }, [id]);
 
     return (
 
         <Form onSubmit={updateElement}>
 
+            {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
+
             <Row className="align-items-center">
                 <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
-                        label: t("tag_colors:name"),
                         field: 'name',
                         subtype: 'string',
-                        error: inputErrorList.name,
-                        icon: 'bi bi-person-fill',
-                        placeholder: 'e.g. My tag_color',
-                        title: 'Identifier for the tag_color'
+					label: t("tag_colors:name.label", ""),
+					title: t("tag_colors:name.title", ""),
+					placeholder: t("tag_colors:name.placeholder", ""),
+					error:inputErrorList.name
                     }} value={formData.name} onChange={onChange} />
                 </Col>
 
                 <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
-                        label: t("tag_colors:description"),
-                        field: 'description',
-                        type: 'text',
-                        error: inputErrorList.description,
-                        icon: 'fa-regular fa-comment',
-                        placeholder: 'e.g. My tag_color',
-                        title: 'Description for the tag_color'
-                    }} value={formData.description} onChange={onChange} />
+					field: 'color',
+					subtype: 'color',
+					label: t("tag_colors:color.label", ""),
+					title: t("tag_colors:color.title", ""),
+					placeholder: t("tag_colors:color.placeholder", ""),
+					error:inputErrorList.color
+				}} value={formData.color} onChange={onChange} />
                 </Col>
 
             </Row>

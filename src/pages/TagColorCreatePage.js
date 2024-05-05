@@ -21,6 +21,8 @@ const TagColorCreatePage = () => {
 
     const [tag_colorsData, setTagColorsData] = React.useState([]);
 
+    const [errorMessage, setErrorMessage] = React.useState('');
+
     /**
      * Fetch tag_colors from the API
      */
@@ -30,11 +32,17 @@ const TagColorCreatePage = () => {
 
         axios.get(url)
             .then((res) => setTagColorsData(res.data))
+            .catch((error) => setErrorMessage(error.message 
+                + ': check the API server at '
+                + url)
+        );
     }, []);
 
     return (
         <div>
             <Navbar theme="light" tag_colorsData={tag_colorsData} />
+
+            {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
 
             <Card >
                 <Card.Header className="card-header d-flex justify-content-between">
