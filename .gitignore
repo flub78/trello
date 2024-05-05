@@ -141,3 +141,6 @@ build/results/TagColorList.js
 build/results/TagColorListPage.js
 src/components/BoardList.js.bak
 src/pages/BoardListPage.js.bak
+src/components/BoardCreateForm.js.bak
+src/components/BoardCreateForm.js.bak
+src/components/BoardEditForm.js.bak

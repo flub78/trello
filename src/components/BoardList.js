@@ -94,14 +94,14 @@ const BoardList = () => {
                         <i className="fa-regular fa-trash-can"></i>
                     </button>
                 </td>
-                <td> <Cell value={board.name} subtype="string" > </Cell></td>
-                <td> <Cell value={board.description} subtype="string" > </Cell></td>
-                <td> <Cell value={board.email} subtype="email" > </Cell></td>
-                <td> <Cell value={board.favorite} subtype="boolean" > </Cell></td>
-                <td> <Cell value={board.href} subtype="string" > </Cell></td>
-                <td> <Cell value={board.image} subtype="image" > </Cell></td>
-                <td> <Cell value={board.theme} subtype="enum" > </Cell></td>
-                <td> <Cell value={board.lists} subtype="csv_string" > </Cell></td>
+                <td> <Cell value={board.name} subtype="string" table="boards" field="name"> </Cell></td>
+			<td> <Cell value={board.description} subtype="string" table="boards" field="description"> </Cell></td>
+			<td> <Cell value={board.email} subtype="email" table="boards" field="email"> </Cell></td>
+			<td> <Cell value={board.favorite} subtype="boolean" table="boards" field="favorite"> </Cell></td>
+			<td> <Cell value={board.href} subtype="string" table="boards" field="href"> </Cell></td>
+			<td> <Cell value={board.image} subtype="image" table="boards" field="image"> </Cell></td>
+                <td> <Cell value={board.theme} subtype="enum" table="boards" field="theme"> </Cell></td>
+			<td> <Cell value={board.lists} subtype="csv_string" table="boards" field="lists"> </Cell></td>
 
 
             </tr >
