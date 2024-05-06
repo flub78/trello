@@ -82,18 +82,18 @@ const TagColorList = () => {
         return (
             <tr key={tag_color.id} className="odd">
                 <td>
-                    <Link to={"/tag-colors/edit/" + tag_color.name}
+                    <Link to={"/tag-colors/edit/" + tag_color.id}
                         className="btn btn-sm btn-success"><i className="fa-regular fa-pen-to-square"></i></Link>
                 </td>
                 <td>
                     <button type="button"
                         className="btn btn-sm btn-danger"
-                        onClick={(e) => deleteElement(e, tag_color.name)}>
+                        onClick={(e) => deleteElement(e, tag_color.id)}>
                         <i className="fa-regular fa-trash-can"></i>
                     </button>
                 </td>
                 <td> <Cell value={tag_color.name} subtype="string" table="tag_colors" field="name"> </Cell></td>
-			<td> <Cell value={tag_color.color} subtype="color" table="tag_colors" field="color"> </Cell></td>
+                <td> <Cell value={tag_color.color} subtype="color" table="tag_colors" field="color"> </Cell></td>
 
 
             </tr >
@@ -132,7 +132,7 @@ const TagColorList = () => {
                                 <th align="right"></th>
                                 <th align="center"></th>
                                 <th align="left">{t("tag_colors:name.label")}</th>
-			                    <th align="left">{t("tag_colors:color.label")}</th>
+                                <th align="left">{t("tag_colors:color.label")}</th>
 
                             </tr>
                         </thead>
@@ -146,7 +146,7 @@ const TagColorList = () => {
                                 <th align="right"></th>
                                 <th align="center"></th>
                                 <th align="left">{t("tag_colors:name.label")}</th>
-			                    <th align="left">{t("tag_colors:color.label")}</th>
+                                <th align="left">{t("tag_colors:color.label")}</th>
 
                             </tr>
                         </tfoot>

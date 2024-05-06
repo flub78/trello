@@ -83,13 +83,13 @@ const #<class>#List = () => {
         return (
             <tr key={#<element>#.id} className="odd">
                 <td>
-                    <Link to={"/#<url>#/edit/" + #<element>#.name}
+                    <Link to={"/#<url>#/edit/" + #<element>#.#<primary_key>#}
                         className="btn btn-sm btn-success"><i className="fa-regular fa-pen-to-square"></i></Link>
                 </td>
                 <td>
                     <button type="button"
                         className="btn btn-sm btn-danger"
-                        onClick={(e) => deleteElement(e, #<element>#.name)}>
+                        onClick={(e) => deleteElement(e, #<element>#.#<primary_key>#)}>
                         <i className="fa-regular fa-trash-can"></i>
                     </button>
                 </td>
