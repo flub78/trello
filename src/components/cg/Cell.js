@@ -12,6 +12,20 @@ const Cell = ({ value, subtype, table, field }) => {
 
     const { t } = useTranslation(['translation', table]);
 
+    /**
+     * Return a visible color for a background color
+     * @param {*} color 
+     * @returns 
+     */
+    const visibleColor = (background) => {
+        if (!background) return 'black';
+        const r = parseInt(background.substr(1, 2), 16);
+        const g = parseInt(background.substr(3, 2), 16);
+        const b = parseInt(background.substr(5, 2), 16);
+        const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        return (yiq >= 128) ? 'black' : 'white';
+    }
+
     if (subtype === 'boolean') {
         return (
             <div>
@@ -28,10 +42,24 @@ const Cell = ({ value, subtype, table, field }) => {
         );
     }
 
+    if (subtype === 'color') {
+        const style = {
+            backgroundColor: value,
+            color: visibleColor(value),
+            paddingLeft: '5px',
+            border: '1px solid black'
+        };
+        return (
+            <div style={style}>
+                Couleur : {value}
+            </div>
+        );
+    }
+
     return (
-        <div>
+        <div >
             {value}
-        </div>
+        </div >
     );
 };
 
