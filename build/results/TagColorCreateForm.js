@@ -41,7 +41,7 @@ const TagColorCreateForm = () => {
     const navigate = useNavigate();
 
     const onChange = (e) => {
-        e.persist();
+        e.persist?.();
 
         const id = e.target.id;
         const value = e.target.value;
@@ -83,8 +83,7 @@ const TagColorCreateForm = () => {
                 if (error.response) {
                     if (error.response.status === 422) {
                         setInputErrorList(error.response.data.errors)
-                    }
-                    if (error.response.status === 500) {
+                    } else {
                         console.error("axios: error=" + error.response.data.message)
                     }
                 } else {

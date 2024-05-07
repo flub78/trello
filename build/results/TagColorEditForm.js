@@ -63,7 +63,7 @@ const TagColorEditForm = ({ id }) => {
      * @param {*} e 
      */
     const onChange = (e) => {
-        e.persist();
+        e.persist?.();
 
         const id = e.target.id;
         const value = e.target.value;
