@@ -22,7 +22,7 @@ const ColorPicker = ({ color, id, onChange }) => {
     }
 
     const style = {
-        backgroundColor: localColor,
+        backgroundColor: color,
         paddingLeft: '5px',
         border: '1px solid black',
         borderRadius: '150px',
@@ -44,7 +44,7 @@ const ColorPicker = ({ color, id, onChange }) => {
                 style={style} />
 
             {displayColorPicker && <SketchPicker
-                color={localColor}
+                color={color}
                 onChange={handleChange} />
             }
         </div>

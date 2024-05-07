@@ -64,6 +64,7 @@ const TagColorList = () => {
                 console.log('axios: response=' + JSON.stringify(res.data));
                 const newTagColorsData = tag_colorsData.filter((tag_color) => tag_color.name !== id);
                 setTagColorsData(newTagColorsData);
+                window.location.reload(false);
             });
     }
 

@@ -44,7 +44,7 @@ const FieldInput = ({ descriptor, value, onChange }) => {
     if (descriptor.subtype === 'color') {
         return (
             <div>
-                <FloatingLabel
+                {/* <FloatingLabel
                     label={descriptor.label}
                     className="mb-3"
                 >
@@ -55,6 +55,8 @@ const FieldInput = ({ descriptor, value, onChange }) => {
                         onChange={onChange}
                         value={value || ''} />
                 </FloatingLabel>
+                 */}
+                <div className="text-danger mt-0 mb-2">{descriptor.error}</div>
                 <ColorPicker color={value} onChange={onChange} id={descriptor.field} />
                 <div className="text-danger mt-0 mb-2">{descriptor.error}</div>
             </div>

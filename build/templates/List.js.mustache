@@ -65,6 +65,8 @@ const #<class>#List = () => {
                 console.log('axios: response=' + JSON.stringify(res.data));
                 const new#<class>#sData = #<element>#sData.filter((#<element>#) => #<element>#.name !== id);
                 set#<class>#sData(new#<class>#sData);
+                window.location.reload(false);
+
             });
     }
 

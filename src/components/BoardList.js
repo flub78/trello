@@ -66,6 +66,8 @@ const BoardList = () => {
                 console.log('axios: response=' + JSON.stringify(res.data));
                 const newBoardsData = boardsData.filter((board) => board.name !== id);
                 setBoardsData(newBoardsData);
+                window.location.reload(false);
+
             });
     }
 

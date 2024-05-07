@@ -8,6 +8,8 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
+import { useNavigate } from 'react-router-dom';
+
 
 
 import Card from 'react-bootstrap/Card';
@@ -31,6 +33,9 @@ const TagColorList = () => {
 
     const [tag_colorsData, setTagColorsData] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
+
+    const navigate = useNavigate();
+
 
     /**
      * Fetch tag_colors from the REST API
@@ -64,6 +69,7 @@ const TagColorList = () => {
                 console.log('axios: response=' + JSON.stringify(res.data));
                 const newTagColorsData = tag_colorsData.filter((tag_color) => tag_color.name !== id);
                 setTagColorsData(newTagColorsData);
+                window.location.reload(false);
             });
     }
 
@@ -82,18 +88,18 @@ const TagColorList = () => {
         return (
             <tr key={tag_color.id} className="odd">
                 <td>
-                    <Link to={"/tag-colors/edit/" + tag_color.name}
+                    <Link to={"/tag-colors/edit/" + tag_color.id}
                         className="btn btn-sm btn-success"><i className="fa-regular fa-pen-to-square"></i></Link>
                 </td>
                 <td>
                     <button type="button"
                         className="btn btn-sm btn-danger"
-                        onClick={(e) => deleteElement(e, tag_color.name)}>
+                        onClick={(e) => deleteElement(e, tag_color.id)}>
                         <i className="fa-regular fa-trash-can"></i>
                     </button>
                 </td>
-                <td> <Cell value={tag_colors.name} subtype="string" table="tag_colors" field="name"> </Cell></td>
-			<td> <Cell value={tag_colors.color} subtype="color" table="tag_colors" field="color"> </Cell></td>
+                <td> <Cell value={tag_color.name} subtype="string" table="tag_colors" field="name"> </Cell></td>
+                <td> <Cell value={tag_color.color} subtype="color" table="tag_colors" field="color"> </Cell></td>
 
 
             </tr >
@@ -132,7 +138,7 @@ const TagColorList = () => {
                                 <th align="right"></th>
                                 <th align="center"></th>
                                 <th align="left">{t("tag_colors:name.label")}</th>
-			                    <th align="left">{t("tag_colors:color.label")}</th>
+                                <th align="left">{t("tag_colors:color.label")}</th>
 
                             </tr>
                         </thead>
@@ -146,7 +152,7 @@ const TagColorList = () => {
                                 <th align="right"></th>
                                 <th align="center"></th>
                                 <th align="left">{t("tag_colors:name.label")}</th>
-			                    <th align="left">{t("tag_colors:color.label")}</th>
+                                <th align="left">{t("tag_colors:color.label")}</th>
 
                             </tr>
                         </tfoot>
