@@ -20,6 +20,7 @@ import TagColorEditPage from './pages/TagColorEditPage';
 import ColumnsPage from './pages/ColumnsPage';
 import TasksPage from './pages/TasksPage'; // Import the 'TasksPage' component
 import TaskCommentsPage from './pages/TaskCommentsPage';
+import DevPage from './pages/DevPage'; // Import the 'DevPage' component
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="/board/:id" element={<BoardPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/dev" element={<DevPage />} />
 
         {/* boards resource */}
         <Route path="/boards" element={<BoardListPage />} />
