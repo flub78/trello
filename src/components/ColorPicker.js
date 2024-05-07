@@ -39,7 +39,7 @@ const ColorPicker = ({ color, id, onChange }) => {
             <Form.Control type='text'
                 title='Click to select a color'
                 onChange={handleChange}
-                value={localColor}
+                value={color}
                 onClick={onClick}
                 style={style} />
 
