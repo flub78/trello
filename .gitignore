@@ -144,3 +144,10 @@ src/pages/BoardListPage.js.bak
 src/components/BoardCreateForm.js.bak
 src/components/BoardCreateForm.js.bak
 src/components/BoardEditForm.js.bak
+build/results/ColumnCreateForm.js
+build/results/ColumnCreatePage.js
+build/results/ColumnEditForm.js
+build/results/ColumnEditPage.js
+build/results/ColumnList.js
+build/results/ColumnListPage.js
+build/results/columns.json

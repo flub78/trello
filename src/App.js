@@ -17,7 +17,10 @@ import TagColorListPage from './pages/TagColorListPage';
 import TagColorCreatePage from './pages/TagColorCreatePage';
 import TagColorEditPage from './pages/TagColorEditPage';
 
-import ColumnsPage from './pages/ColumnsPage';
+import ColumnsListPage from './pages/ColumnListPage';
+import ColumnsCreatePage from './pages/ColumnCreatePage';
+import ColumnsEditPage from './pages/ColumnEditPage';
+
 import TasksPage from './pages/TasksPage'; // Import the 'TasksPage' component
 import TaskCommentsPage from './pages/TaskCommentsPage';
 import DevPage from './pages/DevPage'; // Import the 'DevPage' component
@@ -43,7 +46,10 @@ function App() {
         <Route path="/tag-colors/create" element={<TagColorCreatePage />} />
         <Route path="/tag-colors/edit/:id" element={<TagColorEditPage />} />
 
-        <Route path="/columns" element={<ColumnsPage />} />
+        <Route path="/columns" element={<ColumnsListPage />} />
+        <Route path="/columns/create" element={<ColumnsCreatePage />} />
+        <Route path="/columns/edit/:id" element={<ColumnsEditPage />} />
+
         <Route path="/tasks" element={<TasksPage />} />
         <Route path="/task-comments" element={<TaskCommentsPage />} />
 

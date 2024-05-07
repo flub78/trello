@@ -1,0 +1,17 @@
+{
+    "id": "columns",
+    "language": "Français",
+    "colonnes": "Colonne",
+    "create_a_colonne": "Crée une colonne",
+    "edit_a_colonne": "Modifie une colonne",
+    "name.label": "Nom",
+    "name.placeholder": "",
+    "name.title": "",
+    "board_id.label": "Tableau",
+    "board_id.placeholder": "",
+    "board_id.title": "",
+    "tasks.label": "Tâches",
+    "tasks.placeholder": "",
+    "tasks.title": "",
+    "last": "Last"
+}

@@ -1,0 +1,17 @@
+{
+    "id": "columns",
+    "language": "English",
+    "columns": "Column",
+    "create_a_column": "Create a column",
+    "edit_a_column": "Edit a column",
+    "name.label": "Name",
+    "name.placeholder": "",
+    "name.title": "",
+    "board_id.label": "Board id",
+    "board_id.placeholder": "",
+    "board_id.title": "",
+    "tasks.label": "Tasks",
+    "tasks.placeholder": "",
+    "tasks.title": "",
+    "last": "Last"
+}
