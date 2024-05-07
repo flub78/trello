@@ -2,7 +2,8 @@ import React from 'react';
 
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-import { SketchPicker } from 'react-color';
+import ColorPicker from '../ColorPicker';
+
 
 
 const type_from_subtype = (subtype) => {
@@ -24,13 +25,6 @@ const FieldInput = ({ descriptor, value, onChange }) => {
     const [color, setColor] =
         React.useState((descriptor.subtype === 'color') ? value : '');
 
-    const handleChangeComplete = (color) => {
-        setColor(color.hex);
-    }
-
-    const colorChanged = (color) => {
-        setColor(color.hex);
-    }
 
     if (descriptor.subtype === 'boolean') {
         return (
@@ -47,24 +41,25 @@ const FieldInput = ({ descriptor, value, onChange }) => {
         );
     }
 
-    if (descriptor.subtype === 'color2') {
-        const style = {
-            backgroundColor: 'pink',
-            paddingLeft: '5px',
-            border: '1px solid black',
-            heigth: '30px'
-        };
-
+    if (descriptor.subtype === 'color') {
         return (
             <div>
-                <div style={style}>Click to select a color.</div>
-                <SketchPicker
-                    color={color}
-                    onChangeComplete={() => { }}
-                />;
+                <FloatingLabel
+                    label={descriptor.label}
+                    className="mb-3"
+                >
+                    <Form.Control type={type}
+                        title={descriptor.title}
+                        id={descriptor.field}
+                        placeholder={descriptor.placeholder}
+                        onChange={onChange}
+                        value={value || ''} />
+                </FloatingLabel>
+                <ColorPicker color={value} onChange={onChange} id={descriptor.field} />
                 <div className="text-danger mt-0 mb-2">{descriptor.error}</div>
             </div>
         );
+
     }
 
     if (descriptor.subtype === 'enum') {

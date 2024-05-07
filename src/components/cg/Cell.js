@@ -45,13 +45,15 @@ const Cell = ({ value, subtype, table, field }) => {
     if (subtype === 'color') {
         const style = {
             backgroundColor: value,
-            color: visibleColor(value),
-            paddingLeft: '5px',
-            border: '1px solid black'
+            // color: visibleColor(value),
+            // paddingLeft: '5px',
+            // border: '1px solid black',
+            borderRadius: '150px',
+            height: '30px',
+            width: '30px'
         };
         return (
             <div style={style}>
-                Couleur : {value}
             </div>
         );
     }

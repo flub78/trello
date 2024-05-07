@@ -62,7 +62,7 @@ const TagColorEditForm = ({ id }) => {
      * @param {*} e 
      */
     const onChange = (e) => {
-        e.persist();
+        e.persist?.();
 
         const id = e.target.id;
         const value = e.target.value;
@@ -101,7 +101,7 @@ const TagColorEditForm = ({ id }) => {
                 console.log('axios: response=' + JSON.stringify(res.data));
                 setFormData({
                     name: '',
-					color: ''
+                    color: ''
 
                 });
                 navigate('/tag-colors');
@@ -150,22 +150,22 @@ const TagColorEditForm = ({ id }) => {
                     <FieldInput descriptor={{
                         field: 'name',
                         subtype: 'string',
-					label: t("tag_colors:name.label", ""),
-					title: t("tag_colors:name.title", ""),
-					placeholder: t("tag_colors:name.placeholder", ""),
-					error:inputErrorList.name
+                        label: t("tag_colors:name.label", ""),
+                        title: t("tag_colors:name.title", ""),
+                        placeholder: t("tag_colors:name.placeholder", ""),
+                        error: inputErrorList.name
                     }} value={formData.name} onChange={onChange} />
                 </Col>
 
                 <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
-					field: 'color',
-					subtype: 'color',
-					label: t("tag_colors:color.label", ""),
-					title: t("tag_colors:color.title", ""),
-					placeholder: t("tag_colors:color.placeholder", ""),
-					error:inputErrorList.color
-				}} value={formData.color} onChange={onChange} />
+                        field: 'color',
+                        subtype: 'color',
+                        label: t("tag_colors:color.label", ""),
+                        title: t("tag_colors:color.title", ""),
+                        placeholder: t("tag_colors:color.placeholder", ""),
+                        error: inputErrorList.color
+                    }} value={formData.color} onChange={onChange} />
                 </Col>
 
             </Row>
