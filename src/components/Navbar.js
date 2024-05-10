@@ -93,7 +93,7 @@ const Navbar = ({ theme, boardsData }) => {
                             </li>
 
                             <li className="nav-item bg-primary rounded">
-                                <a className="nav-link text-white" href="#">{t("create")}</a>
+                                <a className="nav-link text-white" href="/dev">{t("create")}</a>
                             </li>
                         </ul>
 

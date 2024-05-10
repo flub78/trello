@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 
 import Navbar from '../components/Navbar';
 import ColorPicker from '../components/ColorPicker';
+import ForeignKeySelector from '../components/ForeignKeySelector';
 
 
 const DevPage = () => {
@@ -26,6 +27,8 @@ const DevPage = () => {
                 <ColorPicker color={color} onChange={onChange} />
 
             </Form>
+            <ForeignKeySelector api="/boards?lang=fr" keyId="name" />
+
         </div>
     );
 };
