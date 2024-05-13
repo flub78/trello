@@ -4,9 +4,12 @@ import Form from 'react-bootstrap/Form';
 
 import { apiServer } from '../lib/Util';
 
-const ForeignKeySelector = ({ api, keyId }) => {
+const ForeignKeySelector = ({ api, keyId, id, onChange, value }) => {
 
     const [items, setItems] = React.useState([]);
+
+    console.log('ForeignKeySelector: api=' + api + ', keyId=' + keyId +
+        ', id=' + id + ', value=' + value);
 
     /**
      * Fetch boards from the API
@@ -25,11 +28,14 @@ const ForeignKeySelector = ({ api, keyId }) => {
 
     return (
         <div>
-            ForeignKeySelector {api} {keyId}
-
-            <Form.Select className="form-select-inline ms-1 me-1" size="sm" >
+            <Form.Select
+                className="form-select-inline ms-1 me-1"
+                size="sm"
+                onChange={onChange}
+                value={value}
+                id={id}>
                 {items.map((item) => (
-                    <option key={item.id} value={item.id}>{item.image}</option>
+                    <option key={item[keyId]} value={item[keyId]}>{item.image}</option>
                 ))}
             </Form.Select>
 

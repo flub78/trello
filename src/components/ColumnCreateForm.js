@@ -16,6 +16,7 @@ import Col from 'react-bootstrap/Col';
 
 import FieldInput from './cg/FieldInput';
 import { apiServer } from '../lib/Util';
+import { tab } from '@testing-library/user-event/dist/tab';
 
 /**
  * A form to create a column
@@ -96,41 +97,43 @@ const ColumnCreateForm = () => {
     return (
         <Form onSubmit={saveElement}>
 
-            		<Row className="align-items-center">
-			<Col sm={6} md={6} lg={3}>
-				<FieldInput descriptor={{
-					field: 'name',
-					subtype: 'string',
-					label: t("columns:name.label", ""),
-					title: t("columns:name.title", ""),
-					placeholder: t("columns:name.placeholder", ""),
-					error:inputErrorList.name
-				}} value={formData.name} onChange={onChange} />
-			</Col>
+            <Row className="align-items-center">
+                <Col sm={6} md={6} lg={3}>
+                    <FieldInput descriptor={{
+                        field: 'name',
+                        subtype: 'string',
+                        label: t("columns:name.label", ""),
+                        title: t("columns:name.title", ""),
+                        placeholder: t("columns:name.placeholder", ""),
+                        error: inputErrorList.name
+                    }} value={formData.name} onChange={onChange} />
+                </Col>
 
-			<Col sm={6} md={6} lg={3}>
-				<FieldInput descriptor={{
-					field: 'board_id',
-					subtype: 'string',
-					label: t("columns:board_id.label", ""),
-					title: t("columns:board_id.title", ""),
-					placeholder: t("columns:board_id.placeholder", ""),
-					error:inputErrorList.board_id
-				}} value={formData.board_id} onChange={onChange} />
-			</Col>
+                <Col sm={6} md={6} lg={3}>
+                    <FieldInput descriptor={{
+                        field: 'board_id',
+                        subtype: 'foreign_key',
+                        target_table: 'boards',
+                        target_field: 'name',
+                        label: t("columns:board_id.label", ""),
+                        title: t("columns:board_id.title", ""),
+                        placeholder: t("columns:board_id.placeholder", ""),
+                        error: inputErrorList.board_id
+                    }} value={formData.board_id} onChange={onChange} />
+                </Col>
 
-			<Col sm={6} md={6} lg={3}>
-				<FieldInput descriptor={{
-					field: 'tasks',
-					subtype: 'csv_string',
-					label: t("columns:tasks.label", ""),
-					title: t("columns:tasks.title", ""),
-					placeholder: t("columns:tasks.placeholder", ""),
-					error:inputErrorList.tasks
-				}} value={formData.tasks} onChange={onChange} />
-			</Col>
+                <Col sm={6} md={6} lg={3}>
+                    <FieldInput descriptor={{
+                        field: 'tasks',
+                        subtype: 'csv_string',
+                        label: t("columns:tasks.label", ""),
+                        title: t("columns:tasks.title", ""),
+                        placeholder: t("columns:tasks.placeholder", ""),
+                        error: inputErrorList.tasks
+                    }} value={formData.tasks} onChange={onChange} />
+                </Col>
 
-		</Row>
+            </Row>
 
 
             <button type="submit" className="btn btn-primary">{t("translation:submit")}</button>

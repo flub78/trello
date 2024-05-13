@@ -3,7 +3,7 @@ import React from 'react';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import ColorPicker from '../ColorPicker';
-
+import ForeignKeySelector from '../ForeignKeySelector';
 
 
 const type_from_subtype = (subtype) => {
@@ -44,24 +44,11 @@ const FieldInput = ({ descriptor, value, onChange }) => {
     if (descriptor.subtype === 'color') {
         return (
             <div>
-                {/* <FloatingLabel
-                    label={descriptor.label}
-                    className="mb-3"
-                >
-                    <Form.Control type={type}
-                        title={descriptor.title}
-                        id={descriptor.field}
-                        placeholder={descriptor.placeholder}
-                        onChange={onChange}
-                        value={value || ''} />
-                </FloatingLabel>
-                 */}
                 <div className="text-danger mt-0 mb-2">{descriptor.error}</div>
                 <ColorPicker color={value} onChange={onChange} id={descriptor.field} />
                 <div className="text-danger mt-0 mb-2">{descriptor.error}</div>
             </div>
         );
-
     }
 
     if (descriptor.subtype === 'enum') {
@@ -75,6 +62,21 @@ const FieldInput = ({ descriptor, value, onChange }) => {
                         </option>
                     ))}
                 </Form.Select>
+                <div className="text-danger mt-0 mb-2">{descriptor.error}</div>
+            </div>
+        );
+    }
+
+    if (descriptor.subtype === 'foreign_key') {
+
+        return (
+            <div>
+                <ForeignKeySelector
+                    api="/boards?lang=fr"
+                    keyId="name"
+                    onChange={onChange}
+                    value={value}
+                    id="board_id" />
                 <div className="text-danger mt-0 mb-2">{descriptor.error}</div>
             </div>
         );
