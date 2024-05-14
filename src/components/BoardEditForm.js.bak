@@ -226,7 +226,7 @@ const BoardEditForm = ({ id }) => {
 					label: t("boards:theme.label", ""),
                         title: t("boards:theme.title", ""),
                         placeholder: t("boards:theme.placeholder", ""),
-					values: {light: t('boards:theme.light', 'light'),dark: t('boards:theme.dark', 'dark'), },
+					values: { light:t('boards:theme.value.light','light'), dark:t('boards:theme.value.dark','dark'), },
                         error: inputErrorList.theme
                     }} value={formData.theme} onChange={onChange} />
                 </Col>

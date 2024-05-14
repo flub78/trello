@@ -62,7 +62,7 @@ const BoardEditForm = ({ id }) => {
      * @param {*} e 
      */
     const onChange = (e) => {
-        e.persist();
+        e.persist?.();
 
         const id = e.target.id;
         const value = e.target.value;
@@ -105,7 +105,7 @@ const BoardEditForm = ({ id }) => {
                     email: '',
                     favorite: false,
                     href: '',
-                    image: '',
+					picture: '',
                     theme: '',
                     lists: ''
                 });
@@ -210,13 +210,13 @@ const BoardEditForm = ({ id }) => {
 
                 <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
-                        field: 'image',
-                        subtype: 'image',
-					label: t("boards:image.label", ""),
-                        title: t("boards:image.title", ""),
-                        placeholder: t("boards:image.placeholder", ""),
-                        error: inputErrorList.image
-                    }} value={formData.image} onChange={onChange} />
+					field: 'picture',
+					subtype: 'string',
+					label: t("boards:picture.label", ""),
+					title: t("boards:picture.title", ""),
+					placeholder: t("boards:picture.placeholder", ""),
+					error:inputErrorList.picture
+				}} value={formData.picture} onChange={onChange} />
                 </Col>
 
                 <Col sm={6} md={6} lg={3}>

@@ -101,7 +101,7 @@ const BoardList = () => {
 			<td> <Cell value={board.email} subtype="email" table="boards" field="email"> </Cell></td>
 			<td> <Cell value={board.favorite} subtype="boolean" table="boards" field="favorite"> </Cell></td>
 			<td> <Cell value={board.href} subtype="string" table="boards" field="href"> </Cell></td>
-			<td> <Cell value={board.image} subtype="image" table="boards" field="image"> </Cell></td>
+			<td> <Cell value={board.picture} subtype="string" table="boards" field="picture"> </Cell></td>
                 <td> <Cell value={board.theme} subtype="enum" table="boards" field="theme"> </Cell></td>
 			<td> <Cell value={board.lists} subtype="csv_string" table="boards" field="lists"> </Cell></td>
 
@@ -146,7 +146,7 @@ const BoardList = () => {
                                 <th align="left">{t("boards:email.label")}</th>
                                 <th align="left">{t("boards:favorite.label")}</th>
                                 <th align="left">{t("boards:href.label")}</th>
-                                <th align="left">{t("boards:image.label")}</th>
+			                    <th align="left">{t("boards:picture.label")}</th>
                                 <th align="left" >{t("boards:theme.label")}</th>
                                 <th align="left">{t("boards:lists.label")}</th>
                             </tr>
@@ -165,7 +165,7 @@ const BoardList = () => {
                                 <th align="left">{t("boards:email.label")}</th>
                                 <th align="left">{t("boards:favorite.label")}</th>
                                 <th align="left">{t("boards:href.label")}</th>
-                                <th align="left">{t("boards:image.label")}</th>
+			                    <th align="left">{t("boards:picture.label")}</th>
                                 <th align="left" >{t("boards:theme.label")}</th>
                                 <th align="left">{t("boards:lists.label")}</th>
                             </tr>

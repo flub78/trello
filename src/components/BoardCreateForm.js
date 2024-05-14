@@ -41,7 +41,7 @@ const BoardCreateForm = () => {
     const navigate = useNavigate();
 
     const onChange = (e) => {
-        e.persist();
+        e.persist?.();
 
         const id = e.target.id;
         const value = e.target.value;
@@ -62,7 +62,6 @@ const BoardCreateForm = () => {
         console.log('saveElement: ' + JSON.stringify(formData));
 
         const url = apiServer + '/boards?lang=' + i18n.language;
-        // const url = apiServer + '/boards';
         console.log('axios: posting board to ' + url);
 
         axios.post(url, formData)
@@ -84,8 +83,7 @@ const BoardCreateForm = () => {
                 if (error.response) {
                     if (error.response.status === 422) {
                         setInputErrorList(error.response.data.errors)
-                    }
-                    if (error.response.status === 500) {
+                    } else {
                         console.error("axios: error=" + error.response.data.message)
                     }
                 } else {
@@ -158,14 +156,13 @@ const BoardCreateForm = () => {
 
                 <Col sm={6} md={6} lg={3}>
                     <FieldInput descriptor={{
-                        field: 'image',
-                        subtype: 'image',
-					label: t("boards:image.label", ""),
-                        title: t("boards:image.title", ""),
-                        placeholder: t("boards:image.placeholder", ""),
-                        error: inputErrorList.image
-                    }} value={formData.image} onChange={onChange} />
-
+					field: 'picture',
+					subtype: 'string',
+					label: t("boards:picture.label", ""),
+					title: t("boards:picture.title", ""),
+					placeholder: t("boards:picture.placeholder", ""),
+					error:inputErrorList.picture
+				}} value={formData.picture} onChange={onChange} />
                 </Col>
 
                 <Col sm={6} md={6} lg={3}>
