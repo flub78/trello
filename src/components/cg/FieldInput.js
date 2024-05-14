@@ -53,7 +53,7 @@ const FieldInput = ({ descriptor, value, onChange }) => {
 
     if (descriptor.subtype === 'enum') {
         return (
-            <div className="d-flex">
+            <div className="d-flex align-items-center">
                 <label htmlFor={descriptor.field} className="form-label m-3">{descriptor.label}:</label>
                 <Form.Select id={descriptor.field} onChange={onChange} value={value}>
                     {Object.keys(descriptor.values).map((key) => (
@@ -70,7 +70,8 @@ const FieldInput = ({ descriptor, value, onChange }) => {
     if (descriptor.subtype === 'foreign_key') {
 
         return (
-            <div>
+            <div className="d-flex align-items-center">
+                <label htmlFor={descriptor.field} className="form-label m-3">{descriptor.label}:</label>
                 <ForeignKeySelector
                     api="/boards?lang=fr"
                     keyId="name"
