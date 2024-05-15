@@ -77,7 +77,8 @@ const FieldInput = ({ descriptor, value, onChange }) => {
                     keyId="name"
                     onChange={onChange}
                     value={value}
-                    id="board_id" />
+                    id="board_id"
+                    image={descriptor.imageField} />
                 <div className="text-danger mt-0 mb-2">{descriptor.error}</div>
             </div>
         );

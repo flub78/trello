@@ -118,6 +118,7 @@ const ColumnCreateForm = () => {
                         label: t("columns:board_id.label", ""),
                         title: t("columns:board_id.title", ""),
                         placeholder: t("columns:board_id.placeholder", ""),
+                        imageField: 'name',
                         error: inputErrorList.board_id
                     }} value={formData.board_id} onChange={onChange} />
                 </Col>

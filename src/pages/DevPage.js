@@ -27,7 +27,7 @@ const DevPage = () => {
                 <ColorPicker color={color} onChange={onChange} />
 
             </Form>
-            <ForeignKeySelector api="/boards?lang=fr" keyId="name" />
+            <ForeignKeySelector api="/boards?lang=fr" keyId="name" image="name" />
 
         </div>
     );

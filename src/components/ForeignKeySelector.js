@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 
 import { apiServer } from '../lib/Util';
 
-const ForeignKeySelector = ({ api, keyId, id, onChange, value }) => {
+const ForeignKeySelector = ({ api, keyId, id, onChange, value, image }) => {
 
     const [items, setItems] = React.useState([]);
 
@@ -35,7 +35,7 @@ const ForeignKeySelector = ({ api, keyId, id, onChange, value }) => {
                 value={value}
                 id={id}>
                 {items.map((item) => (
-                    <option key={item[keyId]} value={item[keyId]}>{item.image}</option>
+                    <option key={item[keyId]} value={item[keyId]}>{item[image]}</option>
                 ))}
             </Form.Select>
 
