@@ -95,7 +95,7 @@ const ColumnList = () => {
                     </button>
                 </td>
                 <td> <Cell value={column.name} subtype="string" table="columns" field="name"> </Cell></td>
-			<td> <Cell value={column.board_id} subtype="foreign_key" table="columns" field="board_id"> </Cell></td>
+			<td> <Cell value={column.board_id} subtype="string" table="columns" field="board_id"> </Cell></td>
 			<td> <Cell value={column.tasks} subtype="csv_string" table="columns" field="tasks"> </Cell></td>
 
 

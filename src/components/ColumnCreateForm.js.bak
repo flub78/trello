@@ -113,12 +113,12 @@ const ColumnCreateForm = () => {
                     <FieldInput descriptor={{
                         field: 'board_id',
                         subtype: 'foreign_key',
+                        target_table: 'boards',
+                        target_field: 'name',
                         label: t("columns:board_id.label", ""),
                         title: t("columns:board_id.title", ""),
                         placeholder: t("columns:board_id.placeholder", ""),
-					target_table: "boards",
-					target_field: "name",
-					imageField: "name",
+                        imageField: 'name',
                         error: inputErrorList.board_id
                     }} value={formData.board_id} onChange={onChange} />
                 </Col>
