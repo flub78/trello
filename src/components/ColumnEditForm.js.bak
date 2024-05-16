@@ -168,7 +168,6 @@ const ColumnEditForm = ({ id }) => {
                         placeholder: t("columns:board_id.placeholder", ""),
 					target_table: "boards",
 					target_field: "name",
-					imageField: "name",
                         error: inputErrorList.board_id
                     }} value={formData.board_id} onChange={onChange} />
                 </Col>
