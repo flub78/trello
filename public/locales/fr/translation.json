@@ -8,5 +8,6 @@
     "last": "Dernier",
     "display": "Afficher",
     "elements": "élements",
-    "submit": "Valider"
+    "submit": "Valider",
+    "backend_error": "Erreur serveur: "
 }

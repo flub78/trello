@@ -26,6 +26,8 @@ const ColumnCreateForm = () => {
 
     const { t } = useTranslation(['translation', 'columns']);
 
+    const [errorMessage, setErrorMessage] = React.useState('');
+
     const [formData, setFormData] = React.useState({
         name: '',
         description: '',
@@ -85,10 +87,12 @@ const ColumnCreateForm = () => {
                     if (error.response.status === 422) {
                         setInputErrorList(error.response.data.errors)
                     } else {
-                        console.error("axios: error=" + error.response.data.message)
+                        console.error("axios: error=" + error.response.data.message);
+                        setErrorMessage(t("backend_error", "Backend error: ") + error.message);
                     }
                 } else {
-                    console.error("unexpected axios: error=" + error.message)
+                    console.error("unexpected axios: error=" + error.message);
+                    setErrorMessage(t("backend_error", "Backend error: ") + error.message);
                 }
             })
             ;
@@ -96,6 +100,8 @@ const ColumnCreateForm = () => {
 
     return (
         <Form onSubmit={saveElement}>
+
+            {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
 
             <Row className="align-items-center">
                 <Col sm={6} md={6} lg={3}>
@@ -113,12 +119,12 @@ const ColumnCreateForm = () => {
                     <FieldInput descriptor={{
                         field: 'board_id',
                         subtype: 'foreign_key',
-                        target_table: 'boards',
-                        target_field: 'name',
                         label: t("columns:board_id.label", ""),
                         title: t("columns:board_id.title", ""),
                         placeholder: t("columns:board_id.placeholder", ""),
-                        imageField: 'name',
+                        target_table: "boards",
+                        target_field: "name",
+                        imageField: "name",
                         error: inputErrorList.board_id
                     }} value={formData.board_id} onChange={onChange} />
                 </Col>

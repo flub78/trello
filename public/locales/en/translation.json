@@ -8,5 +8,6 @@
     "last": "Last",
     "display": "Display",
     "elements": "elements",
-    "submit": "Submit"
+    "submit": "Submit",
+    "backend_error": "Backend error: "
 }

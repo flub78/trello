@@ -26,6 +26,8 @@ const #<class>#CreateForm = () => {
 
     const { t } = useTranslation(['translation', '#<element>#s']);
 
+    const [errorMessage, setErrorMessage] = React.useState('');
+
     const [formData, setFormData] = React.useState({
         name: '',
         description: '',
@@ -85,10 +87,12 @@ const #<class>#CreateForm = () => {
                     if (error.response.status === 422) {
                         setInputErrorList(error.response.data.errors)
                     } else {
-                        console.error("axios: error=" + error.response.data.message)
+                        console.error("axios: error=" + error.response.data.message);
+                        setErrorMessage(t("backend_error", "Backend error: ") + error.message);
                     }
                 } else {
-                    console.error("unexpected axios: error=" + error.message)
+                    console.error("unexpected axios: error=" + error.message);
+                    setErrorMessage(t("backend_error", "Backend error: ") + error.message);
                 }
             })
             ;
@@ -96,6 +100,8 @@ const #<class>#CreateForm = () => {
 
     return (
         <Form onSubmit={saveElement}>
+
+            {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
 
             #<#cg># field_list_input_form #</cg>#
 
