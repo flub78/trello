@@ -111,12 +111,18 @@ const ColumnEditForm = ({ id }) => {
             .catch(function (error) {
                 if (error.response) {
                     if (error.response.status === 422) {
-                        setInputErrorList(error.response.data.errors)
-                    } else {
-                        console.error("axios: error=" + error.response.data.message);
-                        setErrorMessage(t("backend_error", "Backend error: ") + error.message);
+                        if (error.response.data.errors) {
+                            setInputErrorList(error.response.data.errors)
+                        }
                     }
-                    
+                    if (error.response.data.message) {
+                        console.error("axios: error=" + error.response.data.message);
+
+                        setErrorMessage(t("backend_error", "Backend error: ")
+                            + ' status=' + error.response.data.status
+                            + ' message=' + error.response.data.message);
+                    }
+
                 } else {
                     console.error("unexpected axios: error=" + error.message);
                     setErrorMessage(t("backend_error", "Backend error: ") + error.message);
@@ -165,9 +171,9 @@ const ColumnEditForm = ({ id }) => {
                         label: t("columns:board_id.label", ""),
                         title: t("columns:board_id.title", ""),
                         placeholder: t("columns:board_id.placeholder", ""),
-					target_table: "boards",
-					target_field: "name",
-					imageField: "name",
+                        target_table: "boards",
+                        target_field: "name",
+                        imageField: "name",
                         error: inputErrorList.board_id
                     }} value={formData.board_id} onChange={onChange} />
                 </Col>

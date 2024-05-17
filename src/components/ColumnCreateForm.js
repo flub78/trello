@@ -85,10 +85,17 @@ const ColumnCreateForm = () => {
             .catch(function (error) {
                 if (error.response) {
                     if (error.response.status === 422) {
-                        setInputErrorList(error.response.data.errors)
-                    } else {
+                        // if error.response.data.errors exists
+                        if (error.response.data.errors) {
+                            setInputErrorList(error.response.data.errors);
+                        }
+                    }
+                    if (error.response.data.message) {
                         console.error("axios: error=" + error.response.data.message);
-                        setErrorMessage(t("backend_error", "Backend error: ") + error.message);
+
+                        setErrorMessage(t("backend_error", "Backend error: ")
+                            + ' status=' + error.response.data.status
+                            + ' message=' + error.response.data.message);
                     }
                 } else {
                     console.error("unexpected axios: error=" + error.message);
