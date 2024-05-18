@@ -16,7 +16,6 @@ import Col from 'react-bootstrap/Col';
 
 import FieldInput from './cg/FieldInput';
 import { apiServer } from '../lib/Util';
-import { tab } from '@testing-library/user-event/dist/tab';
 
 /**
  * A form to create a column
@@ -85,7 +84,6 @@ const ColumnCreateForm = () => {
             .catch(function (error) {
                 if (error.response) {
                     if (error.response.status === 422) {
-                        // if error.response.data.errors exists
                         if (error.response.data.errors) {
                             setInputErrorList(error.response.data.errors);
                         }
