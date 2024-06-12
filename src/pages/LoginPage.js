@@ -11,7 +11,7 @@ import LoginForm from '../components/LoginForm';
 
 const LoginPage = () => {
 
-    const { t } = useTranslation(['translation', 'boards']);
+    const { t } = useTranslation(['translation', 'login']);
 
     const [boardsData, setBoardsData] = React.useState([]);
 
@@ -28,29 +28,35 @@ const LoginPage = () => {
     }, []);
 
     return (
-        <div className="container d-flex flex-column align-items-center w-50">
+        <div>
+            <Navbar theme="light" boardsData={boardsData} />
 
-            <h3 className="text-center m-5" >Frello</h3>
 
-            <p>Welcome</p>
+            <div className="container d-flex flex-column align-items-center w-50">
 
-            <div className="container d-flex mt-5 justify-content-center">
+                <h3 className="text-center m-5" >Frello</h3>
 
-                <Card className="">
-                    <Card.Header className="card-header">
-                        <h3>Login</h3>
-                    </Card.Header>
+                <p>{t("login:welcome")}</p>
 
-                    <Card.Body>
-                        <div>
-                            <LoginForm />
-                        </div>
-                    </Card.Body>
-                </Card>
+                <div className="container d-flex mt-5 justify-content-center">
+
+                    <Card className="">
+                        <Card.Header className="card-header">
+                            <h3>{t("login:login")}</h3>
+                        </Card.Header>
+
+                        <Card.Body>
+                            <div>
+                                <LoginForm />
+                            </div>
+                        </Card.Body>
+                    </Card>
+
+                </div>
 
             </div>
-
         </div>
+
     );
 };
 
