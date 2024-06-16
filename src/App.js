@@ -29,12 +29,15 @@ function App() {
 
   return (
     <BrowserRouter>
+
       <Routes>
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/login" element={<LoginPage />} />
+
         <Route path="/" element={<WorkspacePage />} />
         <Route path="/workspace" element={<WorkspacePage />} />
         <Route path="/board/:id" element={<BoardPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/login" element={<LoginPage />} />
+
         <Route path="/dev" element={<DevPage />} />
 
         {/* boards resource */}
@@ -56,6 +59,7 @@ function App() {
         {/* page not found */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+
     </BrowserRouter>
   );
 

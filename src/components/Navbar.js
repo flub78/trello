@@ -49,6 +49,8 @@ const Navbar = ({ theme, boardsData }) => {
                                 <ul className="dropdown-menu">
                                     <li><a className="dropdown-item"
                                         href="/">{t("navbar:workspace")} Flub78</a></li>
+                                    <li><a className="dropdown-item"
+                                        href="/about">{t("navbar:about")}</a></li>
                                 </ul>
                             </li>
 
