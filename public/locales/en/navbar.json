@@ -3,6 +3,7 @@
     "language": "English",
     "workspaces": "Workspaces",
     "workspace": "Workspace",
+    "about": "About",
     "recents": "Recents",
     "favorites": "Favorites",
     "models": "Models",
