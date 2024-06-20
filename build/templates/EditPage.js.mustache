@@ -7,16 +7,11 @@
 
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import axios from 'axios';
 import { useTranslation } from "react-i18next";
 
 import Card from 'react-bootstrap/Card';
 
-import Navbar from '../components/Navbar';
 import #<class>#EditForm from '../components/#<class>#EditForm';
-import #<class>#CreateForm from '../components/#<class>#CreateForm';
-
-import { apiServer } from '../lib/Util';
 
 /**
  * A page to edit a #<element>#
@@ -26,32 +21,11 @@ const #<class>#EditPage = () => {
 
     const { t } = useTranslation(['translation', '#<element>#s']);
 
-    const [#<element>#sData, set#<class>#sData] = React.useState([]);
-
-    const [errorMessage, setErrorMessage] = React.useState('');
-
     // url parameter to identify the #<element># to edit
     let { id } = useParams();
 
-    /**
-     * Fetch #<element>#s from the API
-     */
-    React.useEffect(() => {
-        const url = apiServer + '/#<url>#';
-        console.log('axios: fetching #<element>#s from ' + url);
-
-        axios.get(url)
-            .then((res) => set#<class>#sData(res.data))
-            .catch((error) => setErrorMessage(error.message + ': check the API server at ' + url)
-            );
-
-    }, [id]);
-
     return (
         <div>
-            <Navbar theme="light" #<element>#sData={#<element>#sData} />
-
-            {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
 
             <Card >
                 <Card.Header className="card-header d-flex justify-content-between">
