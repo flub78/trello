@@ -29,8 +29,6 @@ const LoginPage = () => {
 
     return (
         <div>
-            <Navbar theme="light" boardsData={boardsData} />
-
 
             <div className="container d-flex flex-column align-items-center w-50">
 

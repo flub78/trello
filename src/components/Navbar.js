@@ -6,7 +6,7 @@ import i18n from "i18next";
 
 
 // 
-const Navbar = ({ theme, boardsData }) => {
+const Navbar = ({ theme, boardsData, login }) => {
 
     // let theme = "dark";
 
@@ -42,66 +42,69 @@ const Navbar = ({ theme, boardsData }) => {
                     </button>
 
                     <div className="collapse navbar-collapse" id="mynavbar">
-                        <ul className="navbar-nav me-auto">
+                        {login > 0 &&
+                            <ul className="navbar-nav me-auto">
 
-                            <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{t("navbar:workspaces")}</a>
-                                <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item"
-                                        href="/">{t("navbar:workspace")} Flub78</a></li>
-                                    <li><a className="dropdown-item"
-                                        href="/about">{t("navbar:about")}</a></li>
-                                </ul>
-                            </li>
+                                <li className="nav-item dropdown">
+                                    <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{t("navbar:workspaces")}</a>
+                                    <ul className="dropdown-menu">
+                                        <li><a className="dropdown-item"
+                                            href="/">{t("navbar:workspace")} Flub78</a></li>
+                                        <li><a className="dropdown-item"
+                                            href="/about">{t("navbar:about")}</a></li>
+                                    </ul>
+                                </li>
 
-                            <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{t("navbar:recents")}</a>
-                                <ul className="dropdown-menu">
+                                <li className="nav-item dropdown">
+                                    <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{t("navbar:recents")}</a>
+                                    <ul className="dropdown-menu">
 
-                                    {boardsData && boardsData
-                                        .filter((board) => board.recent)
-                                        .map((board, index) => {
-                                            return (<ThumbnailEntry card={board} key={"recent_" + index} />);
-                                        })
-                                    }
-                                </ul>
-                            </li>
+                                        {boardsData && boardsData
+                                            .filter((board) => board.recent)
+                                            .map((board, index) => {
+                                                return (<ThumbnailEntry card={board} key={"recent_" + index} />);
+                                            })
+                                        }
+                                    </ul>
+                                </li>
 
-                            <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{t("navbar:favorites")}</a>
-                                <ul className="dropdown-menu">
+                                <li className="nav-item dropdown">
+                                    <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{t("navbar:favorites")}</a>
+                                    <ul className="dropdown-menu">
 
-                                    {boardsData && boardsData
-                                        .filter((board) => board.favorite)
-                                        .map((board, index) => {
-                                            return (<ThumbnailEntry card={board} key={"favorite_" + index} />);
-                                        })
-                                    }
-                                </ul>
-                            </li>
+                                        {boardsData && boardsData
+                                            .filter((board) => board.favorite)
+                                            .map((board, index) => {
+                                                return (<ThumbnailEntry card={board} key={"favorite_" + index} />);
+                                            })
+                                        }
+                                    </ul>
+                                </li>
 
-                            <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{t("navbar:models")}</a>
-                                <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="/boards">Boards</a></li>
-                                    <li><a className="dropdown-item" href="/columns">Columns</a></li>
-                                    <li><a className="dropdown-item" href="/tasks">Tasks</a></li>
-                                    <li><a className="dropdown-item" href="/task-comments">Task Comments</a></li>
-                                    <li><a className="dropdown-item" href="/tag-colors">Tag Colors</a></li>
-                                    <li><a className="dropdown-item" href="/tags">Tags</a></li>
-                                    <li><a className="dropdown-item" href="/checklists">Checklists</a></li>
-                                    <li><a className="dropdown-item" href="/checklist-items">Checklist Itemss</a></li>
-                                </ul>
-                            </li>
+                                <li className="nav-item dropdown">
+                                    <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{t("navbar:models")}</a>
+                                    <ul className="dropdown-menu">
+                                        <li><a className="dropdown-item" href="/boards">Boards</a></li>
+                                        <li><a className="dropdown-item" href="/columns">Columns</a></li>
+                                        <li><a className="dropdown-item" href="/tasks">Tasks</a></li>
+                                        <li><a className="dropdown-item" href="/task-comments">Task Comments</a></li>
+                                        <li><a className="dropdown-item" href="/tag-colors">Tag Colors</a></li>
+                                        <li><a className="dropdown-item" href="/tags">Tags</a></li>
+                                        <li><a className="dropdown-item" href="/checklists">Checklists</a></li>
+                                        <li><a className="dropdown-item" href="/checklist-items">Checklist Itemss</a></li>
+                                    </ul>
+                                </li>
 
-                            <li className="nav-item bg-primary rounded">
-                                <a className="nav-link text-white" href="/dev">{t("create")}</a>
-                            </li>
-                        </ul>
+                                <li className="nav-item bg-primary rounded">
+                                    <a className="nav-link text-white" href="/dev">{t("create")}</a>
+                                </li>
+                            </ul>
+                        }
 
                         <form className="d-flex" id="navbar-search">
-                            <input className="form-control me-2 input-search bg-light" type="text" placeholder={t("navbar:search")}></input>
-
+                            {login > 0 &&
+                                <input className="form-control me-2 input-search bg-light" type="text" placeholder={t("navbar:search")}></input>
+                            }
                             <ReactFlagsSelect className="me-2"
                                 selected={selected}
                                 countries={["FR", "GB"]}
@@ -109,16 +112,21 @@ const Navbar = ({ theme, boardsData }) => {
                                 onSelect={(code) => changeLanguage(code)}
                             />
 
-                            <div className="" id="notification-button">
-                                <i className="fa-regular fa-bell button-icon" title="Notifications"></i>
-                            </div>
+                            {login > 0 &&
+                                <div className="" id="notification-button">
+                                    <i className="fa-regular fa-bell button-icon" title="Notifications"></i>
+                                </div>
+                            }
 
-                            <div className="nav-button">
-                                <i className={"fa-regular fa-circle-question icon button-icon " + text_color} title="Informations"></i>
-                            </div>
+                            {login > 0 &&
+                                <div className="nav-button">
+                                    <i className={"fa-regular fa-circle-question icon button-icon " + text_color} title="Informations"></i>
+                                </div>
+                            }
                         </form>
-                        <div className="nav-button user-icon" title="Compte">F</div>
-
+                        {login > 0 &&
+                            <div className="nav-button user-icon" title="Compte">F</div>
+                        }
                     </div>
                 </div>
             </nav>

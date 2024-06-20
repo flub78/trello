@@ -30,9 +30,6 @@ const WorkspacePage = () => {
 
     return (
         <div>
-            <Navbar theme="light" boardsData={boardsData} />
-
-            {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
 
             <section id="main" className="container-lg-fluid">
                 <div classame="row d-flex justify-content-end" id="main-container">

@@ -3,6 +3,9 @@ import './App.css';
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './lib/i18n';
+import PublicLayout from './pages/PublicLayout';
+import PrivateLayout from './pages/PrivateLayout';
+
 import AboutPage from './pages/AboutPage';
 import LoginPage from './pages/LoginPage';
 import NotFoundPage from './pages/NotFoundPage';
@@ -31,30 +34,37 @@ function App() {
     <BrowserRouter>
 
       <Routes>
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route element={<PublicLayout />} >
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Route>
 
-        <Route path="/" element={<WorkspacePage />} />
-        <Route path="/workspace" element={<WorkspacePage />} />
-        <Route path="/board/:id" element={<BoardPage />} />
 
-        <Route path="/dev" element={<DevPage />} />
+        <Route element={<PrivateLayout />} >
 
-        {/* boards resource */}
-        <Route path="/boards" element={<BoardListPage />} />
-        <Route path="/boards/create" element={<BoardCreatePage />} />
-        <Route path="/boards/edit/:id" element={<BoardEditPage />} />
+          <Route path="/" element={<WorkspacePage />} />
+          <Route path="/workspace" element={<WorkspacePage />} />
+          <Route path="/board/:id" element={<BoardPage />} />
 
-        <Route path="/tag-colors" element={<TagColorListPage />} />
-        <Route path="/tag-colors/create" element={<TagColorCreatePage />} />
-        <Route path="/tag-colors/edit/:id" element={<TagColorEditPage />} />
+          <Route path="/dev" element={<DevPage />} />
 
-        <Route path="/columns" element={<ColumnsListPage />} />
-        <Route path="/columns/create" element={<ColumnsCreatePage />} />
-        <Route path="/columns/edit/:id" element={<ColumnsEditPage />} />
+          {/* boards resource */}
+          <Route path="/boards" element={<BoardListPage />} />
+          <Route path="/boards/create" element={<BoardCreatePage />} />
+          <Route path="/boards/edit/:id" element={<BoardEditPage />} />
 
-        <Route path="/tasks" element={<TasksPage />} />
-        <Route path="/task-comments" element={<TaskCommentsPage />} />
+          <Route path="/tag-colors" element={<TagColorListPage />} />
+          <Route path="/tag-colors/create" element={<TagColorCreatePage />} />
+          <Route path="/tag-colors/edit/:id" element={<TagColorEditPage />} />
+
+          <Route path="/columns" element={<ColumnsListPage />} />
+          <Route path="/columns/create" element={<ColumnsCreatePage />} />
+          <Route path="/columns/edit/:id" element={<ColumnsEditPage />} />
+
+          <Route path="/tasks" element={<TasksPage />} />
+          <Route path="/task-comments" element={<TaskCommentsPage />} />
+        </Route>
+
 
         {/* page not found */}
         <Route path="*" element={<NotFoundPage />} />
@@ -62,7 +72,6 @@ function App() {
 
     </BrowserRouter>
   );
-
 
 }
 
