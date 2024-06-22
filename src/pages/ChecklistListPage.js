@@ -7,20 +7,20 @@
 import React from 'react';
 import { useTranslation } from "react-i18next";
 
-import ColumnList from '../components/ColumnList';
+import ChecklistList from '../components/ChecklistList';
 
 /**
- * React component to display the list of columns
+ * React component to display the list of checklists
  */
-const ColumnListPage = () => {
+const ChecklistListPage = () => {
 
-    const { t } = useTranslation(['translation', 'columns']);
+    const { t } = useTranslation(['translation', 'checklists']);
 
 return (
     <div>
-        < ColumnList />
+        < ChecklistList />
     </div>
 );
 };
 
-export default ColumnListPage;
+export default ChecklistListPage;

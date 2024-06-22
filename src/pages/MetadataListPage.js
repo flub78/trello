@@ -7,20 +7,20 @@
 import React from 'react';
 import { useTranslation } from "react-i18next";
 
-import ColumnList from '../components/ColumnList';
+import MetadataList from '../components/MetadataList';
 
 /**
- * React component to display the list of columns
+ * React component to display the list of metadatas
  */
-const ColumnListPage = () => {
+const MetadataListPage = () => {
 
-    const { t } = useTranslation(['translation', 'columns']);
+    const { t } = useTranslation(['translation', 'metadatas']);
 
 return (
     <div>
-        < ColumnList />
+        < MetadataList />
     </div>
 );
 };
 
-export default ColumnListPage;
+export default MetadataListPage;

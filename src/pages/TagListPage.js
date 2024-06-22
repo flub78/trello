@@ -7,20 +7,20 @@
 import React from 'react';
 import { useTranslation } from "react-i18next";
 
-import ColumnList from '../components/ColumnList';
+import TagList from '../components/TagList';
 
 /**
- * React component to display the list of columns
+ * React component to display the list of tags
  */
-const ColumnListPage = () => {
+const TagListPage = () => {
 
-    const { t } = useTranslation(['translation', 'columns']);
+    const { t } = useTranslation(['translation', 'tags']);
 
 return (
     <div>
-        < ColumnList />
+        < TagList />
     </div>
 );
 };
 
-export default ColumnListPage;
+export default TagListPage;

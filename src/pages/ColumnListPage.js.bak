@@ -10,18 +10,18 @@ import { useTranslation } from "react-i18next";
 
 import { apiServer } from '../lib/Util';
 import Navbar from '../components/Navbar';
-import TagColorList from '../components/TagColorList';
+import ColumnList from '../components/ColumnList';
 import Loading from '../components/Loading';
 
 /**
- * React component to display the list of tag_colors
+ * React component to display the list of columns
  */
-const TagColorListPage = () => {
+const ColumnListPage = () => {
 
-    const { t } = useTranslation(['translation', 'tag_colors']);
+    const { t } = useTranslation(['translation', 'columns']);
 
     const [boardsData, setBoardsData] = React.useState([]);
-
+    
     const [loading, setLoading] = React.useState(true);
 
     const [errorMessage, setErrorMessage] = React.useState('');
@@ -41,16 +41,15 @@ const TagColorListPage = () => {
             );
     }, []);
 
-    return (
-        <div>
-            <Navbar theme="light" boardsData={boardsData} />
+return (
+    <div>
+        <Navbar theme="light" boardsData={boardsData} />
         
         {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
 
-            < TagColorList />
-
-        </div>
-    );
+        < ColumnList />
+    </div>
+);
 };
 
-export default TagColorListPage;
+export default ColumnListPage;

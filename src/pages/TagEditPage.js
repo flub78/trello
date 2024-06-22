@@ -10,17 +10,17 @@ import { useTranslation } from "react-i18next";
 
 import Card from 'react-bootstrap/Card';
 
-import TagColorEditForm from '../components/TagColorEditForm';
+import TagEditForm from '../components/TagEditForm';
 
 /**
- * A page to edit a tag_color
+ * A page to edit a tag
  * @returns 
  */
-const TagColorEditPage = () => {
+const TagEditPage = () => {
 
-    const { t } = useTranslation(['translation', 'tag_colors']);
+    const { t } = useTranslation(['translation', 'tags']);
 
-    // url parameter to identify the tag_color to edit
+    // url parameter to identify the tag to edit
     let { id } = useParams();
 
     return (
@@ -28,13 +28,13 @@ const TagColorEditPage = () => {
 
             <Card >
                 <Card.Header className="card-header d-flex justify-content-between">
-                    <h3>{t("tag_colors:edit_a_tag_color")}</h3>
-                    <Link to="/tag-colors" className="btn btn-sm btn-danger m-1">{t("translation:back")}</Link>
+                    <h3>{t("tags:edit_a_tag")}</h3>
+                    <Link to="/tags" className="btn btn-sm btn-danger m-1">{t("translation:back")}</Link>
                 </Card.Header>
 
                 <Card.Body>
                     <div>
-                        <TagColorEditForm id={id} />
+                        <TagEditForm id={id} />
                     </div>
                 </Card.Body>
             </Card>
@@ -42,4 +42,4 @@ const TagColorEditPage = () => {
     );
 };
 
-export default TagColorEditPage;
+export default TagEditPage;

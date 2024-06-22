@@ -7,20 +7,20 @@
 import React from 'react';
 import { useTranslation } from "react-i18next";
 
-import ColumnList from '../components/ColumnList';
+import TaskCommentList from '../components/TaskCommentList';
 
 /**
- * React component to display the list of columns
+ * React component to display the list of task_comments
  */
-const ColumnListPage = () => {
+const TaskCommentListPage = () => {
 
-    const { t } = useTranslation(['translation', 'columns']);
+    const { t } = useTranslation(['translation', 'task_comments']);
 
 return (
     <div>
-        < ColumnList />
+        < TaskCommentList />
     </div>
 );
 };
 
-export default ColumnListPage;
+export default TaskCommentListPage;

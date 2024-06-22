@@ -10,17 +10,17 @@ import { useTranslation } from "react-i18next";
 
 import Card from 'react-bootstrap/Card';
 
-import TagColorEditForm from '../components/TagColorEditForm';
+import ChecklistItemEditForm from '../components/ChecklistItemEditForm';
 
 /**
- * A page to edit a tag_color
+ * A page to edit a checklist_item
  * @returns 
  */
-const TagColorEditPage = () => {
+const ChecklistItemEditPage = () => {
 
-    const { t } = useTranslation(['translation', 'tag_colors']);
+    const { t } = useTranslation(['translation', 'checklist_items']);
 
-    // url parameter to identify the tag_color to edit
+    // url parameter to identify the checklist_item to edit
     let { id } = useParams();
 
     return (
@@ -28,13 +28,13 @@ const TagColorEditPage = () => {
 
             <Card >
                 <Card.Header className="card-header d-flex justify-content-between">
-                    <h3>{t("tag_colors:edit_a_tag_color")}</h3>
-                    <Link to="/tag-colors" className="btn btn-sm btn-danger m-1">{t("translation:back")}</Link>
+                    <h3>{t("checklist_items:edit_a_checklist_item")}</h3>
+                    <Link to="/checklist-items" className="btn btn-sm btn-danger m-1">{t("translation:back")}</Link>
                 </Card.Header>
 
                 <Card.Body>
                     <div>
-                        <TagColorEditForm id={id} />
+                        <ChecklistItemEditForm id={id} />
                     </div>
                 </Card.Body>
             </Card>
@@ -42,4 +42,4 @@ const TagColorEditPage = () => {
     );
 };
 
-export default TagColorEditPage;
+export default ChecklistItemEditPage;

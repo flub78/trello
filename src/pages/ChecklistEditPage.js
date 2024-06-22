@@ -10,17 +10,17 @@ import { useTranslation } from "react-i18next";
 
 import Card from 'react-bootstrap/Card';
 
-import TagColorEditForm from '../components/TagColorEditForm';
+import ChecklistEditForm from '../components/ChecklistEditForm';
 
 /**
- * A page to edit a tag_color
+ * A page to edit a checklist
  * @returns 
  */
-const TagColorEditPage = () => {
+const ChecklistEditPage = () => {
 
-    const { t } = useTranslation(['translation', 'tag_colors']);
+    const { t } = useTranslation(['translation', 'checklists']);
 
-    // url parameter to identify the tag_color to edit
+    // url parameter to identify the checklist to edit
     let { id } = useParams();
 
     return (
@@ -28,13 +28,13 @@ const TagColorEditPage = () => {
 
             <Card >
                 <Card.Header className="card-header d-flex justify-content-between">
-                    <h3>{t("tag_colors:edit_a_tag_color")}</h3>
-                    <Link to="/tag-colors" className="btn btn-sm btn-danger m-1">{t("translation:back")}</Link>
+                    <h3>{t("checklists:edit_a_checklist")}</h3>
+                    <Link to="/checklists" className="btn btn-sm btn-danger m-1">{t("translation:back")}</Link>
                 </Card.Header>
 
                 <Card.Body>
                     <div>
-                        <TagColorEditForm id={id} />
+                        <ChecklistEditForm id={id} />
                     </div>
                 </Card.Body>
             </Card>
@@ -42,4 +42,4 @@ const TagColorEditPage = () => {
     );
 };
 
-export default TagColorEditPage;
+export default ChecklistEditPage;

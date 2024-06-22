@@ -10,17 +10,17 @@ import { useTranslation } from "react-i18next";
 
 import Card from 'react-bootstrap/Card';
 
-import TagColorEditForm from '../components/TagColorEditForm';
+import TaskCommentEditForm from '../components/TaskCommentEditForm';
 
 /**
- * A page to edit a tag_color
+ * A page to edit a task_comment
  * @returns 
  */
-const TagColorEditPage = () => {
+const TaskCommentEditPage = () => {
 
-    const { t } = useTranslation(['translation', 'tag_colors']);
+    const { t } = useTranslation(['translation', 'task_comments']);
 
-    // url parameter to identify the tag_color to edit
+    // url parameter to identify the task_comment to edit
     let { id } = useParams();
 
     return (
@@ -28,13 +28,13 @@ const TagColorEditPage = () => {
 
             <Card >
                 <Card.Header className="card-header d-flex justify-content-between">
-                    <h3>{t("tag_colors:edit_a_tag_color")}</h3>
-                    <Link to="/tag-colors" className="btn btn-sm btn-danger m-1">{t("translation:back")}</Link>
+                    <h3>{t("task_comments:edit_a_task_comment")}</h3>
+                    <Link to="/task-comments" className="btn btn-sm btn-danger m-1">{t("translation:back")}</Link>
                 </Card.Header>
 
                 <Card.Body>
                     <div>
-                        <TagColorEditForm id={id} />
+                        <TaskCommentEditForm id={id} />
                     </div>
                 </Card.Body>
             </Card>
@@ -42,4 +42,4 @@ const TagColorEditPage = () => {
     );
 };
 
-export default TagColorEditPage;
+export default TaskCommentEditPage;

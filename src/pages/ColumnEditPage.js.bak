@@ -12,35 +12,35 @@ import { useTranslation } from "react-i18next";
 import Card from 'react-bootstrap/Card';
 
 import Navbar from '../components/Navbar';
-import TagColorEditForm from '../components/TagColorEditForm';
-import TagColorCreateForm from '../components/TagColorCreateForm';
+import ColumnEditForm from '../components/ColumnEditForm';
+import ColumnCreateForm from '../components/ColumnCreateForm';
 
 import { apiServer } from '../lib/Util';
 
 /**
- * A page to edit a tag_color
+ * A page to edit a column
  * @returns 
  */
-const TagColorEditPage = () => {
+const ColumnEditPage = () => {
 
-    const { t } = useTranslation(['translation', 'tag_colors']);
+    const { t } = useTranslation(['translation', 'columns']);
 
-    const [tag_colorsData, setTagColorsData] = React.useState([]);
+    const [columnsData, setColumnsData] = React.useState([]);
 
     const [errorMessage, setErrorMessage] = React.useState('');
 
-    // url parameter to identify the tag_color to edit
+    // url parameter to identify the column to edit
     let { id } = useParams();
 
     /**
-     * Fetch tag_colors from the API
+     * Fetch columns from the API
      */
     React.useEffect(() => {
-        const url = apiServer + '/tag-colors';
-        console.log('axios: fetching tag_colors from ' + url);
+        const url = apiServer + '/columns';
+        console.log('axios: fetching columns from ' + url);
 
         axios.get(url)
-            .then((res) => setTagColorsData(res.data))
+            .then((res) => setColumnsData(res.data))
             .catch((error) => setErrorMessage(error.message + ': check the API server at ' + url)
             );
 
@@ -48,19 +48,19 @@ const TagColorEditPage = () => {
 
     return (
         <div>
-            <Navbar theme="light" tag_colorsData={tag_colorsData} />
+            <Navbar theme="light" columnsData={columnsData} />
 
             {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
 
             <Card >
                 <Card.Header className="card-header d-flex justify-content-between">
-                    <h3>{t("tag_colors:edit_a_tag_color")}</h3>
-                    <Link to="/tag-colors" className="btn btn-sm btn-danger m-1">{t("translation:back")}</Link>
+                    <h3>{t("columns:edit_a_column")}</h3>
+                    <Link to="/columns" className="btn btn-sm btn-danger m-1">{t("translation:back")}</Link>
                 </Card.Header>
 
                 <Card.Body>
                     <div>
-                        <TagColorEditForm id={id} />
+                        <ColumnEditForm id={id} />
                     </div>
                 </Card.Body>
             </Card>
@@ -68,4 +68,4 @@ const TagColorEditPage = () => {
     );
 };
 
-export default TagColorEditPage;
+export default ColumnEditPage;
