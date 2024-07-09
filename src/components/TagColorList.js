@@ -31,6 +31,8 @@ const TagColorList = () => {
 
     const [tag_colorsData, setTagColorsData] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
+    const [errorMessage, setErrorMessage] = React.useState('');
+
 
     /**
      * Fetch tag_colors from the REST API
@@ -41,7 +43,7 @@ const TagColorList = () => {
 
         axios.get(url)
             .then((res) => setTagColorsData(res.data))
-            .catch((error) => console.error(error));
+            .catch((error) => setErrorMessage(error.message + ': check the API server at ' + url));
         setLoading(false);
     }, []);
 
@@ -114,8 +116,9 @@ const TagColorList = () => {
                     <Button variant="primary" size="sm" className="me-1">CSV</Button>
                     <Button variant="primary" size="sm">PDF</Button>
                 </div>
-            </Card.Header>
 
+            </Card.Header>
+            {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
             <Card.Body>
                 <Container fluid>
                     <Form className='d-flex justify-content-between align-items-center'>
