@@ -22,34 +22,33 @@ import Cell from '../components/cg/Cell';
 import PerPageSelector from '../components/PerPageSelector';
 import PaginationBloc from './PaginationBloc';
 
-
 /**
- * React component to display the list of boards
+ * React component to display the list of tags
  */
-const BoardList = () => {
+const TagList = () => {
 
-    const { t } = useTranslation(['translation', 'boards']);
+    const { t } = useTranslation(['translation', 'tags']);
 
-    const [boardsData, setBoardsData] = React.useState([]);
+    const [tagsData, setTagsData] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
     const [errorMessage, setErrorMessage] = React.useState('');
 
     /**
-     * Fetch boards from the REST API
+     * Fetch tags from the REST API
      */
     React.useEffect(() => {
-        const url = apiServer + '/boards';
-        console.log('axios: fetching boards from ' + url);
+        const url = apiServer + '/tags';
+        console.log('axios: fetching tags from ' + url);
 
         axios.get(url)
-            .then((res) => setBoardsData(res.data))
+            .then((res) => setTagsData(res.data))
             .catch((error) => setErrorMessage(error.message + ': check the API server at ' + url));
         setLoading(false);
     }, []);
 
 
     /**
-     * Callback to delete a board
+     * Callback to delete a tag
      * @param {*} e 
      * @param {*} id 
      */
@@ -58,14 +57,14 @@ const BoardList = () => {
 
         console.log('deleteElement: id=' + id);
 
-        const url = apiServer + '/boards/' + id;
-        console.log('axios: deleting board from ' + url);
+        const url = apiServer + '/tags/' + id;
+        console.log('axios: deleting tag from ' + url);
 
         axios.delete(url)
             .then((res) => {
                 console.log('axios: response=' + JSON.stringify(res.data));
-                const newBoardsData = boardsData.filter((board) => board.name !== id);
-                setBoardsData(newBoardsData);
+                const newTagsData = tagsData.filter((tag) => tag.name !== id);
+                setTagsData(newTagsData);
                 window.location.reload(false);
 
             });
@@ -75,7 +74,7 @@ const BoardList = () => {
     /**
      * The lines for the table body
      */
-    const boardsTable = boardsData.map((board) => {
+    const tagsTable = tagsData.map((tag) => {
 
         if (loading) return (
             <tr key="-1">
@@ -84,26 +83,20 @@ const BoardList = () => {
         )
 
         return (
-            <tr key={board.id} className="odd">
+            <tr key={tag.id} className="odd">
                 <td>
-                    <Link to={"/boards/edit/" + board.name}
+                    <Link to={"/tags/edit/" + tag.id}
                         className="btn btn-sm btn-success"><i className="fa-regular fa-pen-to-square"></i></Link>
                 </td>
                 <td>
                     <button type="button"
                         className="btn btn-sm btn-danger"
-                        onClick={(e) => deleteElement(e, board.name)}>
+                        onClick={(e) => deleteElement(e, tag.id)}>
                         <i className="fa-regular fa-trash-can"></i>
                     </button>
                 </td>
-                <td> <Cell value={board.name} subtype="string" table="boards" field="name"> </Cell></td>
-			<td> <Cell value={board.description} subtype="string" table="boards" field="description"> </Cell></td>
-			<td> <Cell value={board.email} subtype="email" table="boards" field="email"> </Cell></td>
-			<td> <Cell value={board.favorite} subtype="boolean" table="boards" field="favorite"> </Cell></td>
-			<td> <Cell value={board.href} subtype="string" table="boards" field="href"> </Cell></td>
-			<td> <Cell value={board.picture} subtype="string" table="boards" field="picture"> </Cell></td>
-                <td> <Cell value={board.theme} subtype="enum" table="boards" field="theme"> </Cell></td>
-			<td> <Cell value={board.lists} subtype="csv_string" table="boards" field="lists"> </Cell></td>
+                <td> <Cell value={tag.task_id} subtype="foreign_key" table="tags" field="task_id"> </Cell></td>
+			<td> <Cell value={tag.task_color_id} subtype="foreign_key" table="tags" field="task_color_id"> </Cell></td>
 
 
             </tr >
@@ -112,12 +105,12 @@ const BoardList = () => {
 
     return (
 
-        <Card >
 
+        <Card >
             <Card.Header className="card-header d-flex justify-content-between">
-                <h3>{t("boards:boards")}</h3>
+                <h3>{t("tags:tags")}</h3>
                 <div>
-                    <Link to="/boards/create" className="btn btn-sm btn-primary m-1">{t("boards:create_a_board")}
+                    <Link to="/tags/create" className="btn btn-sm btn-primary m-1">{t("tags:create_a_tag")}
                     </Link>
 
                     <Button variant="primary" size="sm" className="me-1">CSV</Button>
@@ -143,33 +136,23 @@ const BoardList = () => {
                             <tr role="row">
                                 <th align="right"></th>
                                 <th align="center"></th>
-                                <th align="left">{t("boards:name.label")}</th>
-                                <th align="left">{t("boards:description.label")}</th>
-                                <th align="left">{t("boards:email.label")}</th>
-                                <th align="left">{t("boards:favorite.label")}</th>
-                                <th align="left">{t("boards:href.label")}</th>
-			                    <th align="left">{t("boards:picture.label")}</th>
-                                <th align="left" >{t("boards:theme.label")}</th>
-                                <th align="left">{t("boards:lists.label")}</th>
+                                <th align="left">{t("tags:task_id.label")}</th>
+			                    <th align="left">{t("tags:task_color_id.label")}</th>
+
                             </tr>
                         </thead>
 
                         <tbody >
-                            {boardsTable}
+                            {tagsTable}
                         </tbody>
 
                         <tfoot>
                             <tr role="row">
                                 <th align="right"></th>
                                 <th align="center"></th>
-                                <th align="left">{t("boards:name.label")}</th>
-                                <th align="left">{t("boards:description.label")}</th>
-                                <th align="left">{t("boards:email.label")}</th>
-                                <th align="left">{t("boards:favorite.label")}</th>
-                                <th align="left">{t("boards:href.label")}</th>
-			                    <th align="left">{t("boards:picture.label")}</th>
-                                <th align="left" >{t("boards:theme.label")}</th>
-                                <th align="left">{t("boards:lists.label")}</th>
+                                <th align="left">{t("tags:task_id.label")}</th>
+			                    <th align="left">{t("tags:task_color_id.label")}</th>
+
                             </tr>
                         </tfoot>
                     </Table>
@@ -188,4 +171,4 @@ const BoardList = () => {
     );
 };
 
-export default BoardList;
+export default TagList;

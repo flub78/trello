@@ -33,7 +33,6 @@ const TagColorList = () => {
     const [loading, setLoading] = React.useState(true);
     const [errorMessage, setErrorMessage] = React.useState('');
 
-
     /**
      * Fetch tag_colors from the REST API
      */
@@ -67,6 +66,7 @@ const TagColorList = () => {
                 const newTagColorsData = tag_colorsData.filter((tag_color) => tag_color.name !== id);
                 setTagColorsData(newTagColorsData);
                 window.location.reload(false);
+
             });
     }
 
@@ -96,7 +96,8 @@ const TagColorList = () => {
                     </button>
                 </td>
                 <td> <Cell value={tag_color.name} subtype="string" table="tag_colors" field="name"> </Cell></td>
-                <td> <Cell value={tag_color.color} subtype="color" table="tag_colors" field="color"> </Cell></td>
+			<td> <Cell value={tag_color.color} subtype="color" table="tag_colors" field="color"> </Cell></td>
+			<td> <Cell value={tag_color.image} subtype="image" table="tag_colors" field="image"> </Cell></td>
 
 
             </tr >
@@ -116,9 +117,10 @@ const TagColorList = () => {
                     <Button variant="primary" size="sm" className="me-1">CSV</Button>
                     <Button variant="primary" size="sm">PDF</Button>
                 </div>
-
             </Card.Header>
+
             {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
+
             <Card.Body>
                 <Container fluid>
                     <Form className='d-flex justify-content-between align-items-center'>
@@ -136,7 +138,8 @@ const TagColorList = () => {
                                 <th align="right"></th>
                                 <th align="center"></th>
                                 <th align="left">{t("tag_colors:name.label")}</th>
-                                <th align="left">{t("tag_colors:color.label")}</th>
+			                    <th align="left">{t("tag_colors:color.label")}</th>
+			                    <th align="left">{t("tag_colors:image.label")}</th>
 
                             </tr>
                         </thead>
@@ -150,7 +153,8 @@ const TagColorList = () => {
                                 <th align="right"></th>
                                 <th align="center"></th>
                                 <th align="left">{t("tag_colors:name.label")}</th>
-                                <th align="left">{t("tag_colors:color.label")}</th>
+			                    <th align="left">{t("tag_colors:color.label")}</th>
+			                    <th align="left">{t("tag_colors:image.label")}</th>
 
                             </tr>
                         </tfoot>

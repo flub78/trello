@@ -22,34 +22,33 @@ import Cell from '../components/cg/Cell';
 import PerPageSelector from '../components/PerPageSelector';
 import PaginationBloc from './PaginationBloc';
 
-
 /**
- * React component to display the list of boards
+ * React component to display the list of metadatas
  */
-const BoardList = () => {
+const MetadataList = () => {
 
-    const { t } = useTranslation(['translation', 'boards']);
+    const { t } = useTranslation(['translation', 'metadatas']);
 
-    const [boardsData, setBoardsData] = React.useState([]);
+    const [metadatasData, setMetadatasData] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
     const [errorMessage, setErrorMessage] = React.useState('');
 
     /**
-     * Fetch boards from the REST API
+     * Fetch metadatas from the REST API
      */
     React.useEffect(() => {
-        const url = apiServer + '/boards';
-        console.log('axios: fetching boards from ' + url);
+        const url = apiServer + '/metadata';
+        console.log('axios: fetching metadatas from ' + url);
 
         axios.get(url)
-            .then((res) => setBoardsData(res.data))
+            .then((res) => setMetadatasData(res.data))
             .catch((error) => setErrorMessage(error.message + ': check the API server at ' + url));
         setLoading(false);
     }, []);
 
 
     /**
-     * Callback to delete a board
+     * Callback to delete a metadata
      * @param {*} e 
      * @param {*} id 
      */
@@ -58,14 +57,14 @@ const BoardList = () => {
 
         console.log('deleteElement: id=' + id);
 
-        const url = apiServer + '/boards/' + id;
-        console.log('axios: deleting board from ' + url);
+        const url = apiServer + '/metadata/' + id;
+        console.log('axios: deleting metadata from ' + url);
 
         axios.delete(url)
             .then((res) => {
                 console.log('axios: response=' + JSON.stringify(res.data));
-                const newBoardsData = boardsData.filter((board) => board.name !== id);
-                setBoardsData(newBoardsData);
+                const newMetadatasData = metadatasData.filter((metadata) => metadata.name !== id);
+                setMetadatasData(newMetadatasData);
                 window.location.reload(false);
 
             });
@@ -75,7 +74,7 @@ const BoardList = () => {
     /**
      * The lines for the table body
      */
-    const boardsTable = boardsData.map((board) => {
+    const metadatasTable = metadatasData.map((metadata) => {
 
         if (loading) return (
             <tr key="-1">
@@ -84,26 +83,22 @@ const BoardList = () => {
         )
 
         return (
-            <tr key={board.id} className="odd">
+            <tr key={metadata.id} className="odd">
                 <td>
-                    <Link to={"/boards/edit/" + board.name}
+                    <Link to={"/metadata/edit/" + metadata.id}
                         className="btn btn-sm btn-success"><i className="fa-regular fa-pen-to-square"></i></Link>
                 </td>
                 <td>
                     <button type="button"
                         className="btn btn-sm btn-danger"
-                        onClick={(e) => deleteElement(e, board.name)}>
+                        onClick={(e) => deleteElement(e, metadata.id)}>
                         <i className="fa-regular fa-trash-can"></i>
                     </button>
                 </td>
-                <td> <Cell value={board.name} subtype="string" table="boards" field="name"> </Cell></td>
-			<td> <Cell value={board.description} subtype="string" table="boards" field="description"> </Cell></td>
-			<td> <Cell value={board.email} subtype="email" table="boards" field="email"> </Cell></td>
-			<td> <Cell value={board.favorite} subtype="boolean" table="boards" field="favorite"> </Cell></td>
-			<td> <Cell value={board.href} subtype="string" table="boards" field="href"> </Cell></td>
-			<td> <Cell value={board.picture} subtype="string" table="boards" field="picture"> </Cell></td>
-                <td> <Cell value={board.theme} subtype="enum" table="boards" field="theme"> </Cell></td>
-			<td> <Cell value={board.lists} subtype="csv_string" table="boards" field="lists"> </Cell></td>
+                <td> <Cell value={metadata.table} subtype="string" table="metadata" field="table"> </Cell></td>
+			<td> <Cell value={metadata.column} subtype="string" table="metadata" field="column"> </Cell></td>
+			<td> <Cell value={metadata.key} subtype="string" table="metadata" field="key"> </Cell></td>
+			<td> <Cell value={metadata.value} subtype="string" table="metadata" field="value"> </Cell></td>
 
 
             </tr >
@@ -112,12 +107,12 @@ const BoardList = () => {
 
     return (
 
-        <Card >
 
+        <Card >
             <Card.Header className="card-header d-flex justify-content-between">
-                <h3>{t("boards:boards")}</h3>
+                <h3>{t("metadatas:metadatas")}</h3>
                 <div>
-                    <Link to="/boards/create" className="btn btn-sm btn-primary m-1">{t("boards:create_a_board")}
+                    <Link to="/metadata/create" className="btn btn-sm btn-primary m-1">{t("metadatas:create_a_metadata")}
                     </Link>
 
                     <Button variant="primary" size="sm" className="me-1">CSV</Button>
@@ -143,33 +138,27 @@ const BoardList = () => {
                             <tr role="row">
                                 <th align="right"></th>
                                 <th align="center"></th>
-                                <th align="left">{t("boards:name.label")}</th>
-                                <th align="left">{t("boards:description.label")}</th>
-                                <th align="left">{t("boards:email.label")}</th>
-                                <th align="left">{t("boards:favorite.label")}</th>
-                                <th align="left">{t("boards:href.label")}</th>
-			                    <th align="left">{t("boards:picture.label")}</th>
-                                <th align="left" >{t("boards:theme.label")}</th>
-                                <th align="left">{t("boards:lists.label")}</th>
+                                <th align="left">{t("metadata:table.label")}</th>
+			                    <th align="left">{t("metadata:column.label")}</th>
+			                    <th align="left">{t("metadata:key.label")}</th>
+			                    <th align="left">{t("metadata:value.label")}</th>
+
                             </tr>
                         </thead>
 
                         <tbody >
-                            {boardsTable}
+                            {metadatasTable}
                         </tbody>
 
                         <tfoot>
                             <tr role="row">
                                 <th align="right"></th>
                                 <th align="center"></th>
-                                <th align="left">{t("boards:name.label")}</th>
-                                <th align="left">{t("boards:description.label")}</th>
-                                <th align="left">{t("boards:email.label")}</th>
-                                <th align="left">{t("boards:favorite.label")}</th>
-                                <th align="left">{t("boards:href.label")}</th>
-			                    <th align="left">{t("boards:picture.label")}</th>
-                                <th align="left" >{t("boards:theme.label")}</th>
-                                <th align="left">{t("boards:lists.label")}</th>
+                                <th align="left">{t("metadata:table.label")}</th>
+			                    <th align="left">{t("metadata:column.label")}</th>
+			                    <th align="left">{t("metadata:key.label")}</th>
+			                    <th align="left">{t("metadata:value.label")}</th>
+
                             </tr>
                         </tfoot>
                     </Table>
@@ -188,4 +177,4 @@ const BoardList = () => {
     );
 };
 
-export default BoardList;
+export default MetadataList;

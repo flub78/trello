@@ -169,3 +169,9 @@ build/results/TaskCommentListPage.js
 build/results/TaskCreatePage.js
 build/results/TaskEditPage.js
 build/results/TaskListPage.js
+build/results/ChecklistItemList.js
+build/results/ChecklistList.js
+build/results/MetadataList.js
+build/results/TagList.js
+build/results/TaskCommentList.js
+build/results/TaskList.js

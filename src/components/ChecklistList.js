@@ -22,34 +22,33 @@ import Cell from '../components/cg/Cell';
 import PerPageSelector from '../components/PerPageSelector';
 import PaginationBloc from './PaginationBloc';
 
-
 /**
- * React component to display the list of boards
+ * React component to display the list of checklists
  */
-const BoardList = () => {
+const ChecklistList = () => {
 
-    const { t } = useTranslation(['translation', 'boards']);
+    const { t } = useTranslation(['translation', 'checklists']);
 
-    const [boardsData, setBoardsData] = React.useState([]);
+    const [checklistsData, setChecklistsData] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
     const [errorMessage, setErrorMessage] = React.useState('');
 
     /**
-     * Fetch boards from the REST API
+     * Fetch checklists from the REST API
      */
     React.useEffect(() => {
-        const url = apiServer + '/boards';
-        console.log('axios: fetching boards from ' + url);
+        const url = apiServer + '/checklists';
+        console.log('axios: fetching checklists from ' + url);
 
         axios.get(url)
-            .then((res) => setBoardsData(res.data))
+            .then((res) => setChecklistsData(res.data))
             .catch((error) => setErrorMessage(error.message + ': check the API server at ' + url));
         setLoading(false);
     }, []);
 
 
     /**
-     * Callback to delete a board
+     * Callback to delete a checklist
      * @param {*} e 
      * @param {*} id 
      */
@@ -58,14 +57,14 @@ const BoardList = () => {
 
         console.log('deleteElement: id=' + id);
 
-        const url = apiServer + '/boards/' + id;
-        console.log('axios: deleting board from ' + url);
+        const url = apiServer + '/checklists/' + id;
+        console.log('axios: deleting checklist from ' + url);
 
         axios.delete(url)
             .then((res) => {
                 console.log('axios: response=' + JSON.stringify(res.data));
-                const newBoardsData = boardsData.filter((board) => board.name !== id);
-                setBoardsData(newBoardsData);
+                const newChecklistsData = checklistsData.filter((checklist) => checklist.name !== id);
+                setChecklistsData(newChecklistsData);
                 window.location.reload(false);
 
             });
@@ -75,7 +74,7 @@ const BoardList = () => {
     /**
      * The lines for the table body
      */
-    const boardsTable = boardsData.map((board) => {
+    const checklistsTable = checklistsData.map((checklist) => {
 
         if (loading) return (
             <tr key="-1">
@@ -84,26 +83,22 @@ const BoardList = () => {
         )
 
         return (
-            <tr key={board.id} className="odd">
+            <tr key={checklist.id} className="odd">
                 <td>
-                    <Link to={"/boards/edit/" + board.name}
+                    <Link to={"/checklists/edit/" + checklist.id}
                         className="btn btn-sm btn-success"><i className="fa-regular fa-pen-to-square"></i></Link>
                 </td>
                 <td>
                     <button type="button"
                         className="btn btn-sm btn-danger"
-                        onClick={(e) => deleteElement(e, board.name)}>
+                        onClick={(e) => deleteElement(e, checklist.id)}>
                         <i className="fa-regular fa-trash-can"></i>
                     </button>
                 </td>
-                <td> <Cell value={board.name} subtype="string" table="boards" field="name"> </Cell></td>
-			<td> <Cell value={board.description} subtype="string" table="boards" field="description"> </Cell></td>
-			<td> <Cell value={board.email} subtype="email" table="boards" field="email"> </Cell></td>
-			<td> <Cell value={board.favorite} subtype="boolean" table="boards" field="favorite"> </Cell></td>
-			<td> <Cell value={board.href} subtype="string" table="boards" field="href"> </Cell></td>
-			<td> <Cell value={board.picture} subtype="string" table="boards" field="picture"> </Cell></td>
-                <td> <Cell value={board.theme} subtype="enum" table="boards" field="theme"> </Cell></td>
-			<td> <Cell value={board.lists} subtype="csv_string" table="boards" field="lists"> </Cell></td>
+                <td> <Cell value={checklist.name} subtype="string" table="checklists" field="name"> </Cell></td>
+			<td> <Cell value={checklist.description} subtype="string" table="checklists" field="description"> </Cell></td>
+			<td> <Cell value={checklist.task_id} subtype="foreign_key" table="checklists" field="task_id"> </Cell></td>
+			<td> <Cell value={checklist.image} subtype="image" table="checklists" field="image"> </Cell></td>
 
 
             </tr >
@@ -112,12 +107,12 @@ const BoardList = () => {
 
     return (
 
-        <Card >
 
+        <Card >
             <Card.Header className="card-header d-flex justify-content-between">
-                <h3>{t("boards:boards")}</h3>
+                <h3>{t("checklists:checklists")}</h3>
                 <div>
-                    <Link to="/boards/create" className="btn btn-sm btn-primary m-1">{t("boards:create_a_board")}
+                    <Link to="/checklists/create" className="btn btn-sm btn-primary m-1">{t("checklists:create_a_checklist")}
                     </Link>
 
                     <Button variant="primary" size="sm" className="me-1">CSV</Button>
@@ -143,33 +138,27 @@ const BoardList = () => {
                             <tr role="row">
                                 <th align="right"></th>
                                 <th align="center"></th>
-                                <th align="left">{t("boards:name.label")}</th>
-                                <th align="left">{t("boards:description.label")}</th>
-                                <th align="left">{t("boards:email.label")}</th>
-                                <th align="left">{t("boards:favorite.label")}</th>
-                                <th align="left">{t("boards:href.label")}</th>
-			                    <th align="left">{t("boards:picture.label")}</th>
-                                <th align="left" >{t("boards:theme.label")}</th>
-                                <th align="left">{t("boards:lists.label")}</th>
+                                <th align="left">{t("checklists:name.label")}</th>
+			                    <th align="left">{t("checklists:description.label")}</th>
+			                    <th align="left">{t("checklists:task_id.label")}</th>
+			                    <th align="left">{t("checklists:image.label")}</th>
+
                             </tr>
                         </thead>
 
                         <tbody >
-                            {boardsTable}
+                            {checklistsTable}
                         </tbody>
 
                         <tfoot>
                             <tr role="row">
                                 <th align="right"></th>
                                 <th align="center"></th>
-                                <th align="left">{t("boards:name.label")}</th>
-                                <th align="left">{t("boards:description.label")}</th>
-                                <th align="left">{t("boards:email.label")}</th>
-                                <th align="left">{t("boards:favorite.label")}</th>
-                                <th align="left">{t("boards:href.label")}</th>
-			                    <th align="left">{t("boards:picture.label")}</th>
-                                <th align="left" >{t("boards:theme.label")}</th>
-                                <th align="left">{t("boards:lists.label")}</th>
+                                <th align="left">{t("checklists:name.label")}</th>
+			                    <th align="left">{t("checklists:description.label")}</th>
+			                    <th align="left">{t("checklists:task_id.label")}</th>
+			                    <th align="left">{t("checklists:image.label")}</th>
+
                             </tr>
                         </tfoot>
                     </Table>
@@ -188,4 +177,4 @@ const BoardList = () => {
     );
 };
 
-export default BoardList;
+export default ChecklistList;

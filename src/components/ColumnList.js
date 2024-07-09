@@ -31,6 +31,7 @@ const ColumnList = () => {
 
     const [columnsData, setColumnsData] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
+    const [errorMessage, setErrorMessage] = React.useState('');
 
     /**
      * Fetch columns from the REST API
@@ -41,7 +42,7 @@ const ColumnList = () => {
 
         axios.get(url)
             .then((res) => setColumnsData(res.data))
-            .catch((error) => console.error(error));
+            .catch((error) => setErrorMessage(error.message + ': check the API server at ' + url));
         setLoading(false);
     }, []);
 
@@ -117,6 +118,8 @@ const ColumnList = () => {
                     <Button variant="primary" size="sm">PDF</Button>
                 </div>
             </Card.Header>
+
+            {errorMessage.length > 0 && <div className="alert alert-danger">{errorMessage}</div>}
 
             <Card.Body>
                 <Container fluid>

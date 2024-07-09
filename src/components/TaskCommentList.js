@@ -22,34 +22,33 @@ import Cell from '../components/cg/Cell';
 import PerPageSelector from '../components/PerPageSelector';
 import PaginationBloc from './PaginationBloc';
 
-
 /**
- * React component to display the list of boards
+ * React component to display the list of task_comments
  */
-const BoardList = () => {
+const TaskCommentList = () => {
 
-    const { t } = useTranslation(['translation', 'boards']);
+    const { t } = useTranslation(['translation', 'task_comments']);
 
-    const [boardsData, setBoardsData] = React.useState([]);
+    const [task_commentsData, setTaskCommentsData] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
     const [errorMessage, setErrorMessage] = React.useState('');
 
     /**
-     * Fetch boards from the REST API
+     * Fetch task_comments from the REST API
      */
     React.useEffect(() => {
-        const url = apiServer + '/boards';
-        console.log('axios: fetching boards from ' + url);
+        const url = apiServer + '/task-comments';
+        console.log('axios: fetching task_comments from ' + url);
 
         axios.get(url)
-            .then((res) => setBoardsData(res.data))
+            .then((res) => setTaskCommentsData(res.data))
             .catch((error) => setErrorMessage(error.message + ': check the API server at ' + url));
         setLoading(false);
     }, []);
 
 
     /**
-     * Callback to delete a board
+     * Callback to delete a task_comment
      * @param {*} e 
      * @param {*} id 
      */
@@ -58,14 +57,14 @@ const BoardList = () => {
 
         console.log('deleteElement: id=' + id);
 
-        const url = apiServer + '/boards/' + id;
-        console.log('axios: deleting board from ' + url);
+        const url = apiServer + '/task-comments/' + id;
+        console.log('axios: deleting task_comment from ' + url);
 
         axios.delete(url)
             .then((res) => {
                 console.log('axios: response=' + JSON.stringify(res.data));
-                const newBoardsData = boardsData.filter((board) => board.name !== id);
-                setBoardsData(newBoardsData);
+                const newTaskCommentsData = task_commentsData.filter((task_comment) => task_comment.name !== id);
+                setTaskCommentsData(newTaskCommentsData);
                 window.location.reload(false);
 
             });
@@ -75,7 +74,7 @@ const BoardList = () => {
     /**
      * The lines for the table body
      */
-    const boardsTable = boardsData.map((board) => {
+    const task_commentsTable = task_commentsData.map((task_comment) => {
 
         if (loading) return (
             <tr key="-1">
@@ -84,26 +83,21 @@ const BoardList = () => {
         )
 
         return (
-            <tr key={board.id} className="odd">
+            <tr key={task_comment.id} className="odd">
                 <td>
-                    <Link to={"/boards/edit/" + board.name}
+                    <Link to={"/task-comments/edit/" + task_comment.id}
                         className="btn btn-sm btn-success"><i className="fa-regular fa-pen-to-square"></i></Link>
                 </td>
                 <td>
                     <button type="button"
                         className="btn btn-sm btn-danger"
-                        onClick={(e) => deleteElement(e, board.name)}>
+                        onClick={(e) => deleteElement(e, task_comment.id)}>
                         <i className="fa-regular fa-trash-can"></i>
                     </button>
                 </td>
-                <td> <Cell value={board.name} subtype="string" table="boards" field="name"> </Cell></td>
-			<td> <Cell value={board.description} subtype="string" table="boards" field="description"> </Cell></td>
-			<td> <Cell value={board.email} subtype="email" table="boards" field="email"> </Cell></td>
-			<td> <Cell value={board.favorite} subtype="boolean" table="boards" field="favorite"> </Cell></td>
-			<td> <Cell value={board.href} subtype="string" table="boards" field="href"> </Cell></td>
-			<td> <Cell value={board.picture} subtype="string" table="boards" field="picture"> </Cell></td>
-                <td> <Cell value={board.theme} subtype="enum" table="boards" field="theme"> </Cell></td>
-			<td> <Cell value={board.lists} subtype="csv_string" table="boards" field="lists"> </Cell></td>
+                <td> <Cell value={task_comment.text} subtype="text" table="task_comments" field="text"> </Cell></td>
+			<td> <Cell value={task_comment.from_email} subtype="email" table="task_comments" field="from_email"> </Cell></td>
+			<td> <Cell value={task_comment.task_id} subtype="foreign_key" table="task_comments" field="task_id"> </Cell></td>
 
 
             </tr >
@@ -112,12 +106,12 @@ const BoardList = () => {
 
     return (
 
-        <Card >
 
+        <Card >
             <Card.Header className="card-header d-flex justify-content-between">
-                <h3>{t("boards:boards")}</h3>
+                <h3>{t("task_comments:task_comments")}</h3>
                 <div>
-                    <Link to="/boards/create" className="btn btn-sm btn-primary m-1">{t("boards:create_a_board")}
+                    <Link to="/task-comments/create" className="btn btn-sm btn-primary m-1">{t("task_comments:create_a_task_comment")}
                     </Link>
 
                     <Button variant="primary" size="sm" className="me-1">CSV</Button>
@@ -143,33 +137,25 @@ const BoardList = () => {
                             <tr role="row">
                                 <th align="right"></th>
                                 <th align="center"></th>
-                                <th align="left">{t("boards:name.label")}</th>
-                                <th align="left">{t("boards:description.label")}</th>
-                                <th align="left">{t("boards:email.label")}</th>
-                                <th align="left">{t("boards:favorite.label")}</th>
-                                <th align="left">{t("boards:href.label")}</th>
-			                    <th align="left">{t("boards:picture.label")}</th>
-                                <th align="left" >{t("boards:theme.label")}</th>
-                                <th align="left">{t("boards:lists.label")}</th>
+                                <th align="left">{t("task_comments:text.label")}</th>
+			                    <th align="left">{t("task_comments:from_email.label")}</th>
+			                    <th align="left">{t("task_comments:task_id.label")}</th>
+
                             </tr>
                         </thead>
 
                         <tbody >
-                            {boardsTable}
+                            {task_commentsTable}
                         </tbody>
 
                         <tfoot>
                             <tr role="row">
                                 <th align="right"></th>
                                 <th align="center"></th>
-                                <th align="left">{t("boards:name.label")}</th>
-                                <th align="left">{t("boards:description.label")}</th>
-                                <th align="left">{t("boards:email.label")}</th>
-                                <th align="left">{t("boards:favorite.label")}</th>
-                                <th align="left">{t("boards:href.label")}</th>
-			                    <th align="left">{t("boards:picture.label")}</th>
-                                <th align="left" >{t("boards:theme.label")}</th>
-                                <th align="left">{t("boards:lists.label")}</th>
+                                <th align="left">{t("task_comments:text.label")}</th>
+			                    <th align="left">{t("task_comments:from_email.label")}</th>
+			                    <th align="left">{t("task_comments:task_id.label")}</th>
+
                             </tr>
                         </tfoot>
                     </Table>
@@ -188,4 +174,4 @@ const BoardList = () => {
     );
 };
 
-export default BoardList;
+export default TaskCommentList;
