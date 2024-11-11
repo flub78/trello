@@ -175,3 +175,4 @@ build/results/MetadataList.js
 build/results/TagList.js
 build/results/TaskCommentList.js
 build/results/TaskList.js
+package-lock.json
